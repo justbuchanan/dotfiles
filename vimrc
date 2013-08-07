@@ -19,6 +19,10 @@ set ai
 filetype indent on	" filetype-specific indenting
 filetype plugin on	" filetype-specific plugins
 
+" scons
+autocmd BufReadPre,BufNewFile SConstruct set filetype=python
+autocmd BufReadPre,BufNewFile SConscript set filetype=python
+
 set ignorecase		" case-insensitive search
 
 " prevent 'cheating'
