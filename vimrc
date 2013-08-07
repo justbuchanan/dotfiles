@@ -7,6 +7,7 @@ imap jj <Esc>
 
 set number			" show line numbers in gutter
 set ruler			" show line number in bottom bar
+set textwidth=80
 
 set nocompatible	" vim, not vi
 
