@@ -1,17 +1,27 @@
-syntax on		# syntax highlighting
 
-imap jj <Esc>		# double-tapping 'j' is the same thing as hitting escape
+execute pathogen#infect()
 
-set number		# show line numbers in gutter
+syntax on			" syntax highlighting
 
-set ts=4		# tabs are 4 spaces wide
+imap jj <Esc>
+
+set number			" show line numbers in gutter
+set ruler			" show line number in bottom bar
+
+set nocompatible	" vim, not vi
+
+
+set ts=4
 set shiftwidth=4
-set noexpandtab		# spaces suck, use tabs
+set noexpandtab		" spaces suck, use tabs
 
 set ai
-filetype plugin indent on
+filetype indent on	" filetype-specific indenting
+filetype plugin on	" filetype-specific plugins
 
-# prevent 'cheating'
+set ignorecase		" case-insensitive search
+
+" prevent 'cheating'
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
