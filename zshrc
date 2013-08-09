@@ -58,6 +58,8 @@ alias cd.='cd .'
 alias ..='cd ..'
 alias cD='cd ~/Desktop/'
 
+alias x='open *.xcodeproj'
+
 alias stfu="osascript -e 'set volume output muted true'"
 alias ki='killall iTunes'
 
