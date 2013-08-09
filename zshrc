@@ -46,3 +46,22 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/Users/justbuchanan/.rvm/gems/ruby-2.0.0-p0/bin:/Users/justbuchanan/.rvm/gems/ruby-2.0.0-p0@global/bin:/Users/justbuchanan/.rvm/rubies/ruby-2.0.0-p0/bin:/Users/justbuchanan/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+
+
+
+# import local zsh customizations, if present
+zrcl="$HOME/.zshrc.local"
+[[ ! -a $zrcl ]] || source $zrcl
+
+
+alias cd.='cd .'
+alias ..='cd ..'
+alias cD='cd ~/Desktop/'
+
+alias stfu="osascript -e 'set volume output muted true'"
+alias ki='killall iTunes'
+
+alias pumpitup="osascript -e 'set volume 10'"
+
+bindkey -v
+
