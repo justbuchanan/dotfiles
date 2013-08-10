@@ -31,3 +31,8 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
+
+
+noremap :bb ddk$
+
+

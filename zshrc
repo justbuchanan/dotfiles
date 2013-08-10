@@ -65,3 +65,6 @@ alias pumpitup="osascript -e 'set volume 10'"
 
 bindkey -v
 
+
+
+alias mid="osascript -e 'set volume output volume 45'"
