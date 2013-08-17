@@ -36,4 +36,3 @@ nnoremap <right> <nop>
 
 noremap :bb ddk$
 
-
