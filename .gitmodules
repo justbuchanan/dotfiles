@@ -10,3 +10,6 @@
 [submodule "vim/bundle/vim-objc"]
 	path = vim/bundle/vim-objc
 	url = https://github.com/b4winckler/vim-objc.git
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
