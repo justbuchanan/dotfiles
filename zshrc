@@ -57,6 +57,7 @@ zrcl="$HOME/.zshrc.local"
 alias cd.='cd .'
 alias ..='cd ..'
 alias cD='cd ~/Desktop/'
+alias cB='cd ~/src/blumenlo'
 
 alias x='open *.xcodeproj'
 
@@ -70,3 +71,7 @@ bindkey -v
 
 
 alias mid="osascript -e 'set volume output volume 45'"
+
+
+
+alias show_methods="sed -n '/^[-+]/{s/^.[[:blank:]]*(\([^)]*\))?[[:blank:]]*//s/[[:blank:]]*[;{][[:blank:]]*$//s/:[^:]*([[:blank:]]|$)/:/gp}' *.m"
