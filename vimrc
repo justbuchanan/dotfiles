@@ -8,7 +8,6 @@ imap jj <Esc>		" Esc takes too long, just double-tap 'j'
 
 set number			" show line numbers in gutter
 set ruler			" show line number in bottom bar
-set textwidth=80
 
 set ts=4
 set shiftwidth=4
@@ -37,5 +36,7 @@ noremap :bb ddk$
 
 
 syntax enable
+
+
 set background=dark
-colorscheme solarized
+colorscheme wombat
