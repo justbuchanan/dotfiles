@@ -57,21 +57,22 @@ zrcl="$HOME/.zshrc.local"
 alias cd.='cd .'
 alias ..='cd ..'
 alias cD='cd ~/Desktop/'
+
 alias cB='cd ~/src/blumenlo'
 
-alias x='open *.xcodeproj'
 
-alias stfu="osascript -e 'set volume output muted true'"
-alias ki='killall iTunes'
 
-alias pumpitup="osascript -e 'set volume 10'"
 
 bindkey -v
 
 
+alias x='open *.xcodeproj'
 
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume 10'"
 alias mid="osascript -e 'set volume output volume 45'"
 
+alias ki='killall iTunes'
 
 
 alias show_methods="sed -n '/^[-+]/{s/^.[[:blank:]]*(\([^)]*\))?[[:blank:]]*//s/[[:blank:]]*[;{][[:blank:]]*$//s/:[^:]*([[:blank:]]|$)/:/gp}' *.m"
