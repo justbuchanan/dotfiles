@@ -74,5 +74,7 @@ alias mid="osascript -e 'set volume output volume 45'"
 
 alias ki='killall iTunes'
 
+alias mac_model='sysctl hw.model'
+
 
 alias show_methods="sed -n '/^[-+]/{s/^.[[:blank:]]*(\([^)]*\))?[[:blank:]]*//s/[[:blank:]]*[;{][[:blank:]]*$//s/:[^:]*([[:blank:]]|$)/:/gp}' *.m"
