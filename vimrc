@@ -39,4 +39,9 @@ syntax enable
 
 
 set background=dark
+
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 colorscheme wombat
+
