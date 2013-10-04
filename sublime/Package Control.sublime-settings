@@ -1,8 +1,16 @@
 {
 	"installed_packages":
 	[
+		"GitGutter",
 		"HTML5",
+		"SCSS",
 		"Solarized Color Scheme",
+		"SublimeClang",
+		"SublimeCodeIntel",
 		"Theme - Flatland"
+	],
+	"repositories":
+	[
+		"https://github.com/quarnster/SublimeClang"
 	]
 }
