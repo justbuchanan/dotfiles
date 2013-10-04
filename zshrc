@@ -54,27 +54,33 @@ zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
 
+# some cd shortcuts
 alias cd.='cd .'
 alias ..='cd ..'
 alias cD='cd ~/Desktop/'
+alias cS='cd ~/src/'
 
-alias cB='cd ~/src/blumenlo'
-
-
-
-
+# Allow VIM-like shortcuts at the command line
 bindkey -v
 
 
+############################################################
+# OS X
+############################################################
+
+alias ki='killall iTunes'
+alias mac_model='sysctl hw.model'
 alias x='open *.xcodeproj'
 
+# volume-level
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
 alias mid="osascript -e 'set volume output volume 45'"
 
-alias ki='killall iTunes'
 
-alias mac_model='sysctl hw.model'
+############################################################
+# Other
+############################################################
 
-
+# show all method prototypes in all files in the current directory
 alias show_methods="sed -n '/^[-+]/{s/^.[[:blank:]]*(\([^)]*\))?[[:blank:]]*//s/[[:blank:]]*[;{][[:blank:]]*$//s/:[^:]*([[:blank:]]|$)/:/gp}' *.m"
