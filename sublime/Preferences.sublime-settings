@@ -8,6 +8,7 @@
 		80
 	],
 	"tab_size": 4,
+	"save_on_focus_lost": true,
 	
     "color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
 	"theme": "Flatland Dark.sublime-theme"
