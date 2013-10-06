@@ -1,15 +1,15 @@
 {
-	"font_size": 13.0,
+	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
+	"font_size": 11.0,
 	"highlight_line": true,
 	"ignored_packages":
-	[],
+	[
+	],
 	"rulers":
 	[
 		80
 	],
-	"tab_size": 4,
 	"save_on_focus_lost": true,
-	
-    "color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
+	"tab_size": 4,
 	"theme": "Flatland Dark.sublime-theme"
 }
