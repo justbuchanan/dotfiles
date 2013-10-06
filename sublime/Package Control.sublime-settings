@@ -6,12 +6,7 @@
 		"SCSS",
 		"SideBarEnhancements",
 		"Solarized Color Scheme",
-		"SublimeClang",
 		"SublimeCodeIntel",
 		"Theme - Flatland"
-	],
-	"repositories":
-	[
-		"https://github.com/quarnster/SublimeClang"
 	]
 }
