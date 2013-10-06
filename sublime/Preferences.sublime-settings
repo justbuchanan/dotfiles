@@ -12,5 +12,6 @@
 	"save_on_focus_lost": true,
 	"tab_size": 4,
 	"theme": "Flatland Dark.sublime-theme",
-	"remember_open_files": false
+	"remember_open_files": false,
+	"hot_exit": false
 }
