@@ -70,7 +70,20 @@ bindkey -v
 
 alias ki='killall iTunes'
 alias mac_model='sysctl hw.model'
-alias x='open *.xcodeproj'
+
+# Quickly open Xcode workspaces or projects in the current directory
+x() {
+	local workspace_count="$(print -l *.xcworkspace(N) 2> /dev/null | wc -w | tr -d ' ')"
+	local project_count="$(print -l *.xcodepro(N) 2> /dev/null | wc -w | tr -d ' ')"
+	if [ "$workspace_count" != "0" ]; then
+		open *.xcworkspace
+	elif [ "$project_count" != "0" ]; then
+		open *.xcodeproj
+	else
+		echo "No Xcode workspaces/projects here"
+	fi
+}
+
 
 # volume-level
 alias stfu="osascript -e 'set volume output muted true'"

@@ -30,7 +30,12 @@ nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 
+" sublime
+au BufNewFile,BufRead *.sublime-settings set filetype=json
+au BufNewFile,BufRead *.sublime-project set filetype=json
 
+" JSON
+let g:vim_json_syntax_conceal = 0
 
 noremap :bb ddk$
 
