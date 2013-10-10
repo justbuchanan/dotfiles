@@ -74,7 +74,7 @@ alias mac_model='sysctl hw.model'
 # Quickly open Xcode workspaces or projects in the current directory
 x() {
 	local workspace_count="$(print -l *.xcworkspace(N) 2> /dev/null | wc -w | tr -d ' ')"
-	local project_count="$(print -l *.xcodepro(N) 2> /dev/null | wc -w | tr -d ' ')"
+	local project_count="$(print -l *.xcodeproj(N) 2> /dev/null | wc -w | tr -d ' ')"
 	if [ "$workspace_count" != "0" ]; then
 		open *.xcworkspace
 	elif [ "$project_count" != "0" ]; then
