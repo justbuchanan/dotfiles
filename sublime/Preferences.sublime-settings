@@ -2,16 +2,16 @@
 	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
 	"font_size": 11.0,
 	"highlight_line": true,
+	"hot_exit": false,
 	"ignored_packages":
 	[
 	],
+	"remember_open_files": false,
 	"rulers":
 	[
 		80
 	],
 	"save_on_focus_lost": true,
 	"tab_size": 4,
-	"theme": "Flatland Dark.sublime-theme",
-	"remember_open_files": false,
-	"hot_exit": false
+	"theme": "Flatland Dark.sublime-theme"
 }
