@@ -40,13 +40,10 @@ let g:vim_json_syntax_conceal = 0
 noremap :bb ddk$
 
 
-syntax enable
-
-
-set background=dark
-
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
-colorscheme wombat
+syntax enable
+set background=dark
+colorscheme solarized
 
