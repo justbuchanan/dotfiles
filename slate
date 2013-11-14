@@ -20,6 +20,7 @@ bind right:ctrl;cmd  push right bar-resize:screenSizeX/2
 bind left:ctrl;cmd   push left  bar-resize:screenSizeX/2
 bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
 bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
+bind m:ctrl;cmd      push left  bar-resize:screenSizeX
 
 # Nudge Bindings
 bind right:shift;alt nudge +10% +0
@@ -46,4 +47,3 @@ bind down:cmd;alt focus behind
 
 # Window Hints
 bind esc:cmd hint
-
