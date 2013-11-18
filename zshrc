@@ -104,3 +104,4 @@ alias subp='subl --project *.sublime-project'
 # RVM
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+alias fb='open http://facebook.com'
