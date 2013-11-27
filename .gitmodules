@@ -22,3 +22,6 @@
 [submodule "vim/bundle/vim-json"]
 	path = vim/bundle/vim-json
 	url = git://github.com/elzr/vim-json.git
+[submodule "vim/bundle/vim-multiple-cursors"]
+	path = vim/bundle/vim-multiple-cursors
+	url = git://github.com/terryma/vim-multiple-cursors
