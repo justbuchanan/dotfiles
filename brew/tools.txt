@@ -1,0 +1,12 @@
+# a list of homebrew formulae
+# lines beginning with a # are comments
+
+tree
+wget
+pstree
+htop
+nmap
+tmux
+graphviz
+astyle
+

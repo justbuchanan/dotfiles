@@ -85,7 +85,7 @@ x() {
 }
 
 
-# volume-level
+# volume-level (osx only)
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
 alias mid="osascript -e 'set volume output volume 45'"
@@ -95,7 +95,7 @@ alias mid="osascript -e 'set volume output volume 45'"
 # Other
 ############################################################
 
-# show all method prototypes in all files in the current directory
+# show all objc method prototypes in all files in the current directory
 alias show_methods="sed -n '/^[-+]/{s/^.[[:blank:]]*(\([^)]*\))?[[:blank:]]*//s/[[:blank:]]*[;{][[:blank:]]*$//s/:[^:]*([[:blank:]]|$)/:/gp}' *.m"
 
 # open sublime projects
@@ -103,5 +103,9 @@ alias subp='subl --project *.sublime-project'
 
 # RVM
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# shortcuts
 alias fb='open http://facebook.com'
+alias gmail='open http://gmail.com'
+
