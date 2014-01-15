@@ -109,3 +109,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 alias fb='open http://facebook.com'
 alias gmail='open http://gmail.com'
 
+# shortcut to edit dotfiles
+alias dotedit='cd ~/src/dotfiles && subl .'
+
