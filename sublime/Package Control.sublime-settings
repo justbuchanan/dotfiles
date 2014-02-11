@@ -1,9 +1,11 @@
 {
 	"installed_packages":
 	[
+		"CMake",
 		"GitGutter",
 		"HTML5",
 		"INI",
+		"JSONLint",
 		"Protocol Buffer Syntax",
 		"Puppet",
 		"Ruby Slim",
