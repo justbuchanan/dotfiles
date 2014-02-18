@@ -2,6 +2,7 @@
 	"installed_packages":
 	[
 		"CMake",
+		"DoxyDoc",
 		"GitGutter",
 		"HTML5",
 		"INI",
