@@ -71,16 +71,21 @@ bindkey -v
 alias ki='killall iTunes'
 alias mac_model='sysctl hw.model'
 
-# Quickly open Xcode workspaces or projects in the current directory
+# echo the number of files in the current directory with the given file extension (include the dot in the parameter)
+count_ext() {
+	echo "$(print -l *$1(N) 2> /dev/null | wc -w | tr -d ' ')"
+}
+
+# Quickly open Xcode workspaces or projects or sublime projects in the current directory
 x() {
-	local workspace_count="$(print -l *.xcworkspace(N) 2> /dev/null | wc -w | tr -d ' ')"
-	local project_count="$(print -l *.xcodeproj(N) 2> /dev/null | wc -w | tr -d ' ')"
-	if [ "$workspace_count" != "0" ]; then
+	if [ "$(count_ext '.xcworkspace')" != "0" ]; then
 		open *.xcworkspace
-	elif [ "$project_count" != "0" ]; then
+	elif [ "$(count_ext '.xcodeproj')" != "0" ]; then
 		open *.xcodeproj
+	elif [ "$(count_ext '.sublime-project')" != "0" ]; then
+		open *.sublime-project
 	else
-		echo "No Xcode workspaces/projects here"
+		echo "No xcode workspaces/projects or sublime projects found here"
 	fi
 }
 
