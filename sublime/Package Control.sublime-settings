@@ -1,10 +1,14 @@
 {
 	"installed_packages":
 	[
+		"CMake",
+		"DoxyDoc",
 		"GitGutter",
 		"HTML5",
 		"INI",
+		"JSONLint",
 		"Protocol Buffer Syntax",
+		"Puppet",
 		"Ruby Slim",
 		"SCSS",
 		"SideBarEnhancements",
