@@ -110,6 +110,9 @@ alias subp='subl --project *.sublime-project'
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+# rails
+alias b='bundle exec'
+
 # shortcuts
 alias fb='open http://facebook.com'
 alias gmail='open http://gmail.com'
