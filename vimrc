@@ -11,7 +11,7 @@ set ruler			" show line number in bottom bar
 
 set ts=4
 set shiftwidth=4
-set noexpandtab		" spaces suck, use tabs
+set expandtab
 set ai				" auto-indent
 
 filetype indent on	" filetype-specific indenting
