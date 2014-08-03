@@ -1,27 +1,27 @@
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
+[submodule "home/.oh-my-zsh"]
+	path = home/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim/bundle/vim-gitgutter"]
-	path = vim/bundle/vim-gitgutter
+[submodule "home/.vim/bundle/vim-gitgutter"]
+	path = home/.vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
+[submodule "home/.vim/bundle/ctrlp.vim"]
+	path = home/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/vim-objc"]
-	path = vim/bundle/vim-objc
+[submodule "home/.vim/bundle/vim-objc"]
+	path = home/.vim/bundle/vim-objc
 	url = https://github.com/b4winckler/vim-objc.git
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
+[submodule "home/.vim/bundle/vim-colors-solarized"]
+	path = home/.vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
+[submodule "home/.vim/bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
+[submodule "home/.vim/bundle/fugitive"]
+	path = home/.vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/vim-json"]
-	path = vim/bundle/vim-json
+[submodule "home/.vim/bundle/vim-json"]
+	path = home/.vim/bundle/vim-json
 	url = git://github.com/elzr/vim-json.git
-[submodule "vim/bundle/vim-multiple-cursors"]
-	path = vim/bundle/vim-multiple-cursors
+[submodule "home/.vim/bundle/vim-multiple-cursors"]
+	path = home/.vim/bundle/vim-multiple-cursors
 	url = git://github.com/terryma/vim-multiple-cursors

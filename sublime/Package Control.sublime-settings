@@ -1,12 +1,15 @@
 {
 	"installed_packages":
 	[
+		"Bison",
 		"CMake",
 		"DoxyDoc",
 		"GitGutter",
 		"HTML5",
 		"INI",
 		"JSONLint",
+		"LaTeXing",
+		"PEG.js",
 		"Protocol Buffer Syntax",
 		"Puppet",
 		"Ruby Slim",
