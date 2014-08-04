@@ -18,6 +18,7 @@ bspc config top_padding $PANEL_HEIGHT
 
 bspc control --subscribe > "$PANEL_FIFO" &
 clock -sf 'S%a %H:%M' > "$PANEL_FIFO" &
+echo "justin" > "$PANEL_FIFO" &
 
 . ./panel_colors-${flavor}
 
