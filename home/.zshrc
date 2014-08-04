@@ -83,7 +83,7 @@ x() {
 	elif [ "$(count_ext '.xcodeproj')" != "0" ]; then
 		open *.xcodeproj
 	elif [ "$(count_ext '.sublime-project')" != "0" ]; then
-		open *.sublime-project
+		subl --project *.sublime-project
 	else
 		echo "No xcode workspaces/projects or sublime projects found here"
 	fi
