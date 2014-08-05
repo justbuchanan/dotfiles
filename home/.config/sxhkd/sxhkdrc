@@ -89,3 +89,12 @@ super + space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+
+# Volume keys
+XF86Audio{Raise,Lower}Volume
+    amixer sset Master 2{+,-} unmute
+
+XF86MonBrightness{Up,Down}
+    xbacklight {+,-}10%
+
