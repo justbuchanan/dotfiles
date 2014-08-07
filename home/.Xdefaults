@@ -100,3 +100,7 @@ URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: False
 URxvt.perl-ext-common: default,clipboard
+
+
+!! Prevents an error where shells accessed over ssh dont recognize urxvt
+URxvt*termName: rxvt
