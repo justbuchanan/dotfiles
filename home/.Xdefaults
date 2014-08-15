@@ -1,13 +1,4 @@
 !-------------------------------------------------------------------------------
-! Xft settings
-!-------------------------------------------------------------------------------
-
-!Xft.dpi:                    96
-!Xft.rgba:                   rgb
-!Xft.hinting:                true
-!Xft.hintstyle:              hintslight
-
-!-------------------------------------------------------------------------------
 ! URxvt settings
 ! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
 ! More info at:
@@ -21,7 +12,7 @@ URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 URxvt.loginShell:           true
-URxvt.saveLines:            50
+URxvt.saveLines:            1000
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
