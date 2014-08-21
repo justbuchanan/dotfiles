@@ -100,3 +100,8 @@ XF86MonBrightness{Up,Down}
 
 XF86AudioMute
     amixer sset Master +1 toggle
+
+# send play/pause next/previous to playerctl so they take effect globally, not just
+# when spotify or other apps are currently focused
+XF86Audio{Play, Prev, Next}
+    playerctl {play-pause, previous, next}
