@@ -76,6 +76,11 @@ super + !button{1-3}
 super + @button{1-3}
 	bspc pointer -u
 
+
+# rotate desktop clockwise 90 degrees
+super + r
+    bspc desktop -R 90
+
 #
 # wm independent hotkeys
 #
