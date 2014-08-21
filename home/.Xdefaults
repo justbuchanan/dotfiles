@@ -88,4 +88,4 @@ URxvt.perl-ext-common: default,clipboard
 
 
 !! Prevents an error where shells accessed over ssh dont recognize urxvt
-URxvt*termName: rxvt
+#URxvt*termName: rxvt
