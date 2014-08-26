@@ -8,3 +8,7 @@
 [advice]
     statusHints = false
     detachedHead = false
+
+[alias]
+    edit-unmerged = "!$EDITOR `git diff --name-only --diff-filter=U`"
+

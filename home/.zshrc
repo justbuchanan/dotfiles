@@ -100,6 +100,10 @@ alias mid="osascript -e 'set volume output volume 45'"
 # Other
 ############################################################
 
+
+# Sublime text as default editor
+export EDITOR='subl'
+
 # show all objc method prototypes in all files in the current directory
 alias show_methods="sed -n '/^[-+]/{s/^.[[:blank:]]*(\([^)]*\))?[[:blank:]]*//s/[[:blank:]]*[;{][[:blank:]]*$//s/:[^:]*([[:blank:]]|$)/:/gp}' *.m"
 
@@ -112,11 +116,4 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # rails
 alias b='bundle exec'
-
-# shortcuts
-alias fb='open http://facebook.com'
-alias gmail='open http://gmail.com'
-
-# shortcut to edit dotfiles
-alias dotedit='cd ~/src/dotfiles && subl .'
 
