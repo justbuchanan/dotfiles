@@ -1,5 +1,0 @@
-
-!remap caps lock to Super key
-clear Lock
-keycode 0x42 = Super_L
-
