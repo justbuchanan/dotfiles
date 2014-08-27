@@ -101,8 +101,8 @@ alias mid="osascript -e 'set volume output volume 45'"
 ############################################################
 
 
-# Sublime text as default editor
-export EDITOR='subl'
+# vim as default editor
+export EDITOR='vim'
 
 # show all objc method prototypes in all files in the current directory
 alias show_methods="sed -n '/^[-+]/{s/^.[[:blank:]]*(\([^)]*\))?[[:blank:]]*//s/[[:blank:]]*[;{][[:blank:]]*$//s/:[^:]*([[:blank:]]|$)/:/gp}' *.m"
