@@ -28,3 +28,6 @@
 [submodule "home/.vim/bundle/vim-markdown"]
 	path = home/.vim/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown
+[submodule "home/.vim/bundle/vim-systemd-syntax"]
+	path = home/.vim/bundle/vim-systemd-syntax
+	url = git://github.com/Matt-Deacalion/vim-systemd-syntax
