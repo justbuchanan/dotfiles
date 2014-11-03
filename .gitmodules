@@ -25,3 +25,6 @@
 [submodule "home/.vim/bundle/vim-multiple-cursors"]
 	path = home/.vim/bundle/vim-multiple-cursors
 	url = git://github.com/terryma/vim-multiple-cursors
+[submodule "home/.vim/bundle/vim-systemd-syntax"]
+	path = home/.vim/bundle/vim-systemd-syntax
+	url = git://github.com/Matt-Deacalion/vim-systemd-syntax
