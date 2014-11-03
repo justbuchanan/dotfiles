@@ -25,6 +25,3 @@
 [submodule "home/.vim/bundle/vim-multiple-cursors"]
 	path = home/.vim/bundle/vim-multiple-cursors
 	url = git://github.com/terryma/vim-multiple-cursors
-[submodule "home/.vim/bundle/vim-markdown"]
-	path = home/.vim/bundle/vim-markdown
-	url = git://github.com/plasticboy/vim-markdown
