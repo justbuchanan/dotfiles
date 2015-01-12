@@ -100,6 +100,13 @@ alias mid="osascript -e 'set volume output volume 45'"
 # Other
 ############################################################
 
+# source all files in .profile.d
+for i in ~/.profile.d/*.sh ; do
+    if [ -r "$i" ]; then
+        . $i
+    fi
+done
+
 
 # vim as default editor
 export EDITOR='vim'
@@ -117,3 +124,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 # rails
 alias b='bundle exec'
 
+
+# added by travis gem
+[ -f /home/justbuchanan/.travis/travis.sh ] && source /home/justbuchanan/.travis/travis.sh
