@@ -68,8 +68,6 @@ bindkey -v
 # OS X
 ############################################################
 
-alias ki='killall iTunes'
-alias mac_model='sysctl hw.model'
 
 # echo the number of files in the current directory with the given file extension (include the dot in the parameter)
 count_ext() {
@@ -88,12 +86,6 @@ x() {
 		echo "No xcode workspaces/projects or sublime projects found here"
 	fi
 }
-
-
-# volume-level (osx only)
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 10'"
-alias mid="osascript -e 'set volume output volume 45'"
 
 
 ############################################################
