@@ -99,23 +99,12 @@ for i in ~/.profile.d/*.sh ; do
     fi
 done
 
-
 # vim as default editor
 export EDITOR='vim'
-
-# show all objc method prototypes in all files in the current directory
-alias show_methods="sed -n '/^[-+]/{s/^.[[:blank:]]*(\([^)]*\))?[[:blank:]]*//s/[[:blank:]]*[;{][[:blank:]]*$//s/:[^:]*([[:blank:]]|$)/:/gp}' *.m"
-
-# open sublime projects
-alias subp='subl --project *.sublime-project'
 
 # RVM
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-# rails
-alias b='bundle exec'
-
 
 # added by travis gem
 [ -f /home/justbuchanan/.travis/travis.sh ] && source /home/justbuchanan/.travis/travis.sh
