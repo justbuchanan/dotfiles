@@ -2,6 +2,7 @@
 	"installed_packages":
 	[
 		"Bison",
+		"Clang Format",
 		"CMake",
 		"DoxyDoc",
 		"GitGutter",
