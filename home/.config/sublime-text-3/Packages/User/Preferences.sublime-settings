@@ -1,14 +1,19 @@
 {
 	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
-	"font_size": 12,
+	"font_size": 14.0,
 	"highlight_line": true,
 	"hot_exit": false,
+	"ignored_packages":
+	[
+	],
 	"remember_open_files": false,
-	"rulers": [80],
+	"rulers":
+	[
+		80
+	],
 	"save_on_focus_lost": true,
 	"tab_size": 4,
 	"theme": "Flatland Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"use_tab_stops": true,
-	"rulers": [80]
+	"use_tab_stops": true
 }
