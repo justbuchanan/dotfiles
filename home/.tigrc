@@ -1,0 +1,8 @@
+
+set tab-size = 4
+
+# Hit Enter to jump to the next hunk
+bind stage <Enter> :/^@@
+
+bind stash A ?git stash apply %(stash)
+
