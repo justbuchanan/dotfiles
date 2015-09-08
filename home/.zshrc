@@ -108,3 +108,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # added by travis gem
 [ -f /home/justbuchanan/.travis/travis.sh ] && source /home/justbuchanan/.travis/travis.sh
+
+# added by travis gem
+[ -f /Users/justbuchanan/.travis/travis.sh ] && source /Users/justbuchanan/.travis/travis.sh
+
+bindkey jj vi-cmd-mode
