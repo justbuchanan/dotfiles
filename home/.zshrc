@@ -45,10 +45,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=$PATH:/Users/justbuchanan/.rvm/gems/ruby-2.0.0-p0/bin:/Users/justbuchanan/.rvm/gems/ruby-2.0.0-p0@global/bin:/Users/justbuchanan/.rvm/rubies/ruby-2.0.0-p0/bin:/Users/justbuchanan/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-
-
 
 # import local zsh customizations, if present
 zrcl="$HOME/.zshrc.local"
@@ -102,6 +98,11 @@ done
 
 # vim as default editor
 export EDITOR='vim'
+
+# Ruby gems
+if which ruby > /dev/null && which gem > /dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # RVM
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
