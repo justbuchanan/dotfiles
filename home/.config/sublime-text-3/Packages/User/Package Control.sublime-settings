@@ -5,8 +5,11 @@
 	"installed_packages":
 	[
 		"Bison",
+		"BracketGuard",
+		"Cap'n Proto Syntax",
 		"Clang Format",
 		"CMake",
+		"Dockerfile Syntax Highlighting",
 		"DoxyDoc",
 		"Git Commit Message Syntax",
 		"GitGutter",
@@ -18,17 +21,22 @@
 		"LaTeXing",
 		"LaTeXTools",
 		"Markdown Preview",
+		"orgmode",
 		"Package Control",
 		"PEG.js",
 		"PKGBUILD",
+		"Pretty YAML",
 		"Protocol Buffer Syntax",
 		"Puppet",
 		"Ruby Slim",
 		"SCSS",
+		"SideBarEnhancements",
 		"Solarized Color Scheme",
 		"STProjectMaker",
 		"SublimeCodeIntel",
 		"Theme - Flatland",
-		"Verilog"
+		"Verilog",
+		"WordCount",
+		"Wrap Plus"
 	]
 }
