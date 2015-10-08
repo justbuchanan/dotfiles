@@ -1,0 +1,4 @@
+" Config file for the Vrome extension for Google Chrome
+
+set disablesites=docs.google.com, facebook.com, inbox.google.com
+
