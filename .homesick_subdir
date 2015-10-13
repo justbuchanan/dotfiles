@@ -1,4 +1,5 @@
 .atom
 .config
 .config/sublime-text-3/Packages/User
+.config/zsh_custom/themes
 .profile.d

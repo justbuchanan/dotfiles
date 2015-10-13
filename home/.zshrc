@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+ZSH_CUSTOM=$HOME/.config/zsh_custom
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="justin"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -43,10 +44,6 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH=$PATH:/Users/justbuchanan/.rvm/gems/ruby-2.0.0-p0/bin:/Users/justbuchanan/.rvm/gems/ruby-2.0.0-p0@global/bin:/Users/justbuchanan/.rvm/rubies/ruby-2.0.0-p0/bin:/Users/justbuchanan/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-
 
 
 # import local zsh customizations, if present
@@ -101,6 +98,11 @@ done
 
 # vim as default editor
 export EDITOR='vim'
+
+# Ruby gems
+if which ruby > /dev/null && which gem > /dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # RVM
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
