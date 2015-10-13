@@ -45,5 +45,9 @@ nmap <CR> o<Esc>
 
 syntax enable
 set background=dark
-colorscheme solarized
 
+" solarized options
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+let g:solarized_termcolors = 16
+colorscheme solarized
