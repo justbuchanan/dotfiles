@@ -1,6 +1,6 @@
 dotfiles
 ========
 
-My configuration files
+My configuration files for Mac OS X and Arch.
 
-I have all my configs setup with [homesick](https://github.com/technicalpickles/homesick) so they can be easily setup on a new system.
+I have all my configs setup with Ansible so they can easily be installed on a new system.
