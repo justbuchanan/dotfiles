@@ -3,6 +3,8 @@ set nocompatible	" vim, not vi
 
 execute pathogen#infect()
 
+" Use w!! to use sudo to save the file
+cmap w!! w !sudo tee % >/dev/null
 
 imap jj <Esc>		" Esc takes too long, just double-tap 'j'
 
