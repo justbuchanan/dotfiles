@@ -2,5 +2,5 @@
 - hosts: dev
   roles:
     - role: common
-#    - role: osx
-#      when: ansible_os_family == "Darwin"
+    - role: osx
+      when: ansible_os_family == "Darwin"

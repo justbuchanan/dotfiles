@@ -1,0 +1,35 @@
+" This is the config file for XVim, an Xcode plugin for vim keybindings
+
+set nocompatible	" vim, not vi
+
+" Esc takes too long, just double-tap 'j'
+imap jj <Esc>
+
+set number			" show line numbers in gutter
+set ruler			" show line number in bottom bar
+
+set ts=4
+set shiftwidth=4
+set expandtab
+set ai				" auto-indent
+
+set ignorecase		" case-insensitive search
+set incsearch		" when searching, highlight as you type
+
+" prevent 'cheating'
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+" JSON
+let g:vim_json_syntax_conceal = 0
+
+noremap :bb ddk$
+
+
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+syntax enable
+

@@ -1,0 +1,18 @@
+---
+- name: Make dotfiles dirs
+  file:
+    state: directory
+    path: "~/{{ item }}"
+    recurse: yes
+  with_items:
+    - .profile.d
+- name: Install dotfiles
+  file:
+    src: "{{ playbook_dir }}/roles/osx/files/home/{{ item }}"
+    dest: "~/{{ item }}"
+    state: link
+  with_items:
+    - .profile.d/osx-shortcuts.sh
+    - .slate
+    - .xvimrc
+    - Library/Preferences/com.googlecode.iterm2.plist

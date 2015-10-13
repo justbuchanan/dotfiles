@@ -1,0 +1,17 @@
+---
+- name: Install homebrew packages
+  homebrew:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - clang-format
+    - cmake
+    - graphviz
+    - htop
+    - nmap
+    - pstree
+    - python3
+    - tmux
+    - tree
+    - vim
+    - wget
