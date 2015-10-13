@@ -1,30 +1,33 @@
-[submodule "home/.oh-my-zsh"]
-	path = home/.oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "home/.vim/bundle/vim-gitgutter"]
-	path = home/.vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "home/.vim/bundle/ctrlp.vim"]
-	path = home/.vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
-[submodule "home/.vim/bundle/vim-objc"]
-	path = home/.vim/bundle/vim-objc
-	url = https://github.com/b4winckler/vim-objc.git
-[submodule "home/.vim/bundle/vim-colors-solarized"]
-	path = home/.vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "home/.vim/bundle/nerdtree"]
-	path = home/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "home/.vim/bundle/fugitive"]
-	path = home/.vim/bundle/fugitive
+[submodule "roles/common/files/home/.oh-my-zsh"]
+	path = roles/common/files/home/.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule "roles/common/files/home/.vim/bundle/vim-gitgutter"]
+	path = roles/common/files/home/.vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "roles/common/files/home/.vim/bundle/ctrlp.vim"]
+	path = roles/common/files/home/.vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule "roles/common/files/home/.vim/bundle/vim-objc"]
+	path = roles/common/files/home/.vim/bundle/vim-objc
+	url = https://github.com/b4winckler/vim-objc
+[submodule "roles/common/files/home/.vim/bundle/vim-colors-solarized"]
+	path = roles/common/files/home/.vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "roles/common/files/home/.vim/bundle/nerdtree"]
+	path = roles/common/files/home/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
+[submodule "roles/common/files/home/.vim/bundle/fugitive"]
+	path = roles/common/files/home/.vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "home/.vim/bundle/vim-json"]
-	path = home/.vim/bundle/vim-json
-	url = git://github.com/elzr/vim-json.git
-[submodule "home/.vim/bundle/vim-multiple-cursors"]
-	path = home/.vim/bundle/vim-multiple-cursors
+[submodule "roles/common/files/home/.vim/bundle/vim-json"]
+	path = roles/common/files/home/.vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json
+[submodule "roles/common/files/home/.vim/bundle/vim-multiple-cursors"]
+	path = roles/common/files/home/.vim/bundle/vim-multiple-cursors
 	url = git://github.com/terryma/vim-multiple-cursors
-[submodule "home/.vim/bundle/vim-systemd-syntax"]
-	path = home/.vim/bundle/vim-systemd-syntax
-	url = git://github.com/Matt-Deacalion/vim-systemd-syntax
+[submodule "roles/common/files/home/.vim/bundle/vim-systemd-syntax"]
+	path = roles/common/files/home/.vim/bundle/vim-systemd-syntax
+	url = https://github.com/Matt-Deacalion/vim-systemd-syntax
+[submodule "roles/common/files/home/.vim/bundle/vim-fugitive"]
+	path = roles/common/files/home/.vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
