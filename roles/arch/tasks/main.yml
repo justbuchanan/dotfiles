@@ -1,3 +1,4 @@
 ---
 - include: dotfiles.yml
 - include: packages.yml
+- include: lightdm.yml

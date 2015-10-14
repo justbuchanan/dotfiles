@@ -6,6 +6,7 @@
   with_items:
     - thunar  # gtk-based file browser
     - tumbler # image thumbnails for thunar
+    - tmux
     - zsh
     - rxvt-unicode
     - wget
@@ -13,3 +14,4 @@
     - psmisc  # contains pstree and some other utils
     - octave  # open-source alternative to MATLAB
     - git
+    - transmission-qt # torrent client

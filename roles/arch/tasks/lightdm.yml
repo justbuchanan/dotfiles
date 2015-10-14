@@ -1,0 +1,11 @@
+---
+- name: Install lightdm package
+  pacman:
+    name: lightdm
+    state: present
+- name: Set lightdm config
+  sudo: yes
+  copy:
+    src: "{{ playbook_dir }}/roles/arch/files/etc/lightdm/lightdm.conf"
+    dest: /etc/lightdm/lightdm.conf
+    owner: root
