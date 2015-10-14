@@ -2,3 +2,10 @@
 - include: dotfiles.yml
 - include: packages.yml
 - include: lightdm.yml
+
+- name: Disable pcspkr beep
+  sudo: yes
+  copy:
+    src: "{{playbook_dir}}/roles/arch/files/etc/modprobe.d/nobeep.conf"
+    dest: "/etc/modprobe.d/"
+    owner: root
