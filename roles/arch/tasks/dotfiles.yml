@@ -8,7 +8,6 @@
     - .config/bspwm
     - .config/herbstluftwm
     - .config/sxhkd
-    - .local/share/applications
     - .profile.d
     - .Xresources.d
 - name: Symlink dotfiles
@@ -27,7 +26,6 @@
     - .config/sxhkd/toggle-mute.sh
     - .config/.xdg-config
     - .fehbg
-    - .local/share/applications/mimeapps.list
     - .profile.d/arch-aliases.sh
     - .profile.d/arch-monitor.sh
     - .xinitrc

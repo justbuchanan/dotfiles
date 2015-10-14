@@ -1,0 +1,15 @@
+---
+- name: Install packages
+  pacman:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - thunar  # gtk-based file browser
+    - tumbler # image thumbnails for thunar
+    - zsh
+    - rxvt-unicode
+    - wget
+    - tree
+    - psmisc  # contains pstree and some other utils
+    - octave  # open-source alternative to MATLAB
+    - git
