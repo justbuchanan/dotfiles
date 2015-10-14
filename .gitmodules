@@ -31,3 +31,6 @@
 [submodule "roles/common/files/home/.vim/bundle/vim-fugitive"]
 	path = roles/common/files/home/.vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
+[submodule "library/ansible-yaourt"]
+	path = library/ansible-yaourt
+	url = https://github.com/justbuchanan/ansible-yaourt
