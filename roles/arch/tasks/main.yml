@@ -3,6 +3,7 @@
 - include: dotfiles.yml
 - include: packages.yml
 - include: lightdm.yml
+- include: theme.yml
 
 - name: Disable pcspkr beep
   sudo: yes
