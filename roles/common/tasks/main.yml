@@ -15,6 +15,7 @@
     dest: "~/{{ item }}"
     state: link
   with_items:
+    - .ansible.cfg
     - .vimrc
     - .vim
     - .zshrc
