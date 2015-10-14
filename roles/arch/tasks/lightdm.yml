@@ -9,3 +9,9 @@
     src: "{{ playbook_dir }}/roles/arch/files/etc/lightdm/lightdm.conf"
     dest: /etc/lightdm/lightdm.conf
     owner: root
+- name: Enable lightdm service
+  sudo: yes
+  service:
+    name: lightdm
+    enabled: yes
+    state: started
