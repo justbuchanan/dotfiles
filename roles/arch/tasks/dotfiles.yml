@@ -1,0 +1,37 @@
+---
+- name: Make dotfiles dirs
+  file:
+    state: directory
+    path: "~/{{ item }}"
+    recurse: yes
+  with_items:
+    - .config/bspwm
+    - .config/herbstluftwm
+    - .config/sxhkd
+    - .local/share/applications
+    - .profile.d
+    - .Xresources.d
+- name: Symlink dotfiles
+  file:
+    src: "{{ playbook_dir }}/roles/arch/files/home/{{ item }}"
+    dest: "~/{{ item }}"
+    state: link
+  with_items:
+    - .compton.conf
+    - .config/bspwm/bspwmrc
+    - .config/bspwm/shell.sh
+    - .config/desktop-background.jpeg
+    - .config/herbstluftwm/autostart
+    - .config/herbstluftwm/panel.sh
+    - .config/sxhkd/sxhkdrc
+    - .config/sxhkd/toggle-mute.sh
+    - .config/.xdg-config
+    - .fehbg
+    - .local/share/applications/mimeapps.list
+    - .profile.d/arch-aliases.sh
+    - .profile.d/arch-monitor.sh
+    - .xinitrc
+    - .Xmodmap
+    - .Xresources
+    - .Xresources.d/rxvt-unicode
+    - .zlogin

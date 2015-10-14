@@ -4,3 +4,5 @@
     - role: common
     - role: osx
       when: ansible_os_family == "Darwin"
+    - role: arch
+      when: ansible_os_family == "Archlinux"

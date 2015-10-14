@@ -1,0 +1,30 @@
+#! /bin/sh
+
+bspc config border_width        2
+bspc config window_gap         10
+
+bspc config split_ratio         0.5
+bspc config gapless_monocle     true
+bspc config focus_by_distance   true
+
+bspc config borderless_monocle true
+
+bspc monitor eDP1 -d "$ICON_TERMINAL" "$ICON_CLOUD" "$ICON_LINUX" "$ICON_COMMENT" "$ICON_ENVELOPE" "$ICON_MUSIC"
+bspc monitor DP1 -d "1" "2" "3" "4" "5"
+
+bspc rule -a Gimp desktop=^8 follow=on floating=on
+bspc rule -a mplayer2 floating=on
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a spotify desktop=^3
+
+
+
+bspc config focused_border_color "#3399ff"
+
+
+source /home/justbuchanan/.config/bspwm/panel/profile
+export PATH="/home/justbuchanan/.config/bspwm/panel/:$PATH"
+
+cd /home/justbuchanan/.config/bspwm/panel; exec ./panel &
+

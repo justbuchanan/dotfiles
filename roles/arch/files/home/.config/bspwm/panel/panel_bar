@@ -1,0 +1,82 @@
+#! /bin/sh
+#
+# Example panel for LemonBoy's bar
+
+source ./panel_colors
+
+num_mon=$(bspc query -M | wc -l)
+
+while read -r line ; do
+	case $line in
+		S*)
+			# clock output
+			sys_infos="%{F$COLOR_STATUS_FG} ${line#?} %{F-}"
+			;;
+		T*)
+			# xtitle output
+			title="%{F$COLOR_TITLE_FG} ${line#?} %{F-}"
+			;;
+		N*)
+			# network info / wifi
+			wifi_info="${line#?}"
+			;;
+		B*)
+			# battery info
+			battery_info="${line#?}"
+			;;
+		V*)
+			# volume info
+			volume_info="${line#?}"
+			;;
+		W*)
+			# bspwm internal state
+			wm_infos=""
+			IFS=':'
+			set -- ${line#?}
+			while [ $# -gt 0 ] ; do
+				item=$1
+				name=${item#?}
+				case $item in
+					M*)
+						# active monitor
+						if [ $num_mon -gt 1 ] ; then
+							wm_infos="$wm_infos %{F$COLOR_ACTIVE_MONITOR_FG} ${name} $(echo -e '\u25a0') %{F-}  "
+						fi
+						;;
+					m*)
+						# inactive monitor
+						if [ $num_mon -gt 1 ] ; then
+							wm_infos="$wm_infos %{F$COLOR_INACTIVE_MONITOR_FG} ${name} $(echo -e '\u25a0') %{F-}  "
+						fi
+						;;
+					O*)
+						# focused occupied desktop
+						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{U$COLOR_FOREGROUND} ● %{F-}"
+						;;
+					F*)
+						# focused free desktop
+						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_FREE_FG}%{U$COLOR_FOREGROUND} ○ %{F-}"
+						;;
+					U*)
+						# focused urgent desktop
+						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_URGENT_FG}%{U$COLOR_FOREGROUND} ○ %{F-}"
+						;;
+					o*)
+						# occupied desktop
+						wm_infos="${wm_infos}%{F$COLOR_OCCUPIED_FG} ● %{F-}"
+						;;
+					f*)
+						# free desktop
+						wm_infos="${wm_infos}%{F$COLOR_FREE_FG} ○ %{F-}"
+						;;
+					u*)
+						# urgent desktop
+						wm_infos="${wm_infos}%{F$COLOR_URGENT_FG} ○ %{F-}"
+						;;
+				esac
+				shift
+			done
+			;;
+	esac
+	printf "%s\n" "%{l}${wm_infos}%{c}${sys_infos}%{r}${volume_info}   ${wifi_info}   ${battery_info} "
+done
