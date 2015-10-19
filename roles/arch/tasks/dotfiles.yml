@@ -29,7 +29,13 @@
     - .profile.d/arch-aliases.sh
     - .profile.d/arch-monitor.sh
     - .xinitrc
+    # - .xprofile
     - .Xmodmap
-    - .Xresources
     - .Xresources.d/rxvt-unicode
     - .zlogin
+
+- name: Xresources includes for urxvt
+  lineinfile:
+    state: present
+    line: '#include ".Xresources.d/rxvt-unicode"'
+    dest: '~/.Xresources'

@@ -1,0 +1,26 @@
+---
+- name: xscreensaver systemd service
+  sudo: yes
+  copy:
+    src: "{{ playbook_dir }}/roles/arch/files/etc/systemd/system/xscreensaver.service"
+    dest: "/etc/systemd/system/xscreensaver.service"
+    # TODO: permissions?
+- name: enable xscreensaver service
+  sudo: yes
+  service:
+    name: xscreensaver
+    enabled: yes
+- name: xscreensaver config and xresources settings
+  file:
+    src: "{{ playbook_dir }}/roles/arch/files/home/{{ item }}"
+    dest: "~/{{ item }}"
+    state: link
+  with_items:
+    - .Xresources.d/xscreensaver
+    - .xscreensaver
+  notify: reload xresources
+- name: Xresources for xscreensaver
+  lineinfile:
+    state: present
+    line: '#include ".Xresources.d/xscreensaver"'
+    dest: '~/.Xresources'
