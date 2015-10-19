@@ -8,6 +8,7 @@
     - tumbler # image thumbnails for thunar
     - tmux
     - zsh
+    - mupdf # minimalist pdf viewer
     - rxvt-unicode
     - wget
     - tree
