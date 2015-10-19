@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+            "folder_exclude_patterns":
+            [
+                "__pycache__",
+                "roles/common/files/home/.vim/*",
+                "roles/common/files/home/.oh-my-zsh/*"
+            ]
+		}
+	]
+}
