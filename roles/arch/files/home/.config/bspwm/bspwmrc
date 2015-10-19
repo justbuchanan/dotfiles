@@ -22,6 +22,4 @@ bspc rule -a spotify desktop=^3
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 
-bspc config pointer_follows_monitor true
-
 bspc config focused_border_color "#3399ff"
