@@ -18,6 +18,7 @@
   with_items:
     - .Xresources.d/xscreensaver
     - .xscreensaver
+    - bin/pixlock
   notify: reload xresources
 - name: Xresources for xscreensaver
   lineinfile:

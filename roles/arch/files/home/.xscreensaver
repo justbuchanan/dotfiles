@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.33 for justin on Sat Oct 17 17:23:33 2015.
+# Written by xscreensaver-demo 5.33 for justin on Mon Oct 19 02:01:03 2015.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -17,7 +17,7 @@ demoCommand:	xscreensaver-demo
 prefsCommand:	xscreensaver-demo -prefs
 nice:		10
 memoryLimit:	0
-fade:		True
+fade:		False
 unfade:		False
 fadeSeconds:	0:00:03
 fadeTicks:	20
@@ -35,7 +35,7 @@ chooseRandomImages: False
 imageDirectory:	
 
 mode:		one
-selected:	69
+selected:	214
 
 textMode:	literal
 textLiteral:	XScreenSaver
@@ -258,7 +258,7 @@ programs:								      \
 				tessellimage -root			    \n\
   GL: 				winduprobot -root			    \n\
   GL: 				splitflap -root				    \n\
-                feh /tmp/.i3lock.png \n\
+				/home/justin/justin/bin/pixlock \n\
 
 
 pointerPollTime:    0:00:05
