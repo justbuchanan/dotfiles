@@ -6,6 +6,7 @@
     recurse: yes
   with_items:
     - .config/bspwm
+    - .config/dunst
     - .config/herbstluftwm
     - .config/sxhkd
     - .profile.d
@@ -20,6 +21,7 @@
     - .config/bspwm/bspwmrc
     - .config/bspwm/shell.sh
     - .config/desktop-background.jpeg
+    - .config/dunst/dunstrc
     - .config/herbstluftwm/autostart
     - .config/herbstluftwm/panel.sh
     - .config/sxhkd/sxhkdrc
