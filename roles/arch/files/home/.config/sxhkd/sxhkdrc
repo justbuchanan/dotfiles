@@ -2,8 +2,17 @@
 # bspwm hotkeys
 #
 
+# Quit bspwm and return to login screen
 super + alt + Escape
 	bspc quit
+
+# Window switcher using fuzzy search
+super + p
+    rofi -show window -fuzzy
+
+# Lock the screen
+ctrl + alt + l
+    xscreensaver-command --lock
 
 super + x
 	bspc window -c
