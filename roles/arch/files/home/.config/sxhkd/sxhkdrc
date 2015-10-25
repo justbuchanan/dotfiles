@@ -107,8 +107,9 @@ super + w
 super + f
    thunar
 
+# task launcher
 super + space
-	dmenu_run
+    rofi -show run -fuzzy
 
 # make sxhkd reload its configuration files:
 super + Escape
