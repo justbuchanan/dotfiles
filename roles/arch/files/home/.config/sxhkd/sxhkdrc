@@ -8,7 +8,7 @@ super + alt + Escape
 
 # Window switcher using fuzzy search
 super + p
-    rofi -show window -fuzzy
+    rofi -show window
 
 # Lock the screen
 ctrl + alt + l
@@ -109,7 +109,7 @@ super + f
 
 # task launcher
 super + space
-    rofi -show run -fuzzy
+    rofi -show run
 
 # make sxhkd reload its configuration files:
 super + Escape

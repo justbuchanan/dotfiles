@@ -34,10 +34,16 @@
     # - .xprofile
     - .Xmodmap
     - .Xresources.d/rxvt-unicode
+    - .Xresources.d/rofi
     - .zlogin
 
 - name: Xresources includes for urxvt
   lineinfile:
     state: present
     line: '#include ".Xresources.d/rxvt-unicode"'
+    dest: '~/.Xresources'
+- name: Xresources includes for rofi
+  lineinfile:
+    state: present
+    line: '#include ".Xresources.d/rofi"'
     dest: '~/.Xresources'
