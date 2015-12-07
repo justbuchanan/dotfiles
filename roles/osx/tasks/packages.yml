@@ -15,3 +15,4 @@
     - tree
     - vim
     - wget
+    - ncdu # ncurses-based disk usage analyzer
