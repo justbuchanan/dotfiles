@@ -9,6 +9,7 @@
     - .config/dunst
     - .config/herbstluftwm
     - .config/sxhkd
+    - .config/vis/colors
     - .profile.d
     - .Xresources.d
 - name: Symlink dotfiles
@@ -26,6 +27,8 @@
     - .config/herbstluftwm/panel.sh
     - .config/sxhkd/sxhkdrc
     - .config/sxhkd/toggle-mute.sh
+    - .config/vis/config
+    - .config/vis/colors/rainbow
     - .config/.xdg-config
     - .fehbg
     - .profile.d/arch-aliases.sh
