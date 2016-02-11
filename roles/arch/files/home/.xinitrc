@@ -23,8 +23,6 @@ xrdb ~/.Xresources
 # make touchscreen work on the correct screen
 xinput --map-to-output 9 eDP1
 
-# music
-mopidy &
 
-# dropbox
-dropboxd &
+exec i3
+

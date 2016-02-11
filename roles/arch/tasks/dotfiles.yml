@@ -36,6 +36,7 @@
     - .Xresources.d/rxvt-unicode
     - .Xresources.d/rofi
     - .zlogin
+    - .yaourtrc
 
 - name: Xresources includes for urxvt
   lineinfile:
