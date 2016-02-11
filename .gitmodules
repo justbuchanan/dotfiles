@@ -34,3 +34,6 @@
 [submodule "library/ansible-yaourt"]
 	path = library/ansible-yaourt
 	url = https://github.com/justbuchanan/ansible-yaourt
+[submodule "roles/arch/files/home/.config/i3blocks/i3blocks-contrib"]
+	path = roles/arch/files/home/.config/i3blocks/i3blocks-contrib
+	url = https://github.com/vivien/i3blocks-contrib

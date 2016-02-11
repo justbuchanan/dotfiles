@@ -1,0 +1,63 @@
+
+align=center
+separator=false
+separator_block_width=20
+markup=pango
+
+
+[music icon]
+full_text=<span font_size='large'></span>
+color=#4C88B3
+[mediaplayer]
+command=$SCRIPT_DIR/i3blocks-contrib/mediaplayer/mediaplayer
+interval=5
+signal=10
+
+# shitty hack to "center" the "now playing" item
+[spacing]
+full_text=                          
+
+[separator]
+
+[volume]
+command=$SCRIPT_DIR/scripts/volume.py
+min_width="  100%"
+interval=2
+
+[separator]
+
+[memory]
+command=$SCRIPT_DIR/scripts/memory.py
+interval=20
+
+[separator]
+
+[cpu]
+command=$SCRIPT_DIR/scripts/cpu.py
+min_width="0 xxxxx 100%"
+interval=1
+
+[separator]
+
+[battery]
+command=$SCRIPT_DIR/scripts/battery.py
+interval=5
+
+[separator]
+
+[wifi]
+instance=wlp2s0
+command=$SCRIPT_DIR/scripts/wifi.py
+interval=2
+
+[separator]
+
+[date]
+command=$SCRIPT_DIR/scripts/now.py
+interval=20
+
+[separator]
+
+[shutdown_menu]
+full_text=<span font_size='large'>  </span>
+command=$SCRIPT_DIR/scripts/i3blocks-contrib/shutdown_menu/shutdown_menu -c
