@@ -2,9 +2,9 @@
 - include: sudo.yml
 - include: dotfiles.yml
 - include: packages.yml
-- include: lightdm.yml
+# - include: lightdm.yml
 - include: theme.yml
-- include: xscreensaver.yml
+# - include: xscreensaver.yml
 
 - name: Disable pcspkr beep
   sudo: yes
