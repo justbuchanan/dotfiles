@@ -89,4 +89,4 @@ URxvt.clipboard.pastecmd: xsel -ob
 
 
 !! Prevents an error where shells accessed over ssh dont recognize urxvt
-URxvt*termName: rxvt
+URxvt*termName: rxvt-256color
