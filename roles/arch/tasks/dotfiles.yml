@@ -50,6 +50,10 @@
     - .config/i3blocks/config
     - .config/i3blocks/i3blocks-contrib
 
+- name: Create ~/.Xresources
+  command: touch ~/.Xresources
+  args:
+    creates: ~/.Xresources
 - name: Xresources includes for urxvt
   lineinfile:
     state: present
