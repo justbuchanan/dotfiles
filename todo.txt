@@ -50,3 +50,31 @@ yaourt -S playerctl
 otf-font-awesome from aur
 
 pacman -S xorg-xmodmap
+
+remove trackpad stuff from .xinitrc, it's laptop-specific
+
+
+
+yaourt -S sublime-text-dev
+
+# automate installation of sublime package control
+
+libreoffice
+
+pulseaudio pulseaudio-alsa
+
+pacman -S alsa-utils
+
+# bluetooth
+bluez bluez-utils
+
+
+auto-detect monitors?
+
+
+put arandr in quick-launch menu
+
+
+
+
+install rsync
