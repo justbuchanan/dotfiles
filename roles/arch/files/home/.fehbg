@@ -1,2 +1,2 @@
-#!/bin/bash
-feh --bg-fill ~/.config/desktop-background.jpeg
+#!/bin/sh
+feh  --bg-fill '/home/justin/.config/desktop-background.jpeg' 
