@@ -16,7 +16,6 @@
     - octave  # open-source alternative to MATLAB
     - git
     - transmission-qt # torrent client
-    - xorg-xrandr # command-line tool for configuring multiple monitors
     - arandr # gui for configuring multiple monitors
     - cheese # Picture-taking app comparable to "Photo Booth" on OS X
     - rofi   # window switcher

@@ -1,10 +1,5 @@
 add lightdm-gtk-greeter so enabling of lightdm service doesnt fail
-xorg-xinit
-xorg-xrdb
-xorg-xinput
-xorg-xmodmap
-xorg-xprop
-xorg-xbacklight
+
 
 sublime-text-dev aur
 google-chrome aur
@@ -43,14 +38,12 @@ yaourt -S tig
 npm install -g i3-style
 # Usage: i3-style solarized -o ~/.config/i3/config --reload
 
-pacman -S xorg-xinput
 
 yaourt -S playerctl
 
 
 otf-font-awesome from aur
 
-pacman -S xorg-xmodmap
 
 remove trackpad stuff from .xinitrc, it's laptop-specific
 
