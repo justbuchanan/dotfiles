@@ -34,3 +34,5 @@ pacman('bluez-utils')
 
 # light-weight image viewer
 yaourt('imv')
+
+pacman('gcolor2') # color picker/pipette
