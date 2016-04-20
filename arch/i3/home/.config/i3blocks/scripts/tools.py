@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 ICON_COLOR = '#4C88B3'
-TEXT_COLOR = '#000000'
+TEXT_COLOR = '#010100'
 URGENT_COLOR = '#a0a0a0'
 GRAPH_COLOR = '#4C4C4C'
 GRAPH_BACKGROUND_COLOR = '#ababab'
