@@ -47,6 +47,8 @@ bindsym $mod+x kill
 
 # task launcher
 bindsym $mod+space exec rofi -show run
+# window switcher
+bindsym $mod+t exec rofi -show window
 
 # screen lock
 # bindsym $mod+shift+l exec xautolock -locknow
