@@ -5,8 +5,8 @@ symlinks = [
 	'.compton.conf',
 	'.config/desktop-background.jpeg',
 	'.config/sxhkd/sxhkdrc',
-	'.config/sxhkd/toggle-mute.sh'
-	'.config/.xdg-config',
+	'.config/sxhkd/toggle-mute.sh',
+	# '.config/.xdg-config',
 	'.fehbg',
 	'.profile.d/arch-aliases.sh',
 	'.profile.d/arch-monitor.sh',

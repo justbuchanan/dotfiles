@@ -2,7 +2,7 @@ from install.utils import *
 from install.arch import *
 
 symlinks = [
-	'.config/ansible.cfg',
+	'.ansible.cfg',
 	'.vimrc',
 	'.vim',
 	'.zshrc',
