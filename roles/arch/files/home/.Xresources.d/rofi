@@ -1,3 +1,15 @@
 
 ! Fuzzy search
 rofi.fuzzy: true
+rofi.width: 1620
+rofi.fg: #B0E670
+rofi.bg: #14161F
+rofi.hlfg: #14161F
+rofi.hlbg: #B0E670
+rofi.bc: #14161F
+rofi.location: 0
+rofi.lines: 19
+rofi.bw: 0
+rofi.padding: 300
+rofi.separator-style: none
+rofi.opacity: 20
