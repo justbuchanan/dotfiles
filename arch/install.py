@@ -4,8 +4,6 @@ from install.arch import *
 symlinks = [
 	'.compton.conf',
 	'.config/desktop-background.jpeg',
-	'.config/sxhkd/sxhkdrc',
-	'.config/sxhkd/toggle-mute.sh',
 	# '.config/.xdg-config',
 	'.fehbg',
 	'.profile.d/arch-aliases.sh',
@@ -18,10 +16,8 @@ symlinks = [
 	'.zlogin',
 	'.yaourtrc',
 
-	'.config/bspwm',
 	'.config/dunst',
 	'.config/herbstluftwm',
-	'.config/sxhkd',
 	'.config/vis',
 	# 'profile.d',
 	# 'Xresources.d',
