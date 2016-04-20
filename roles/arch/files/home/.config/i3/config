@@ -52,7 +52,7 @@ bindsym $mod+t exec rofi -show window
 
 # screen lock
 # bindsym $mod+shift+l exec xautolock -locknow
-bindsym $mod+Escape exec xautolock -locknow
+bindsym $mod+Escape exec i3lock -f
 
 
 bindsym $mod+b exec ~/.config/i3/bogus.py
