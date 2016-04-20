@@ -11,3 +11,4 @@ def pacman(pkgname):
 	proc.check_call('pacman -S %s' % pkgname)
 
 import arch.install
+import common.install

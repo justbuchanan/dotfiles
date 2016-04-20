@@ -1,4 +1,5 @@
 from install.utils import *
+from install.arch import *
 
 symlinks = [
 	'.compton.conf',
