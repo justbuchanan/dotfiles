@@ -7,6 +7,7 @@ yaourt('i3blocks-gaps-git')
 yaourt('i3lock-blur')
 pacman('xautolock')
 pip3('psutil') # needed for some system stats bar items
+pacman('perl-anyevent-i3') # required dependency for savling/loading layouts
 
 base = os.path.join(os.path.dirname(os.path.realpath(__file__)), "home")
 symlink_home(base, '.config/i3blocks')
