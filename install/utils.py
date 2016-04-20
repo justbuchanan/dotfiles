@@ -27,3 +27,7 @@ def mkdir_p(dirpath):
     except OSError as exc: 
         if exc.errno == errno.EEXIST and os.path.isdir(dirpath):
             pass
+
+def pip3(pkgname):
+    proc.check_call(['sudo', 'pip3', 'install', pkgname],
+            stdout=proc.DEVNULL)
