@@ -3,7 +3,7 @@ import subprocess as proc
 import os
 
 def pacman_is_installed(pkgname):
-	return proc.call(['pacman', '-Q', pkgname], stdout=proc.DEVNULL) == 0
+	return proc.call(['pacman', '-Q', pkgname], stdout=proc.DEVNULL, stderr=proc.DEVNULL) == 0
 
 def pacman(pkgname):
 	if not pacman_is_installed(pkgname):
