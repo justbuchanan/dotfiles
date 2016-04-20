@@ -10,5 +10,6 @@ if platform.release().endswith('ARCH'):
 	print("Installing dotfiles for Arch Linux")
 	import arch.install
 
+print()
 print("Installing common dotfiles")
 import common.install
