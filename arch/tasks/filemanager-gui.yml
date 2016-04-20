@@ -1,9 +1,0 @@
----
-- name: Install packages for thunar, a gtk-based file manager app
-  description: "Comparable to the OS X Finder or Windows Explorer"
-  pacman:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - thunar  # gtk-based file browser
-    - tumbler # image thumbnails for thunar
