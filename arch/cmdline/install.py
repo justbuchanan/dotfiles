@@ -12,3 +12,9 @@ pacman('unzip')
 yaourt('htop-vim-solarized-git')
 yaourt('tig') # nifty curses-based git viewer
 pacman('openssh')
+
+# python
+pacman('python')
+pacman('python-pip')
+pacman('python2')
+pacman('python2-pip')
