@@ -23,7 +23,7 @@ symlinks = [
 	'.config/i3/i3status.conf',
 
 	'.config/i3blocks/config',
-	'.config/i3blocks/i3blocks-contrib',
+	# '.config/i3blocks/i3blocks-contrib',
 	'.config/i3blocks/scripts',
 	'.config/bspwm',
 	'.config/dunst',
