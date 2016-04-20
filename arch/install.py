@@ -34,6 +34,6 @@ for path in symlinks:
 import sys
 sys.path.append(os.path.dirname(__file__))
 import i3.install
-# import xorg.install
-# import cmdline.install
-# import gui.install
+import xorg.install
+import cmdline.install
+import gui.install

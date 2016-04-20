@@ -14,4 +14,4 @@ def pacman(pkgname):
 def yaourt(pkgname):
     if not pacman_is_installed(pkgname):
         print("Installing: %s" % pkgname)
-        proc.check_call('yaourt -S %s' % pkgname)
+        proc.check_call(['yaourt', '-S', pkgname])
