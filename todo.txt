@@ -4,6 +4,7 @@ xorg-xrdb
 xorg-xinput
 xorg-xmodmap
 xorg-xprop
+xorg-xbacklight
 
 sublime-text-dev aur
 google-chrome aur
