@@ -1,74 +1,17 @@
 add lightdm-gtk-greeter so enabling of lightdm service doesnt fail
 
 
-sublime-text-dev aur
-google-chrome aur
-
-
-pacman -S unzip
-
-yaourt -S ttf-dejavu-sans-mono-powerline-git
-
-
-dunst, libnotify
-
-
-
-
-i3lock-blur
-xautolock
-unit for running xautolock
-
-i3 configs
-
-
-yaourt -S archey3
-yaourt -S imv
-
-pacman -S openssh # contains ssh-keygen
-
-pacman -S htop
-
-pacman -S scrot
-
-yaourt -S htop-vim-solarized-git
-
-yaourt -S tig
 
 npm install -g i3-style
 # Usage: i3-style solarized -o ~/.config/i3/config --reload
 
-
-yaourt -S playerctl
-
-
-otf-font-awesome from aur
-
-
 remove trackpad stuff from .xinitrc, it's laptop-specific
 
 
-
-yaourt -S sublime-text-dev
-
 # automate installation of sublime package control
-
-libreoffice
-
-pulseaudio pulseaudio-alsa
-
-pacman -S alsa-utils
-
-# bluetooth
-bluez bluez-utils
-
 
 auto-detect monitors?
 
-
 put arandr in quick-launch menu
-
-
-
 
 install rsync
