@@ -33,3 +33,4 @@ import i3.install
 import xorg.install
 import cmdline.install
 import gui.install
+import theme.install
