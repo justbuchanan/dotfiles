@@ -55,6 +55,8 @@ bindsym $mod+t exec rofi -show window
 # bindsym $mod+Escape exec i3lock -f # blurred lock background
 bindsym $mod+Escape exec ~/.config/i3/pixlock.sh
 
+# automatically lock after a timeout
+exec xautolock -time 10 -locker ~/.config/i3/pixlock.sh
 
 bindsym $mod+b exec ~/.config/i3/bogus.py
 
