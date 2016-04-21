@@ -36,3 +36,6 @@ pacman('bluez-utils')
 yaourt('imv')
 
 pacman('gcolor2') # color picker/pipette
+
+# video player
+pacman('vlc')
