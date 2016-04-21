@@ -5,8 +5,7 @@ import os
 
 from install.utils import *
 
-import platform
-if platform.release().endswith('ARCH'):
+if linux_os_name() == 'Arch Linux':
 	print("Installing dotfiles for Arch Linux")
 	import arch.install
 

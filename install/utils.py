@@ -2,11 +2,18 @@ import subprocess as proc
 import os
 import sys
 import errno
+import re
 
 # determine if the system has a graphical interface
 def linux_is_graphical():
     return 'DISPLAY' in os.environ
 
+def linux_os_name():
+    try:
+        with open('/etc/os-release', 'r') as f: os_release = f.read()
+        return re.match("NAME=\"([^\"]+)\"", os_release).group(1)
+    except:
+        return None
 
 def symlink_home(srcdir, path):
     src = os.path.join(srcdir, path)
