@@ -3,7 +3,7 @@ source ~/.config/zsh/antigen.zsh
 antigen use oh-my-zsh
 
 # theme
-antigen theme robbyrussell
+antigen theme ~/.config/zsh/themes/ justin
 
 # packages
 antigen bundle git
@@ -26,7 +26,7 @@ bindkey jj vi-cmd-mode
 
 # source all files in .profile.d
 for i in ~/.profile.d/*.sh ; do
-    if [ -r "$i" ]; then
+    if [[ -r "$i" ]]; then
         . $i
     fi
 done
