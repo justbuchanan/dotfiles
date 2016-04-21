@@ -1,4 +1,4 @@
-local hret_status=''
+local ret_status=''
 if [[ $? -eq 0 ]]; then
     ret_status="%{$fg_bold[green]%}➜"
 else
