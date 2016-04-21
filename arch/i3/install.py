@@ -4,7 +4,7 @@ from install.utils import *
 
 yaourt('i3-gaps-git')
 yaourt('i3blocks-gaps-git')
-yaourt('i3lock-fancy-git')
+yaourt('i3lock-blur')
 pacman('xautolock')
 pip3('psutil') # needed for some system stats bar items
 pacman('perl-anyevent-i3') # required dependency for savling/loading layouts
