@@ -1,4 +1,9 @@
-local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+local hret_status=''
+if [[ $? -eq 0 ]]; then
+    ret_status="%{$fg_bold[green]%}➜"
+else
+    ret_status="%{$fg_bold[red]%}➜"
+fi
 
 host_info=""
 if ! [[ -z $SSH_CLIENT ]]; then
