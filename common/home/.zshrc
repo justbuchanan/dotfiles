@@ -12,6 +12,12 @@ antigen bundle git
 antigen bundle pip
 antigen bundle python
 
+if [[ `uname` == 'Linux' ]]; then
+    antigen bundle systemd
+else
+    antigen bundle brew
+fi
+
 # load completions
 antigen apply
 
