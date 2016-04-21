@@ -26,7 +26,6 @@ zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
 # some cd shortcuts
-alias cd.='cd .'
 alias ..='cd ..'
 alias cD='cd ~/src/justin/dotfiles'
 alias cS='cd ~/src/'
