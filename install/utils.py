@@ -3,6 +3,11 @@ import os
 import sys
 import errno
 
+# determine if the system has a graphical interface
+def linux_is_graphical():
+    return 'DISPLAY' in os.environ
+
+
 def symlink_home(srcdir, path):
     src = os.path.join(srcdir, path)
     dst = os.path.join(os.path.expanduser('~'), path)

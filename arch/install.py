@@ -29,8 +29,13 @@ for path in symlinks:
 
 import sys
 sys.path.append(os.path.dirname(__file__))
-import i3.install
-import xorg.install
+
 import cmdline.install
-import gui.install
-import theme.install
+
+if linux_is_graphical():
+	import i3.install
+	import xorg.install
+	import gui.install
+	import theme.install
+else:
+	print("No display detected, skipping installation of graphical components")
