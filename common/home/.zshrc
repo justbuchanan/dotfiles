@@ -1,5 +1,5 @@
 # setup antigen for zsh "package management"
-source .config/zsh/antigen.zsh
+source ~/.config/zsh/antigen.zsh
 antigen use oh-my-zsh
 
 # theme
