@@ -1,6 +1,3 @@
-[submodule "roles/common/files/home/.oh-my-zsh"]
-	path = roles/common/files/home/.oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh
 [submodule "roles/common/files/home/.vim/bundle/vim-gitgutter"]
 	path = roles/common/files/home/.vim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
