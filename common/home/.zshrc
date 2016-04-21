@@ -12,6 +12,9 @@ antigen bundle git
 antigen bundle pip
 antigen bundle python
 
+# load completions
+antigen apply
+
 # import local zsh customizations, if present
 zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
