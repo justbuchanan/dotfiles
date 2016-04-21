@@ -54,7 +54,7 @@ zrcl="$HOME/.zshrc.local"
 # some cd shortcuts
 alias cd.='cd .'
 alias ..='cd ..'
-alias cD='cd ~/Desktop/'
+alias cD='cd ~/src/justin/dotfiles'
 alias cS='cd ~/src/'
 
 # Allow VIM-like shortcuts at the command line
