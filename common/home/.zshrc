@@ -2,8 +2,10 @@
 source ~/.config/zsh/antigen.zsh
 antigen use oh-my-zsh
 
+export DEFAULT_USER=justin
+
 # theme
-antigen theme ~/.config/zsh/themes/ justin
+antigen theme ~/.config/zsh/themes/ justin2
 
 # packages
 antigen bundle git
