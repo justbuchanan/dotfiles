@@ -31,7 +31,7 @@ def rename():
         i3.command('rename workspace "%s" to "%s"' % (workspace.name, new_name))
 
 def on_change(i3, e):
-    if e.change in ['new', 'close']:
+    if e.change in ['new', 'close', 'move']:
         rename()
 
 rename()
