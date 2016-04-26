@@ -8,7 +8,6 @@ symlinks = [
 	'.profile.d/arch-aliases.sh',
 	'.profile.d/arch-monitor.sh',
 	'.xinitrc',
-    # - .xprofile,
 	'.Xmodmap',
 	'.Xresources.d/rxvt-unicode',
 	'.Xresources.d/rofi',
@@ -18,8 +17,6 @@ symlinks = [
 	'.config/dunst',
 	'.config/herbstluftwm',
 	'.config/vis',
-	# 'profile.d',
-	# 'Xresources.d',
 ]
 
 cur_dir = os.path.dirname(os.path.realpath(__file__))
