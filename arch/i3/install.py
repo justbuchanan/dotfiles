@@ -12,3 +12,6 @@ pacman('perl-anyevent-i3') # required dependency for savling/loading layouts
 base = os.path.join(os.path.dirname(os.path.realpath(__file__)), "home")
 symlink_home(base, '.config/i3blocks')
 symlink_home(base, '.config/i3',)
+
+# for launching a terminal in the same directory as the current window
+yaourt('xcwd-git')
