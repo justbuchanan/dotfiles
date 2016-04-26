@@ -19,8 +19,8 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
-#gaps inner 10
-#gaps outer 10
+gaps inner 3
+gaps outer 3
 
 # media keys
 bindsym XF86AudioPlay exec playerctl play-pause
