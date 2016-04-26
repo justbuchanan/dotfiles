@@ -32,7 +32,7 @@ sys.path.append(os.path.dirname(__file__))
 import cmdline.install
 
 if linux_is_graphical():
-	import i3.install
+	from .i3 import install
 	import xorg.install
 	import gui.install
 	import theme.install

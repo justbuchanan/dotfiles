@@ -15,3 +15,7 @@ symlink_home(base, '.config/i3',)
 
 # for launching a terminal in the same directory as the current window
 yaourt('xcwd-git')
+
+# for workspace auto-naming script
+pip3('i3ipc')
+pacman('xorg-xprop')
