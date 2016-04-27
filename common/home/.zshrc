@@ -25,6 +25,9 @@ antigen apply
 zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
+# z
+source ~/.config/zsh/z/z.sh
+
 # some cd shortcuts
 alias ..='cd ..'
 alias cD='cd ~/src/justin/dotfiles'
