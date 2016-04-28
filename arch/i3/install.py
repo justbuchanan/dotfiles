@@ -19,3 +19,6 @@ yaourt('xcwd-git')
 # for workspace auto-naming script
 pip3('i3ipc')
 pacman('xorg-xprop')
+
+# hide mouse cursor when not in use
+yaourt('unclutter-xfixes-git')
