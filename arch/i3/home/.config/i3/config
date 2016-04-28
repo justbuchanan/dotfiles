@@ -59,7 +59,7 @@ bindsym $mod+Escape exec ~/.config/i3/pixlock.sh
 exec xautolock -time 10 -locker ~/.config/i3/pixlock.sh
 
 # automatically rename workspaces based on contents
-exec ~/.config/i3/autoname-workspace/i3-autoname-workspaces.py &
+exec_always ~/.config/i3/autoname-workspace/i3-autoname-workspaces.py&
 
 # hide mouse cursor when not in use
 exec unclutter
