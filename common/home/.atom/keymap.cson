@@ -1,3 +1,2 @@
-
-'atom-text-editor.vim-mode:not(.command-mode)':
-  'j j': 'vim-mode:activate-command-mode'
+'atom-text-editor.vim-mode-plus:not(.normal-mode)':
+  'j j': 'vim-mode-plus:activate-normal-mode'
