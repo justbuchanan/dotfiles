@@ -16,6 +16,7 @@ symlinks = [
 	'.profile.d/transfer.sh',
 	'.atom/config.cson',
 	'.atom/keymap.cson',
+	'.atom/packages.cson',
 	# 'vromerc',
 	'.config/zsh',
 	'.config/sublime-text-3/Packages/User/clang_format.sublime-settings',
@@ -28,3 +29,6 @@ symlinks = [
 cur_dir = os.path.dirname(os.path.realpath(__file__))
 for path in symlinks:
 	symlink_home(os.path.join(cur_dir, "home"), path)
+
+# note: parcel is a program to sync atom packages via the packages.cson file
+apm('parcel');

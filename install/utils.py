@@ -34,10 +34,13 @@ def symlink_home(srcdir, path):
 def mkdir_p(dirpath):
     try:
         os.makedirs(dirpath)
-    except OSError as exc: 
+    except OSError as exc:
         if exc.errno == errno.EEXIST and os.path.isdir(dirpath):
             pass
 
 def pip3(pkgname):
     proc.check_call(['sudo', 'pip3', 'install', pkgname],
             stdout=proc.DEVNULL)
+
+def apm(pkgname):
+    proc.check_call(['apm', 'install', pkgname], stdout=proc.DEVNULL)
