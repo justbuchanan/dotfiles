@@ -13,6 +13,9 @@ yaourt('htop-vim-solarized-git')
 yaourt('tig') # nifty curses-based git viewer
 pacman('openssh')
 
+# contains netstat, arp, etc
+pacman('net-tools')
+
 # python
 pacman('python')
 pacman('python-pip')
