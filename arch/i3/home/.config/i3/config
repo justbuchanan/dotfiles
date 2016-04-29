@@ -208,3 +208,6 @@ client.focused          #d64937 #3399ff #2D2D2D #2e9ef4
 client.focused_inactive #2d2d2d #2d2d2d #dcdcdc #484e50
 client.unfocused        #2D2D2D #2d2d2d #dcdcdc #292d2e
 client.urgent           #2D2D2D #2D2D2D #dcdcdc #900000
+
+# set desktop background
+exec_always feh --bg-fill '~/.config/desktop-background.jpeg'

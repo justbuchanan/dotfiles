@@ -4,7 +4,6 @@ from install.arch import *
 symlinks = [
 	'.compton.conf',
 	'.config/desktop-background.jpeg',
-	'.fehbg',
 	'.profile.d/arch-aliases.sh',
 	'.profile.d/arch-monitor.sh',
 	'.xinitrc',
