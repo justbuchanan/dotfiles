@@ -11,9 +11,11 @@ pacman('rofi')   # window switcher
 yaourt('archey3') # show system summary
 pacman('scrot') # screenshots
 yaourt('playerctl') # command-line program to control a variety of music players
+yaourt('cli-visualizer') # command-line visualizer
 # pacman('libreoffice')
 yaourt('sublime-text-dev')
 yaourt('google-chrome')
+yaourt('spotify-beta')
 
 # desktop notifications
 pacman('libnotify')
