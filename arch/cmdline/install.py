@@ -21,3 +21,6 @@ pacman('python')
 pacman('python-pip')
 pacman('python2')
 pacman('python2-pip')
+
+# run `inxi -F` to show a list of the computer's hardware and related info
+pacman('inxi')
