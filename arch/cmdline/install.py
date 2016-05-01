@@ -13,6 +13,7 @@ yaourt('htop-vim-solarized-git')
 yaourt('tig') # nifty curses-based git viewer
 pacman('openssh')
 pacman('cowsay')
+pacman('fortune-mod')
 pacman('sl') # command-line train!
 
 # contains netstat, arp, etc
