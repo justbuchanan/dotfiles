@@ -53,14 +53,6 @@ interval=2
 
 [separator]
 
-[pkg]
-label=
-command=$SCRIPT_DIR/scripts/packages
-interval=3600
-markup=none
-
-[separator]
-
 [date]
 command=$SCRIPT_DIR/scripts/now.py
 interval=20
