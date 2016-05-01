@@ -15,6 +15,7 @@ pacman('openssh')
 pacman('cowsay')
 pacman('fortune-mod')
 pacman('sl') # command-line train!
+pacman('nmap')
 
 # contains netstat, arp, etc
 pacman('net-tools')
