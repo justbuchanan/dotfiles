@@ -12,6 +12,8 @@ pacman('unzip')
 yaourt('htop-vim-solarized-git')
 yaourt('tig') # nifty curses-based git viewer
 pacman('openssh')
+pacman('cowsay')
+pacman('sl') # command-line train!
 
 # contains netstat, arp, etc
 pacman('net-tools')
