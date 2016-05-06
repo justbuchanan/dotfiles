@@ -12,6 +12,7 @@
 set $mod Mod4
 
 # Function key bindings for custom keyboard
+bindsym F1 exec google-chrome-stable
 bindsym F2 exec ~/.config/i3/custom-keyboard/music.sh
 bindsym F12 exec ~/.config/i3/custom-keyboard/reboot.py
 
