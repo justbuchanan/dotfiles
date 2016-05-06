@@ -13,6 +13,7 @@ set $mod Mod4
 
 # Function key bindings for custom keyboard
 bindsym F2 exec ~/.config/i3/custom-keyboard/music.sh
+bindsym F12 exec ~/.config/i3/custom-keyboard/reboot.py
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
