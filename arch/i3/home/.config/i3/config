@@ -24,12 +24,16 @@ gaps outer 3
 
 # media keys
 bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl pause
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
+
+bindsym Print exec ~/.config/i3/scrot.sh
 
 # volume
 bindsym XF86AudioRaiseVolume exec amixer sset Master 10%+ unmute
 bindsym XF86AudioLowerVolume exec amixer sset Master 10%- unmute
+bindsym XF86AudioMute exec amixer sset Master toggle
 
 # backlight
 bindsym XF86MonBrightnessUp exec xbacklight +10%
@@ -54,6 +58,7 @@ bindsym $mod+t exec rofi -show window
 # bindsym $mod+shift+l exec xautolock -locknow
 # bindsym $mod+Escape exec i3lock -f # blurred lock background
 bindsym $mod+Escape exec ~/.config/i3/pixlock.sh
+bindsym Scroll_Lock exec ~/.config/i3/pixlock.sh
 
 # automatically lock after a timeout
 exec xautolock -time 10 -locker ~/.config/i3/pixlock.sh
