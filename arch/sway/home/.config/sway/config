@@ -13,15 +13,16 @@
 set $mod Mod4
 # Your preferred terminal emulator
 set $term urxvt
-# Your preferred application launcher
-set $menu dmenu_run
 
 gaps 5
 
+# load X resources for apps that use the values for configuration
+exec xrdb ~/.Xresources
+
 ### Output configuration
 #
-# Default wallpaper - CC-BY-NC from Netzlemming http://netzlemming.deviantart.com/art/Field-of-Barley-05240017-307176737
-output * bg /usr/share/sway/wallpaper.jpg fill
+# Default wallpaper - CC-BY-NC from Netzlemming httpxxxxx://netzlemming.deviantart.com/art/Field-of-Barley-05240017-307176737
+output * bg /home/justin/.config/desktop-background.jpeg fill
 #
 # Example output configuration:
 #
@@ -35,10 +36,13 @@ output * bg /usr/share/sway/wallpaper.jpg fill
     bindsym $mod+Return exec $term
 
     # kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+x kill
 
-    # start your launcher
-    bindsym $mod+d exec $menu
+    # task launcher
+    bindsym $mod+space exec rofi -show run
+    # window switcher
+    bindsym $mod+t exec rofi -show window
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -83,35 +87,35 @@ output * bg /usr/share/sway/wallpaper.jpg fill
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
-    # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # move focused container to workspace number
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
 #
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
     # $mod+h or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+h splith
-    bindsym $mod+v splitv
+    bindsym $mod+i splith
+    bindsym $mod+u splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -125,7 +129,7 @@ output * bg /usr/share/sway/wallpaper.jpg fill
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
 
     # move focus to the parent container
     bindsym $mod+a focus parent
