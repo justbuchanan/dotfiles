@@ -6,8 +6,9 @@ import os
 from install.utils import *
 
 if linux_os_name() == 'Arch Linux':
-	print("Installing dotfiles for Arch Linux")
-	import arch.install
+    print("Installing dotfiles for Arch Linux")
+    import arch.install
+    import arch.sway.install
 
 print()
 print("Installing common dotfiles")
