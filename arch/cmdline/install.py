@@ -20,6 +20,9 @@ pacman('nmap')
 # contains netstat, arp, etc
 pacman('net-tools')
 
+# contains nslookup and others
+pacman('bind-tools')
+
 # python
 pacman('python')
 pacman('python-pip')

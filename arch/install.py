@@ -1,5 +1,9 @@
 from install.utils import *
 from install.arch import *
+import subprocess as proc
+
+print("Updating pacman package databases")
+proc.check_call(['sudo', 'pacman', '-Sy'])
 
 symlinks = [
 	'.compton.conf',
