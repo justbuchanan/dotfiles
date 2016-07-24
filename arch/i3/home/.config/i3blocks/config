@@ -5,14 +5,14 @@ separator_block_width=20
 markup=pango
 
 
-[music icon]
-full_text=<span font_size='large'></span>
-color=#4C88B3
 [mediaplayer]
+#label=<span color='#4c88b3' font_size='large'></span>
+label= 
 command=$SCRIPT_DIR/i3blocks-contrib/mediaplayer/mediaplayer
 interval=5
 instance=spotify
 signal=10
+markup=pango
 
 # shitty hack to "center" the "now playing" item
 [spacing]

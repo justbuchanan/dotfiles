@@ -26,7 +26,7 @@ def pango(text, color=TEXT_COLOR, size=None):
 def bar(frac=0.5, color=GRAPH_COLOR):
     square = "■"
     total_squares = 5
-    filled = round(frac * total_squares)
+    filled = int(round(frac * total_squares))
     return pango(square*filled, GRAPH_COLOR) + pango(square*(total_squares-filled), GRAPH_BACKGROUND_COLOR)
 
 
