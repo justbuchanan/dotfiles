@@ -41,3 +41,6 @@ pacman('gcolor2') # color picker/pipette
 
 # video player
 pacman('vlc')
+
+# show system stats
+pacman('conky')
