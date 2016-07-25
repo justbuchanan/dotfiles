@@ -223,4 +223,4 @@ client.unfocused        #2D2D2D #2d2d2d #dcdcdc #292d2e
 client.urgent           #2D2D2D #2D2D2D #dcdcdc #900000
 
 # set desktop background
-exec_always feh --bg-fill '~/.config/desktop-background.jpeg'
+exec_always feh --bg-fill ~/.config/desktop-background.jpeg
