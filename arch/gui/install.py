@@ -15,7 +15,7 @@ yaourt('cli-visualizer') # command-line visualizer
 # pacman('libreoffice')
 yaourt('sublime-text-dev')
 yaourt('google-chrome')
-yaourt('spotify-beta')
+yaourt('spotify')
 
 # desktop notifications
 pacman('libnotify')
