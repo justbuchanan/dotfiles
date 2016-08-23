@@ -36,5 +36,6 @@ if linux_is_graphical():
 	import xorg.install
 	import gui.install
 	import theme.install
+	import photos.install
 else:
 	print("No display detected, skipping installation of graphical components")
