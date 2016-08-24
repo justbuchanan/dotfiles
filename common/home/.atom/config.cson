@@ -1,10 +1,14 @@
 "*":
-  "exception-reporting":
-    userId: "420787c2-7386-6ced-bb9e-efdb25b7809f"
-  welcome:
-    showOnStartup: false
+  autosave:
+    enabled: true
   core:
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
     ]
+  editor:
+    invisibles: {}
+  "exception-reporting":
+    userId: "420787c2-7386-6ced-bb9e-efdb25b7809f"
+  welcome:
+    showOnStartup: false
