@@ -14,6 +14,7 @@ symlinks = [
 	'.profile.d/ranger.sh',
 	'.profile.d/robocup.sh',
 	'.profile.d/transfer.sh',
+	'.profile.d/golang.sh',
 	'.atom/config.cson',
 	'.atom/keymap.cson',
 	'.atom/packages.cson',
@@ -33,4 +34,3 @@ for path in symlinks:
 if linux_is_graphical():
     # note: parcel is a program to sync atom packages via the packages.cson file
     apm('parcel');
-
