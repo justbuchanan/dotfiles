@@ -5,8 +5,9 @@ from tools import *
 
 from pythonwifi.iwlibs import Wireless
 import re
+import os
 
-interface = 'wlp2s0'
+interface = os.environ['BLOCK_INSTANCE']
 wifi = Wireless(interface)
 
 # try:
