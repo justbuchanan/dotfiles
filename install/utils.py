@@ -45,7 +45,7 @@ def pip3(pkgname):
 def apm(pkgname):
     proc.check_call(['apm', 'install', pkgname], stdout=proc.DEVNULL)
 
-import arch
+from . import arch
 def syspkg(pkgmap):
     if 'arch' in pkgmap:
         for pkg in pkgmap['arch']:

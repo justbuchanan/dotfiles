@@ -1,3 +1,6 @@
-archpkg('yubico-personalization-gui-git')
-archpkg('libu2f-host')
+from install.utils import *
 
+syspkg({'arch': [
+    'yubico-personalization-gui-git',
+    'libu2f-host',
+]})

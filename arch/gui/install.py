@@ -1,46 +1,48 @@
-from install.arch import *
+from install.utils import *
 
-archpkg('thunar')  # gtk-based file browser
-archpkg('tumbler') # image thumbnails for thunar
-archpkg('mupdf') # minimalist pdf viewer
-archpkg('octave')  # open-source alternative to MATLAB
-archpkg('transmission-qt') # torrent client
-archpkg('arandr') # gui for configuring multiple monitors
-archpkg('cheese') # Picture-taking app comparable to "Photo Booth" on OS X
-archpkg('rofi')   # window switcher
-archpkg('archey3') # show system summary
-archpkg('scrot') # screenshots
-archpkg('playerctl') # command-line program to control a variety of music players
-archpkg('cli-visualizer') # command-line visualizer
-# archpkg('libreoffice')
-archpkg('sublime-text-dev')
-archpkg('google-chrome')
-archpkg('spotify')
+syspkg({'arch': [
+    'thunar',  # gtk-based file browser
+    'tumbler', # image thumbnails for thunar
+    'mupdf', # minimalist pdf viewer
+    'octave',  # open-source alternative to MATLAB
+    'transmission-qt', # torrent client
+    'arandr', # gui for configuring multiple monitors
+    'cheese', # Picture-taking app comparable to "Photo Booth" on OS X
+    'rofi',   # window switcher
+    'archey3', # show system summary
+    'scrot', # screenshots
+    'playerctl', # command-line program to control a variety of music players
+    'cli-visualizer', # command-line visualizer
+    # 'libreoffice',
+    'sublime-text-dev',
+    'google-chrome',
+    'spotify',
 
-# desktop notifications
-archpkg('libnotify')
-archpkg('dunst')
+    # desktop notifications
+    'libnotify',
+    'dunst',
 
-# fonts
-archpkg('ttf-dejavu-sans-mono-powerline-git')
-archpkg('otf-font-awesome')
+    # fonts
+    'ttf-dejavu-sans-mono-powerline-git',
+    'otf-font-awesome',
 
-# audio
-archpkg('pulseaudio')
-archpkg('pulseaudio-alsa')
-archpkg('alsa-utils')
+    # audio
+    'pulseaudio',
+    'pulseaudio-alsa',
+    'alsa-utils',
 
-# bluetooth
-archpkg('bluez')
-archpkg('bluez-utils')
+    # bluetooth
+    'bluez',
+    'bluez-utils',
 
-# light-weight image viewer
-archpkg('imv')
+    # light-weight image viewer
+    'imv',
 
-archpkg('gcolor2') # color picker/pipette
+    'gcolor2', # color picker/pipette
 
-# video player
-archpkg('vlc')
+    # video player
+    'vlc',
 
-# show system stats
-archpkg('conky')
+    # show system stats
+    'conky',
+]})

@@ -1,13 +1,15 @@
-from install.arch import *
+from install.utils import *
 
-archpkg('xorg-xinit')
-archpkg('xorg-xrdb')
-archpkg('xorg-xinput')
-archpkg('xorg-xmodmap')
-archpkg('xorg-xprop')
-archpkg('xorg-xbacklight')
-archpkg('xorg-xinput')
-archpkg('xorg-xmodmap')
+syspkg({'arch': [
+    'xorg-xinit',
+    'xorg-xrdb',
+    'xorg-xinput',
+    'xorg-xmodmap',
+    'xorg-xprop',
+    'xorg-xbacklight',
+    'xorg-xinput',
+    'xorg-xmodmap',
 
-# command-line tool for configuring multiple monitors
-archpkg('xorg-xrandr')
+    # command-line tool for configuring multiple monitors
+    'xorg-xrandr',
+]})
