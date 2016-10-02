@@ -1,3 +1,3 @@
-yaourt('yubico-personalization-gui-git')
-pacman('libu2f-host')
+archpkg('yubico-personalization-gui-git')
+archpkg('libu2f-host')
 

@@ -1,33 +1,33 @@
 from install.arch import *
 
-pacman('tmux')
-pacman('zsh')
-pacman('rxvt-unicode')
-pacman('wget')
-pacman('tree')
-pacman('psmisc')  # contains pstree and some other utils
-pacman('git')
-pacman('ncdu')   # ncurses-based disk usage analyzer
-pacman('unzip')
-yaourt('htop-vim-solarized-git')
-yaourt('tig') # nifty curses-based git viewer
-pacman('openssh')
-pacman('cowsay')
-pacman('fortune-mod')
-pacman('sl') # command-line train!
-pacman('nmap')
+archpkg('tmux')
+archpkg('zsh')
+archpkg('rxvt-unicode')
+archpkg('wget')
+archpkg('tree')
+archpkg('psmisc')  # contains pstree and some other utils
+archpkg('git')
+archpkg('ncdu')   # ncurses-based disk usage analyzer
+archpkg('unzip')
+archpkg('htop-vim-solarized-git')
+archpkg('tig') # nifty curses-based git viewer
+archpkg('openssh')
+archpkg('cowsay')
+archpkg('fortune-mod')
+archpkg('sl') # command-line train!
+archpkg('nmap')
 
 # contains netstat, arp, etc
-pacman('net-tools')
+archpkg('net-tools')
 
 # contains nslookup and others
-pacman('bind-tools')
+archpkg('bind-tools')
 
 # python
-pacman('python')
-pacman('python-pip')
-pacman('python2')
-pacman('python2-pip')
+archpkg('python')
+archpkg('python-pip')
+archpkg('python2')
+archpkg('python2-pip')
 
 # run `inxi -F` to show a list of the computer's hardware and related info
-pacman('inxi')
+archpkg('inxi')

@@ -1,46 +1,46 @@
 from install.arch import *
 
-pacman('thunar')  # gtk-based file browser
-pacman('tumbler') # image thumbnails for thunar
-pacman('mupdf') # minimalist pdf viewer
-pacman('octave')  # open-source alternative to MATLAB
-pacman('transmission-qt') # torrent client
-pacman('arandr') # gui for configuring multiple monitors
-pacman('cheese') # Picture-taking app comparable to "Photo Booth" on OS X
-pacman('rofi')   # window switcher
-yaourt('archey3') # show system summary
-pacman('scrot') # screenshots
-yaourt('playerctl') # command-line program to control a variety of music players
-yaourt('cli-visualizer') # command-line visualizer
-# pacman('libreoffice')
-yaourt('sublime-text-dev')
-yaourt('google-chrome')
-yaourt('spotify')
+archpkg('thunar')  # gtk-based file browser
+archpkg('tumbler') # image thumbnails for thunar
+archpkg('mupdf') # minimalist pdf viewer
+archpkg('octave')  # open-source alternative to MATLAB
+archpkg('transmission-qt') # torrent client
+archpkg('arandr') # gui for configuring multiple monitors
+archpkg('cheese') # Picture-taking app comparable to "Photo Booth" on OS X
+archpkg('rofi')   # window switcher
+archpkg('archey3') # show system summary
+archpkg('scrot') # screenshots
+archpkg('playerctl') # command-line program to control a variety of music players
+archpkg('cli-visualizer') # command-line visualizer
+# archpkg('libreoffice')
+archpkg('sublime-text-dev')
+archpkg('google-chrome')
+archpkg('spotify')
 
 # desktop notifications
-pacman('libnotify')
-pacman('dunst')
+archpkg('libnotify')
+archpkg('dunst')
 
 # fonts
-yaourt('ttf-dejavu-sans-mono-powerline-git')
-yaourt('otf-font-awesome')
+archpkg('ttf-dejavu-sans-mono-powerline-git')
+archpkg('otf-font-awesome')
 
 # audio
-pacman('pulseaudio')
-pacman('pulseaudio-alsa')
-pacman('alsa-utils')
+archpkg('pulseaudio')
+archpkg('pulseaudio-alsa')
+archpkg('alsa-utils')
 
 # bluetooth
-pacman('bluez')
-pacman('bluez-utils')
+archpkg('bluez')
+archpkg('bluez-utils')
 
 # light-weight image viewer
-yaourt('imv')
+archpkg('imv')
 
-pacman('gcolor2') # color picker/pipette
+archpkg('gcolor2') # color picker/pipette
 
 # video player
-pacman('vlc')
+archpkg('vlc')
 
 # show system stats
-pacman('conky')
+archpkg('conky')
