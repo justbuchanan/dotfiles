@@ -37,6 +37,3 @@
 [submodule "common/home/.config/zsh/z"]
 	path = common/home/.config/zsh/z
 	url = https://github.com/rupa/z
-[submodule "arch/i3/home/.config/i3/i3-new-workspace"]
-	path = arch/i3/home/.config/i3/i3-new-workspace
-	url = https://github.com/justbuchanan/i3-new-workspace
