@@ -17,7 +17,7 @@ syspkg({'arch': [
     'unclutter-xfixes-git',
 ]})
 
-pip3('psutil') # needed for some system stats bar items
+pip3('psutil') # needed for some system status bar items
 
 base = os.path.join(os.path.dirname(os.path.realpath(__file__)), "home")
 symlink_home(base, '.config/i3blocks')
