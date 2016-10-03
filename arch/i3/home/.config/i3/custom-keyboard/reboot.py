@@ -9,6 +9,7 @@ def rofi(options):
     out = p.communicate(input='\n'.join(options).encode('utf-8'))[0]
     return out.decode('utf-8').strip()
 
+
 choices = OrderedDict([
     ('reboot', lambda: proc.check_call(['reboot'])),
     ('shutdown', lambda: proc.check_call(['shutdown'])),

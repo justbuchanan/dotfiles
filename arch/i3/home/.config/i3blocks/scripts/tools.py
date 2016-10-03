@@ -7,8 +7,9 @@ URGENT_COLOR = '#a0a0a0'
 GRAPH_COLOR = '#4C4C4C'
 GRAPH_BACKGROUND_COLOR = '#ababab'
 
-
 import subprocess
+
+
 def run(args=[]):
     proc = subprocess.Popen(args, stdout=subprocess.PIPE)
     out, err = proc.communicate()
@@ -18,7 +19,7 @@ def run(args=[]):
 def pango(text, color=TEXT_COLOR, size=None):
     params = {'foreground': color}
     if size != None: params['font_size'] = size
-    p = " ".join("%s='%s'" % (k,v) for k, v in params.items())
+    p = " ".join("%s='%s'" % (k, v) for k, v in params.items())
     return "<span %s>%s</span>" % (p, text)
 
 
@@ -27,7 +28,8 @@ def bar(frac=0.5, color=GRAPH_COLOR):
     square = "■"
     total_squares = 5
     filled = int(round(frac * total_squares))
-    return pango(square*filled, GRAPH_COLOR) + pango(square*(total_squares-filled), GRAPH_BACKGROUND_COLOR)
+    return pango(square * filled, GRAPH_COLOR) + pango(square * (
+        total_squares - filled), GRAPH_BACKGROUND_COLOR)
 
 
 def icon(font_awesome, color=ICON_COLOR):

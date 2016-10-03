@@ -3,7 +3,6 @@
 from tools import *
 import psutil
 
-
 pct = psutil.virtual_memory().percent
 
 ic = icon('')

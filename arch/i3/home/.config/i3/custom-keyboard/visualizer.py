@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 """
 Launches cli-visualizer and fullscreens it globally.
 """

@@ -4,22 +4,23 @@ import subprocess as proc
 import os
 
 themes = [
-  'archlinux',
-  'base16-tomorrow',
-  'debian',
-  'deep-purple',
-  'default',
-  'flat-gray',
-  'gruvbox',
-  'lime',
-  'okraits',
-  'purple',
-  'seti',
-  'slate',
-  'solarized',
-  'tomorrow-night-80s',
-  'ubuntu',
+    'archlinux',
+    'base16-tomorrow',
+    'debian',
+    'deep-purple',
+    'default',
+    'flat-gray',
+    'gruvbox',
+    'lime',
+    'okraits',
+    'purple',
+    'seti',
+    'slate',
+    'solarized',
+    'tomorrow-night-80s',
+    'ubuntu',
 ]
+
 
 def rofi_choose(items):
     rofi = proc.Popen(['rofi', '-dmenu'], stdin=proc.PIPE, stdout=proc.PIPE)

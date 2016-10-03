@@ -14,4 +14,3 @@ win = QMainWindow()
 win.setAttribute(Qt.WA_TranslucentBackground)
 win.show()
 app.exec()
-
