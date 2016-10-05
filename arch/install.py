@@ -16,7 +16,6 @@ symlinks = [
     '.Xresources.d/rofi',
     '.zlogin',
     '.yaourtrc',
-    '.config/herbstluftwm',
     '.config/vis',
 ]
 
