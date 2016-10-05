@@ -15,7 +15,6 @@ symlinks = [
     '.profile.d/robocup.sh',
     '.profile.d/transfer.sh',
     '.profile.d/golang.sh',
-    # 'vromerc',
     '.config/zsh',
 ]
 
