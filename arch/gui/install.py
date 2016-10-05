@@ -8,7 +8,6 @@ syspkg({'arch': [
     'transmission-qt',  # torrent client
     'arandr',  # gui for configuring multiple monitors
     'cheese',  # Picture-taking app comparable to "Photo Booth" on OS X
-    'rofi',  # window switcher
     'archey3',  # show system summary
     'scrot',  # screenshots
     'playerctl',  # command-line program to control a variety of music players

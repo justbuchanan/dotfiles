@@ -13,7 +13,6 @@ symlinks = [
     '.xinitrc',
     '.Xmodmap',
     '.Xresources.d/rxvt-unicode',
-    '.Xresources.d/rofi',
     '.zlogin',
     '.yaourtrc',
 ]
@@ -34,5 +33,6 @@ if linux_is_graphical():
     import photos.install
     import dunst.install
     import cli_visualizer.install
+    import rofi.install
 else:
     print("No display detected, skipping installation of graphical components")
