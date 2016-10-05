@@ -1,0 +1,61 @@
+# vim: filetype=yaml
+---
+meta:
+  description: AUTOMATICALLY GENERATED THEME
+bar_colors:
+  separator: darkslategrey
+  background: white
+  statusline: black
+  focused_workspace:
+    border: goog_green
+    background: goog_green
+    text: white
+  active_workspace:
+    border: goog_blue
+    background: goog_blue
+    text: white
+  inactive_workspace:
+    border: goog_blue
+    background: goog_blue
+    text: white
+  urgent_workspace:
+    border: goog_red
+    background: goog_red
+    text: white
+colors:
+  # colors borrowed from: http://designpieces.com/palette/google-new-logo-2015-color-palette-hex-and-rgb/
+  goog_green: '#3cba54'
+  goog_yellow: '#f4c20d'
+  goog_red: '#db3236'
+  goog_blue: '#4885ed'
+
+  darkslategrey: '#333333'
+  # black: '#2c001e'
+  # darkgrey: '#aea79f'
+  # tomato: '#dd4814'
+  white: '#ffffff'
+  # darkred: '#902a07' # TODO
+  # purple: '#77216f'
+  # darkslateblue: '#5e2750'
+  # goldenrod: '#efb73e'
+window_colors:
+  focused:
+    border: goog_green
+    background: goog_green
+    text: white
+    indicator: goog_blue
+  focused_inactive:
+    border: white
+    background: white
+    text: black
+    indicator: white
+  unfocused:
+    border: white
+    background: white
+    text: black
+    indicator: white
+  urgent:
+    border: goog_red
+    background: goog_red
+    text: white
+    indicator: goog_yellow
