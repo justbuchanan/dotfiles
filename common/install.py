@@ -3,8 +3,6 @@ from install.arch import *
 
 symlinks = [
     '.ansible.cfg',
-    '.vimrc',
-    '.vim',
     '.zshrc',
     '.bashrc',
     '.gitconfig',
@@ -24,3 +22,4 @@ for path in symlinks:
 
 from .sublime_text import install
 from .atom import install
+from .vim import install

@@ -1,7 +1,22 @@
 
 set nocompatible	" vim, not vi
+filetype off
 
-execute pathogen#infect()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'airblade/vim-gitgutter'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 
 " Use w!! to use sudo to save the file
 cmap w!! w !sudo tee % >/dev/null
