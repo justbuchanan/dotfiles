@@ -12,7 +12,6 @@ syspkg({'arch': [
     'archey3',  # show system summary
     'scrot',  # screenshots
     'playerctl',  # command-line program to control a variety of music players
-    'cli-visualizer',  # command-line visualizer
     # 'libreoffice',
     'sublime-text-dev',
     'google-chrome',
