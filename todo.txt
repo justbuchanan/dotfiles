@@ -15,3 +15,5 @@ auto-detect monitors?
 put arandr in quick-launch menu
 
 install rsync
+
+set GTK_THEME=Adapta variable
