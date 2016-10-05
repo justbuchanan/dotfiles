@@ -13,7 +13,7 @@ symlinks = [
 
 cur_dir = os.path.dirname(os.path.realpath(__file__))
 for path in symlinks:
-    symlink_home(os.path.join(cur_dir, "home"), path)
+    symlink_home(os.path.join(cur_dir, "other"), path)
 
 from .sublime_text import install
 from .atom import install
