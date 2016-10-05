@@ -33,7 +33,7 @@ if linux_is_graphical():
     from .i3 import install
     import xorg.install
     import gui.install
-    import theme.install
+    import gtk_theme.install
     import photos.install
 else:
     print("No display detected, skipping installation of graphical components")
