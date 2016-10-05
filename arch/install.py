@@ -13,7 +13,6 @@ symlinks = [
     '.xinitrc',
     '.Xmodmap',
     '.zlogin',
-    '.yaourtrc',
 ]
 
 for path in symlinks:
