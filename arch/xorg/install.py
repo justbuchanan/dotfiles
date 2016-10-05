@@ -9,6 +9,5 @@ syspkg({'arch': [
     'xorg-xbacklight',
     'xorg-xinput',
     'xorg-xmodmap',
-    # command-line tool for configuring multiple monitors
-    'xorg-xrandr',
+    'xorg-xrandr', # command-line tool for configuring multiple monitors
 ]})
