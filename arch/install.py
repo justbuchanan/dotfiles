@@ -16,7 +16,6 @@ symlinks = [
     '.Xresources.d/rofi',
     '.zlogin',
     '.yaourtrc',
-    '.config/dunst',
     '.config/herbstluftwm',
     '.config/vis',
 ]
@@ -35,5 +34,6 @@ if linux_is_graphical():
     import gui.install
     import gtk_theme.install
     import photos.install
+    import dunst.install
 else:
     print("No display detected, skipping installation of graphical components")

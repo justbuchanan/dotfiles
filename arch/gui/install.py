@@ -19,7 +19,6 @@ syspkg({'arch': [
     'spotify',
     # desktop notifications
     'libnotify',
-    'dunst',
     # fonts
     'ttf-dejavu-sans-mono-powerline-git',
     'otf-font-awesome',
