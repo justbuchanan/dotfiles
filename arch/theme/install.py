@@ -3,6 +3,5 @@ from install.utils import *
 
 syspkg({'arch': ['vertex-icons-git', 'gtk-theme-arc-git', 'adapta-gtk-theme']})
 
-base = os.path.join(os.path.dirname(os.path.realpath(__file__)), "home")
-symlink_home(base, '.gtkrc-2.0')
-symlink_home(base, '.config/gtk-3.0/settings.ini')
+symlink(__file__, 'gtkrc-2.0', '~/.gtkrc-2.0')
+symlink(__file__, 'gtk3-settings.ini', '~/.config/gtk-3.0/settings.ini')
