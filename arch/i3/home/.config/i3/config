@@ -78,7 +78,7 @@ exec_always ~/.config/i3/autoname-workspace/i3-autoname-workspaces.py&
 # hide mouse cursor when not in use
 exec unclutter
 
-bindsym $mod+b exec ~/.config/i3/bogus.py
+bindsym $mod+b exec ~/.config/i3/blank.py
 
 # change focus
 bindsym $mod+h focus left
