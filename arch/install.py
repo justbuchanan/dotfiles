@@ -12,7 +12,6 @@ symlinks = [
     '.profile.d/arch-monitor.sh',
     '.xinitrc',
     '.Xmodmap',
-    '.Xresources.d/rxvt-unicode',
     '.zlogin',
     '.yaourtrc',
 ]
@@ -34,5 +33,6 @@ if linux_is_graphical():
     import dunst.install
     import cli_visualizer.install
     import rofi.install
+    import urxvt.install
 else:
     print("No display detected, skipping installation of graphical components")

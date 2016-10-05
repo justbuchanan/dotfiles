@@ -3,7 +3,6 @@ from install.utils import *
 syspkg({'arch': [
     'tmux',
     'zsh',
-    'rxvt-unicode',
     'wget',
     'tree',
     'psmisc',  # contains pstree and some other utils
