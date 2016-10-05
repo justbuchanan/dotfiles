@@ -5,7 +5,7 @@ antigen use oh-my-zsh
 export DEFAULT_USER=justin
 
 # theme
-antigen theme ~/.config/zsh/themes/ justin2
+antigen theme ~/.config/zsh/ justin
 
 # packages
 antigen bundle git
