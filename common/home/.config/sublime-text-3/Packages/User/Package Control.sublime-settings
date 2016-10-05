@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Better CoffeeScript",
 		"Bison",
 		"BracketGuard",
 		"Cap'n Proto Syntax",
