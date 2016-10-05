@@ -3,9 +3,6 @@ from install.arch import *
 
 symlinks = [
     '.ansible.cfg',
-    '.bashrc',
-    '.gitconfig',
-    '.tigrc',
     '.tmux.conf',
     '.profile.d/aliases.sh',
     '.profile.d/ranger.sh',
@@ -22,3 +19,6 @@ from .sublime_text import install
 from .atom import install
 from .vim import install
 from .zsh import install
+from .bash import install
+from .tig import install
+from .git import install

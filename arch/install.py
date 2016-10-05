@@ -16,7 +16,7 @@ symlinks = [
 ]
 
 for path in symlinks:
-    symlink(__file__, os.path.join('home', path), os.path.join('~', path))
+    symlink(__file__, os.path.join('other', path), os.path.join('~', path))
 
 import sys
 sys.path.append(os.path.dirname(__file__))

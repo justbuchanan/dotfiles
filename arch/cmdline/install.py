@@ -10,7 +10,6 @@ syspkg({'arch': [
     'ncdu',  # ncurses-based disk usage analyzer
     'unzip',
     'htop-vim-solarized-git',
-    'tig',  # nifty curses-based git viewer
     'openssh',
     'cowsay',
     'fortune-mod',
