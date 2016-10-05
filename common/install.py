@@ -17,15 +17,11 @@ symlinks = [
     '.profile.d/golang.sh',
     # 'vromerc',
     '.config/zsh',
-    '.config/sublime-text-3/Packages/User/clang_format.sublime-settings',
-    '.config/sublime-text-3/Packages/User/clang_format_custom.sublime-settings',
-    '.config/sublime-text-3/Packages/User/Default.sublime-keymap',
-    '.config/sublime-text-3/Packages/User/Package Control.sublime-settings',
-    '.config/sublime-text-3/Packages/User/Preferences.sublime-settings',
 ]
 
 cur_dir = os.path.dirname(os.path.realpath(__file__))
 for path in symlinks:
     symlink_home(os.path.join(cur_dir, "home"), path)
 
+from .sublime_text import install
 from .atom import install
