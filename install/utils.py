@@ -35,6 +35,23 @@ def symlink_home(srcdir, path):
     else:
         print("Source file doesn't exist")
 
+# example: symlink(__file__, 'myconfig', '~/.config/app/config')
+def symlink(py_file, relpath, dst):
+    base_dir = os.path.dirname(os.path.realpath(py_file))
+    src = os.path.join(base_dir, relpath)
+    absdst = os.path.expanduser(dst)
+    if os.path.exists(src):
+        try:
+            if not os.path.islink(absdst) or os.readlink(absdst) != src:
+                print("symlinking: %s" % dst)
+                mkdir_p(os.path.dirname(absdst))
+                proc.check_call(['ln', '-sf', src, absdst])
+        except OSError as e:
+            print("Unable to link '%s'\n    %s" % (dst, str(e)),
+                  file=sys.stderr)
+    else:
+        print("Source file doesn't exist: %s" % src)
+
 
 # borrowed from stack overflow:
 # http://stackoverflow.com/questions/16029871/how-to-run-os-mkdir-with-p-option-in-python

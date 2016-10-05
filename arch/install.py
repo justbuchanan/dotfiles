@@ -21,9 +21,8 @@ symlinks = [
     '.config/vis',
 ]
 
-cur_dir = os.path.dirname(os.path.realpath(__file__))
 for path in symlinks:
-    symlink_home(os.path.join(cur_dir, "home"), path)
+    symlink(__file__, os.path.join('home', path), os.path.join('~', path))
 
 import sys
 sys.path.append(os.path.dirname(__file__))
