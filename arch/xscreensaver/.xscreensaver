@@ -32,14 +32,14 @@ dpmsOff:	4:00:00
 grabDesktopImages:  True
 grabVideoFrames:    False
 chooseRandomImages: False
-imageDirectory:	
+imageDirectory:
 
 mode:		one
 selected:	214
 
 textMode:	literal
 textLiteral:	XScreenSaver
-textFile:	
+textFile:
 textProgram:	fortune
 textURL:	https://en.wikipedia.org/w/index.php?title=Special:NewPages&feed=rss
 
@@ -222,8 +222,6 @@ programs:								      \
   GL: 				crackberg -root				    \n\
   GL: 				cube21 -root				    \n\
 				fiberlamp -root				    \n\
-  GL: 				fliptext -root				    \n\
-  GL: 				glhanoi -root				    \n\
   GL: 				tangram -root				    \n\
   GL: 				timetunnel -root			    \n\
   GL: 				glschool -root				    \n\
@@ -270,4 +268,3 @@ procInterrupts:	True
 xinputExtensionDev: False
 overlayStderr:	True
 authWarningSlack:   20
-
