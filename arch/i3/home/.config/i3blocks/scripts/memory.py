@@ -3,9 +3,12 @@
 from tools import *
 import psutil
 
-pct = psutil.virtual_memory().percent
+vmem = psutil.virtual_memory()
 
 ic = icon('')
-g = bar(pct / 100.0)
+g = bar(vmem.percent / 100.0)
 
-print("%s %s %0.f%%" % (ic, g, pct))
+used = vmem.used / 10**9
+total = vmem.total / 10**9
+
+print("%s %s %.1f/%.1fGB" % (ic, g, used, total))
