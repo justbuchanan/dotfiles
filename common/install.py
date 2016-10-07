@@ -22,3 +22,4 @@ from .zsh import install
 from .bash import install
 from .tig import install
 from .git import install
+from .golang import install
