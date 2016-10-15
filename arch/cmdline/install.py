@@ -9,7 +9,7 @@ syspkg({'arch': [
     'git',
     'ncdu',  # ncurses-based disk usage analyzer
     'unzip',
-    'htop-vim-solarized-git',
+    #'htop-vim-solarized-git',
     'openssh',
     'cowsay',
     'fortune-mod',

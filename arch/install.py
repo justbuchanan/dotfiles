@@ -22,8 +22,9 @@ import sys
 sys.path.append(os.path.dirname(__file__))
 
 import cmdline.install
+import yubikey.install
 
-if linux_is_graphical():
+if True:
     from .i3 import install
     import xorg.install
     import gui.install

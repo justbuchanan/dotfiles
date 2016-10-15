@@ -12,6 +12,9 @@ syspkg({'arch': [
     'xorg-xprop',
     # hide mouse cursor when not in use
     'unclutter-xfixes-git',
+
+    # used to set the desktop background image
+    'feh',
 ]})
 
 pip3('psutil')  # needed for some system status bar items
