@@ -58,7 +58,3 @@ command=$SCRIPT_DIR/scripts/now.py
 interval=20
 
 [separator]
-
-[shutdown_menu]
-full_text=<span font_size='large'>  </span>
-command=$SCRIPT_DIR/scripts/i3blocks-contrib/shutdown_menu/shutdown_menu -c
