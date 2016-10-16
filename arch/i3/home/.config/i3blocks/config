@@ -47,7 +47,7 @@ interval=5
 [separator]
 
 [wifi]
-instance=wlp2s0
+instance=wlp10s0
 command=$SCRIPT_DIR/scripts/wifi.py
 interval=2
 
