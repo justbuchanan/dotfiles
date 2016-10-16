@@ -32,4 +32,4 @@ wifi = Wireless(interface)
 ic = icon('')  # TODO: scanning icon?
 text = wifi.getEssid()
 
-print("%s %s" % (ic, pango(text)))
+print("%s %s" % (ic, text))

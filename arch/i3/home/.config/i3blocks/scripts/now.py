@@ -4,7 +4,7 @@ from tools import *
 import datetime
 
 now = datetime.datetime.now()
-txt = pango(now.strftime('%a %m/%d %H:%M'))
+txt = now.strftime('%a %m/%d %H:%M')
 
 ic = icon('')
 
