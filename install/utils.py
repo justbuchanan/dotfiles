@@ -62,6 +62,8 @@ def mkdir_p(dirpath):
         if exc.errno == errno.EEXIST and os.path.isdir(dirpath):
             pass
 
+def pip2(pkgname):
+    proc.check_call(['sudo', 'pip2', 'install', pkgname], stdout=proc.DEVNULL)
 
 def pip3(pkgname):
     proc.check_call(['sudo', 'pip3', 'install', pkgname], stdout=proc.DEVNULL)
