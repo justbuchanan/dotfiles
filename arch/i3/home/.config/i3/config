@@ -40,9 +40,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym Print exec ~/.config/i3/scrot.sh
 
 # volume
-bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ unmute && ~/.config/i3/show_volume.py
-bindsym XF86AudioLowerVolume exec amixer sset Master 5%- unmute && ~/.config/i3/show_volume.py
-bindsym XF86AudioMute exec amixer sset Master toggle && ~/.config/i3/show_volume.py
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%- unmute
+bindsym XF86AudioMute exec amixer sset Master toggle
 
 # backlight
 bindsym XF86MonBrightnessUp exec xbacklight +10%

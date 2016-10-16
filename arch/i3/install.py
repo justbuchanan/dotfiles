@@ -15,9 +15,6 @@ syspkg({'arch': [
 
     # used to set the desktop background image
     'feh',
-
-    # volume HUD/popup shown when volume/mute changes
-    'volnoti-hcchu-git',
 ]})
 
 pip3('psutil')  # needed for some system status bar items
