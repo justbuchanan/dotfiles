@@ -7,7 +7,6 @@ symlinks = [
     '.profile.d/aliases.sh',
     '.profile.d/robocup.sh',
     '.profile.d/transfer.sh',
-    '.profile.d/golang.sh',
 ]
 
 cur_dir = os.path.dirname(os.path.realpath(__file__))
