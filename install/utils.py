@@ -33,7 +33,7 @@ def symlink_home(srcdir, path):
             print("Unable to link '%s'\n    %s" % (path, str(e)),
                   file=sys.stderr)
     else:
-        print("Source file doesn't exist")
+        print("Source file doesn't exist: %s" % src)
 
 # example: symlink(__file__, 'myconfig', '~/.config/app/config')
 def symlink(py_file, relpath, dst):

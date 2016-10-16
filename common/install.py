@@ -5,7 +5,6 @@ symlinks = [
     '.ansible.cfg',
     '.tmux.conf',
     '.profile.d/aliases.sh',
-    '.profile.d/ranger.sh',
     '.profile.d/robocup.sh',
     '.profile.d/transfer.sh',
     '.profile.d/golang.sh',
