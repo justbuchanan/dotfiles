@@ -23,7 +23,10 @@ pip2('python-wifi') # needed for wifi item in status bar
 
 base = os.path.join(os.path.dirname(os.path.realpath(__file__)), "home")
 symlink_home(base, '.config/i3blocks')
-symlink_home(base, '.config/i3', )
+symlink_home(base, '.config/i3')
+
+# i3wm theme is configured via xresources
+symlink_home(base, '.Xresources.d/i3theme')
 
 # for workspace auto-naming script
 pip3('i3ipc')

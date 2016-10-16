@@ -1,0 +1,19 @@
+
+! Arch Linux theme for i3 - values borrowed from:
+! https://github.com/acrisci/i3-style/blob/master/themes/archlinux
+
+!                             BORDER   BACKGROUND  TEXT     INDICATOR
+i3wm.window.focused:          #0088CC  #0088CC     #ffffff  #dddddd
+i3wm.window.focused_inactive: #333333  #333333     #888888  #292d2e
+i3wm.window.unfocused:        #333333  #333333     #888888  #292d2e
+i3wm.window.urgent:           #2f343a  #900000     #ffffff  #900000
+
+i3wm.bar.separator:           #666666
+i3wm.bar.background:          #222222
+i3wm.bar.statusline:          #dddddd
+
+!                             BORDER   BACKGROUND  TEXT
+i3wm.bar.focused_workspace:   #0088CC  #0088CC     #ffffff
+i3wm.bar.active_workspace:    #333333  #333333     #ffffff
+i3wm.bar.inactive_workspace:  #333333  #333333     #888888
+i3wm.bar.urgent_workspace:    #2f343a  #900000     #ffffff

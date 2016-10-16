@@ -159,72 +159,72 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 2 px
-        bindsym j resize grow height 2 px
-        bindsym k resize shrink height 2 px
-        bindsym l resize grow width 2 px
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 2 px
+    bindsym j resize grow height 2 px
+    bindsym k resize shrink height 2 px
+    bindsym l resize grow width 2 px
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
+# Load colors from xresources
+set_from_resource $bar_separator_colors          i3wm.bar.separator
+set_from_resource $bar_background_colors         i3wm.bar.background
+set_from_resource $bar_statusline_colors         i3wm.bar.statusline
+set_from_resource $bar_focused_workspace_colors  i3wm.bar.focused_workspace
+set_from_resource $bar_active_workspace_colors   i3wm.bar.active_workspace
+set_from_resource $bar_inactive_workspace_colors i3wm.bar.inactive_workspace
+set_from_resource $bar_urgent_workspace_colors   i3wm.bar.urgent_workspace
+set_from_resource $focused_colors                i3wm.window.focused
+set_from_resource $focused_inactive_colors       i3wm.window.focused_inactive
+set_from_resource $unfocused_colors              i3wm.window.unfocused
+set_from_resource $urgent_colors                 i3wm.window.urgent
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command SCRIPT_DIR=~/.config/i3blocks i3blocks
+    status_command SCRIPT_DIR=~/.config/i3blocks i3blocks
     tray_output primary
-    #i3bar_command exec ~/.config/i3/qbar_i3_wrapper.sh 2>> ~/qbar.log
-    #i3bar_command exec echo ""
     height 30
     position top
 
-    #workspace_buttons yes
-
-    #font pango:DejaVu Sans Mono, Awesome 8
-#
-  colors {
-    separator #666666
-    background #222222
-    statusline #dddddd
-    focused_workspace #0088CC #0088CC #ffffff
-    active_workspace #333333 #333333 #ffffff
-    inactive_workspace #333333 #333333 #888888
-    urgent_workspace #2f343a #900000 #ffffff
-  }
+    colors {
+        separator          $bar_separator_colors
+        background         $bar_background_colors
+        statusline         $bar_statusline_colors
+        focused_workspace  $bar_focused_workspace_colors
+        active_workspace   $bar_active_workspace_colors
+        inactive_workspace $bar_inactive_workspace_colors
+        urgent_workspace   $bar_urgent_workspace_colors
+    }
 }
+
+# Colors
+client.focused          $focused_colors
+client.focused_inactive $focused_inactive_colors
+client.unfocused        $unfocused_colors
+client.urgent           $urgent_colors
+
 
 new_window normal
 for_window [class="^.*"] border pixel 3
 
-# smart_gaps off
-
-# assign "spotify" 9
-
-
-
-
-# Colors
-# class                 border  backgr. text    indicator
 
 # set desktop background
 exec_always feh --bg-fill ~/.config/desktop-background.jpeg
-
-client.focused #0088CC #0088CC #ffffff #dddddd
-client.focused_inactive #333333 #333333 #888888 #292d2e
-client.unfocused #333333 #333333 #888888 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
