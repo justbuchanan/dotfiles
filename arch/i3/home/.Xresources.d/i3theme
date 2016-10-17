@@ -1,19 +1,15 @@
-
-! Arch Linux theme for i3 - values borrowed from:
-! https://github.com/acrisci/i3-style/blob/master/themes/archlinux
-
+! Debian theme by lasers
+! Converted from i3-style yaml theme file to xresources
+!
 !                                    BORDER      BACKGROUND  TEXT        INDICATOR
-i3wm.window_colors.focused:          #0088CC     #0088CC     #ffffff     #dddddd
-i3wm.window_colors.focused_inactive: #333333     #333333     #888888     #292d2e
-i3wm.window_colors.unfocused:        #333333     #333333     #888888     #292d2e
-i3wm.window_colors.urgent:           #2f343a     #900000     #ffffff     #900000
-
-i3wm.bar_colors.separator:           #666666
+i3wm.window_colors.focused:          #d70a53     #d70a53     #ffffff     #8c0333
+i3wm.window_colors.focused_inactive: #333333     #333333     #888888     #333333
+i3wm.window_colors.unfocused:        #333333     #333333     #888888     #333333
+i3wm.window_colors.urgent:           #eb709b     #eb709b     #ffffff     #eb709b
+i3wm.bar_colors.focused_workspace:   #d70a53     #d70a53     #ffffff
+i3wm.bar_colors.active_workspace:    #333333     #333333     #888888
+i3wm.bar_colors.inactive_workspace:  #333333     #333333     #888888
+i3wm.bar_colors.urgent_workspace:    #eb709b     #eb709b     #ffffff
+i3wm.bar_colors.separator:           #444444
 i3wm.bar_colors.background:          #222222
-i3wm.bar_colors.statusline:          #dddddd
-
-!                                    BORDER      BACKGROUND     TEXT
-i3wm.bar_colors.focused_workspace:   #0088CC     #0088CC        #ffffff
-i3wm.bar_colors.active_workspace:    #333333     #333333        #ffffff
-i3wm.bar_colors.inactive_workspace:  #333333     #333333        #888888
-i3wm.bar_colors.urgent_workspace:    #2f343a     #900000        #ffffff
+i3wm.bar_colors.statusline:          #666666
