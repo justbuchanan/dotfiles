@@ -1,13 +1,16 @@
 
+! Rofi Config
+! Partially borrowed from: https://www.reddit.com/r/unixporn/comments/4f8fbq/compiz_rofi_with_compiz_blur/
+
 ! Fuzzy search
 rofi.fuzzy: true
-rofi.width: 800
+rofi.width: 1920
 rofi.location: 0
 rofi.lines: 19
 rofi.bw: 0
-rofi.padding: 50
+rofi.padding: 420
 rofi.separator-style: none
-rofi.opacity: 20
+rofi.opacity: 80
 
 !                    bg       fg      altbg    hlbg     hlfg
 rofi.color-normal: #313437, #ffffff, #1d2021, #3399ff, #ffffff

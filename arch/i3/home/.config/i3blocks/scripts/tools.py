@@ -22,7 +22,7 @@ URGENT_COLOR = xresources_value(x, 'i3wm.bar_colors.urgent_workspace')[1]
 # TODO: pull graph colors from xresources theme
 GRAPH_COLOR = '#4C4C4C'
 GRAPH_BACKGROUND_COLOR = '#ababab'
-
+ 
 
 def run(args=[]):
     proc = subprocess.Popen(args, stdout=subprocess.PIPE)
