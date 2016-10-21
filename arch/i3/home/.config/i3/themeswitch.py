@@ -41,9 +41,22 @@ if __name__ == '__main__':
         exit(0)
 
     if choice in local_themes:
-        choice = os.path.expanduser('~/.config/i3/%s-i3style.yml' % choice)
+        theme_path = os.path.expanduser('~/.config/i3/%s-i3style.yml' % choice)
+    else:
+        theme_path = os.path.expanduser('~/.config/i3/themes/%s' % choice)
 
-    i3_config_path = os.path.expanduser('~/.config/i3/config')
-    cmd = ['i3-style', '-o', i3_config_path, '--reload', choice]
+    cmd = [os.path.join(os.path.dirname(__file__), 'i3style2xresources.py'), theme_path]
     print(' '.join(cmd))
-    proc.check_call(cmd, stdout=proc.DEVNULL)
+    xresources_theme = proc.check_output(cmd)
+
+    output_path = os.path.expanduser('~/.Xresources.d/i3theme')
+
+    with open(output_path, 'w') as f:
+        f.write(xresources_theme.decode('utf-8'))
+
+    print('wrote theme to %s' % output_path)
+
+    print("Reloading xresources...")
+    proc.check_call(['xrdb', os.path.expanduser('~/.Xresources')])
+    print("Reloading i3...")
+    proc.check_call(['i3-msg', 'reload'])
