@@ -16,7 +16,7 @@ interval=persist
 [volume]
 command=$SCRIPT_DIR/scripts/volume.py
 min_width="  100%"
-interval=2
+interval=persist
 
 [separator]
 
