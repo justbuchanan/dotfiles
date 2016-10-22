@@ -4,9 +4,6 @@
 [submodule "arch/i3/home/.config/i3/autoname-workspace"]
 	path = arch/i3/home/.config/i3/autoname-workspace
 	url = https://gist.github.com/justbuchanan/70fdae0d5182f6039aa8383c06a3f4ad
-[submodule "common/home/.config/zsh/z"]
-	path = common/zsh/z
-	url = https://github.com/rupa/z
 [submodule "arch/i3/home/.config/i3/i3-new-workspace"]
 	path = arch/i3/home/.config/i3/i3-new-workspace
 	url = https://github.com/justbuchanan/i3-new-workspace

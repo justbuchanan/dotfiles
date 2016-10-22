@@ -11,6 +11,7 @@ antigen theme ~/.config/zsh/ justin
 antigen bundle git
 antigen bundle pip
 antigen bundle python
+antigen bundle rupa/z
 
 if [[ `uname` == 'Linux' ]]; then
     antigen bundle systemd
@@ -24,9 +25,6 @@ antigen apply
 # import local zsh customizations, if present
 zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
-
-# z
-source ~/.config/zsh/z/z.sh
 
 # some cd shortcuts
 alias ..='cd ..'
