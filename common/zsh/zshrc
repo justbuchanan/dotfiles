@@ -26,11 +26,6 @@ antigen apply
 zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
-# some cd shortcuts
-alias ..='cd ..'
-alias cD='cd ~/src/justin/dotfiles'
-alias cS='cd ~/src/'
-
 # Allow VIM-like shortcuts at the command line
 bindkey -v
 bindkey jj vi-cmd-mode

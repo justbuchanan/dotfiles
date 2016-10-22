@@ -10,3 +10,8 @@ alias subp='subl --project *.sublime-project'
 # shortcuts
 alias q='exit'
 alias please='sudo'
+
+# some cd shortcuts
+alias ..='cd ..'
+alias cD='cd ~/src/justin/dotfiles'
+alias cS='cd ~/src/'
