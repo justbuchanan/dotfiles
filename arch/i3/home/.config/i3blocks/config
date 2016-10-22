@@ -5,17 +5,9 @@ separator_block_width=20
 markup=pango
 
 
-[music icon]
-command=$SCRIPT_DIR/scripts/icon.py
-instance=
-interval=once
-
-[mediaplayer]
-command=$SCRIPT_DIR/i3blocks-contrib/mediaplayer/mediaplayer
-interval=5
-instance=spotify
-signal=10
-markup=pango
+[music]
+command=$SCRIPT_DIR/scripts/music.py
+interval=persist
 
 
 [separator]

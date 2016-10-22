@@ -20,6 +20,7 @@ syspkg({'arch': [
 pip3('psutil')  # needed for some system status bar items
 pip3('pyalsaaudio') # needed for volume item in status bar
 pip3('wifi') # needed for wifi item in status bar
+pip3('fontawesome') # needed for wifi item in status bar
 
 base = os.path.join(os.path.dirname(os.path.realpath(__file__)), "home")
 symlink_home(base, '.config/i3blocks')
