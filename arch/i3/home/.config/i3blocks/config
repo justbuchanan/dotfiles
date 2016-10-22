@@ -49,7 +49,7 @@ interval=5
 
 [wifi]
 instance=wlp10s0
-command=$SCRIPT_DIR/scripts/wifi.py
+command=$SCRIPT_DIR/scripts/wifi_item.py
 interval=2
 
 [separator]
