@@ -15,6 +15,9 @@ syspkg({'arch': [
 
     # used to set the desktop background image
     'feh',
+
+    # transparency and other fanciness
+    'compton',
 ]})
 
 pip3('psutil')  # needed for some system status bar items

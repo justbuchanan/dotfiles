@@ -225,3 +225,6 @@ for_window [class="^.*"] border pixel 3
 
 # set desktop background
 exec_always feh --bg-fill ~/.config/desktop-background.jpeg
+
+# The compton compositor allows for transparency and other nifty graphics
+exec_always compton&
