@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from tools import *
+import fontawesome as fa
 import alsaaudio
 import subprocess
 import os
@@ -21,11 +22,11 @@ def emit():
 
     # TODO: pull these from fontawesome
     if muted:
-        ic = icon('')
+        ic = icon(fa.icons['volume-off'])
     elif pct < 30:
-        ic = icon('')
+        ic = icon(fa.icons['volume-down'])
     else:
-        ic = icon('')
+        ic = icon(fa.icons['volume-up'])
 
     print("%s %d%%" % (ic, int(pct)))
     sys.stdout.flush()
