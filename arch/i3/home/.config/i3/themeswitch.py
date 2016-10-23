@@ -3,6 +3,8 @@
 import subprocess as proc
 import os
 
+I3_STYLE_DIR = '/usr/lib/node_modules/i3-style/themes'
+
 builtin_themes = [
     'archlinux',
     'base16-tomorrow',
@@ -43,9 +45,9 @@ if __name__ == '__main__':
     if choice in local_themes:
         theme_path = os.path.expanduser('~/.config/i3/%s-i3style.yml' % choice)
     else:
-        theme_path = os.path.expanduser('~/.config/i3/themes/%s' % choice)
+        theme_path = os.path.join(I3_STYLE_DIR, choice)
 
-    cmd = [os.path.join(os.path.dirname(__file__), 'i3style2xresources.py'), theme_path]
+    cmd = [os.path.join(os.path.dirname(__file__), 'i3style2xresources/i3style2xresources.py'), theme_path]
     print(' '.join(cmd))
     xresources_theme = proc.check_output(cmd)
 
