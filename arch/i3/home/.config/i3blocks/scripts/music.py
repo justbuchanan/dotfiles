@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+## Volume script for i3blocks
+#
+# This script uses playerctl to update whenever the current song changes, rather
+# than polling at a fixed interval.
+#
 # Dependencies:
 # * python-gobject - system package
 # * playerctl - system package
