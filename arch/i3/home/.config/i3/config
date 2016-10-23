@@ -135,6 +135,9 @@ bindsym $mod+bracketright workspace next
 # new workspace
 bindsym $mod+n exec ~/.config/i3/i3-new-workspace/i3-new-workspace
 
+# create new workspace and move focused window there
+# bindsym $mod+Shift+n exec~/.config/i3/i3-new-workspace/i3-new-workspace && i3-msg move container to workspace 1 # TODO
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2

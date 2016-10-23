@@ -22,18 +22,27 @@ import fontawesome as fa
 artist = None
 title = None
 
+prev_status = None
+
 def print_status():
+    global artist, title, prev_status
     if artist and title:
-        print(icon(fa.icons['music']) + ' ' + artist + ' - ' + title)
+        status = icon(fa.icons['music']) + ' ' + artist + ' - ' + title
+    else:
+        status = ''
+
+    if status != prev_status:
+        print(status)
         sys.stdout.flush()
+        prev_status = status
 
 def on_metadata(player, e):
     global artist
     global title
-    if 'xesam:artist' in e.keys():
-        artist = e['xesam:artist'][0]
-    if 'xesam:title' in e.keys():
-        title = e['xesam:title']
+    try:
+        artist, title = e['xesam:artist'][0], e['xesam:title']
+    except (IndexError, KeyError) as e:
+        artist, title = None, None
     print_status()
 
 def on_play(player):
@@ -42,6 +51,10 @@ def on_play(player):
 def on_pause(player):
     print_status()
 
+def on_quit(player):
+    global artist, title
+    artist, title = None, None
+    print_status()
 
 main = GLib.MainLoop()
 
@@ -50,9 +63,10 @@ while True:
         # note: this will fail if no player is currently running. This is fine -
         # we catch the exception, then try to connect again later.
         player = Playerctl.Player()
-        player.on('play', on_play)
-        player.on('pause', on_pause)
+        # player.on('play', on_play)
+        # player.on('pause', on_pause)
         player.on('metadata', on_metadata)  
+        player.on('exit', on_quit)
 
         artist = player.get_artist()
         title = player.get_title()
