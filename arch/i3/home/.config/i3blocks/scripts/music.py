@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 # Dependencies:
-# * 'python-gobject' - system package
+# * python-gobject - system package
+# * playerctl - system package
 
 import gi
 gi.require_version('Playerctl', '1.0')
@@ -37,12 +38,12 @@ def on_pause(player):
     print_status()
 
 
-
-# wait for events
 main = GLib.MainLoop()
 
 while True:
     try:
+        # note: this will fail if no player is currently running. This is fine -
+        # we catch the exception, then try to connect again later.
         player = Playerctl.Player()
         player.on('play', on_play)
         player.on('pause', on_pause)
