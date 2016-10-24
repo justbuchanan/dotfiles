@@ -3,11 +3,11 @@ align=center
 separator=false
 separator_block_width=20
 markup=pango
+interval=persist
 
 
 [music]
 command=$SCRIPT_DIR/scripts/music.py
-interval=persist
 
 
 [separator]
@@ -16,19 +16,16 @@ interval=persist
 [volume]
 command=$SCRIPT_DIR/scripts/volume.py
 min_width="  100%"
-interval=persist
 
 [separator]
 
 [memory]
 command=$SCRIPT_DIR/scripts/memory.py
-interval=persist
 
 [separator]
 
 [cpu]
 command=$SCRIPT_DIR/scripts/multicore.py
-interval=persist
 
 [separator]
 
@@ -41,12 +38,10 @@ interval=5
 [wifi]
 instance=wlp10s0
 command=$SCRIPT_DIR/scripts/wifi_item.py
-interval=persist
 
 [separator]
 
 [date]
 command=$SCRIPT_DIR/scripts/now.py
-interval=persist
 
 [separator]
