@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
-from tools import *
+import tools
 import psutil
 import time
 import fontawesome as fa
 import sys
+import signal
 
 INTERVAL = 0.2
 
@@ -17,11 +18,13 @@ def graph(values):
     indices = [int(v * (len(chars) - 1)) for v in values]
     return ''.join([chars[i] for i in indices])
 
+# reload colors when signalled
+signal.signal(signal.SIGRTMIN + 1, lambda: tools.reload_xresources())
 
-ic = icon(fa.icons['microchip'])
+ic = tools.icon(fa.icons['microchip'])
 while True:
     pcts = [core / 100.0 for core in psutil.cpu_percent(percpu=True)]
-    g = pango(graph(pcts), GRAPH_COLOR, 'small')
+    g = tools.pango(graph(pcts), tools.GRAPH_COLOR, 'small')
     print("%s %s" % (ic, g))
     sys.stdout.flush()
     time.sleep(INTERVAL)

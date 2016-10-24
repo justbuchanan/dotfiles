@@ -4,6 +4,10 @@
 import subprocess
 import re
 
+ICON_COLOR = 'blue'
+URGENT_COLOR = 'red'
+GRAPH_COLOR = 'green'
+GRAPH_BACKGROUND_COLOR = 'black'
 
 # Given the output from xrdb, returns the value(s) for the given property
 def xresources_value(xresources_out, propname):
@@ -12,16 +16,20 @@ def xresources_value(xresources_out, propname):
     if ' ' in result:
         return result.split(' ')
 
-# Query xresources for all values
-x = subprocess.check_output(['xrdb', '-query']).decode('utf-8')
+def reload_xresources():
+    global ICON_COLOR, URGENT_COLOR, GRAPH_COLOR, GRAPH_BACKGROUND_COLOR
 
-# Pull colors from xresources values
-ICON_COLOR = xresources_value(x, 'i3wm.bar_colors.focused_workspace')[1]
-URGENT_COLOR = xresources_value(x, 'i3wm.bar_colors.urgent_workspace')[1]
+    # Query xresources for all values
+    x = subprocess.check_output(['xrdb', '-query']).decode('utf-8')
 
-# TODO: pull graph colors from xresources theme
-GRAPH_COLOR = '#4C4C4C'
-GRAPH_BACKGROUND_COLOR = '#ababab'
+    # Pull colors from xresources values
+    ICON_COLOR = xresources_value(x, 'i3wm.bar_colors.focused_workspace')[1]
+    URGENT_COLOR = xresources_value(x, 'i3wm.bar_colors.urgent_workspace')[1]
+    # TODO: pull graph colors from xresources theme
+    GRAPH_COLOR = '#4C4C4C'
+    GRAPH_BACKGROUND_COLOR = '#ababab'
+
+reload_xresources()
 
 
 def pango(text, color, size=None):
