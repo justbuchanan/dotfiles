@@ -14,7 +14,7 @@ bindsym F5 exec urxvt -cd ~/src -e ranger
 bindsym F9 exec urxvt -e htop
 bindsym F10 exec urxvt -hold -e sudo pacman -Syu
 # bindsym F11 exec urxvt -e ranger ~/src/justin/dotfiles
-bindsym F11 exec ~/.config/i3/themeswitch.py
+bindsym F11 exec ~/.config/i3/themeswitch.py --rofi
 bindsym F12 exec ~/.config/i3/custom-keyboard/reboot.py
 
 bindsym Print exec ~/.config/i3/scrot.sh
