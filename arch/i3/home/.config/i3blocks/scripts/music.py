@@ -13,7 +13,7 @@ import gi
 gi.require_version('Playerctl', '1.0')
 from gi.repository import Playerctl, GLib
 
-from tools import *
+import tools
 import sys
 import time
 import fontawesome as fa
@@ -27,7 +27,7 @@ prev_status = None
 def print_status():
     global artist, title, prev_status
     if artist and title:
-        status = icon(fa.icons['music']) + ' ' + artist + ' - ' + title
+        status = tools.icon(fa.icons['music']) + ' ' + artist + ' - ' + title
     else:
         status = ''
 
@@ -57,6 +57,8 @@ def on_quit(player):
     print_status()
 
 main = GLib.MainLoop()
+
+tools.autoreload_xresources_with_callback(print_status)
 
 while True:
     try:

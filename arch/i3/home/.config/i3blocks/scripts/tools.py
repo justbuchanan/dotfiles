@@ -31,6 +31,23 @@ def reload_xresources():
 
 reload_xresources()
 
+# Registers a listener for i3's 'barconfig_update' event
+# When received, it reloads xresources and calls an optional callback
+def autoreload_xresources_with_callback(cbk=None):
+    # reload colors when signalled
+    def barconfig_update(i3, e):
+        reload_xresources()
+        if cbk:
+            cbk()
+
+    import i3ipc
+    i3 = i3ipc.Connection()
+    i3.on('barconfig_update', barconfig_update)
+
+    import threading
+    t = threading.Thread(target=lambda: i3.main())
+    t.start()
+
 
 def pango(text, color, size=None):
     params = {'foreground': color}
@@ -40,7 +57,7 @@ def pango(text, color, size=None):
 
 
 ## @param frac value from 0-1
-def bar(frac=0.5, color=GRAPH_COLOR):
+def bar(frac):
     square = "■"
     total_squares = 5
     filled = int(round(frac * total_squares))
@@ -48,5 +65,5 @@ def bar(frac=0.5, color=GRAPH_COLOR):
         total_squares - filled), GRAPH_BACKGROUND_COLOR)
 
 
-def icon(font_awesome, color=ICON_COLOR):
-    return pango(font_awesome, color, 'large')
+def icon(font_awesome):
+    return pango(font_awesome, ICON_COLOR, 'large')

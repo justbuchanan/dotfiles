@@ -22,7 +22,7 @@ interval=persist
 
 [memory]
 command=$SCRIPT_DIR/scripts/memory.py
-interval=20
+interval=persist
 
 [separator]
 
@@ -41,12 +41,12 @@ interval=5
 [wifi]
 instance=wlp10s0
 command=$SCRIPT_DIR/scripts/wifi_item.py
-interval=2
+interval=persist
 
 [separator]
 
 [date]
 command=$SCRIPT_DIR/scripts/now.py
-interval=20
+interval=persist
 
 [separator]
