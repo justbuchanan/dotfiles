@@ -3,6 +3,13 @@
 import subprocess as proc
 import os
 
+"""
+Presents a menu (via rofi) to select a new i3 theme. When a selection is made,
+the them is converted from i3-style yml format to xresources and saved to
+~/.Xresources/i3style.  Xresources are then updated via xrdb and i3 is reloaded
+for the changes to take effect.
+"""
+
 I3_STYLE_DIR = '/usr/lib/node_modules/i3-style/themes'
 
 builtin_themes = [
