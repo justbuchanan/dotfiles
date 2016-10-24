@@ -16,8 +16,8 @@ LOCAL_THEME_DIR = os.path.expanduser('~/.config/i3/themes')
 OUTPUT_PATH = os.path.expanduser('~/.Xresources.d/i3theme')
 
 # detect themes in local and i3-style directories
-builtin_themes = os.listdir(I3_STYLE_DIR)
-local_themes = os.listdir(LOCAL_THEME_DIR)
+builtin_themes = sorted(os.listdir(I3_STYLE_DIR))
+local_themes = sorted(os.listdir(LOCAL_THEME_DIR))
 
 
 def rofi_choose(items):
