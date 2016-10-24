@@ -27,9 +27,8 @@ interval=20
 [separator]
 
 [cpu]
-command=$SCRIPT_DIR/scripts/cpu.py
-min_width="0 xxxxx 100%"
-interval=1
+command=$SCRIPT_DIR/scripts/multicore.py
+interval=persist
 
 [separator]
 
