@@ -18,7 +18,8 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           false
-URxvt.font: xft:DejaVu Sans Mono for Powerline:style=Book
+URxvt.font: xft:DejaVuSansMonoForPowerline Nerd Font:style=Book
+
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
