@@ -72,6 +72,10 @@ def pip3(pkgname):
 def apm(pkgname):
     proc.check_call(['apm', 'install', pkgname], stdout=proc.DEVNULL)
 
+def npm(pkgname):
+    syspkg({'arch': ['npm']})
+    proc.check_call(['npm', 'install', '-g', pkgname], stdout=proc.DEVNULL)
+
 
 def syspkg(pkgmap):
     if 'arch' in pkgmap:
