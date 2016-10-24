@@ -11,28 +11,13 @@ for the changes to take effect.
 """
 
 I3_STYLE_DIR = '/usr/lib/node_modules/i3-style/themes'
+LOCAL_THEME_DIR = os.path.expanduser('~/.config/i3/themes')
 
-builtin_themes = [
-    'archlinux',
-    'base16-tomorrow',
-    'debian',
-    'deep-purple',
-    'default',
-    'flat-gray',
-    'gruvbox',
-    'lime',
-    'okraits',
-    'purple',
-    'seti',
-    'slate',
-    'solarized',
-    'tomorrow-night-80s',
-    'ubuntu',
-]
+OUTPUT_PATH = os.path.expanduser('~/.Xresources.d/i3theme')
 
-local_themes = [
-    'google'
-]
+# detect themes in local and i3-style directories
+builtin_themes = os.listdir(I3_STYLE_DIR)
+local_themes = os.listdir(LOCAL_THEME_DIR)
 
 
 def rofi_choose(items):
@@ -50,7 +35,7 @@ if __name__ == '__main__':
         exit(0)
 
     if choice in local_themes:
-        theme_path = os.path.expanduser('~/.config/i3/%s.yml' % choice)
+        theme_path = os.path.join(LOCAL_THEME_DIR, choice)
     else:
         theme_path = os.path.join(I3_STYLE_DIR, choice)
 
@@ -58,12 +43,10 @@ if __name__ == '__main__':
     print(' '.join(cmd))
     xresources_theme = proc.check_output(cmd)
 
-    output_path = os.path.expanduser('~/.Xresources.d/i3theme')
-
-    with open(output_path, 'w') as f:
+    with open(OUTPUT_PATH, 'w') as f:
         f.write(xresources_theme.decode('utf-8'))
 
-    print('wrote theme to %s' % output_path)
+    print('wrote theme to %s' % OUTPUT_PATH)
 
     print("Reloading xresources...")
     proc.check_call(['xrdb', os.path.expanduser('~/.Xresources')])
