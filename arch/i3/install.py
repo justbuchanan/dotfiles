@@ -2,7 +2,7 @@ import os
 from install.utils import *
 
 syspkg({'arch': [
-    'i3-gaps-git',
+    'i3-gaps-next-git',
     'i3blocks-gaps-git',
     'i3lock-blur',
     'xautolock',
