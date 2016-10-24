@@ -43,7 +43,7 @@ if __name__ == '__main__':
         exit(0)
 
     if choice in local_themes:
-        theme_path = os.path.expanduser('~/.config/i3/%s-i3style.yml' % choice)
+        theme_path = os.path.expanduser('~/.config/i3/%s.yml' % choice)
     else:
         theme_path = os.path.join(I3_STYLE_DIR, choice)
 
