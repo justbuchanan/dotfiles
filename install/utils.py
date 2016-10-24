@@ -74,7 +74,7 @@ def apm(pkgname):
 
 def npm(pkgname):
     syspkg({'arch': ['npm']})
-    proc.check_call(['npm', 'install', '-g', pkgname], stdout=proc.DEVNULL)
+    proc.check_call(['sudo', 'npm', 'install', '-g', pkgname], stdout=proc.DEVNULL)
 
 
 def syspkg(pkgmap):

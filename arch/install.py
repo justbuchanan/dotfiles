@@ -23,7 +23,7 @@ sys.path.append(os.path.dirname(__file__))
 
 import cmdline.install
 import yubikey.install
-import wifi.install
+from .wifi import install
 
 if True:
     from .i3 import install
