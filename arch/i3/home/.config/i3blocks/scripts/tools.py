@@ -56,12 +56,16 @@ def autoreload_xresources_with_callback(cbk=None):
     t.start()
 
 
-def pango(text, color, bg_color=None, size=None):
-    params = {'foreground': color}
-    if bg_color:
-        params['bgcolor'] = bg_color
-    if size != None: params['font_size'] = size
-    p = " ".join("%s='%s'" % (k, v) for k, v in params.items())
+def pango(text, **kwargs):
+    p = " ".join("%s='%s'" % (k, v) for k, v in kwargs.items())
+    for k in kwargs.keys():
+        # This list can be expanded to include other valid attributes. These are
+        # just the ones that my bar scripts use and it helps to have a check in
+        # place in case I mess it up.  If an invalid attribute is used without
+        # this check, nothing gets shown in i3bar and it's hard to track down
+        # where the error is.
+        if k not in ['font_size', 'foreground', 'background']:
+            raise RuntimeError("Unknown pango attribute: '%s'" % k)
     return "<span %s>%s</span>" % (p, text)
 
 
@@ -70,9 +74,9 @@ def bar(frac):
     square = "■"
     total_squares = 5
     filled = int(round(frac * total_squares))
-    return pango(square * filled, GRAPH_COLOR) + pango(square * (
-        total_squares - filled), GRAPH_BACKGROUND_COLOR)
+    return pango(square * filled, foreground=GRAPH_COLOR) + pango(square * (
+        total_squares - filled), foreground=GRAPH_BACKGROUND_COLOR)
 
 
 def icon(font_awesome):
-    return pango(font_awesome, color=ICON_COLOR, size='large')
+    return pango(font_awesome, foreground=ICON_COLOR, font_size='large')

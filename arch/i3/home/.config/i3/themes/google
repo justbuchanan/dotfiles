@@ -18,7 +18,7 @@ bar_colors:
   statusline: black
   icon: blue
   graph:
-    border: green # foreground
+    border: dgrey # foreground
     background: lgrey
   focused_workspace:
     border: blue

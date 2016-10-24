@@ -23,7 +23,9 @@ def update():
     ic = tools.icon(fa.icons['tachometer'])
 
     pcts = [core / 100.0 for core in psutil.cpu_percent(percpu=True)]
-    g = tools.pango(graph(pcts), color=tools.GRAPH_COLOR, bg_color=tools.GRAPH_BACKGROUND_COLOR, size='small')
+    g = tools.pango(graph(pcts), foreground=tools.GRAPH_COLOR,
+        background=tools.GRAPH_BACKGROUND_COLOR,
+        font_size='small')
     print("%s %s" % (ic, g))
     sys.stdout.flush()
 
