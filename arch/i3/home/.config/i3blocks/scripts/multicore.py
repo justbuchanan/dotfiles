@@ -15,7 +15,7 @@ INTERVAL = 0.1
 def graph(values):
     chars = '▁▂▃▄▅▆▇█'
 
-    indices = [int(v * (len(chars) - 1)) for v in values]
+    indices = [round(v * (len(chars) - 1)) for v in values]
     return ''.join([chars[i] for i in indices])
 
 # read per-core cpu usage and print a graph of it
