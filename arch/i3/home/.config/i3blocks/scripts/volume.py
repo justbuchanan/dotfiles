@@ -22,11 +22,11 @@ def update():
 
     # TODO: pull these from fontawesome
     if muted:
-        ic = icon(fa.icons['volume-off'])
+        ic = tools.icon(fa.icons['volume-off'])
     elif pct < 30:
-        ic = icon(fa.icons['volume-down'])
+        ic = tools.icon(fa.icons['volume-down'])
     else:
-        ic = icon(fa.icons['volume-up'])
+        ic = tools.icon(fa.icons['volume-up'])
 
     print("%s %d%%" % (ic, int(pct)))
     sys.stdout.flush()
