@@ -4,11 +4,12 @@ import tools
 import psutil
 import sys
 import time
+import fontawesome as fa
 
 def update():
     vmem = psutil.virtual_memory()
 
-    ic = tools.icon('')
+    ic = tools.icon(fa.icons['microchip'])
     g = tools.bar(vmem.percent / 100.0)
 
     used = vmem.used / 10**9

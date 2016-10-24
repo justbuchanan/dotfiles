@@ -11,11 +11,15 @@ GRAPH_COLOR = 'green'
 GRAPH_BACKGROUND_COLOR = 'black'
 
 # Given the output from xrdb, returns the value(s) for the given property
+# @return list of color value strings
 def xresources_value(xresources_out, propname):
     match = re.search('%s:(.+)' % re.escape(propname), xresources_out)
     result = match.group(1).strip()
     if ' ' in result:
-        return result.split(' ')
+        result = result.split(' ')
+    else:
+        result = [result]
+    return result
 
 def reload_xresources():
     global ICON_COLOR, URGENT_COLOR, GRAPH_COLOR, GRAPH_BACKGROUND_COLOR
@@ -25,10 +29,10 @@ def reload_xresources():
 
     try:
         # Pull colors from xresources values
-        ICON_COLOR = xresources_value(x, 'i3wm.bar_colors.focused_workspace')[1]
+        ICON_COLOR = xresources_value(x, 'i3wm.bar_colors.icon')[0]
         URGENT_COLOR = xresources_value(x, 'i3wm.bar_colors.urgent_workspace')[1]
-        GRAPH_COLOR = xresources_value(x, 'i3wm.bar_colors.inactive_workspace')[2]
-        GRAPH_BACKGROUND_COLOR = xresources_value(x, 'i3wm.bar_colors.inactive_workspace')[1]
+        GRAPH_COLOR = xresources_value(x, 'i3wm.bar_colors.graph')[0]
+        GRAPH_BACKGROUND_COLOR = xresources_value(x, 'i3wm.bar_colors.graph')[1]
     except Exception as e:
         print('Error reloading xresources: %s' % str(e), file=sys.stderr)
 
