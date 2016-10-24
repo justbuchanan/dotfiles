@@ -23,7 +23,7 @@ def update():
     ic = tools.icon(fa.icons['microchip'])
 
     pcts = [core / 100.0 for core in psutil.cpu_percent(percpu=True)]
-    g = tools.pango(graph(pcts), tools.GRAPH_COLOR, 'small')
+    g = tools.pango(graph(pcts), color=tools.GRAPH_COLOR, bg_color=tools.GRAPH_BACKGROUND_COLOR, size='small')
     print("%s %s" % (ic, g))
     sys.stdout.flush()
 

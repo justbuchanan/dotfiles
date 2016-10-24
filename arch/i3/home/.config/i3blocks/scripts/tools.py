@@ -3,6 +3,7 @@
 
 import subprocess
 import re
+import sys
 
 ICON_COLOR = 'blue'
 URGENT_COLOR = 'red'
@@ -22,19 +23,21 @@ def reload_xresources():
     # Query xresources for all values
     x = subprocess.check_output(['xrdb', '-query']).decode('utf-8')
 
-    # Pull colors from xresources values
-    ICON_COLOR = xresources_value(x, 'i3wm.bar_colors.focused_workspace')[1]
-    URGENT_COLOR = xresources_value(x, 'i3wm.bar_colors.urgent_workspace')[1]
-    # TODO: pull graph colors from xresources theme
-    GRAPH_COLOR = '#4C4C4C'
-    GRAPH_BACKGROUND_COLOR = '#ababab'
+    try:
+        # Pull colors from xresources values
+        ICON_COLOR = xresources_value(x, 'i3wm.bar_colors.focused_workspace')[1]
+        URGENT_COLOR = xresources_value(x, 'i3wm.bar_colors.urgent_workspace')[1]
+        GRAPH_COLOR = xresources_value(x, 'i3wm.bar_colors.inactive_workspace')[2]
+        GRAPH_BACKGROUND_COLOR = xresources_value(x, 'i3wm.bar_colors.inactive_workspace')[1]
+    except Exception as e:
+        print('Error reloading xresources: %s' % str(e), file=sys.stderr)
 
 reload_xresources()
 
 # Registers a listener for i3's 'barconfig_update' event
 # When received, it reloads xresources and calls an optional callback
 def autoreload_xresources_with_callback(cbk=None):
-    # reload colors when signalled
+    # reload colors when signaled
     def barconfig_update(i3, e):
         reload_xresources()
         if cbk:
@@ -49,8 +52,10 @@ def autoreload_xresources_with_callback(cbk=None):
     t.start()
 
 
-def pango(text, color, size=None):
+def pango(text, color, bg_color=None, size=None):
     params = {'foreground': color}
+    if bg_color:
+        params['bgcolor'] = bg_color
     if size != None: params['font_size'] = size
     p = " ".join("%s='%s'" % (k, v) for k, v in params.items())
     return "<span %s>%s</span>" % (p, text)
@@ -66,4 +71,4 @@ def bar(frac):
 
 
 def icon(font_awesome):
-    return pango(font_awesome, ICON_COLOR, 'large')
+    return pango(font_awesome, color=ICON_COLOR, size='large')
