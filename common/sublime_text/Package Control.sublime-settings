@@ -43,5 +43,9 @@
 		"udev rules",
 		"Verilog",
 		"Wrap Plus"
+	],
+	"repositories":
+	[
+		"https://github.com/danielmagnussons/orgmode"
 	]
 }
