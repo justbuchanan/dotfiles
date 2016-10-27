@@ -65,8 +65,8 @@ while True:
         # note: this will fail if no player is currently running. This is fine -
         # we catch the exception, then try to connect again later.
         player = Playerctl.Player()
-        # player.on('play', on_play)
-        # player.on('pause', on_pause)
+        if player.get_property('player-name') == None:
+            continue
         player.on('metadata', on_metadata)  
         player.on('exit', on_quit)
 
