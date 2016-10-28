@@ -24,8 +24,11 @@ font pango:DejaVu Sans Mono 10
 
 # small gaps make it easier to see the boundaries between windows
 # and let your desktop background shine through a bit
-gaps inner 3
-gaps outer 3
+gaps inner 10
+gaps outer 10
+
+bindsym $mod+g gaps inner current plus 10; gaps outer current plus 10
+bindsym $mod+Shift+g gaps inner current minus 10; gaps outer current minus 10
 
 # media keys
 # be sure to install playerctl: https://github.com/acrisci/playerctl
