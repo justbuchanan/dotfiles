@@ -1,9 +1,0 @@
-* auto-generate theme from image
-* make it simple to do from the terminal or a "gui"
-  * "sdfas"
-
-# todos
-
-[ ] hi
-[ ]
- 
