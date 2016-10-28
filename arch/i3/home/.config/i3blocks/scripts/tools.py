@@ -9,6 +9,7 @@ ICON_COLOR = 'blue'
 URGENT_COLOR = 'red'
 GRAPH_COLOR = 'green'
 GRAPH_BACKGROUND_COLOR = 'black'
+BAR_BACKGROUND_COLOR = 'black'
 
 # Given the output from xrdb, returns the value(s) for the given property
 # @return list of color value strings
@@ -22,7 +23,7 @@ def xresources_value(xresources_out, propname):
     return result
 
 def reload_xresources():
-    global ICON_COLOR, URGENT_COLOR, GRAPH_COLOR, GRAPH_BACKGROUND_COLOR
+    global ICON_COLOR, URGENT_COLOR, GRAPH_COLOR, GRAPH_BACKGROUND_COLOR, BAR_BACKGROUND_COLOR
 
     # Query xresources for all values
     x = subprocess.check_output(['xrdb', '-query']).decode('utf-8')
@@ -33,9 +34,10 @@ def reload_xresources():
         URGENT_COLOR = xresources_value(x, 'i3wm.bar_colors.urgent_workspace')[1]
         GRAPH_COLOR = xresources_value(x, 'i3wm.bar_colors.graph')[0]
         GRAPH_BACKGROUND_COLOR = xresources_value(x, 'i3wm.bar_colors.graph')[1]
+        BAR_BACKGROUND_COLOR = xresources_value(x, 'i3wm.bar_colors.background')[0]
     except Exception as e:
         print('Error reloading xresources: %s' % str(e), file=sys.stderr)
-
+      
 reload_xresources()
 
 # Registers a listener for i3's 'barconfig_update' event
@@ -56,6 +58,8 @@ def autoreload_xresources_with_callback(cbk=None):
     t.start()
 
 
+# Example: pango('hello', font_size='large', foreground='#ffffff)
+# -> "<span font_size=large, foreground=#ffffff>hello</span>""
 def pango(text, **kwargs):
     p = " ".join("%s='%s'" % (k, v) for k, v in kwargs.items())
     for k in kwargs.keys():
