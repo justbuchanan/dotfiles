@@ -13,7 +13,7 @@ INTERVAL = 0.1
 # draws a vertical bar graph from a list of values in the range [0, 1]
 # returns graph as a string
 def graph(values):
-    chars = '▁▂▃▄▅▆▇█'
+    chars = ' ▁▂▃▄▅▆▇█'
 
     indices = [round(v * (len(chars) - 1)) for v in values]
     return ''.join([chars[i] for i in indices])
