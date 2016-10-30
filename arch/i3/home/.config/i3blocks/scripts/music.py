@@ -17,6 +17,7 @@ import tools
 import sys
 import time
 import fontawesome as fa
+import re
 
 # current state
 artist = None
@@ -40,10 +41,14 @@ def on_metadata(player, e):
     global artist
     global title
     try:
-        artist, title = e['xesam:artist'][0], e['xesam:title']
+        artist, title = e['xesam:artist'][0], filter_title(e['xesam:title'])
     except (IndexError, KeyError) as e:
         artist, title = None, None
     print_status()
+
+def filter_title(title):
+    # remove the first '(' and anything after it
+    return re.search('(.+)\(?.*', title).group(1)
 
 def on_play(player):
     print_status()
@@ -71,7 +76,7 @@ while True:
         player.on('exit', on_quit)
 
         artist = player.get_artist()
-        title = player.get_title()
+        title = filter_title(player.get_title())
         print_status()
 
         main.run()
