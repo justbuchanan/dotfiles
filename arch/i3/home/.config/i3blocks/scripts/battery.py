@@ -29,6 +29,7 @@ icons = [
 
 i = round(pct / 25)
 
-ic = icon(icons[i], color=URGENT_COLOR if i == 0 else ICON_COLOR)
+# ic = icon(icons[i], foreground=URGENT_COLOR if i == 0 else ICON_COLOR)
+ic = icon(icons[i])
 
 print("%s %d%%" % (ic, pct))
