@@ -71,7 +71,7 @@ while True:
         # we catch the exception, then try to connect again later.
         player = Playerctl.Player()
         if player.get_property('player-name') == None:
-            continue
+            raise RuntimeError('No player available')
         player.on('metadata', on_metadata)  
         player.on('exit', on_quit)
 
@@ -81,7 +81,7 @@ while True:
 
         main.run()
     except Exception as e:
-        print(e, file=sys.stdout)
+        print(e, file=sys.stderr)
 
     # wait 5 seconds before trying again
     time.sleep(5)
