@@ -18,6 +18,7 @@ import sys
 import time
 import fontawesome as fa
 import re
+import cgi
 
 # current state
 artist = None
@@ -28,7 +29,7 @@ prev_status = None
 def print_status():
     global artist, title, prev_status
     if artist and title:
-        status = tools.icon(fa.icons['music']) + ' ' + artist + ' - ' + title
+        status = tools.icon(fa.icons['music']) + cgi.escape(' ' + artist + ' - ' + title)
     else:
         status = ''
 
