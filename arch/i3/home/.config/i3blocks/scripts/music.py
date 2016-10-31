@@ -48,7 +48,7 @@ def on_metadata(player, e):
 
 def filter_title(title):
     # remove the first '(' and anything after it
-    return re.search('(.+)\(?.*', title).group(1)
+    return re.search('([^\(]+)', title).group(0)
 
 def on_play(player):
     print_status()
