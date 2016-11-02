@@ -14,4 +14,4 @@ scrot $IMG_PATH
 convert $IMG_PATH -scale 10% -scale 1000% $IMG_PATH
 
 # Lock screen displaying this image.
-i3lock -i $IMG_PATH
+i3lock -i $IMG_PATH --ignore-empty-password
