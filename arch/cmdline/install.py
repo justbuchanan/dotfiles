@@ -30,3 +30,5 @@ syspkg({'arch': [
     # script to update arch package mirrors based on speed
     'reflector',
 ]})
+
+symlink(__file__, '.makepkg.conf', '~/.makepkg.conf')
