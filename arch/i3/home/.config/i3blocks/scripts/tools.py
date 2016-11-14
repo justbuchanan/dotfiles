@@ -82,5 +82,7 @@ def bar(frac):
         total_squares - filled), foreground=GRAPH_BACKGROUND_COLOR)
 
 
-def icon(font_awesome):
-    return pango(font_awesome, foreground=ICON_COLOR, font_size='large')
+def icon(font_awesome, foreground=None):
+    if foreground == None:
+        foreground = ICON_COLOR
+    return pango(font_awesome, foreground=foreground, font_size='large')

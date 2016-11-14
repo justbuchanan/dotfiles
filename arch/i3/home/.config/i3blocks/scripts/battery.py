@@ -4,11 +4,15 @@
 # * acpi - system package
 # * fontawesome - install with pip
 
-from tools import *
+import tools
 import fontawesome as fa
 import re
 import sys
 import subprocess as proc
+
+
+def is_charging():
+    return 'on-line' in proc.check_output(['acpi', '-a']).decode('utf-8')
 
 output = proc.check_output(['acpi', 'battery']).decode('utf-8')
 
@@ -29,7 +33,9 @@ icons = [
 
 i = round(pct / 25)
 
-# ic = icon(icons[i], foreground=URGENT_COLOR if i == 0 else ICON_COLOR)
-ic = icon(icons[i])
+if is_charging():
+    ic = tools.icon(fa.icons['bolt']) + ' ' + ic
+else:
+    ic = tools.icon(icons[i], foreground=tools.URGENT_COLOR if i == 0 else tools.ICON_COLOR)
 
 print("%s %d%%" % (ic, pct))
