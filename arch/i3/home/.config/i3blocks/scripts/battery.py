@@ -33,9 +33,12 @@ icons = [
 
 i = round(pct / 25)
 
+# urgent color if battery is very low
+foreground = tools.URGENT_COLOR if i == 0 else tools.ICON_COLOR
+
+ic = tools.icon(icons[i], foreground=foreground)
+
 if is_charging():
-    ic = tools.icon(fa.icons['bolt']) + ' ' + ic
-else:
-    ic = tools.icon(icons[i], foreground=tools.URGENT_COLOR if i == 0 else tools.ICON_COLOR)
+    ic = tools.icon(fa.icons['bolt'], foreground=foreground) + ' ' + ic
 
 print("%s %d%%" % (ic, pct))
