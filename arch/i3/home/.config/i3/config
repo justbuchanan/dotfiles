@@ -22,13 +22,13 @@ bindsym Print exec ~/.config/i3/scrot.sh
 
 font pango:DejaVu Sans Mono 10
 
-# small gaps make it easier to see the boundaries between windows
-# and let your desktop background shine through a bit
-gaps inner 10
-gaps outer 10
+# start out with no gaps
+gaps inner 0
+gaps outer 0
 
-bindsym $mod+g gaps inner current plus 10; gaps outer current plus 10
-bindsym $mod+Shift+g gaps inner current minus 10; gaps outer current minus 10
+# dynamically change gaps
+bindsym $mod+g gaps inner current plus 10
+bindsym $mod+Shift+g gaps inner current minus 10
 
 # media keys
 # be sure to install playerctl: https://github.com/acrisci/playerctl
