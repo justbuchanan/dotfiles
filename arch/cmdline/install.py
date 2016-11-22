@@ -29,6 +29,8 @@ syspkg({'arch': [
 
     # script to update arch package mirrors based on speed
     'reflector',
+
+    'traceroute',
 ]})
 
 symlink(__file__, '.makepkg.conf', '~/.makepkg.conf')
