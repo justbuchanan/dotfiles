@@ -30,6 +30,7 @@ syspkg({'arch': [
     # script to update arch package mirrors based on speed
     'reflector',
 
+    # Example: traceroute google.com
     'traceroute',
 ]})
 
