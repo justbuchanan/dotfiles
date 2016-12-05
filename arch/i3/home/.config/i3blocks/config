@@ -19,6 +19,11 @@ min_width="  100%"
 
 [separator]
 
+[packages]
+command=$SCRIPT_DIR/scripts/pacman.py
+
+[separator]
+
 [memory]
 command=$SCRIPT_DIR/scripts/memory.py
 
