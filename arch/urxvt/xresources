@@ -20,6 +20,11 @@ URxvt.lineSpace:            0
 URxvt.allow_bold:           false
 URxvt.font: xft:DejaVuSansMonoForPowerline Nerd Font:style=Book
 
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll to bottom on keypress
+URxvt*scrollTtyKeypress: true
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
