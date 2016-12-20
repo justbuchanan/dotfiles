@@ -33,7 +33,9 @@ symlink_home(base, '.config/i3blocks')
 symlink_home(base, '.config/i3')
 
 # i3wm theme is configured via xresources
-symlink_home(base, '.Xresources.d/i3theme')
+# don't symlink it b/c it's a local symlink to an actual theme file
+# if no i3theme is present, set one by using the themeswitcher script in the i3 config directory
+# symlink_home(base, '.Xresources.d/i3theme')
 
 # for workspace auto-naming script
 pip3('i3ipc')
