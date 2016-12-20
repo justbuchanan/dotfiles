@@ -35,5 +35,6 @@ if True:
     import cli_visualizer.install
     import rofi.install
     import urxvt.install
+    import printer.install
 else:
     print("No display detected, skipping installation of graphical components")
