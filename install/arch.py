@@ -11,6 +11,6 @@ def pacman_is_installed(pkgname):
 def archpkg(pkgname):
     if not pacman_is_installed(pkgname):
         print("Installing: %s" % pkgname)
-        proc.check_call(
+        run_cmd(
             ['pacaur', '-S', '--noconfirm', pkgname],
             stdout=proc.DEVNULL)

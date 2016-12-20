@@ -5,10 +5,17 @@ import errno
 import re
 from . import arch
 
+from colorama import init, Fore, Back, Style
+init()
 
 # determine if the system has a graphical interface
 def linux_is_graphical():
     return 'DISPLAY' in os.environ
+
+# run the command and print it in color to the console
+def run_cmd(args, **kwargs):
+    print(Fore.BLUE + '$ %s' % ' '.join(args) + Style.RESET_ALL)
+    proc.check_call(args, **kwargs)
 
 
 def linux_os_name():
@@ -28,7 +35,7 @@ def symlink_home(srcdir, path):
             if not os.path.islink(dst) or os.readlink(dst) != src:
                 print("symlinking: %s" % path)
                 mkdir_p(os.path.dirname(dst))
-                proc.check_call(['ln', '-sf', src, dst])
+                run_cmd(['ln', '-sf', src, dst])
         except OSError as e:
             print("Unable to link '%s'\n    %s" % (path, str(e)),
                   file=sys.stderr)
@@ -45,7 +52,7 @@ def symlink(py_file, relpath, dst):
             if not os.path.islink(absdst) or os.readlink(absdst) != src:
                 print("symlinking: %s" % dst)
                 mkdir_p(os.path.dirname(absdst))
-                proc.check_call(['ln', '-sf', src, absdst])
+                run_cmd()(['ln', '-sf', src, absdst])
         except OSError as e:
             print("Unable to link '%s'\n    %s" % (dst, str(e)),
                   file=sys.stderr)
@@ -63,18 +70,18 @@ def mkdir_p(dirpath):
             pass
 
 def pip2(pkgname):
-    proc.check_call(['sudo', 'pip2', 'install', pkgname], stdout=proc.DEVNULL)
+    run_cmd()(['sudo', 'pip2', 'install', pkgname], stdout=proc.DEVNULL)
 
 def pip3(pkgname):
-    proc.check_call(['sudo', 'pip3', 'install', pkgname], stdout=proc.DEVNULL)
+    run_cmd(['sudo', 'pip3', 'install', pkgname], stdout=proc.DEVNULL)
 
 
 def apm(pkgname):
-    proc.check_call(['apm', 'install', pkgname], stdout=proc.DEVNULL)
+    run_cmd(['apm', 'install', pkgname], stdout=proc.DEVNULL)
 
 def npm(pkgname):
     syspkg({'arch': ['npm']})
-    proc.check_call(['sudo', 'npm', 'install', '-g', pkgname], stdout=proc.DEVNULL)
+    run_cmd(['sudo', 'npm', 'install', '-g', pkgname], stdout=proc.DEVNULL)
 
 
 def syspkg(pkgmap):
