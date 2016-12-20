@@ -39,7 +39,8 @@ observer.start()
 # update on an interval
 while True:
     update()
-    time.sleep(60)
+    # check every half hour
+    time.sleep(30*60)
 
 # TODO: call these to exit gracefully on signals
 observer.stop()

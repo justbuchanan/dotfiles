@@ -5,7 +5,6 @@ import psutil
 import time
 import fontawesome as fa
 import sys
-import signal
 
 INTERVAL = 0.1
 
