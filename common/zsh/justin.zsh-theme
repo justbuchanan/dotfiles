@@ -129,37 +129,24 @@ prompt_git() {
 
 prompt_hg() {
   (( $+commands[hg] )) || return
-  local rev status
-  if $(hg id >/dev/null 2>&1); then
-    if $(hg prompt >/dev/null 2>&1); then
-      if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
-        # if files are not added
-        prompt_segment red white
-        st='±'
-      elif [[ -n $(hg prompt "{status|modified}") ]]; then
-        # if any modification
-        prompt_segment yellow black
-        st='±'
-      else
-        # if working copy is clean
-        prompt_segment green black
-      fi
-      echo -n $(hg prompt "☿ {rev}@{branch}") $st
+  local rev status commit branch st
+
+  summary="$(hg summary 2> /dev/null)"
+  if (( $? == 0)); then
+    st=""
+    rev=$(echo "$summary" | grep parent: | sed 's/parent: //g' | sed 's/:.*//g')
+    branch=$(echo "$summary" | grep branch: | sed 's/branch: //g')
+    commit=$(echo "$summary" | grep commit:)
+    if `echo $commit | grep -q "unknown"`; then
+      prompt_segment red black
+      st='±'
+    elif [[ $commit == "(clean)" ]]; then
+      prompt_segment yellow black
+      st='±'
     else
-      st=""
-      rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
-      branch=$(hg id -b 2>/dev/null)
-      if `hg st | grep -q "^\?"`; then
-        prompt_segment red black
-        st='±'
-      elif `hg st | grep -q "^[MA]"`; then
-        prompt_segment yellow black
-        st='±'
-      else
-        prompt_segment green black
-      fi
-      echo -n "☿ $rev@$branch" $st
+      prompt_segment green black
     fi
+    echo -n "☿ $rev@$branch" $st
   fi
 }
 
