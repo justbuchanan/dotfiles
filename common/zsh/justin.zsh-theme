@@ -136,15 +136,17 @@ prompt_hg() {
     st=""
     rev=$(echo "$summary" | grep parent: | sed 's/parent: //g' | sed 's/:.*//g')
     branch=$(echo "$summary" | grep branch: | sed 's/branch: //g')
-    commit=$(echo "$summary" | grep commit:)
+    commit=$(echo "$summary" | grep commit: | sed 's/commit: //g')
     if `echo $commit | grep -q "unknown"`; then
+      # files exist that haven't been added
       prompt_segment red black
       st='±'
     elif [[ $commit == "(clean)" ]]; then
+      prompt_segment green black
+    else
+      # file(s) are modified
       prompt_segment yellow black
       st='±'
-    else
-      prompt_segment green black
     fi
     echo -n "☿ $rev@$branch" $st
   fi
