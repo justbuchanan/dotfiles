@@ -17,6 +17,7 @@ antigen bundle rupa/z
 if [[ `uname` == 'Linux' ]]; then
     antigen bundle systemd
 else
+    # TODO: check for OS X
     antigen bundle brew
 fi
 

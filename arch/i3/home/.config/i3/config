@@ -12,6 +12,7 @@ bindsym F2 exec ~/.config/i3/custom-keyboard/music.sh
 bindsym F3 exec ~/.config/i3/custom-keyboard/visualizer.py
 bindsym F5 exec urxvt -cd ~/src -e ranger
 bindsym F9 exec urxvt -e htop
+# bindsym F8 exec ~/.config/i3/nightshift.py toggle
 bindsym F10 exec urxvt -hold -e sudo pacman -Syu
 # bindsym F11 exec urxvt -e ranger ~/src/justin/dotfiles
 bindsym F11 exec ~/.config/i3/themeswitch.py --rofi
@@ -235,4 +236,4 @@ for_window [class="^.*"] border pixel 3
 exec_always feh --bg-fill ~/.config/desktop-background.jpeg
 
 # The compton compositor allows for transparency and other nifty graphics
-exec_always compton&
+exec_always killall compton || true && compton&

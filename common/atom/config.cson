@@ -6,6 +6,7 @@
       "linter-pep8"
       "linter-python-pep8"
     ]
+    telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "solarized-dark-syntax"
