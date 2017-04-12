@@ -52,7 +52,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -10%
 floating_modifier $mod
 
 # start a terminal in the same directory as the focused window (if relevant)
-bindsym $mod+Return exec i3-sensible-terminal -cd $(~/.config/i3/urxvt_dir.sh)
+bindsym $mod+Return exec i3-sensible-terminal -cd $(~/.config/i3/xcwd_wrapper.sh)
 
 # kill focused window
 bindsym $mod+x kill
