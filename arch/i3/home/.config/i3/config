@@ -72,9 +72,9 @@ bindsym Scroll_Lock exec ~/.config/i3/pixlock.sh
 exec xautolock -time 10 -locker ~/.config/i3/pixlock.sh
 
 # automatically rename workspaces based on contents
-exec_always ~/.config/i3/autoname-workspace/i3-autoname-workspaces.py&
+exec_always ~/.config/i3/scripts/autoname_workspaces.py&
 
-bindsym $mod+y exec ~/.config/i3/autoname-workspace/i3-rename-workspace.py
+bindsym $mod+y exec ~/.config/i3/scripts/rename_workspace.py
 
 # hide mouse cursor when not in use
 exec unclutter
@@ -137,8 +137,8 @@ bindsym $mod+bracketleft workspace prev
 bindsym $mod+bracketright workspace next
 
 # new workspace
-bindsym $mod+n exec ~/.config/i3/i3-new-workspace/i3-new-workspace
-bindsym $mod+Shift+n exec ~/.config/i3/i3-new-workspace/i3-new-workspace --move_focused
+bindsym $mod+n exec ~/.config/i3/scripts/new_workspace.py
+bindsym $mod+Shift+n exec ~/.config/i3/scripts/new_workspace.py --move_focused
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1

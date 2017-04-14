@@ -1,12 +1,9 @@
-[submodule "arch/i3/home/.config/i3/autoname-workspace"]
-	path = arch/i3/home/.config/i3/autoname-workspace
-	url = https://gist.github.com/justbuchanan/70fdae0d5182f6039aa8383c06a3f4ad
-[submodule "arch/i3/home/.config/i3/i3-new-workspace"]
-	path = arch/i3/home/.config/i3/i3-new-workspace
-	url = https://github.com/justbuchanan/i3-new-workspace
 [submodule "common/vim/Vundle.vim"]
 	path = common/vim/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
 [submodule "arch/i3/home/.config/i3/i3style2xresources"]
 	path = arch/i3/home/.config/i3/i3style2xresources
 	url = https://gist.github.com/justbuchanan/f503cd8b945afd5be73deff91bb5b410
+[submodule "arch/i3/home/.config/i3/scripts"]
+	path = arch/i3/home/.config/i3/scripts
+	url = git@github.com:justbuchanan/i3scripts
