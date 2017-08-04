@@ -1,39 +1,9 @@
-[submodule "roles/common/files/home/.vim/bundle/vim-gitgutter"]
-	path = roles/common/files/home/.vim/bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter
-[submodule "roles/common/files/home/.vim/bundle/ctrlp.vim"]
-	path = roles/common/files/home/.vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim
-[submodule "roles/common/files/home/.vim/bundle/vim-objc"]
-	path = roles/common/files/home/.vim/bundle/vim-objc
-	url = https://github.com/b4winckler/vim-objc
-[submodule "roles/common/files/home/.vim/bundle/vim-colors-solarized"]
-	path = roles/common/files/home/.vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized
-[submodule "roles/common/files/home/.vim/bundle/nerdtree"]
-	path = roles/common/files/home/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree
-[submodule "roles/common/files/home/.vim/bundle/fugitive"]
-	path = roles/common/files/home/.vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "roles/common/files/home/.vim/bundle/vim-json"]
-	path = roles/common/files/home/.vim/bundle/vim-json
-	url = https://github.com/elzr/vim-json
-[submodule "roles/common/files/home/.vim/bundle/vim-multiple-cursors"]
-	path = roles/common/files/home/.vim/bundle/vim-multiple-cursors
-	url = git://github.com/terryma/vim-multiple-cursors
-[submodule "roles/common/files/home/.vim/bundle/vim-systemd-syntax"]
-	path = roles/common/files/home/.vim/bundle/vim-systemd-syntax
-	url = https://github.com/Matt-Deacalion/vim-systemd-syntax
-[submodule "roles/common/files/home/.vim/bundle/vim-fugitive"]
-	path = roles/common/files/home/.vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule "arch/i3/home/.config/i3blocks/i3blocks-contrib"]
-	path = arch/i3/home/.config/i3blocks/i3blocks-contrib
-	url = https://github.com/vivien/i3blocks-contrib
-[submodule "arch/i3/home/.config/i3/autoname-workspace"]
-	path = arch/i3/home/.config/i3/autoname-workspace
-	url = https://gist.github.com/justbuchanan/70fdae0d5182f6039aa8383c06a3f4ad
-[submodule "common/home/.config/zsh/z"]
-	path = common/home/.config/zsh/z
-	url = https://github.com/rupa/z
+[submodule "common/vim/Vundle.vim"]
+	path = common/vim/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim
+[submodule "arch/i3/home/.config/i3/i3style2xresources"]
+	path = arch/i3/home/.config/i3/i3style2xresources
+	url = https://gist.github.com/justbuchanan/f503cd8b945afd5be73deff91bb5b410
+[submodule "arch/i3/home/.config/i3/scripts"]
+	path = arch/i3/home/.config/i3/scripts
+	url = git@github.com:justbuchanan/i3scripts

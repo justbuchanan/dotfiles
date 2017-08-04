@@ -1,0 +1,19 @@
+"*":
+  autosave:
+    enabled: true
+  core:
+    disabledPackages: [
+      "linter-pep8"
+      "linter-python-pep8"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    invisibles: {}
+  "exception-reporting":
+    userId: "420787c2-7386-6ced-bb9e-efdb25b7809f"
+  welcome:
+    showOnStartup: false

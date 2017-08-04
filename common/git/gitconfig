@@ -1,0 +1,23 @@
+[user]
+	email = justbuchanan@gmail.com
+	name = Justin Buchanan
+[push]
+	default = simple
+
+# I don't need the beginner warnings anymore
+[advice]
+    statusHints = false
+    detachedHead = false
+
+[diff]
+    # smarter diffs
+    indentHeuristic = true
+
+[alias]
+    edit-unmerged = "!$EDITOR `git diff --name-only --diff-filter=U`"
+    rhead= "reset HEAD~1"
+    co = "checkout"
+    nuke = "!git add . && git reset --hard"
+    preview-commit = "diff --cached"
+    glog = "log --graph --abbrev-commit --decorate --date=relative --all --oneline"
+

@@ -1,12 +1,25 @@
 #!/usr/bin/env python3
 
-from tools import *
+import tools
 import psutil
+import sys
+import time
+import fontawesome as fa
 
+def update():
+    vmem = psutil.virtual_memory()
 
-pct = psutil.virtual_memory().percent
+    ic = tools.icon(fa.icons['microchip'])
+    g = tools.bar(vmem.percent / 100.0)
 
-ic = icon('')
-g = bar(pct / 100.0)
+    used = vmem.used / 10**9
+    total = vmem.total / 10**9
 
-print("%s %s %0.f%%" % (ic, g, pct))
+    print("%s %s %.1f/%.1fGB" % (ic, g, used, total))
+    sys.stdout.flush()
+
+tools.autoreload_xresources_with_callback(update)
+
+while True:
+    update();
+    time.sleep(20)

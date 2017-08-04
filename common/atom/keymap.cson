@@ -1,0 +1,2 @@
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'j j': 'vim-mode-plus:activate-normal-mode'

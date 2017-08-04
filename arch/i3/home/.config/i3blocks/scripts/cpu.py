@@ -1,14 +1,25 @@
 #!/usr/bin/env python3
 
-from tools import *
+import tools
 import psutil
 import time
+import sys
+import fontawesome as fa
 
-time.sleep(0.01)
+INTERVAL = 0.5
 
-pct = float(psutil.cpu_percent())
+def update():
+    pct = float(psutil.cpu_percent())
 
-ic = icon('')
-g = bar(pct / 100.0)
+    ic = tools.icon(fa.icons['tachometer'])
+    g = tools.bar(pct / 100.0)
 
-print("%s %s %0.f%%" % (ic, g, pct))
+    print("%s %s %0.f%%" % (ic, g, pct))
+    sys.stdout.flush()
+
+tools.autoreload_xresources_with_callback(update)
+
+while True:
+    update()
+    time.sleep(INTERVAL)
+

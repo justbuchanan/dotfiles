@@ -1,33 +1,37 @@
-from install.arch import *
+from install.utils import *
 
-pacman('tmux')
-pacman('zsh')
-pacman('rxvt-unicode')
-pacman('wget')
-pacman('tree')
-pacman('psmisc')  # contains pstree and some other utils
-pacman('git')
-pacman('ncdu')   # ncurses-based disk usage analyzer
-pacman('unzip')
-yaourt('htop-vim-solarized-git')
-yaourt('tig') # nifty curses-based git viewer
-pacman('openssh')
-pacman('cowsay')
-pacman('fortune-mod')
-pacman('sl') # command-line train!
-pacman('nmap')
+syspkg({'arch': [
+    'tmux',
+    'zsh',
+    'wget',
+    'tree',
+    'psmisc',  # contains pstree and some other utils
+    'git',
+    'ncdu',  # ncurses-based disk usage analyzer
+    'unzip',
+    'htop-vim-solarized-git',
+    'openssh',
+    'cowsay',
+    'fortune-mod',
+    'sl',  # command-line train!
+    'nmap',
+    # contains netstat, arp, etc
+    'net-tools',
+    # contains nslookup and others
+    'bind-tools',
+    # python
+    'python',
+    'python-pip',
+    'python2',
+    'python2-pip',
+    # run `inxi -F` to show a list of the computer's hardware and related info
+    'inxi',
 
-# contains netstat, arp, etc
-pacman('net-tools')
+    # script to update arch package mirrors based on speed
+    'reflector',
 
-# contains nslookup and others
-pacman('bind-tools')
+    # Example: traceroute google.com
+    'traceroute',
+]})
 
-# python
-pacman('python')
-pacman('python-pip')
-pacman('python2')
-pacman('python2-pip')
-
-# run `inxi -F` to show a list of the computer's hardware and related info
-pacman('inxi')
+symlink(__file__, '.makepkg.conf', '~/.makepkg.conf')

@@ -1,43 +1,39 @@
-from install.arch import *
+from install.utils import *
 
-pacman('thunar')  # gtk-based file browser
-pacman('tumbler') # image thumbnails for thunar
-pacman('mupdf') # minimalist pdf viewer
-pacman('octave')  # open-source alternative to MATLAB
-pacman('transmission-qt') # torrent client
-pacman('arandr') # gui for configuring multiple monitors
-pacman('cheese') # Picture-taking app comparable to "Photo Booth" on OS X
-pacman('rofi')   # window switcher
-yaourt('archey3') # show system summary
-pacman('scrot') # screenshots
-yaourt('playerctl') # command-line program to control a variety of music players
-yaourt('cli-visualizer') # command-line visualizer
-# pacman('libreoffice')
-yaourt('sublime-text-dev')
-yaourt('google-chrome')
-yaourt('spotify-beta')
+syspkg({'arch': [
+    'thunar',  # gtk-based file browser
+    'tumbler',  # image thumbnails for thunar
+    'mupdf',  # minimalist pdf viewer
+    'octave',  # open-source alternative to MATLAB
+    'transmission-qt',  # torrent client
+    'arandr',  # gui for configuring multiple monitors
+    'cheese',  # Picture-taking app comparable to "Photo Booth" on OS X
+    'archey3',  # show system summary
+    'scrot',  # screenshots
+    'playerctl',  # command-line program to control a variety of music players
+    # 'libreoffice',
+    'sublime-text-dev',
+    'google-chrome',
+    'spotify',
+    # desktop notifications
+    'libnotify',
+    # fonts
+    'ttf-dejavu-sans-mono-powerline-git',
+    'otf-font-awesome',
+    # audio
+    'pulseaudio',
+    'pulseaudio-alsa',
+    'alsa-utils',
+    # bluetooth
+    'bluez',
+    'bluez-utils',
+    # light-weight image viewer
+    'imv',
+    'gcolor2',  # color picker/pipette
+    # video player
+    'vlc',
+    # show system stats
+    'conky',
 
-# desktop notifications
-pacman('libnotify')
-pacman('dunst')
-
-# fonts
-yaourt('ttf-dejavu-sans-mono-powerline-git')
-yaourt('otf-font-awesome')
-
-# audio
-pacman('pulseaudio')
-pacman('pulseaudio-alsa')
-pacman('alsa-utils')
-
-# bluetooth
-pacman('bluez')
-pacman('bluez-utils')
-
-# light-weight image viewer
-yaourt('imv')
-
-pacman('gcolor2') # color picker/pipette
-
-# video player
-pacman('vlc')
+    'gpick', # color picker
+]})

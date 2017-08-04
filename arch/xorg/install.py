@@ -1,13 +1,13 @@
-from install.arch import *
+from install.utils import *
 
-pacman('xorg-xinit')
-pacman('xorg-xrdb')
-pacman('xorg-xinput')
-pacman('xorg-xmodmap')
-pacman('xorg-xprop')
-pacman('xorg-xbacklight')
-pacman('xorg-xinput')
-pacman('xorg-xmodmap')
-
-# command-line tool for configuring multiple monitors
-pacman('xorg-xrandr')
+syspkg({'arch': [
+    'xorg-xinit',
+    'xorg-xrdb',
+    'xorg-xinput',
+    'xorg-xmodmap',
+    'xorg-xprop',
+    'xorg-xbacklight',
+    'xorg-xinput',
+    'xorg-xmodmap',
+    'xorg-xrandr', # command-line tool for configuring multiple monitors
+]})
