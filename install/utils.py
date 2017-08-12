@@ -47,7 +47,7 @@ def symlink(py_file, relpath, dst):
             if not os.path.islink(absdst) or os.readlink(absdst) != src:
                 print("symlinking: %s" % dst)
                 mkdir_p(os.path.dirname(absdst))
-                run_cmd()(['ln', '-sf', src, absdst])
+                run_cmd(['ln', '-sf', src, absdst])
         except OSError as e:
             print("Unable to link '%s'\n    %s" % (dst, str(e)),
                   file=sys.stderr)
@@ -66,7 +66,7 @@ def mkdir_p(dirpath):
 
 
 def pip2(pkgname):
-    run_cmd()(['sudo', 'pip2', 'install', pkgname], stdout=proc.DEVNULL)
+    run_cmd(['sudo', 'pip2', 'install', pkgname], stdout=proc.DEVNULL)
 
 
 def pip3(pkgname):
