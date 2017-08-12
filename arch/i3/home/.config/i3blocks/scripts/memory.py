@@ -6,6 +6,7 @@ import sys
 import time
 import fontawesome as fa
 
+
 def update():
     vmem = psutil.virtual_memory()
 
@@ -18,8 +19,9 @@ def update():
     print("%s %s %.1f/%.1fGB" % (ic, g, used, total))
     sys.stdout.flush()
 
+
 tools.autoreload_xresources_with_callback(update)
 
 while True:
-    update();
+    update()
     time.sleep(20)

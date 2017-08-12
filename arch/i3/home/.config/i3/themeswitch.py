@@ -3,7 +3,6 @@
 import subprocess as proc
 import os
 import sys
-
 """
 Presents a menu (via rofi) to select a new i3 theme. When a selection is made,
 the theme is converted from i3-style yaml format to xresources and saved to
@@ -21,7 +20,8 @@ OUTPUT_PATH = os.path.expanduser('~/.Xresources.d/i3theme')
 try:
     builtin_themes = sorted(os.listdir(I3_STYLE_DIR))
 except FileNotFoundError:
-    print("Can't find i3-style themes, install i3-style with npm", file=sys.stderr)
+    print("Can't find i3-style themes, install i3-style with npm",
+          file=sys.stderr)
     builtin_themes = []
 
 try:
@@ -30,13 +30,13 @@ except FileNotFoundError:
     local_themes = []
 
 
-
 def rofi_choose(items):
     rofi = proc.Popen(['rofi', '-dmenu'], stdin=proc.PIPE, stdout=proc.PIPE)
     rofi.stdin.write('\n'.join(items).encode('utf-8'))
     rofi.stdin.close()
     choice = rofi.stdout.read().decode('utf-8').strip('\n')
     return choice
+
 
 def rofi_menu(theme_names):
     choice = rofi_choose(theme_names)
@@ -48,8 +48,12 @@ def rofi_menu(theme_names):
 
 if __name__ == '__main__':
     import argparse
-    parser = argparse.ArgumentParser(description="Switch i3 themes - wrapper around i3-style to use xresources themes.")
-    parser.add_argument('--rofi', action='store_true', help="Display a theme menu with rofi.")
+    parser = argparse.ArgumentParser(
+        description=
+        "Switch i3 themes - wrapper around i3-style to use xresources themes.")
+    parser.add_argument('--rofi',
+                        action='store_true',
+                        help="Display a theme menu with rofi.")
     parser.add_argument('--theme', help='The name of a theme to use.')
     args = parser.parse_args()
 
@@ -72,7 +76,9 @@ if __name__ == '__main__':
         print("Invalid theme: '%s'" % theme_path)
         sys.exit(1)
 
-    cmd = [os.path.join(os.path.dirname(__file__), 'i3style2xresources/i3style2xresources.py'), theme_path]
+    cmd = [os.path.join(
+        os.path.dirname(__file__), 'i3style2xresources/i3style2xresources.py'),
+           theme_path]
     print(' '.join(cmd))
     xresources_theme = proc.check_output(cmd)
 

@@ -34,6 +34,5 @@ syspkg({'arch': [
     'vlc',
     # show system stats
     'conky',
-
-    'gpick', # color picker
+    'gpick',  # color picker
 ]})

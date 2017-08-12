@@ -1,5 +1,6 @@
 import subprocess as proc
 import os
+from .commands import *
 
 
 def pacman_is_installed(pkgname):
@@ -11,6 +12,4 @@ def pacman_is_installed(pkgname):
 def archpkg(pkgname):
     if not pacman_is_installed(pkgname):
         print("Installing: %s" % pkgname)
-        run_cmd(
-            ['pacaur', '-S', '--noconfirm', pkgname],
-            stdout=proc.DEVNULL)
+        run_cmd(['pacaur', '-S', '--noconfirm', pkgname], stdout=proc.DEVNULL)

@@ -8,6 +8,7 @@ import fontawesome as fa
 
 INTERVAL = 0.5
 
+
 def update():
     pct = float(psutil.cpu_percent())
 
@@ -17,9 +18,9 @@ def update():
     print("%s %s %0.f%%" % (ic, g, pct))
     sys.stdout.flush()
 
+
 tools.autoreload_xresources_with_callback(update)
 
 while True:
     update()
     time.sleep(INTERVAL)
-

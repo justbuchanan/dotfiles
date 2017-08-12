@@ -5,6 +5,7 @@ import datetime
 import time
 import sys
 
+
 def update():
     now = datetime.datetime.now()
     txt = now.strftime('%a %m/%d %H:%M')
@@ -13,6 +14,7 @@ def update():
 
     print("%s %s" % (ic, txt))
     sys.stdout.flush()
+
 
 tools.autoreload_xresources_with_callback(update)
 

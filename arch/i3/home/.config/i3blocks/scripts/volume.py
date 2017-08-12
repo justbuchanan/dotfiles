@@ -11,6 +11,7 @@ import sys
 # * alsaaudio - install with pip
 # * alsactl - part of the alsa-utils package
 
+
 def update():
     mixer = alsaaudio.Mixer('Master')
 
@@ -31,6 +32,7 @@ def update():
     print("%s %d%%" % (ic, int(pct)))
     sys.stdout.flush()
 
+
 update()
 
 tools.autoreload_xresources_with_callback(update)
@@ -38,7 +40,8 @@ tools.autoreload_xresources_with_callback(update)
 # update() every time the volume changes
 # stdbuf is used bc otherwise alsactl doesn't output after each line
 # see: http://askubuntu.com/questions/630564/cant-redirect-stdout-of-alsactl-monitor
-alsactl = subprocess.Popen(['stdbuf', '-oL', 'alsactl', 'monitor'],
+alsactl = subprocess.Popen(
+    ['stdbuf', '-oL', 'alsactl', 'monitor'],
     stdout=subprocess.PIPE,
     stderr=subprocess.DEVNULL)
 for _ in alsactl.stdout:

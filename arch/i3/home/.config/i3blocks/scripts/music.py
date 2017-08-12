@@ -26,10 +26,12 @@ title = None
 
 prev_status = None
 
+
 def print_status():
     global artist, title, prev_status
     if artist and title:
-        status = tools.icon(fa.icons['music']) + cgi.escape(' ' + artist + ' - ' + title)
+        status = tools.icon(fa.icons['music']) + cgi.escape(' ' + artist + ' - '
+                                                            + title)
     else:
         status = ''
 
@@ -37,6 +39,7 @@ def print_status():
         print(status)
         sys.stdout.flush()
         prev_status = status
+
 
 def on_metadata(player, e):
     global artist
@@ -47,20 +50,25 @@ def on_metadata(player, e):
         artist, title = None, None
     print_status()
 
+
 def filter_title(title):
     # remove the first '(' and anything after it
     return re.search('([^\(]+)', title).group(0)
 
+
 def on_play(player):
     print_status()
 
+
 def on_pause(player):
     print_status()
+
 
 def on_quit(player):
     global artist, title
     artist, title = None, None
     print_status()
+
 
 main = GLib.MainLoop()
 
@@ -73,7 +81,7 @@ while True:
         player = Playerctl.Player()
         if player.get_property('player-name') == None:
             raise RuntimeError('No player available')
-        player.on('metadata', on_metadata)  
+        player.on('metadata', on_metadata)
         player.on('exit', on_quit)
 
         artist = player.get_artist()
@@ -86,4 +94,3 @@ while True:
 
     # wait 5 seconds before trying again
     time.sleep(5)
-
