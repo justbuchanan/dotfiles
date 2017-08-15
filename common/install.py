@@ -1,6 +1,44 @@
 from install.utils import *
 from install.arch import *
 
+syspkg({
+    'arch': [
+        'ranger',
+        'tmux',
+        'zsh',
+        'wget',
+        'tree',
+        'psmisc',  # contains pstree and some other utils
+        'git',
+        'ncdu',  # ncurses-based disk usage analyzer
+        'unzip',
+        'htop-vim-solarized-git',
+        'openssh',
+        'cowsay',
+        'fortune-mod',
+        'sl',  # command-line train!
+        'nmap',
+        # contains netstat, arp, etc
+        'net-tools',
+        # contains nslookup and others
+        'bind-tools',
+        # python
+        'python',
+        'python-pip',
+        'python2',
+        'python2-pip',
+        # Example: traceroute google.com
+        'traceroute',
+    ],
+    'deb': [
+        'htop',
+        'tree',
+        'python3-pip',
+        'tree',
+        'ranger',
+    ],
+})
+
 symlinks = [
     '.ansible.cfg',
     '.tmux.conf',

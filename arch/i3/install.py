@@ -1,22 +1,27 @@
 import os
 from install.utils import *
 
-syspkg({'arch': [
-    'i3-gaps-next-git',
-    'i3blocks-gaps-git',
-    'i3lock-blur',
-    'xautolock',
-    'perl-anyevent-i3',  # required dependency for savling/loading layouts
-    # for launching a terminal in the same directory as the current window
-    'xcwd-git',
-    'xorg-xprop',
-    # hide mouse cursor when not in use
-    'unclutter-xfixes-git',
-    # used to set the desktop background image
-    'feh',
-    # transparency and other fanciness
-    'compton',
-]})
+syspkg({
+    'arch': [
+        'i3-gaps-next-git',
+        'i3blocks-gaps-git',
+        'i3lock-blur',
+        'xautolock',
+        'perl-anyevent-i3',  # required dependency for savling/loading layouts
+        # for launching a terminal in the same directory as the current window
+        'xcwd-git',
+        'xorg-xprop',
+        # hide mouse cursor when not in use
+        'unclutter-xfixes-git',
+        # used to set the desktop background image
+        'feh',
+        # transparency and other fanciness
+        'compton',
+    ],
+    'deb': [
+        # TODO
+    ],
+})
 
 pip3('psutil')  # needed for some system status bar items
 pip3('pyalsaaudio')  # needed for volume item in status bar
