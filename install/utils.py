@@ -4,6 +4,7 @@ import sys
 import errno
 import re
 from . import arch
+from . import deb
 from .commands import *
 
 def detect_mac_osx():
@@ -85,7 +86,11 @@ def npm(pkgname):
 
 
 def syspkg(pkgmap):
-    if 'arch' in pkgmap:
+    if linux_os_name() == 'Arch Linux' and 'arch' in pkgmap:
         for pkg in pkgmap['arch']:
             arch.archpkg(pkg)
-    # TODO: add homebrew, ubuntu, etc
+    elif linux_os_name() == 'Ubuntu' and 'deb' in pkgmap:
+        # TODO: double-check os name
+        for pkg in pkgmap['deb']:
+            deb.pkg(pkg)
+    # TODO: add homebrew, etc
