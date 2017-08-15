@@ -112,6 +112,10 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
+# scratchpad
+bindsym $mod+m scratchpad show
+bindsym $mod+Shift+m move scratchpad
+
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
 

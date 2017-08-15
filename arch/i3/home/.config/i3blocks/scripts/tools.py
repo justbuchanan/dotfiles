@@ -11,6 +11,7 @@ GRAPH_COLOR = 'green'
 GRAPH_BACKGROUND_COLOR = 'black'
 BAR_BACKGROUND_COLOR = 'black'
 
+
 # Given the output from xrdb, returns the value(s) for the given property
 # @return list of color value strings
 def xresources_value(xresources_out, propname):
@@ -22,6 +23,7 @@ def xresources_value(xresources_out, propname):
         result = [result]
     return result
 
+
 def reload_xresources():
     global ICON_COLOR, URGENT_COLOR, GRAPH_COLOR, GRAPH_BACKGROUND_COLOR, BAR_BACKGROUND_COLOR
 
@@ -31,14 +33,18 @@ def reload_xresources():
     try:
         # Pull colors from xresources values
         ICON_COLOR = xresources_value(x, 'i3wm.bar_colors.icon')[0]
-        URGENT_COLOR = xresources_value(x, 'i3wm.bar_colors.urgent_workspace')[1]
+        URGENT_COLOR = xresources_value(x,
+                                        'i3wm.bar_colors.urgent_workspace')[1]
         GRAPH_COLOR = xresources_value(x, 'i3wm.bar_colors.graph')[0]
         GRAPH_BACKGROUND_COLOR = xresources_value(x, 'i3wm.bar_colors.graph')[1]
-        BAR_BACKGROUND_COLOR = xresources_value(x, 'i3wm.bar_colors.background')[0]
+        BAR_BACKGROUND_COLOR = xresources_value(x,
+                                                'i3wm.bar_colors.background')[0]
     except Exception as e:
         print('Error reloading xresources: %s' % str(e), file=sys.stderr)
-      
+
+
 reload_xresources()
+
 
 # Registers a listener for i3's 'barconfig_update' event
 # When received, it reloads xresources and calls an optional callback
@@ -78,8 +84,10 @@ def bar(frac):
     square = "■"
     total_squares = 5
     filled = int(round(frac * total_squares))
-    return pango(square * filled, foreground=GRAPH_COLOR) + pango(square * (
-        total_squares - filled), foreground=GRAPH_BACKGROUND_COLOR)
+    return pango(square * filled,
+                 foreground=GRAPH_COLOR) + pango(
+                     square * (total_squares - filled),
+                     foreground=GRAPH_BACKGROUND_COLOR)
 
 
 def icon(font_awesome, foreground=None):

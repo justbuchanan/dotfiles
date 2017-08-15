@@ -17,12 +17,15 @@ def graph(values):
     indices = [round(v * (len(chars) - 1)) for v in values]
     return ''.join([chars[i] for i in indices])
 
+
 # read per-core cpu usage and print a graph of it
 def update():
     ic = tools.icon(fa.icons['tachometer'])
 
     pcts = [core / 100.0 for core in psutil.cpu_percent(percpu=True)]
-    g = tools.pango(graph(pcts), foreground=tools.GRAPH_COLOR,
+    g = tools.pango(
+        graph(pcts),
+        foreground=tools.GRAPH_COLOR,
         background=tools.GRAPH_BACKGROUND_COLOR,
         font_size='small')
     print("%s %s" % (ic, g))

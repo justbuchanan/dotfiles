@@ -14,6 +14,7 @@ import subprocess as proc
 def is_charging():
     return 'on-line' in proc.check_output(['acpi', '-a']).decode('utf-8')
 
+
 output = proc.check_output(['acpi', 'battery']).decode('utf-8')
 
 # Acpi prints a message to stderr and nothing to stdout if the sytstem doesn't
@@ -24,8 +25,8 @@ if len(output) == 0:
 pct = int(re.search('(\d+)%', output).group(1))
 
 icons = [
-    fa.icons['battery-empty'],            # 0%-12.5%
-    fa.icons['battery-quarter'],          # 12.5%-37.5%
+    fa.icons['battery-empty'],  # 0%-12.5%
+    fa.icons['battery-quarter'],  # 12.5%-37.5%
     fa.icons['battery-half'],
     fa.icons['battery-three-quarters'],
     fa.icons['battery-full'],

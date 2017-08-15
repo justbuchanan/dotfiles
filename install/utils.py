@@ -4,18 +4,12 @@ import sys
 import errno
 import re
 from . import arch
+from .commands import *
 
-from colorama import init, Fore, Back, Style
-init()
 
 # determine if the system has a graphical interface
 def linux_is_graphical():
     return 'DISPLAY' in os.environ
-
-# run the command and print it in color to the console
-def run_cmd(args, **kwargs):
-    print(Fore.BLUE + '$ %s' % ' '.join(args) + Style.RESET_ALL)
-    proc.check_call(args, **kwargs)
 
 
 def linux_os_name():
@@ -42,6 +36,7 @@ def symlink_home(srcdir, path):
     else:
         print("Source file doesn't exist: %s" % src)
 
+
 # example: symlink(__file__, 'myconfig', '~/.config/app/config')
 def symlink(py_file, relpath, dst):
     base_dir = os.path.dirname(os.path.realpath(py_file))
@@ -52,7 +47,7 @@ def symlink(py_file, relpath, dst):
             if not os.path.islink(absdst) or os.readlink(absdst) != src:
                 print("symlinking: %s" % dst)
                 mkdir_p(os.path.dirname(absdst))
-                run_cmd()(['ln', '-sf', src, absdst])
+                run_cmd(['ln', '-sf', src, absdst])
         except OSError as e:
             print("Unable to link '%s'\n    %s" % (dst, str(e)),
                   file=sys.stderr)
@@ -69,8 +64,10 @@ def mkdir_p(dirpath):
         if exc.errno == errno.EEXIST and os.path.isdir(dirpath):
             pass
 
+
 def pip2(pkgname):
-    run_cmd()(['sudo', 'pip2', 'install', pkgname], stdout=proc.DEVNULL)
+    run_cmd(['sudo', 'pip2', 'install', pkgname], stdout=proc.DEVNULL)
+
 
 def pip3(pkgname):
     run_cmd(['sudo', 'pip3', 'install', pkgname], stdout=proc.DEVNULL)
@@ -78,6 +75,7 @@ def pip3(pkgname):
 
 def apm(pkgname):
     run_cmd(['apm', 'install', pkgname], stdout=proc.DEVNULL)
+
 
 def npm(pkgname):
     syspkg({'arch': ['npm']})

@@ -11,6 +11,7 @@ import fontawesome as fa
 
 interface = os.environ['BLOCK_INSTANCE']
 
+
 def update():
     try:
         connections = list(wifi.Cell.all(interface))
@@ -27,11 +28,12 @@ def update():
         percent = int(float(vals[0]) / float(vals[1]) * 100)
         text = "%s %d%%" % (connections[0].ssid, percent)
     else:
-        icon = tools.icon(fa.icons['wifi']) # TODO: scanning icon?
+        icon = tools.icon(fa.icons['wifi'])  # TODO: scanning icon?
         text = "Scanning..."
 
     print("%s %s" % (icon, text))
     sys.stdout.flush()
+
 
 tools.autoreload_xresources_with_callback(update)
 

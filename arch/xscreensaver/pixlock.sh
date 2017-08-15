@@ -9,17 +9,17 @@
 
 import os
 import xcb
-from xcb.xproto import * # must installl 'xpyb' to use this
+from xcb.xproto import *  # must installl 'xpyb' to use this
 from PIL import Image
 
 XCB_MAP_STATE_VIEWABLE = 2
-
 
 OUTPUT_PATH = '/tmp/screenlock.png'
 
 
 def screenshot():
     os.system('import -window root %s' % OUTPUT_PATH)
+
 
 def xcb_fetch_windows():
     """ Returns an array of rects of currently visible windows. """
@@ -40,26 +40,25 @@ def xcb_fetch_windows():
 
     return rects
 
+
 def obscure_image(image):
     """ Obscures the given image. """
     size = image.size
     pixel_size = 7
 
-    image = image.resize((size[0] / pixel_size, size[1] / pixel_size), Image.LANCZOS)
+    image = image.resize(
+        (size[0] / pixel_size, size[1] / pixel_size), Image.LANCZOS)
     image = image.resize((size[0], size[1]), Image.NEAREST)
 
     return image
+
 
 def obscure(rects):
     """ Takes an array of rects to obscure from the screenshot. """
     image = Image.open(OUTPUT_PATH)
 
     for rect in rects:
-        area = (
-            rect.x, rect.y,
-            rect.x + rect.width,
-            rect.y + rect.height
-        )
+        area = (rect.x, rect.y, rect.x + rect.width, rect.y + rect.height)
 
         cropped = image.crop(area)
         cropped = obscure_image(cropped)
