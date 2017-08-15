@@ -26,7 +26,6 @@ import yubikey.install
 from .wifi import install
 
 if linux_is_graphical():
-    from .i3 import install
     import xorg.install
     import gui.install
     import gtk_theme.install
