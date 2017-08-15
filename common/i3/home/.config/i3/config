@@ -63,13 +63,15 @@ bindsym $mod+space exec rofi -show run
 # switch between open windows
 bindsym $mod+t exec rofi -show window
 
+set $LOCK_CMD "~/.config/i3/pixlock.sh"
+
 # screen lock - launches fancy script that pixellates a screenshot of the desktop
 # and uses it as the lockscreen
-bindsym $mod+Escape exec ~/.config/i3/pixlock.sh
-bindsym Scroll_Lock exec ~/.config/i3/pixlock.sh
+bindsym $mod+Escape exec $LOCK_CMD
+bindsym Scroll_Lock exec $LOCK_CMD
 
 # automatically lock after a timeout
-exec xautolock -time 10 -locker ~/.config/i3/pixlock.sh
+exec xautolock -time 10 -locker $LOCK_CMD
 
 # automatically rename workspaces based on contents
 exec_always ~/.config/i3/scripts/autoname_workspaces.py&
