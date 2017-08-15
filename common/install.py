@@ -15,8 +15,6 @@ cur_dir = os.path.dirname(os.path.realpath(__file__))
 for path in symlinks:
     symlink_home(os.path.join(cur_dir, "other"), path)
 
-from .sublime_text import install
-from .atom import install
 from .vim import install
 from .zsh import install
 from .bash import install
@@ -24,3 +22,7 @@ from .tig import install
 from .git import install
 from .golang import install
 from .ranger import install
+
+if detect_mac_osx() or linux_is_graphical():
+    from .sublime_text import install
+    from .atom import install

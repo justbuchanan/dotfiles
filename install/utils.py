@@ -6,6 +6,8 @@ import re
 from . import arch
 from .commands import *
 
+def detect_mac_osx():
+    return proc.call(['which', 'sw_vers'], stderr=proc.DEVNULL) == 0
 
 # determine if the system has a graphical interface
 def linux_is_graphical():
