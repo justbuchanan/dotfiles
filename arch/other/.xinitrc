@@ -21,6 +21,7 @@ fi
 xrdb ~/.Xresources
 
 # make touchscreen work on the correct screen
+# TODO: only do this on arch laptop
 xinput --map-to-output 9 eDP1
 
 
