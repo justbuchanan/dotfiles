@@ -8,6 +8,4 @@ fi
 sudo pip install colorama > /dev/null
 
 echo
-
-# do it!
-./arch-install.py
+echo "Prerequisites installed; Now run python install script"
