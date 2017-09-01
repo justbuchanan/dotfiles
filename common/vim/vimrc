@@ -44,11 +44,8 @@ autocmd BufReadPre,BufNewFile SConscript set filetype=python
 set ignorecase		" case-insensitive search
 set incsearch		" when searching, highlight as you type
 
-" prevent 'cheating'
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+" enable mouse mode
+set mouse=a
 
 " sublime
 au BufNewFile,BufRead *.sublime-settings set filetype=json
