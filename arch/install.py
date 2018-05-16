@@ -35,5 +35,6 @@ if linux_is_graphical():
     import rofi.install
     import urxvt.install
     import printer.install
+    import electronics.install
 else:
     print("No display detected, skipping installation of graphical components")
