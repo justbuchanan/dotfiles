@@ -18,13 +18,7 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           false
-URxvt.font: xft:DejaVuSansMonoForPowerline Nerd Font:style=Book
-
-! do not scroll with output
-URxvt*scrollTtyOutput: false
-
-! scroll to bottom on keypress
-URxvt*scrollTtyKeypress: true
+URxvt.font: xft:DejaVuSansMono Nerd Font:style=Book
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
@@ -92,8 +86,8 @@ URxvt*color15: #fdf6e3
 
 
 !! copy/paste
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+!!URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+!!URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
 URxvt.iso14755: False
 URxvt.perl-ext-common: default,clipboard
