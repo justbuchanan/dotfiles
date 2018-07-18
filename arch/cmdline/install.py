@@ -5,6 +5,8 @@ syspkg({'arch': [
     'inxi',
     # script to update arch package mirrors based on speed
     'reflector',
+    # contains `checkupdates`, among other utilities
+    'pacman-contrib',
 ]})
 
 symlink(__file__, '.makepkg.conf', '~/.makepkg.conf')
