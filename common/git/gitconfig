@@ -21,3 +21,7 @@
     preview-commit = "diff --cached"
     glog = "log --graph --abbrev-commit --decorate --date=relative --all --oneline"
 
+[core]
+    # Use a pager only if content is > 1 screenful
+    # stackoverflow.com/questions/2183900
+	pager = less -F -X
