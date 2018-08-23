@@ -9,6 +9,7 @@ files = [
     'install.py',
     'Package Control.sublime-settings',
     'Preferences.sublime-settings',
+    'Python.sublime-settings',
 ]
 for f in files:
     symlink(__file__, f, '~/.config/sublime-text-3/Packages/User/%s' % f)
