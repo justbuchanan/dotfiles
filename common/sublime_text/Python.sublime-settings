@@ -2,6 +2,7 @@
 	"extensions":
 	[
 		"BUILD",
-		"WORKSPACE"
+		"WORKSPACE",
+        "bzl"
 	]
 }
