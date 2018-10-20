@@ -20,7 +20,7 @@ def graph(values):
 
 # read per-core cpu usage and print a graph of it
 def update():
-    ic = tools.icon(fa.icons['tachometer'])
+    ic = tools.icon(fa.icons['tachometer-alt'])
 
     pcts = [core / 100.0 for core in psutil.cpu_percent(percpu=True)]
     g = tools.pango(
