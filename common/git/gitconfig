@@ -13,6 +13,10 @@
     # smarter diffs
     indentHeuristic = true
 
+[diff "pdf"]
+    textconv = pdfinfo
+    binary = false
+
 [alias]
     edit-unmerged = "!$EDITOR `git diff --name-only --diff-filter=U`"
     rhead= "reset HEAD~1"
