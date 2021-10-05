@@ -9,6 +9,7 @@ set -e
 IMG_PATH=/tmp/i3-pixlock.png
 
 # Take a screenshot and save it
+rm $IMG_PATH || true
 scrot $IMG_PATH
 
 # Pixellate it 10x. Adjust the percentages to change how pixelated / "blurry"

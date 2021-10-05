@@ -5,6 +5,8 @@
     disabledPackages: [
       "linter-pep8"
       "linter-python-pep8"
+      "parcel"
+      "lisp-paredit"
     ]
     telemetryConsent: "limited"
     themes: [
@@ -12,8 +14,11 @@
       "solarized-dark-syntax"
     ]
   editor:
+    fontSize: 12
     invisibles: {}
   "exception-reporting":
     userId: "420787c2-7386-6ced-bb9e-efdb25b7809f"
+  "lisp-paredit":
+    enabled: false
   welcome:
     showOnStartup: false

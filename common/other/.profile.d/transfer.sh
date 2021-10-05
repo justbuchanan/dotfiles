@@ -13,4 +13,4 @@ transfer() {
     fi; cat $tmpfile; rm -f $tmpfile;
 };
 
-alias transfer=transfer 
+#alias transfer=transfer 

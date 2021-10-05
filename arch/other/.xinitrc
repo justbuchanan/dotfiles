@@ -24,6 +24,8 @@ xrdb ~/.Xresources
 # TODO: only do this on arch laptop
 xinput --map-to-output 9 eDP1
 
+# fix monitor ordering
+~/.screenlayout/default.sh
 
 exec i3
 

@@ -15,3 +15,16 @@ alias please='sudo'
 alias ..='cd ..'
 alias cD='cd ~/src/justin/dotfiles'
 alias cS='cd ~/src/'
+
+alias s='stylize -i -g master'
+
+alias c='xclip -selection clipboard'
+alias v='xclip -selection clipboard -o'
+
+
+
+alias netscan='nmap  -sn  192.168.0.0/24 | grep -v "Host is up" | sed "s/Nmap scan report for //g"'
+
+
+
+

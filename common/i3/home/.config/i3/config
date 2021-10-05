@@ -177,10 +177,10 @@ mode "resize" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym h resize shrink width 40px
-    bindsym j resize grow height 40px
-    bindsym k resize shrink height 40px
-    bindsym l resize grow width 40px
+    bindsym h resize shrink width 80px
+    bindsym j resize grow height 80px
+    bindsym k resize shrink height 80px
+    bindsym l resize grow width 80px
 
     # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
@@ -239,7 +239,11 @@ for_window [class="^.*"] border pixel 3
 
 
 # set desktop background
-exec_always feh --bg-fill ~/.config/desktop-background.jpeg
+# exec_always feh --bg-fill ~/.config/desktop-background.jpeg
+# exec_always feh --bg-fill ~/.config/desktop-background2.jpeg
+exec_always feh --bg-fill ~/.config/desktop-background2.jpeg --bg-fill ~/.config/desktop-background.jpeg
+
 
 # The compton compositor allows for transparency and other nifty graphics
-exec_always killall compton || true && compton&
+# TODO: compton seems to cause weird screen tearing(?) artifacts when running.
+# exec_always killall compton || true && compton&

@@ -10,6 +10,7 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
+PACMAN_LOCKFILE_PATH = '/var/lib/pacman/db.lck'
 
 def update():
     logging.info('update')
@@ -29,23 +30,24 @@ def update():
 # are installed
 class Handler(FileSystemEventHandler):
 
-    def on_deleted(self, event):
-        if event.src_path == LOCK_PATH:
+    def on_any_event(self, event):
+        if event.src_path == PACMAN_LOCKFILE_PATH:
             update()
 
+def main():
+    observer = Observer()
+    observer.schedule(Handler(), os.path.dirname(PACMAN_LOCKFILE_PATH))
+    observer.start()
 
-LOCK_PATH = '/var/lib/pacman/db.lck'
-observer = Observer()
-event_handler = Handler()
-observer.schedule(event_handler, os.path.dirname(LOCK_PATH))
-observer.start()
+    # update on an interval
+    while True:
+        update()
+        # check every half hour
+        time.sleep(30 * 60)
 
-# update on an interval
-while True:
-    update()
-    # check every half hour
-    time.sleep(30 * 60)
+    # TODO: call these to exit gracefully on signals
+    observer.stop()
+    observer.join()
 
-# TODO: call these to exit gracefully on signals
-observer.stop()
-observer.join()
+if __name__ == '__main__':
+    main()
