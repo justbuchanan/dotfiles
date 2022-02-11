@@ -12,7 +12,7 @@ antigen bundle git
 antigen bundle mercurial
 antigen bundle pip
 antigen bundle python
-antigen bundle rupa/z
+#antigen bundle rupa/z
 
 if [[ `uname` == 'Linux' ]]; then
     antigen bundle systemd

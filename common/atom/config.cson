@@ -14,11 +14,11 @@
       "solarized-dark-syntax"
     ]
   editor:
-    fontSize: 12
     invisibles: {}
   "exception-reporting":
     userId: "420787c2-7386-6ced-bb9e-efdb25b7809f"
   "lisp-paredit":
     enabled: false
+  "tree-view": {}
   welcome:
     showOnStartup: false

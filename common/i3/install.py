@@ -4,8 +4,8 @@ from install.utils import *
 syspkg({
     'arch': [
         'i3-gaps',
-        'i3blocks-gaps-git',
-        'i3lock-blur',
+        'i3blocks',
+#        'i3lock-blur',
         'xautolock',
         'perl-anyevent-i3',  # required dependency for savling/loading layouts
         # for launching a terminal in the same directory as the current window
@@ -25,7 +25,7 @@ syspkg({
 
 pip3('psutil')  # needed for some system status bar items
 pip3('pyalsaaudio')  # needed for volume item in status bar
-pip3('wifi')  # needed for wifi item in status bar
+# pip3('wifi')  # needed for wifi item in status bar # fails to install as of 1/15/2022
 pip3('fontawesome')  # needed for wifi item in status bar
 
 # Provides themes for i3
