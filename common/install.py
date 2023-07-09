@@ -43,7 +43,6 @@ symlinks = [
     '.ansible.cfg',
     '.tmux.conf',
     '.profile.d/aliases.sh',
-    '.profile.d/robocup.sh',
     '.profile.d/transfer.sh',
     '.profile.d/n.sh',
     '.profile.d/homebin.sh',
