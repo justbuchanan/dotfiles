@@ -63,7 +63,6 @@ from .ranger import install
 
 if detect_mac_osx() or linux_is_graphical():
     from .sublime_text import install
-    from .atom import install
 
 if linux_is_graphical():
     from .i3 import install
