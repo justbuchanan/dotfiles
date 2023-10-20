@@ -33,10 +33,10 @@ bindsym $mod+Shift+g gaps inner current minus 10
 
 # media keys
 # be sure to install playerctl: https://github.com/acrisci/playerctl
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioStop exec playerctl pause
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
+bindsym XF86AudioStop exec playerctl --player=spotify pause
+bindsym XF86AudioPrev exec playerctl --player=spotify previous
+bindsym XF86AudioNext exec playerctl --player=spotify next
 
 # volume
 bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+ unmute
