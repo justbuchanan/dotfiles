@@ -14,3 +14,4 @@ done
 
 # added by travis gem
 [ -f /home/justbuchanan/.travis/travis.sh ] && source /home/justbuchanan/.travis/travis.sh
+[ -f /opt/mambaforge/etc/profile.d/conda.sh ] && source /opt/mambaforge/etc/profile.d/conda.sh
