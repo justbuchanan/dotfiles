@@ -43,6 +43,14 @@
 
   programs.zsh.enable = true;
 
+
+
+
+  # needed for sublime4 as of 6/30/2024
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
+
   
 
   # Configure keymap in X11
@@ -76,6 +84,7 @@
     packages = with pkgs; [
       firefox
       tree
+      sublime4
     ];
   };
 
@@ -103,6 +112,7 @@
     cargo
     ncdu
     gnumake
+    networkmanagerapplet
   ];
 
   environment.variables.EDITOR = "vim";
