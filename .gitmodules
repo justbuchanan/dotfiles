@@ -1,5 +1,5 @@
 [submodule "common/vim/Vundle.vim"]
-	path = common/vim/Vundle.vim
+	path = home/.vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
 [submodule "arch/i3/home/.config/i3/i3style2xresources"]
 	path = common/i3/home/.config/i3/i3style2xresources
