@@ -2,7 +2,6 @@
 	"bootstrapped": true,
 	"in_process_packages":
 	[
-		"TypeScript",
 	],
 	"installed_packages":
 	[
@@ -29,6 +28,7 @@
 		"LaTeXing",
 		"LaTeXTools",
 		"LSP",
+		"Markdown HTML Preview",
 		"MarkdownLivePreview",
 		"MarkdownPreview",
 		"OpenBazelBUILDFile",
@@ -47,6 +47,7 @@
 		"Racket",
 		"Ruby Slim",
 		"Rust Enhanced",
+		"RustFmt",
 		"SCSS",
 		"Solarized Color Scheme",
 		"SortBy",

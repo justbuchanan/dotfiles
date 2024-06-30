@@ -1,14 +1,19 @@
 {
 	"atomic_save": false,
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-	"font_size": 13,
+	"color_scheme": "Mariana.sublime-color-scheme",
+	"font_size": 12,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"GitGutter",
+		"INI",
+		"LSP",
 		"MarkdownLivePreview",
+		"MarkdownPreview",
 		"orgmode",
-		"TypeScript",
+		"QML",
+		"Rust Enhanced",
 		"udev rules",
 		"Wrap Plus",
 	],
@@ -22,4 +27,5 @@
 	"theme": "Flatland Dark.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"use_tab_stops": true,
+	"index_files": false,
 }
