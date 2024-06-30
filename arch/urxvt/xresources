@@ -18,7 +18,7 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           false
-URxvt.font: xft:DejaVuSansMono Nerd Font:style=Book
+URxvt.font: xft:DejaVuSansMono:style=Book
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
