@@ -22,10 +22,12 @@ xrdb ~/.Xresources
 
 # make touchscreen work on the correct screen
 # TODO: only do this on arch laptop
-xinput --map-to-output 9 eDP1
+#xinput --map-to-output 9 eDP1
 
-# fix monitor ordering
-~/.screenlayout/default.sh
+# fix screen resolution if its not right
+#if [[ xrandr | grep "Screen 0" | grep -v "current 5120 x 1440"  ]]; then
+#~/.screenlayout/default.sh
+#fi
 
 exec i3
 
