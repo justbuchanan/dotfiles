@@ -1,6 +1,6 @@
 
 align=center
-separator=false
+separator=true
 separator_block_width=20
 markup=pango
 interval=persist

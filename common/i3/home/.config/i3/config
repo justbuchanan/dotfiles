@@ -21,7 +21,7 @@ bindsym F12 exec ~/.config/i3/custom-keyboard/reboot.py
 bindsym Print exec ~/.config/i3/scrot.sh
 
 
-font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono 14
 
 # start out with no gaps
 gaps inner 0
@@ -215,24 +215,7 @@ bar {
     tray_output primary
     height 30
     position top
-
-    colors {
-        separator          $bar_separator_colors
-        background         $bar_background_colors
-        statusline         $bar_statusline_colors
-        focused_workspace  $bar_focused_workspace_colors
-        active_workspace   $bar_active_workspace_colors
-        inactive_workspace $bar_inactive_workspace_colors
-        urgent_workspace   $bar_urgent_workspace_colors
-    }
 }
-
-# Colors
-client.focused          $focused_colors
-client.focused_inactive $focused_inactive_colors
-client.unfocused        $unfocused_colors
-client.urgent           $urgent_colors
-
 
 new_window normal
 for_window [class="^.*"] border pixel 3
