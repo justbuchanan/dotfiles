@@ -99,11 +99,19 @@
     zsh
     tmux
     htop
+    btop
     kicad
     vlc
     spotify
     gphoto2
     darktable
+    evince
+    mupdf
+    speedtest-cli
+    mpv
+    imv
+    nmap
+    ffmpeg
     prusa-slicer
     inxi
     waybar
@@ -113,6 +121,7 @@
     ncdu
     gnumake
     networkmanagerapplet
+    inkscape
   ];
 
   environment.variables.EDITOR = "vim";
