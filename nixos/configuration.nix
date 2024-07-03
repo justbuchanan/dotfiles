@@ -82,46 +82,47 @@
     shell = pkgs.zsh;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      firefox
-      tree
-      sublime4
+      gnome.cheese
     ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    google-chrome
-    fuzzel
-    zsh
-    tmux
-    htop
     btop
-    kicad
-    vlc
-    spotify
-    gphoto2
+    cargo
     darktable
     evince
-    mupdf
-    speedtest-cli
-    mpv
-    imv
-    nmap
     ffmpeg
-    prusa-slicer
-    inxi
-    waybar
-    go
-    rustc
-    cargo
-    ncdu
+    firefox
+    fuzzel
+    git
     gnumake
-    networkmanagerapplet
+    go
+    google-chrome
+    gphoto2
+    htop
+    imv
     inkscape
+    inxi
+    kicad
+    mpv
+    mupdf
+    ncdu
+    networkmanagerapplet
+    nmap
+    prusa-slicer
+    rustc
+    speedtest-cli
+    spotify
+    sublime4
+    tmux
+    tree
+    vim
+    vlc
+    waybar
+    wget
+    zsh
   ];
 
   environment.variables.EDITOR = "vim";
