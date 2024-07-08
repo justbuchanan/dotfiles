@@ -86,6 +86,8 @@
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       gnome.cheese
+      expressvpn
+      transmission_4-qt
     ];
   };
 
@@ -98,16 +100,19 @@
     evince
     ffmpeg
     firefox
+    fstl
     fuzzel
     git
     gnumake
     go
     google-chrome
     gphoto2
+    graphviz
     htop
     imv
     inkscape
     inxi
+    jq
     kicad
     mpv
     mupdf
