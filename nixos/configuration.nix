@@ -14,7 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixbook"; # Define your hostname.
+  services.fwupd.enable = true;
+
+  networking.hostName = "framework"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -97,6 +99,7 @@
     btop
     cargo
     darktable
+    dmidecode
     evince
     ffmpeg
     firefox
@@ -119,6 +122,7 @@
     ncdu
     networkmanagerapplet
     nmap
+    pciutils
     prusa-slicer
     rustc
     speedtest-cli
