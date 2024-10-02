@@ -93,6 +93,11 @@
     ];
   };
 
+  # font awesome is needed for waybar to work correctly
+  fonts.packages = with pkgs; [
+    font-awesome
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
