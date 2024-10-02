@@ -139,6 +139,7 @@
     vlc
     waybar
     wget
+    wirelesstools
     zsh
   ];
 
