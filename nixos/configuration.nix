@@ -29,6 +29,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # display backlight control
+  programs.light.enable = true;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -88,7 +91,7 @@
   users.users.justin = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "video" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       gnome.cheese
       expressvpn
@@ -108,6 +111,7 @@
     btop
     cargo
     clang
+    pulseaudio
     pkg-config
     cmake
     darktable

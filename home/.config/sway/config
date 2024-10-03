@@ -32,6 +32,19 @@ set $menu fuzzel | xargs swaymsg exec --
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 output eDP-1 scale 1
 
+
+# for brightness and volume info, see the wiki: https://wiki.nixos.org/wiki/Sway#Brightness_and_volume
+
+# Brightness
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 10
+
+# Volume
+bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
+bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
+bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+
+
 ### Idle configuration
 #
 # Example configuration:
