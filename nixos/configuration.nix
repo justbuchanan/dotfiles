@@ -114,6 +114,8 @@
     dmidecode
     evince
     ffmpeg
+    rustup
+    fast-cli
     firefox
     fstl
     fuzzel
@@ -130,6 +132,7 @@
     inxi
     jq
     kicad
+    busybox
     rxvt-unicode
     mpv
     mupdf
