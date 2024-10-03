@@ -24,6 +24,7 @@ set $menu fuzzel | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 #output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg $HOME/src/justin/dotfiles/wallpapers/artist_point.jpg fill
 #
 # Example configuration:
 #
