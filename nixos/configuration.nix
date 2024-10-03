@@ -91,7 +91,11 @@
   users.users.justin = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "docker" "video" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
+      "docker"
+      "video" # allow changing screen brightness (among other things) without sudo
+    ];
     packages = with pkgs; [
       gnome.cheese
       expressvpn
