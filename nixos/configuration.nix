@@ -103,7 +103,7 @@
       "video" # allow changing screen brightness (among other things) without sudo
     ];
     packages = with pkgs; [
-      gnome.cheese
+      cheese
       expressvpn
       transmission_4-qt
     ];
@@ -121,6 +121,7 @@
     btop
     cargo
     clang
+    cryptsetup
     pulseaudio
     pkg-config
     cmake
