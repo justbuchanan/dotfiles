@@ -230,3 +230,6 @@ bar {
 }
 
 include @sysconfdir@/sway/config.d/*
+
+# rebuild xresources db. this provides font, color, and other config info to programs like urxvt
+exec_always xrdb $HOME/.Xresources
