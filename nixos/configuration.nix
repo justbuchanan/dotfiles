@@ -175,6 +175,8 @@
     # TODO: do we need xrdb on wayland? how to set urxvt font size?
     xorg.xrdb
     zsh
+    # screenshot utils
+    grim slurp
   ];
 
   environment.variables.EDITOR = "vim";
