@@ -99,6 +99,7 @@
   # font awesome is needed for waybar to work correctly
   fonts.packages = with pkgs; [
     font-awesome
+    dejavu_fonts
   ];
 
   # List packages installed in system profile. To search, run:
@@ -106,6 +107,9 @@
   environment.systemPackages = with pkgs; [
     btop
     cargo
+    clang
+    pkg-config
+    cmake
     darktable
     dmidecode
     evince
@@ -113,6 +117,7 @@
     firefox
     fstl
     fuzzel
+    gcc
     git
     gnumake
     go
@@ -125,6 +130,7 @@
     inxi
     jq
     kicad
+    rxvt-unicode
     mpv
     mupdf
     ncdu
@@ -138,11 +144,14 @@
     sublime4
     tmux
     tree
+    curlFull
     vim
     vlc
     waybar
     wget
     wirelesstools
+    # TODO: do we need xrdb on wayland? how to set urxvt font size?
+    xorg.xrdb
     zsh
   ];
 
