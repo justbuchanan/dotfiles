@@ -1,5 +1,4 @@
 dotfiles
 ========
 
-My configuration files for Mac OS X and Arch.
-
+My configuration files.
