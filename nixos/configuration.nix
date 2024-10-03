@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # before adding this on 10/2, uname -r showed kernel 6.6.35
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services.fwupd.enable = true;
 
   networking.hostName = "framework"; # Define your hostname.
