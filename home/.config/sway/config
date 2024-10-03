@@ -30,6 +30,9 @@ set $menu fuzzel | xargs swaymsg exec --
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+# set scale factor to 1 (it was previously defaulting to 2 before i added this)
+# note: can use '*' instead of 'eDP-1' to apply to all monitors
 output eDP-1 scale 1
 
 
