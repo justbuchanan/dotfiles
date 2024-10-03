@@ -153,6 +153,8 @@
     waybar
     wget
     wirelesstools
+    # gives `wl-copy` and `wl-paste` for copy/pasting
+    wl-clipboard
     # TODO: do we need xrdb on wayland? how to set urxvt font size?
     xorg.xrdb
     zsh
