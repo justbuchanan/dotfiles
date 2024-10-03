@@ -165,10 +165,12 @@
     vim
     vlc
     waybar
+    wev # wev tells you what the keycode/name is for each key you press
     wget
     wirelesstools
     # gives `wl-copy` and `wl-paste` for copy/pasting
     wl-clipboard
+    xfce.thunar
     # TODO: do we need xrdb on wayland? how to set urxvt font size?
     xorg.xrdb
     zsh
