@@ -77,6 +77,9 @@ input type:keyboard {
     # Start your launcher
     bindsym $mod+Space exec $menu
 
+    # lock screen
+    bindsym $mod+Escape exec swaylock -f -c 000000
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
