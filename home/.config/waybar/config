@@ -17,6 +17,7 @@
     ],
     "modules-right": [
         "mpd",
+        "custom/weather",
         "idle_inhibitor",
         "pulseaudio",
         "network",
@@ -211,5 +212,12 @@
             "suspend": "systemctl suspend",
             "hibernate": "systemctl hibernate"
         }
-    }
+    },
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar --fahrenheit",
+        "return-type": "json"
+    },
 }

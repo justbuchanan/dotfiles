@@ -147,6 +147,8 @@
     inxi
     jq
     kicad
+    # weather widget for waybar
+    wttrbar
     busybox
     rxvt-unicode
     mpv
