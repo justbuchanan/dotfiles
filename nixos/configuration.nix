@@ -50,26 +50,15 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
   programs.sway.enable = true;
 
   programs.zsh.enable = true;
-
-
 
 
   # needed for sublime4 as of 6/30/2024
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
   ];
-
-  
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -85,10 +74,6 @@
   # Steam told me to add these
   hardware.graphics.enable32Bit = true;
   hardware.pulseaudio.support32Bit = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
-
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -200,9 +185,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
