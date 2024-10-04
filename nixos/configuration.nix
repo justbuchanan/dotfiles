@@ -154,13 +154,16 @@
     mpv
     mupdf
     ncdu
+    neofetch
     networkmanagerapplet
     nmap
+    openscad-unstable
     pciutils
     prusa-slicer
     rustc
     speedtest-cli
     spotify
+    steam
     sublime4
     tmux
     tree
