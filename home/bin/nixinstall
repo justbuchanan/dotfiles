@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <pkgname>"
+    exit 1
+fi
+
+pkgname=$1
+
+sudo sed --follow-symlinks -i "s/INSERT-NEW-PACKAGES-HERE/INSERT-NEW-PACKAGES-HERE\n    $pkgname/g" /etc/nixos/configuration.nix
+echo "Added $pkgname to /etc/nixos/configuration.nix"
+echo "Rebuilding system..."
+sudo nixos-rebuild switch

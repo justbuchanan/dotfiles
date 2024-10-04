@@ -117,6 +117,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # INSERT-NEW-PACKAGES-HERE
+    inkscape
     btop
     cargo
     clang
@@ -152,6 +154,7 @@
     rxvt-unicode
     mpv
     mupdf
+    mako
     ncdu
     neofetch
     networkmanagerapplet
