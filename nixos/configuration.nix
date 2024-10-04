@@ -82,6 +82,10 @@
     pulse.enable = true;
   };
 
+  # Steam told me to add these
+  hardware.graphics.enable32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
