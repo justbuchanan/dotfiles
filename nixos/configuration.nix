@@ -19,16 +19,26 @@
 
   services.fwupd.enable = true;
 
+
+  # attempt to allow fingerprint auth for swaylock - not currently working
+  # services.fprintd.enable = true;
+  # security.pam.services.swaylock = {
+  #   text = ''
+  #     auth sufficient pam_unix.so try_first_pass likeauth nullok
+  #     auth sufficient pam_fprintd.so
+  #     auth include login
+  #   '';
+  # };
+
+
   networking.hostName = "framework"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  # TODO: i added this - does it help?
-  # TODO: resolv.conf shows these two entries *after* two others. I tried editing out the two leading entries in resolv.conf leaving only the two below and my speed issues seem totally fixed!!!!!
-  # NOTE: I did a rebuild switch and resolv.conf stayed in its edited/good state. I then rebooted and the two bullshit entries at the top got re-added again... maybe network manager adds these when it starts up?
-  # NOTE: with the edited resolv.conf, speedtest-cli gives us fast results (125Mb down, 320Mb up). these numbers aren't great, but are *much* better than before
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
+  networking.networkmanager.dns = "systemd-resolved";
+  services.resolved.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -155,6 +165,7 @@
     spotify
     steam
     sublime4
+    tig
     tmux
     tree
     curlFull
