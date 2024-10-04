@@ -159,6 +159,7 @@
     nmap
     openscad-unstable
     pciutils
+    playerctl
     prusa-slicer
     rustc
     speedtest-cli
