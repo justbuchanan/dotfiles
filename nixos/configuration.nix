@@ -151,10 +151,11 @@
     # weather widget for waybar
     wttrbar
     busybox
-    rxvt-unicode
     mpv
     mupdf
     mako
+    # provides `nix-locate` which tells you which package provides which file/binary
+    nix-index
     ncdu
     neofetch
     networkmanagerapplet
@@ -181,8 +182,6 @@
     # gives `wl-copy` and `wl-paste` for copy/pasting
     wl-clipboard
     xfce.thunar
-    # TODO: do we need xrdb on wayland? how to set urxvt font size?
-    xorg.xrdb
     zsh
     # screenshot utils
     grim slurp

@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term urxvt -chdir $($HOME/.config/sway/scripts/cwd.sh)
+set $term foot -D $($HOME/.config/sway/scripts/cwd.sh)
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -261,6 +261,3 @@ bar {
 }
 
 include @sysconfdir@/sway/config.d/*
-
-# rebuild xresources db. this provides font, color, and other config info to programs like urxvt
-exec_always xrdb $HOME/.Xresources
