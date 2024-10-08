@@ -40,6 +40,10 @@
   networking.networkmanager.dns = "systemd-resolved";
   services.resolved.enable = true;
 
+
+  services.avahi.enable = true;
+
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
