@@ -7,12 +7,12 @@
 	[
 		"ANTLR syntax highlight",
 		"BazelSyntax",
-		"Better CoffeeScript",
 		"Bison",
 		"BracketGuard",
 		"Cap'n Proto Syntax",
 		"Clang Format",
 		"CMake",
+		"CoffeeScript",
 		"Dockerfile Syntax Highlighting",
 		"DoxyDoc",
 		"Enaml Syntax Highlighter",
