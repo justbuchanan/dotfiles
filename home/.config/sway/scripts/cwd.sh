@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 
 # prints the current working directory (cwd) for the currently-focused window
 
