@@ -1,4 +1,0 @@
-PANEL_FIFO=/tmp/panel-fifo
-PANEL_HEIGHT=30
-PANEL_FONT_FAMILY="DejaVu Sans Mono for Powerline"
-export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_FAMILY
