@@ -65,3 +65,4 @@ alias tcli="$HOME/src/justin/terrarium/code/client.py"
 #export PATH="/opt/anaconda/bin:$PATH"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
+export PATH="$HOME/.nix-profile/bin:$PATH"
