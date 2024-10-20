@@ -1,6 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+# NixOS main config file
+#
+# For documentation on this file, refer to:
+# * `man configuration.nix` in the terminal
+# * https://search.nixos.org/options
+# * NixOS manual (`nixos-help`)
 
 { config, lib, pkgs, ... }:
 
