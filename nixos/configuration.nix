@@ -130,6 +130,7 @@
     darktable
     dmidecode
     evince
+    espeak
     ffmpeg
     rustup
     fast-cli
@@ -148,6 +149,7 @@
     inkscape
     inxi
     jq
+    kdenlive
     kicad
     # weather widget for waybar
     wttrbar
@@ -162,12 +164,14 @@
     networkmanagerapplet
     nmap
     openscad-unstable
+    obsidian
     pciutils
     playerctl
     prusa-slicer
     rustc
     speedtest-cli
     spotify
+    sqlite
     steam
     sublime4
     tig
