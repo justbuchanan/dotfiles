@@ -261,3 +261,6 @@ bar {
 }
 
 include @sysconfdir@/sway/config.d/*
+
+exec_always nm-applet --indicator
+exec_always blueman-applet
