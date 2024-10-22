@@ -46,6 +46,13 @@
   services.avahi.enable = true;
 
 
+  # enable bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  # blueman provides the blueman service and blueman-manager for managing pairing
+  services.blueman.enable = true;
+
+
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
