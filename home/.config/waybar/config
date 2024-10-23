@@ -33,7 +33,9 @@
         "custom/power"
     ],
     // Modules configuration
-    // "sway/workspaces": {
+    "sway/workspaces": {
+        // https://github.com/Alexays/Waybar/discussions/2816
+        "window-rewrite": {},
     //     "disable-scroll": true,
     //     "all-outputs": true,
     //     "warp-on-scroll": false,
@@ -48,7 +50,7 @@
     //         "focused": "",
     //         "default": ""
     //     }
-    // },
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
