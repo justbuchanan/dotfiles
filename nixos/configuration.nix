@@ -164,6 +164,7 @@
     mpv
     mupdf
     mako
+    libnotify
     # provides `nix-locate` which tells you which package provides which file/binary
     nix-index
     ncdu
