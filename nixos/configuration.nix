@@ -177,6 +177,7 @@
     playerctl
     prusa-slicer
     rustc
+    swayest-workstyle
     speedtest-cli
     spotify
     sqlite
