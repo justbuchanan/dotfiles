@@ -1,3 +1,6 @@
+! TODO: delete this file once we've fully moved from X11 to wayland.
+! The config here is obsoleted by /etc/keyd/default.conf.
+
 
 !remap caps lock to Super key
 keycode 66 = Super_L
