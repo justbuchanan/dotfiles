@@ -12,7 +12,6 @@ antigen use oh-my-zsh
 export DEFAULT_USER=justin
 
 # theme
-# antigen theme ~/.config/zsh/ justin
 antigen theme romkatv/powerlevel10k
 
 # packages
