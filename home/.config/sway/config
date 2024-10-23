@@ -272,3 +272,6 @@ include @sysconfdir@/sway/config.d/*
 # wifi and bluetooth applets
 exec_always nm-applet --indicator
 exec_always blueman-applet
+
+# notification daemon
+exec mako
