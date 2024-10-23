@@ -38,8 +38,11 @@ gaps inner 8
 
 # set scale factor to 1 (it was previously defaulting to 2 before i added this)
 # note: can use '*' instead of 'eDP-1' to apply to all monitors
+# framework laptop
 output eDP-1 scale 1
 
+# desktop computer - samsung ultrawide
+output DP-2 mode 5120x1440@119.970001Hz
 
 # for brightness and volume info, see the wiki: https://wiki.nixos.org/wiki/Sway#Brightness_and_volume
 
