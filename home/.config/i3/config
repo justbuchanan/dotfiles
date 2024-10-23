@@ -225,8 +225,3 @@ for_window [class="^.*"] border pixel 3
 # exec_always feh --bg-fill ~/.config/desktop-background.jpeg
 # exec_always feh --bg-fill ~/.config/desktop-background2.jpeg
 exec_always feh --bg-fill ~/.config/desktop-background2.jpeg --bg-fill ~/.config/desktop-background.jpeg
-
-
-# The compton compositor allows for transparency and other nifty graphics
-# TODO: compton seems to cause weird screen tearing(?) artifacts when running.
-# exec_always killall compton || true && compton&
