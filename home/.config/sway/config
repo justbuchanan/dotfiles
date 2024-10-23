@@ -18,6 +18,9 @@ set $right l
 # currently-focused one.
 set $term foot -D $($HOME/.config/sway/scripts/cwd.sh)
 
+# screen lock command
+set $lock_cmd swaylock -f -c 000000
+
 # Application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -106,7 +109,8 @@ bindsym $mod+x kill
 bindsym $mod+Space exec $menu
 
 # lock screen
-bindsym $mod+Escape exec swaylock -f -c 000000
+bindsym $mod+Escape exec $lock_cmd
+bindsym Scroll_Lock exec $lock_cmd
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
