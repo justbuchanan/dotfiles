@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # setup antigen for zsh "package management"
 source ~/.config/zsh/antigen.zsh
 antigen use oh-my-zsh
@@ -5,7 +12,8 @@ antigen use oh-my-zsh
 export DEFAULT_USER=justin
 
 # theme
-antigen theme ~/.config/zsh/ justin
+# antigen theme ~/.config/zsh/ justin
+antigen theme romkatv/powerlevel10k
 
 # packages
 antigen bundle git
@@ -66,3 +74,6 @@ alias tcli="$HOME/src/justin/terrarium/code/client.py"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 export PATH="$HOME/.nix-profile/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit .p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
