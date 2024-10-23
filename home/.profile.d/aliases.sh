@@ -26,5 +26,7 @@ alias v='xclip -selection clipboard -o'
 alias netscan='nmap  -sn  192.168.0.0/24 | grep -v "Host is up" | sed "s/Nmap scan report for //g"'
 
 
+alias open="xdg-open $@"
 
+alias say="echo '$*' | espeak"
 
