@@ -72,7 +72,11 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  programs.sway.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
 
   programs.zsh.enable = true;
 
