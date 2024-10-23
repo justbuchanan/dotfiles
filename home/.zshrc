@@ -46,33 +46,5 @@ for i in ~/.profile.d/*.sh ; do
     fi
 done
 
-# vim as default editor
-export EDITOR='vim'
-
-# Ruby gems
-#if which ruby > /dev/null && which gem > /dev/null; then
-#    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-#fi
-export PATH="/home/justin/.local/share/gem/ruby/3.0.0/bin:$PATH"
-
-# RVM
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-
-
-export PATH="$HOME/.local/bin:$PATH"
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
-
-export TERRARIUM_ADDR=glassbox
-alias tcli="$HOME/src/justin/terrarium/code/client.py"
-
-#export PATH="/opt/anaconda/bin:$PATH"
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-
-export PATH="$HOME/.nix-profile/bin:$PATH"
-
 # To customize prompt, run `p10k configure` or edit .p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
