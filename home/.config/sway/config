@@ -102,6 +102,9 @@ input type:keyboard {
 # Start a terminal
 bindsym $mod+Return exec $term
 
+# open file browser
+bindsym $mod+t exec thunar $($HOME/.config/sway/scripts/cwd.sh)
+
 # Kill focused window
 bindsym $mod+x kill
 
