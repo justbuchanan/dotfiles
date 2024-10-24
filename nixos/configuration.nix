@@ -138,6 +138,8 @@
     pulseaudio
     pkg-config
     cmake
+    # editor for cadquery
+    inputs.cadquery.packages.${pkgs.system}.cq-editor
     darktable
     dmidecode
     evince

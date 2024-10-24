@@ -9,9 +9,12 @@
       url = "github:nomisreual/mediaplayer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cadquery = {
+      url = "github:marcus7070/cq-flake";
+    };
   };
 
-  outputs = { self, nixpkgs, mediaplayer }@inputs: {
+  outputs = { self, nixpkgs, mediaplayer, cadquery }@inputs: {
     nixosConfigurations = {
       framework = nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
