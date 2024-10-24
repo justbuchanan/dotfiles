@@ -12,15 +12,25 @@
     cadquery = {
       url = "github:marcus7070/cq-flake";
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, mediaplayer, cadquery }@inputs: {
+  outputs = { self, nixpkgs, mediaplayer, cadquery, home-manager }@inputs: {
     nixosConfigurations = {
       framework = nixpkgs.lib.nixosSystem {
         specialArgs.inputs = inputs;
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.justin = import ./home.nix;
+          }
         ];
       };
     };
