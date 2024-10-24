@@ -6,6 +6,8 @@
     vimAlias = true;
   };
 
+  programs.ssh.enable = true;
+
   services.nextcloud-client = {
     enable = true;
     startInBackground = true;

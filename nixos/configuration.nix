@@ -73,6 +73,8 @@
 
   programs.zsh.enable = true;
 
+  programs.seahorse.enable = true;
+
   # needed for sublime4 as of 6/30/2024
   nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
@@ -165,7 +167,6 @@
     playerctl
     prusa-slicer
     rustc
-    seahorse
     swayest-workstyle
     speedtest-cli
     spotify
