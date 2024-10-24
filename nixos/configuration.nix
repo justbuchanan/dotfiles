@@ -5,7 +5,13 @@
 # * https://search.nixos.org/options
 # * NixOS manual (`nixos-help`)
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -35,7 +41,10 @@
   networking.hostName = "framework"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
+  networking.nameservers = [
+    "1.1.1.1"
+    "9.9.9.9"
+  ];
   networking.networkmanager.dns = "systemd-resolved";
   services.resolved.enable = true;
 
@@ -51,7 +60,10 @@
   time.timeZone = "America/Los_Angeles";
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -103,11 +115,18 @@
       "docker"
       "video" # allow changing screen brightness (among other things) without sudo
     ];
-    packages = with pkgs; [ cheese expressvpn transmission_4-qt ];
+    packages = with pkgs; [
+      cheese
+      expressvpn
+      transmission_4-qt
+    ];
   };
 
   # font awesome is needed for waybar to work correctly
-  fonts.packages = with pkgs; [ font-awesome dejavu_fonts ];
+  fonts.packages = with pkgs; [
+    font-awesome
+    dejavu_fonts
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -159,7 +178,7 @@
     ncdu
     neofetch
     networkmanagerapplet
-    nixfmt
+    nixfmt-rfc-style
     nmap
     openscad-unstable
     obsidian
