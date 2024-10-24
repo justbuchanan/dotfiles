@@ -2,16 +2,12 @@
   description = "flake setup for nixtop";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
+    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
     mediaplayer = {
       url = "github:nomisreual/mediaplayer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cadquery = {
-      url = "github:marcus7070/cq-flake";
-    };
+    cadquery = { url = "github:marcus7070/cq-flake"; };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

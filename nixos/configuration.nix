@@ -8,10 +8,10 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -21,7 +21,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.fwupd.enable = true;
-
 
   # attempt to allow fingerprint auth for swaylock - not currently working
   # services.fprintd.enable = true;
@@ -33,11 +32,8 @@
   #   '';
   # };
 
-
   networking.hostName = "framework"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;
 
   networking.nameservers = [ "1.1.1.1" "9.9.9.9" ];
   networking.networkmanager.dns = "systemd-resolved";
@@ -45,13 +41,11 @@
 
   services.avahi.enable = true;
 
-
   # enable bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   # blueman provides the blueman service and blueman-manager for managing pairing
   services.blueman.enable = true;
-
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -77,14 +71,10 @@
     wrapperFeatures.gtk = true;
   };
 
-
   programs.zsh.enable = true;
 
-
   # needed for sublime4 as of 6/30/2024
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -100,9 +90,7 @@
   hardware.graphics.enable32Bit = true;
   hardware.pulseaudio.support32Bit = true;
 
-
   virtualisation.docker.enable = true;
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
@@ -113,18 +101,11 @@
       "docker"
       "video" # allow changing screen brightness (among other things) without sudo
     ];
-    packages = with pkgs; [
-      cheese
-      expressvpn
-      transmission_4-qt
-    ];
+    packages = with pkgs; [ cheese expressvpn transmission_4-qt ];
   };
 
   # font awesome is needed for waybar to work correctly
-  fonts.packages = with pkgs; [
-    font-awesome
-    dejavu_fonts
-  ];
+  fonts.packages = with pkgs; [ font-awesome dejavu_fonts ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -176,6 +157,7 @@
     ncdu
     neofetch
     networkmanagerapplet
+    nixfmt
     nmap
     openscad-unstable
     obsidian
@@ -207,11 +189,11 @@
     xfce.thunar
     zsh
     # screenshot utils
-    grim slurp
+    grim
+    slurp
   ];
 
   environment.variables.EDITOR = "vim";
-
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
