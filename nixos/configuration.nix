@@ -5,7 +5,7 @@
 # * https://search.nixos.org/options
 # * NixOS manual (`nixos-help`)
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -194,6 +194,8 @@
     vim
     vlc
     waybar
+    # mediaplayer displays spotify current song in waybar
+    inputs.mediaplayer.packages.${pkgs.system}.default
     wev # wev tells you what the keycode/name is for each key you press
     wget
     wirelesstools

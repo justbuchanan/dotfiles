@@ -139,7 +139,7 @@
         "return-type": "json",
         "max-length": 40,
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify"
+        "exec": "mediaplayer --player spotify"
     },
     "custom/power": {
         "format" : "⏻ ",
