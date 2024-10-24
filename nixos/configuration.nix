@@ -176,7 +176,6 @@
     tmux
     tree
     curlFull
-    vim
     vlc
     waybar
     # mediaplayer displays spotify current song in waybar
