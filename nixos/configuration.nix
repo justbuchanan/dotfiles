@@ -183,6 +183,7 @@
     playerctl
     prusa-slicer
     rustc
+    seahorse
     swayest-workstyle
     speedtest-cli
     spotify
