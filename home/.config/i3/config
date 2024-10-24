@@ -222,6 +222,6 @@ for_window [class="^.*"] border pixel 3
 
 
 # set desktop background
-# exec_always feh --bg-fill ~/.config/desktop-background.jpeg
+# exec_always feh --bg-fill $HOME/src/justin/wallpapers/andes_mountains_lake.jpg
 # exec_always feh --bg-fill ~/.config/desktop-background2.jpeg
-exec_always feh --bg-fill ~/.config/desktop-background2.jpeg --bg-fill ~/.config/desktop-background.jpeg
+exec_always feh --bg-fill ~/.config/desktop-background2.jpeg --bg-fill $HOME/src/justin/wallpapers/andes_mountains_lake.jpg
