@@ -78,6 +78,10 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
+  programs.dconf.enable = true;
+
+  security.polkit.enable = true;
+
   # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
   services.greetd = {
     enable = true;
@@ -168,6 +172,7 @@
     dmidecode
     evince
     espeak
+    foot
     ffmpeg
     rustup
     fast-cli
