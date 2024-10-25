@@ -78,6 +78,28 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
+  # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+        user = "greeter";
+      };
+    };
+  };
+
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal"; # Without this errors will spam on screen
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
+  };
+
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -151,6 +173,7 @@
     fast-cli
     firefox
     fstl
+    greetd.tuigreet
     fuzzel
     gcc
     git
