@@ -204,6 +204,7 @@
     # weather widget for waybar
     wttrbar
     busybox
+    mediainfo
     mpv
     mupdf
     mako
@@ -220,6 +221,7 @@
     pciutils
     playerctl
     prusa-slicer
+    python312Full
     rustc
     swayest-workstyle
     speedtest-cli
