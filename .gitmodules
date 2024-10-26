@@ -1,9 +1,3 @@
 [submodule "common/vim/Vundle.vim"]
 	path = home/.vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
-[submodule "arch/i3/home/.config/i3/i3style2xresources"]
-	path = common/i3/home/.config/i3/i3style2xresources
-	url = https://gist.github.com/justbuchanan/f503cd8b945afd5be73deff91bb5b410
-[submodule "arch/i3/home/.config/i3/scripts"]
-	path = common/i3/home/.config/i3/scripts
-	url = git@github.com:justbuchanan/i3scripts
