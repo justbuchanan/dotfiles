@@ -48,7 +48,14 @@
   networking.networkmanager.dns = "systemd-resolved";
   services.resolved.enable = true;
 
-  services.avahi.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing.enable = true;
+  services.system-config-printer.enable = true;
 
   # enable bluetooth
   hardware.bluetooth.enable = true;
@@ -218,6 +225,7 @@
     speedtest-cli
     spotify
     sqlite
+    system-config-printer
     steam
     sublime4
     tig
