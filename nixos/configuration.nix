@@ -200,6 +200,7 @@
     jq
     kdenlive
     kicad
+    pdfinfo
     pkg-config
     pulseaudio
     rustup
