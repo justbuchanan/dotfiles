@@ -55,6 +55,7 @@
   };
 
   services.printing.enable = true;
+  services.printing.drivers = [pkgs.gutenprint pkgs.hplip pkgs.cups-dymo];
   services.system-config-printer.enable = true;
 
   # enable bluetooth
