@@ -165,27 +165,23 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # INSERT-NEW-PACKAGES-HERE
-    inkscape
     btop
     cargo
     clang
-    cryptsetup
-    pulseaudio
-    pkg-config
     cmake
+    cryptsetup
     # editor for cadquery
     inputs.cadquery.packages.${pkgs.system}.cq-editor
+    curlFull
     darktable
     dmidecode
-    evince
     espeak
-    foot
-    ffmpeg
-    rustup
+    evince
     fast-cli
+    ffmpeg
     firefox
+    foot
     fstl
-    greetd.tuigreet
     fuzzel
     gcc
     git
@@ -194,6 +190,8 @@
     google-chrome
     gphoto2
     graphviz
+    greetd.tuigreet
+    grim
     htop
     imv
     inkscape
@@ -201,39 +199,40 @@
     jq
     kdenlive
     kicad
-    # weather widget for waybar
-    wttrbar
+    pkg-config
+    pulseaudio
+    rustup
     busybox
+    libnotify
+    mako
     mediainfo
     mpv
     mupdf
-    mako
-    libnotify
     # provides `nix-locate` which tells you which package provides which file/binary
     nix-index
     ncdu
     neofetch
+    slurp
     networkmanagerapplet
     nixfmt-rfc-style
     nmap
-    openscad-unstable
     obsidian
+    openscad-unstable
     pciutils
     playerctl
     prusa-slicer
     python312Full
     rustc
-    swayest-workstyle
     speedtest-cli
     spotify
     sqlite
-    system-config-printer
     steam
     sublime4
+    swayest-workstyle
+    system-config-printer
     tig
     tmux
     tree
-    curlFull
     vlc
     waybar
     # mediaplayer displays spotify current song in waybar
@@ -241,13 +240,12 @@
     wev # wev tells you what the keycode/name is for each key you press
     wget
     wirelesstools
+    xfce.thunar
     # gives `wl-copy` and `wl-paste` for copy/pasting
     wl-clipboard
-    xfce.thunar
+    # weather widget for waybar
+    wttrbar
     zsh
-    # screenshot utils
-    grim
-    slurp
   ];
 
   environment.variables.EDITOR = "vim";
