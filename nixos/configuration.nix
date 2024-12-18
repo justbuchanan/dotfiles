@@ -121,6 +121,8 @@
 
   programs.seahorse.enable = true;
 
+  programs.steam.enable = true;
+
   # needed for sublime4 as of 6/30/2024
   nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
@@ -200,8 +202,8 @@
     jq
     kdenlive
     kicad
-    pdfinfo
     pkg-config
+    poppler_utils
     pulseaudio
     rustup
     busybox
@@ -228,7 +230,6 @@
     speedtest-cli
     spotify
     sqlite
-    steam
     sublime4
     swayest-workstyle
     system-config-printer
