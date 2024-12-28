@@ -12,6 +12,9 @@
     cadquery = {
       url = "github:marcus7070/cq-flake";
     };
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +27,7 @@
       nixpkgs,
       mediaplayer,
       cadquery,
+      ghostty,
       home-manager,
     }@inputs:
     {
@@ -38,6 +42,11 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.justin = import ./home.nix;
+            }
+            {
+              environment.systemPackages = [
+                ghostty.packages.x86_64-linux.default
+              ];
             }
           ];
         };
