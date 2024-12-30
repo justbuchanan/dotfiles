@@ -153,6 +153,7 @@
       cheese
       expressvpn
       transmission_4-qt
+      nextcloud-client
     ];
   };
 

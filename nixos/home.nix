@@ -8,6 +8,7 @@
 
   programs.ssh.enable = true;
 
+  # TODO: nextcloud client sync isn't working - figure this out
   services.nextcloud-client = {
     enable = true;
     startInBackground = true;
