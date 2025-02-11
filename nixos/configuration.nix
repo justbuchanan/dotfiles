@@ -136,7 +136,7 @@
   # Steam told me to add these
   # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
   hardware.graphics.enable32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
+  services.pulseaudio.support32Bit = true;
 
   virtualisation.docker.enable = true;
 
@@ -148,10 +148,12 @@
       "wheel" # Enable ‘sudo’ for the user.
       "docker"
       "video" # allow changing screen brightness (among other things) without sudo
+      "dialout" # access to /dev/tty* devices without sudo
     ];
     packages = with pkgs; [
       cheese
-      expressvpn
+      # TODO: as of feb 11, expressvpn is broken. temporarily disabling it
+      # expressvpn
       transmission_4-qt
       nextcloud-client
     ];
@@ -201,6 +203,7 @@
     jq
     kdenlive
     kicad
+    gnome-mines
     pkg-config
     poppler_utils
     pulseaudio
