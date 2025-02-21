@@ -174,6 +174,7 @@
     clang
     cmake
     cryptsetup
+    colordiff
     # editor for cadquery
     inputs.cadquery.packages.${pkgs.system}.cq-editor
     curlFull
