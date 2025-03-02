@@ -202,7 +202,7 @@
     inkscape
     inxi
     jq
-    kdenlive
+    kdePackages.kdenlive
     kicad
     gnome-mines
     pkg-config
