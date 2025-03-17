@@ -251,6 +251,7 @@
     wl-clipboard
     # weather widget for waybar
     wttrbar
+    zip
     zsh
   ];
 
