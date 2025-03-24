@@ -55,8 +55,7 @@
   };
 
   services.printing.enable = true;
-  # TODO: re-enable drivers. these were disabled on 12/28 due to build errors with latest nixos-unstable
-  # services.printing.drivers = [pkgs.gutenprint pkgs.hplip pkgs.cups-dymo];
+  services.printing.drivers = [pkgs.gutenprint pkgs.hplip pkgs.cups-dymo];
   services.system-config-printer.enable = true;
 
   # enable bluetooth
