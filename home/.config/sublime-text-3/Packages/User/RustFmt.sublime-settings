@@ -1,0 +1,4 @@
+// RustFmt Settings - User
+{
+    "error_messages": false,
+}
