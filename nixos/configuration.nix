@@ -168,8 +168,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # INSERT-NEW-PACKAGES-HERE
+    blender
     btop
-    cargo
+    # cargo
     clang
     cmake
     cryptsetup
@@ -224,11 +225,14 @@
     nmap
     obsidian
     openscad-unstable
+    openssl
+    openssl.dev
     pciutils
+    pkg-config
     playerctl
     prusa-slicer
     python312Full
-    rustc
+    # rustc
     speedtest-cli
     spotify
     sqlite
@@ -254,7 +258,12 @@
     zsh
   ];
 
-  environment.variables.EDITOR = "vim";
+  environment.variables = {
+    EDITOR = "vim";
+
+    # https://discourse.nixos.org/t/rust-pkg-config-fails-on-openssl-for-cargo-generate/39759/2
+    PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
