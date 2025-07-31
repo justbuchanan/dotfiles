@@ -224,7 +224,7 @@
     nixfmt-rfc-style
     nmap
     obsidian
-    openscad-unstable
+    openscad
     openssl
     openssl.dev
     pciutils
@@ -243,6 +243,7 @@
     tmux
     tree
     vlc
+    vscode
     waybar
     # mediaplayer displays spotify current song in waybar
     inputs.mediaplayer.packages.${pkgs.system}.default
