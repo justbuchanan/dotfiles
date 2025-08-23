@@ -1,7 +1,7 @@
 {
 	"atomic_save": false,
 	"color_scheme": "Mariana.sublime-color-scheme",
-	"font_size": 12,
+	"font_size": 13,
 	"highlight_line": true,
 	"hot_exit": false,
 	"ignored_packages":
@@ -12,6 +12,7 @@
 		"MarkdownLivePreview",
 		"MarkdownPreview",
 		"orgmode",
+		"Package Control",
 		"QML",
 		"Rust Enhanced",
 		"udev rules",
@@ -28,4 +29,19 @@
 	"translate_tabs_to_spaces": true,
 	"use_tab_stops": true,
 	"index_files": false,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html, text.xml",
+		},
+		{
+			"rhs_empty": true,
+			"selector": "punctuation.accessor",
+		},
+		{
+			"characters": "\\",
+			"selector": "text.tex.latex",
+		}
+	],
 }
