@@ -127,7 +127,7 @@
     # needed for sublime4 as of 6/30/2024
     "openssl-1.1.1w"
     # needed as of ~7/30/2025
-    "libsoup-2.74.3" 
+    "libsoup-2.74.3"
   ];
 
   # Enable sound.
@@ -179,8 +179,8 @@
     cmake
     cryptsetup
     colordiff
-    # editor for cadquery
-    inputs.cadquery.packages.${pkgs.system}.cq-editor
+    # # editor for cadquery
+    # inputs.cadquery.packages.${pkgs.system}.cq-editor
     curlFull
     darktable
     dmidecode
@@ -199,7 +199,7 @@
     google-chrome
     gphoto2
     graphviz
-    greetd.tuigreet
+    tuigreet
     grim
     htop
     imv

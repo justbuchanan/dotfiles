@@ -9,9 +9,10 @@
       url = "github:nomisreual/mediaplayer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cadquery = {
-      url = "github:marcus7070/cq-flake";
-    };
+    # cadquery = {
+    #   url = "github:marcus7070/cq-flake";
+      
+    # };
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
@@ -26,7 +27,7 @@
       self,
       nixpkgs,
       mediaplayer,
-      cadquery,
+      # cadquery,
       ghostty,
       home-manager,
     }@inputs:
