@@ -179,6 +179,7 @@
     cmake
     cryptsetup
     colordiff
+    # TODO: re-enable cadquery - there's a hash mismatch preventing building
     # # editor for cadquery
     # inputs.cadquery.packages.${pkgs.system}.cq-editor
     curlFull
