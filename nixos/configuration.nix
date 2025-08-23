@@ -176,6 +176,7 @@
     btop
     # cargo
     clang
+    claude-code
     cmake
     cryptsetup
     colordiff
