@@ -28,6 +28,11 @@
 
   services.fwupd.enable = true;
 
+  # configure gnome and x so I can share my entire screen for interview purposes
+  # services.xserver.enable = true; # Ensure the X server is enabled
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+
   # attempt to allow fingerprint auth for swaylock - not currently working
   # services.fprintd.enable = true;
   # security.pam.services.swaylock = {
