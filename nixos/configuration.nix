@@ -160,8 +160,7 @@
     ];
     packages = with pkgs; [
       cheese
-      # TODO: as of feb 11, expressvpn is broken. temporarily disabling it
-      # expressvpn
+      expressvpn
       transmission_4-qt
       nextcloud-client
     ];
@@ -179,7 +178,7 @@
     # INSERT-NEW-PACKAGES-HERE
     blender
     btop
-    # cargo
+    cargo
     clang
     claude-code
     cmake
@@ -243,7 +242,7 @@
     playerctl
     prusa-slicer
     python312Full
-    # rustc
+    rustc
     speedtest-cli
     spotify
     sqlite
