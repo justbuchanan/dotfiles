@@ -32,7 +32,7 @@
   # sway doesn't do full screen sharing
   services.xserver.enable = true; # Ensure the X server is enabled
   # services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.desktopManager.gnome.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
   # attempt to allow fingerprint auth for swaylock - not currently working

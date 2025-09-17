@@ -6,7 +6,7 @@
     vimAlias = true;
   };
 
-  programs.ssh.enable = true;
+  programs.ssh.enableDefaultConfig = true;
 
   # TODO: nextcloud client sync isn't working - figure this out
   services.nextcloud-client = {
