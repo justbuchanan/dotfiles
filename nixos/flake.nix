@@ -20,6 +20,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
   outputs =
@@ -30,6 +32,7 @@
       # cadquery,
       ghostty,
       home-manager,
+      nixos-hardware,
     }@inputs:
     {
       nixosConfigurations = {
@@ -49,6 +52,9 @@
                 ghostty.packages.x86_64-linux.default
               ];
             }
+
+            # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
+            nixos-hardware.nixosModules.framework-13th-gen-intel
           ];
         };
       };
