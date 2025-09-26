@@ -146,6 +146,21 @@
     wrapperFeatures.gtk = true;
   };
 
+  programs.hyprland.enable = true;
+  programs.hyprlock.enable = true;
+  # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/#fixing-problems-with-themes
+  programs.dconf.profiles.user.databases = [
+    {
+      settings."org/gnome/desktop/interface" = {
+        gtk-theme = "Adwaita";
+        icon-theme = "Flat-Remix-Red-Dark";
+        font-name = "Noto Sans Medium 11";
+        document-font-name = "Noto Sans Medium 11";
+        monospace-font-name = "Noto Sans Mono Medium 11";
+      };
+    }
+  ];
+
   programs.zsh.enable = true;
 
   programs.seahorse.enable = true;
@@ -214,6 +229,7 @@
     curlFull
     darktable
     dmidecode
+    kdePackages.dolphin
     espeak
     evince
     fast-cli
