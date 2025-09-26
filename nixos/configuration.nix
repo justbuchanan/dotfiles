@@ -248,6 +248,7 @@
     tuigreet
     grim
     htop
+    hyprpaper
     imv
     inkscape
     inxi
@@ -288,6 +289,7 @@
     sqlite
     sublime4
     swayest-workstyle
+    workstyle
     system-config-printer
     tig
     tmux
