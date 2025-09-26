@@ -97,6 +97,28 @@
 
   security.polkit.enable = true;
 
+  # configure suspend and hibernate
+  # TODO: test that this actually works
+  # TODO: `systemctl suspend` works. `systemctl hibernate` seems to just shut it down completely
+  services.logind.settings.Login = {
+    HandleLidSwitch="suspend";
+    IdleAction="hibernate";
+    IdleActionSec="30min";
+  };
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    AllowHibernation=yes
+    AllowSuspendThenHibernate=yes
+    HibernateDelaySec=2h
+  '';
+  # enable swap to allow hibernate
+  swapDevices = [
+    # make swapfile at least as big as physical RAM
+    { device = "/swapfile"; size = 32768; }
+  ];
+  # TODO: is this needed?
+  # boot.kernelParams = [ "resume=UUID=<swap-uuid>" "resume_offset=<offset>" ];
+
   # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
   services.greetd = {
     enable = true;
@@ -243,7 +265,7 @@
     pkg-config
     playerctl
     prusa-slicer
-    python312Full
+    python313
     rustc
     speedtest-cli
     spotify
