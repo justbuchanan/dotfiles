@@ -5,12 +5,9 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
+        // "sway/mode",
+        // "sway/scratchpad",
         "custom/media"
-    ],
-    "modules-center": [
-        "sway/window"
     ],
     "modules-right": [
         "custom/weather",
@@ -21,25 +18,25 @@
         "cpu",
         "memory",
         "battery",
-        "battery#bat2",
+        // "battery#bat2",
         "clock",
         "tray"
     ],
     // Modules configuration
-    "sway/workspaces": {
-        // https://github.com/Alexays/Waybar/discussions/2816
-        "window-rewrite": {},
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
+    // "sway/workspaces": {
+    //     // https://github.com/Alexays/Waybar/discussions/2816
+    //     "window-rewrite": {},
+    // },
+    // "sway/mode": {
+    //     "format": "<span style=\"italic\">{}</span>"
+    // },
+    // "sway/scratchpad": {
+    //     "format": "{icon} {count}",
+    //     "show-empty": false,
+    //     "format-icons": ["", ""],
+    //     "tooltip": true,
+    //     "tooltip-format": "{app}: {title}"
+    // },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
