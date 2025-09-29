@@ -17,6 +17,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # binary cache server
+    # ./cachix.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -219,6 +221,7 @@
     # INSERT-NEW-PACKAGES-HERE
     blender
     btop
+    cachix
     cargo
     clang
     claude-code
