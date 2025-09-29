@@ -10,7 +10,7 @@ alias ..='cd ..'
 alias cD='cd ~/src/justin/dotfiles'
 alias cS='cd ~/src/'
 
-alias s='stylize -i -g master'
+alias s='stylize -i -g main'
 
 alias c='wl-copy'
 alias v='wl-paste'

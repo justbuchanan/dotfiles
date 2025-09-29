@@ -49,4 +49,6 @@ done
 # To customize prompt, run `p10k configure` or edit .p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-OASIS_ADDR=avaniterrarium.local
+# hack to make cursor work
+# https://github.com/cursor/cursor/issues/549
+[[ "$TERM_PROGRAM" == "vscode" ]] && unset ARGV0
