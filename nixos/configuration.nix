@@ -18,7 +18,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # binary cache server
-    # ./cachix.nix
+    ./cachix.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -148,7 +148,10 @@
     wrapperFeatures.gtk = true;
   };
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
   programs.hyprlock.enable = true;
   # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/#fixing-problems-with-themes
   programs.dconf.profiles.user.databases = [
@@ -219,7 +222,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # INSERT-NEW-PACKAGES-HERE
+    # gopsuinfo for waybar system monitoring
+    (callPackage ./packages/gopsuinfo.nix {})
+    # Hyprland hy3 plugin
+    inputs.hy3.packages.${pkgs.system}.hy3
     blender
+    # hyprpm
+    # inputs.hyprland-plugins.packages.${pkgs.system}.hyprpm
     btop
     cachix
     cargo
@@ -233,6 +242,7 @@
     # inputs.cadquery.packages.${pkgs.system}.cq-editor
     curlFull
     darktable
+    home-manager
     dmidecode
     kdePackages.dolphin
     espeak

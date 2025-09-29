@@ -1,12 +1,13 @@
 // -*- mode: jsonc -*-
 {
+    "style": "~/src/justin/dotfiles/home/.config/waybar/style-hyprland.css",
+
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+        "custom/nixos-logo",
         "hyprland/workspaces",
-        // "sway/mode",
-        // "sway/scratchpad",
         "custom/media"
     ],
     "modules-right": [
@@ -15,28 +16,13 @@
         "pulseaudio",
         "network",
         "power-profiles-daemon",
-        "cpu",
         "memory",
+        "cpu",
+        "custom/gopsuinfo",
         "battery",
-        // "battery#bat2",
         "clock",
         "tray"
     ],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     // https://github.com/Alexays/Waybar/discussions/2816
-    //     "window-rewrite": {},
-    // },
-    // "sway/mode": {
-    //     "format": "<span style=\"italic\">{}</span>"
-    // },
-    // "sway/scratchpad": {
-    //     "format": "{icon} {count}",
-    //     "show-empty": false,
-    //     "format-icons": ["", ""],
-    //     "tooltip": true,
-    //     "tooltip-format": "{app}: {title}"
-    // },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -154,4 +140,70 @@
         "exec": "wttrbar --fahrenheit",
         "return-type": "json"
     },
+    "custom/gopsuinfo": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "gopsuinfo -c g -d 10",
+        "tooltip": false
+    },
+    "custom/nixos-logo": {
+        "format": "NixOS",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "format": "{name}: {windows}",
+        "window-rewrite": {
+            "title<.*youtube.*>": "*",
+            "title<.*GitHub.*>": "*",
+            "title<.*github.*>": "*",
+            "class<firefox>": "*",
+            "class<Firefox>": "*",
+            "class<google-chrome>": "",
+            "class<Google-chrome>": "",
+            "class<chromium>": "",
+            "class<Chromium>": "",
+            "class<code>": "*",
+            "class<Code>": "*",
+            "class<vscode>": "*",
+            "class<VSCode>": "*",
+            "class<sublime_text>": "",
+            "class<Sublime_text>": "",
+            "class<foot>": "*",
+            "class<kitty>": "*",
+            "class<alacritty>": "*",
+            "class<org.gnome.Nautilus>": "*",
+            "class<thunar>": "*",
+            "class<dolphin>": "*",
+            "class<spotify>": "",
+            "class<Spotify>": "",
+            "class<discord>": "*",
+            "class<Discord>": "*",
+            "class<slack>": "*",
+            "class<Slack>": "*",
+            "class<telegram>": "*",
+            "class<Telegram>": "*",
+            "class<whatsapp>": "*",
+            "class<obs>": "*",
+            "class<OBS>": "*",
+            "class<steam>": "*",
+            "class<Steam>": "*",
+            "class<gimp>": "*",
+            "class<GIMP>": "*",
+            "class<inkscape>": "*",
+            "class<Inkscape>": "*",
+            "class<blender>": "*",
+            "class<Blender>": "*",
+            "class<kicad>": "*",
+            "class<KiCad>": "*",
+            "class<libreoffice>": "*",
+            "class<LibreOffice>": "*",
+            "class<evince>": "*",
+            "class<mpv>": "*",
+            "class<vlc>": "*",
+            "class<pavucontrol>": "*",
+            "class<seahorse>": ""
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    }
 }

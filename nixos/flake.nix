@@ -13,6 +13,15 @@
       url = "github:nomisreual/mediaplayer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+      inputs.hyprland.follows = "hyprland";
+    };
     # cadquery = {
     #   url = "github:marcus7070/cq-flake";
     #   # rev = "de4b29ee5cf2fdd2a8ba97010442511e162b6041";
@@ -36,6 +45,9 @@
       determinate,
       mediaplayer,
       # cadquery,
+      hyprland,
+      hy3,
+      hyprland-plugins,
       ghostty,
       home-manager,
       nixos-hardware,
