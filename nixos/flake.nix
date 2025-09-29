@@ -2,6 +2,7 @@
   description = "flake setup for nixtop";
 
   inputs = {
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
@@ -28,6 +29,7 @@
     {
       self,
       nixpkgs,
+      determinate,
       mediaplayer,
       # cadquery,
       ghostty,
@@ -41,6 +43,9 @@
           system = "x86_64-linux";
           modules = [
             ./configuration.nix
+
+            determinate.nixosModules.default
+
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
