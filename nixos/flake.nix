@@ -2,7 +2,10 @@
   description = "flake setup for nixtop";
 
   inputs = {
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    determinate = {
+      url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
@@ -16,6 +19,7 @@
     # };
     ghostty = {
       url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
