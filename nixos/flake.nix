@@ -1,7 +1,7 @@
 {
   description = "flake setup for nixtop";
 
-  inputs = {
+    inputs = {
     determinate = {
       url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
       inputs.nixpkgs.follows = "nixpkgs";

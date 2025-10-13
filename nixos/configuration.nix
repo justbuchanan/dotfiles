@@ -175,8 +175,6 @@
   nixpkgs.config.permittedInsecurePackages = [
     # needed for sublime4 as of 6/30/2024
     "openssl-1.1.1w"
-    # needed as of ~7/30/2025
-    "libsoup-2.74.3"
   ];
 
   # Enable sound.
