@@ -22,6 +22,9 @@
       url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+    };
     # cadquery = {
     #   url = "github:marcus7070/cq-flake";
     #   # rev = "de4b29ee5cf2fdd2a8ba97010442511e162b6041";
@@ -47,6 +50,7 @@
       # cadquery,
       hyprland,
       hy3,
+      niri,
       hyprland-plugins,
       ghostty,
       home-manager,

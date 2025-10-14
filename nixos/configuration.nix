@@ -19,6 +19,7 @@
     ./hardware-configuration.nix
     # binary cache server
     ./cachix.nix
+    inputs.niri.nixosModules.niri
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -142,6 +143,8 @@
     TTYVHangup = true;
     TTYVTDisallocate = true;
   };
+
+   programs.niri.enable = true;
 
   programs.sway = {
     enable = true;
