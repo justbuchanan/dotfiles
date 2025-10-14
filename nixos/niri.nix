@@ -1,0 +1,129 @@
+{ config, pkgs, ... }:
+
+{
+  programs.niri = {
+    settings = {
+      input = {
+        keyboard = {
+          xkb = {
+            # Remap caps lock to act as the Super (mod) key
+            options = "caps:super";
+          };
+        };
+      };
+
+      # disable "client side decorations", including ugly window title bars
+      prefer-no-csd = true;
+
+      switch-events = {
+        lid-close.action.spawn = "swaylock";
+      };
+
+      spawn-at-startup = [
+        {
+          argv = [
+            "waybar"
+            "--config"
+            "/home/justin/src/justin/dotfiles/home/.config/waybar/config-niri"
+            "--style"
+            "/home/justin/src/justin/dotfiles/home/.config/waybar/style-niri.css"
+          ];
+        }
+        { argv = [ "nm-applet" ]; }
+        {
+          argv = [
+            "swaybg"
+            "--image"
+            "/home/justin/src/justin/dotfiles/wallpapers/artist_point.jpg"
+          ];
+        }
+      ];
+
+      binds = with config.lib.niri.actions; {
+        "Mod+Space".action.spawn = "fuzzel";
+
+        "Mod+H".action = focus-column-left;
+        "Mod+J".action = focus-window-down;
+        "Mod+K".action = focus-window-up;
+        "Mod+L".action = focus-column-right;
+
+        "Mod+Shift+H".action = move-column-left;
+        "Mod+Shift+J".action = move-window-down;
+        "Mod+Shift+K".action = move-window-up;
+        "Mod+Shift+L".action = move-column-right;
+
+        "Mod+BracketLeft".action = focus-workspace-up;
+        "Mod+BracketRight".action = focus-workspace-down;
+
+        "Mod+1".action = focus-workspace 1;
+        "Mod+2".action = focus-workspace 2;
+        "Mod+3".action = focus-workspace 3;
+        "Mod+4".action = focus-workspace 4;
+        "Mod+5".action = focus-workspace 5;
+        "Mod+6".action = focus-workspace 6;
+        "Mod+7".action = focus-workspace 7;
+        "Mod+8".action = focus-workspace 8;
+        "Mod+9".action = focus-workspace 9;
+        "Mod+Shift+1".action.move-column-to-workspace = 1;
+        "Mod+Shift+2".action.move-column-to-workspace = 2;
+        "Mod+Shift+3".action.move-column-to-workspace = 3;
+        "Mod+Shift+4".action.move-column-to-workspace = 4;
+        "Mod+Shift+5".action.move-column-to-workspace = 5;
+        "Mod+Shift+6".action.move-column-to-workspace = 6;
+        "Mod+Shift+7".action.move-column-to-workspace = 7;
+        "Mod+Shift+8".action.move-column-to-workspace = 8;
+        "Mod+Shift+9".action.move-column-to-workspace = 9;
+
+        # Consume one window from the right to the bottom of the focused column.
+        "Mod+Comma".action = consume-window-into-column;
+        # Expel the bottom window from the focused column to the right.
+        "Mod+Period".action = expel-window-from-column;
+
+        "Mod+Minus".action = set-column-width "-10%";
+        "Mod+Equal".action = set-column-width "+10%";
+
+        "Mod+F".action = fullscreen-window;
+        "Mod+Shift+F".action = expand-column-to-available-width;
+
+        "Print".action = screenshot;
+
+        # Volume/mute
+        "XF86AudioRaiseVolume".action = spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+";
+        "XF86AudioLowerVolume".action = spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+        "XF86AudioMute".action = spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioMicMute".action = spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+
+        # play/pause/next
+        "XF86AudioPlay".action = spawn-sh "playerctl play-pause";
+        "XF86AudioStop".action = spawn-sh "playerctl stop";
+        "XF86AudioPrev".action = spawn-sh "playerctl previous";
+        "XF86AudioNext".action = spawn-sh "playerctl next";
+
+        # screen brightness
+        "XF86MonBrightnessUp".action = spawn "brightnessctl" "--class=backlight" "set" "+10%";
+        "XF86MonBrightnessDown".action = spawn "brightnessctl" "--class=backlight" "set" "10%-";
+
+        "Mod+O" = {
+          action = toggle-overview;
+          repeat = false;
+        };
+
+        # launch terminal
+        "Mod+Return".action =
+          spawn-sh "foot -D $(/home/justin/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)";
+
+        "Mod+Y".action.spawn =
+          "/home/justin/src/justin/dotfiles/home/.config/niri/scripts/rename-workspace.sh";
+
+        "Mod+X" = {
+          repeat = false;
+          action = close-window;
+        };
+
+        "Mod+Escape".action = spawn "swaylock";
+
+        "Mod+Shift+Escape".action = quit;
+      };
+    };
+  };
+}

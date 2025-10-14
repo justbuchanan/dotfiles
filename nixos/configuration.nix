@@ -1,10 +1,3 @@
-# NixOS main config file
-#
-# For documentation on this file, refer to:
-# * `man configuration.nix` in the terminal
-# * https://search.nixos.org/options
-# * NixOS manual (`nixos-help`)
-
 {
   config,
   lib,
@@ -14,6 +7,13 @@
 }:
 
 {
+  # Nix settings
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -22,19 +22,26 @@
     inputs.niri.nixosModules.niri
   ];
 
+  # Set time zone
+  time.timeZone = "America/Los_Angeles";
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # before adding this on 10/2, uname -r showed kernel 6.6.35
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  programs.zsh.enable = true;
+  programs.seahorse.enable = true;
+  programs.steam.enable = true;
 
+  # before adding this on 10/2, uname -r showed kernel 6.6.35
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # install firmware updater. Use with `fwupdmgr update`
   services.fwupd.enable = true;
 
   # configure gnome and x so I can share my entire screen for interview purposes
   # sway doesn't do full screen sharing
-  services.xserver.enable = true; # Ensure the X server is enabled
-  # services.xserver.displayManager.gdm.enable = true;
+  services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
@@ -64,8 +71,13 @@
     openFirewall = true;
   };
 
+  # Printers
   services.printing.enable = true;
-  services.printing.drivers = [pkgs.gutenprint pkgs.hplip pkgs.cups-dymo];
+  services.printing.drivers = [
+    pkgs.gutenprint
+    pkgs.hplip
+    pkgs.cups-dymo
+  ];
   services.system-config-printer.enable = true;
 
   # enable bluetooth
@@ -74,89 +86,13 @@
   # blueman provides the blueman service and blueman-manager for managing pairing
   services.blueman.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
-
-  # Enable flakes
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  nixpkgs.config.allowUnfree = true;
-
   # display backlight control
   programs.light.enable = true;
 
-  # Select internationalisation properties.
+  # English
   i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
 
   programs.dconf.enable = true;
-
-  security.polkit.enable = true;
-
-  # configure suspend and hibernate
-  # TODO: test that this actually works
-  # TODO: `systemctl suspend` works. `systemctl hibernate` seems to just shut it down completely
-  services.logind.settings.Login = {
-    HandleLidSwitch="suspend";
-    IdleAction="hibernate";
-    IdleActionSec="30min";
-  };
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=yes
-    AllowHibernation=yes
-    AllowSuspendThenHibernate=yes
-    HibernateDelaySec=2h
-  '';
-  # enable swap to allow hibernate
-  swapDevices = [
-    # make swapfile at least as big as physical RAM
-    { device = "/swapfile"; size = 32768; }
-  ];
-  # TODO: is this needed?
-  # boot.kernelParams = [ "resume=UUID=<swap-uuid>" "resume_offset=<offset>" ];
-
-  # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd sway";
-        user = "greeter";
-      };
-    };
-  };
-
-  systemd.services.greetd.serviceConfig = {
-    Type = "idle";
-    StandardInput = "tty";
-    StandardOutput = "tty";
-    StandardError = "journal"; # Without this errors will spam on screen
-    # Without these bootlogs will spam on screen
-    TTYReset = true;
-    TTYVHangup = true;
-    TTYVTDisallocate = true;
-  };
-
-  programs.niri.enable = true;
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-  programs.hyprlock.enable = true;
-  # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/#fixing-problems-with-themes
   programs.dconf.profiles.user.databases = [
     {
       settings."org/gnome/desktop/interface" = {
@@ -169,11 +105,67 @@
     }
   ];
 
-  programs.zsh.enable = true;
+  security.polkit.enable = true;
 
-  programs.seahorse.enable = true;
+  # configure suspend and hibernate
+  # TODO: test that this actually works
+  # TODO: `systemctl suspend` works. `systemctl hibernate` seems to just shut it down completely
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    IdleAction = "hibernate";
+    IdleActionSec = "30min";
+  };
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    AllowHibernation=yes
+    AllowSuspendThenHibernate=yes
+    HibernateDelaySec=2h
+  '';
+  # enable swap to allow hibernate
+  swapDevices = [
+    # make swapfile at least as big as physical RAM
+    {
+      device = "/swapfile";
+      size = 32768;
+    }
+  ];
+  # TODO: is this needed?
+  # boot.kernelParams = [ "resume=UUID=<swap-uuid>" "resume_offset=<offset>" ];
 
-  programs.steam.enable = true;
+  # greetd tui login manager
+  # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd sway";
+        user = "greeter";
+      };
+    };
+  };
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal"; # Without this errors will spam on screen
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
+  };
+
+  # window managers
+  programs.niri.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+  programs.hyprlock.enable = true;
+  # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/#fixing-problems-with-themes
 
   nixpkgs.config.permittedInsecurePackages = [
     # needed for sublime4 as of 6/30/2024
@@ -189,10 +181,8 @@
   # Steam told me to add these
   # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
   hardware.graphics.enable32Bit = true;
-  services.pulseaudio.support32Bit = true;
-
+  services.pulseaudio.support32Bit = true; # TODO: try removing this
   virtualisation.docker.enable = true;
-
   services.expressvpn.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -223,8 +213,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # INSERT-NEW-PACKAGES-HERE
+    treefmt
+    shfmt
     # gopsuinfo for waybar system monitoring
-    (callPackage ./packages/gopsuinfo.nix {})
+    (callPackage ./packages/gopsuinfo.nix { })
     # Hyprland hy3 plugin
     inputs.hy3.packages.${pkgs.system}.hy3
     blender
@@ -233,6 +225,7 @@
     btop
     cachix
     cargo
+    socat
     clang
     claude-code
     cmake
@@ -246,6 +239,7 @@
     home-manager
     dmidecode
     kdePackages.dolphin
+    zenity
     espeak
     evince
     fast-cli
@@ -304,6 +298,8 @@
     spotify
     sqlite
     sublime4
+    swaylock
+    swaybg
     swayest-workstyle
     workstyle
     system-config-printer
@@ -328,39 +324,11 @@
   ];
 
   environment.variables = {
-    EDITOR = "vim";
-
     # https://discourse.nixos.org/t/rust-pkg-config-fails-on-openssl-for-cargo-generate/39759/2
-    PKG_CONFIG_PATH="${pkgs.openssl.dev}/lib/pkgconfig";
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
+  # DONT TOUCH THIS
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
 }

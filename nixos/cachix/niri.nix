@@ -2,10 +2,10 @@
   nix = {
     settings = {
       substituters = [
-        "https://ghostty.cachix.org"
+        "https://niri.cachix.org"
       ];
       trusted-public-keys = [
-        "ghostty.cachix.org-1:QB389yTa6gTyneehvqG58y0WnHjQOqgnA+wBnpWWxns="
+        "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       ];
     };
   };

@@ -1,0 +1,120 @@
+window#waybar {
+    background: transparent;
+     background-color: rgba(30, 30, 46, 0.5); 
+     background-color: rgba(0, 0, 0, 0.5); 
+    /* border-bottom: 2px solid rgba(147, 153, 178, 0.5); */
+    /* border: 1px solid rgba(166, 173, 200, 1.0); */
+    color: #ffffff;
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+
+/*@define-color foreground #d3c6aa;
+@define-color background #2d353b;
+
+* {
+  background-color: @background;
+  color: @foreground;
+
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: CaskaydiaMono Nerd Font;
+  font-size: 12px;
+}
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#workspaces button.active {
+  background: #4472c4;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 2px 6px;
+  border: none;
+  box-shadow: none;
+  min-height: 26px;
+}
+
+#tray,
+#cpu,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#custom-omarchy,
+#custom-screenrecording-indicator,
+#custom-update {
+  min-width: 12px;
+  margin: 0 7.5px;
+}
+
+#custom-expand-icon {
+  margin-right: 7px;
+}
+
+tooltip {
+  padding: 2px;
+}
+
+#custom-update {
+  font-size: 10px;
+}
+
+#clock {
+  margin-left: 8.75px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#custom-screenrecording-indicator {
+  min-width: 12px;
+  margin-left: 8.75px;
+  font-size: 10px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: #a55555;
+}
+*/
+#custom-nixos-logo {
+  background-image: url("/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg");
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 24px;
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 0;
+}

@@ -1,0 +1,8 @@
+[formatter.nix]
+command = "nixfmt"
+includes = ["*.nix"]
+
+[formatter.shell]
+command = "shfmt"
+options = ["-i", "2", "-sr", "-s"]
+includes = ["*.sh"]
