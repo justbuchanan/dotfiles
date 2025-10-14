@@ -14,6 +14,27 @@
     startInBackground = true;
   };
 
+  programs.niri = {
+    settings = {
+      input = {
+        keyboard = {
+          xkb = {
+            # Remap caps lock to act as the Super (mod) key
+            options = "caps:super";
+          };
+        };
+      };
+
+      binds = with config.lib.niri.actions; {
+        "Mod+Space".action.spawn = "fuzzel";
+        "Mod+H".action = focus-column-left;
+        "Mod+J".action = focus-window-down;
+        "Mod+K".action = focus-window-up;
+        "Mod+L".action = focus-column-right;
+      };
+    };
+  };
+
   services.gnome-keyring.enable = true;
 
   wayland.windowManager.hyprland = {
