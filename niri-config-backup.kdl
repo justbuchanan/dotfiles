@@ -1,0 +1,95 @@
+input {
+    keyboard {
+        xkb {
+            layout ""
+            model ""
+            rules ""
+            variant ""
+            options "caps:super"
+        }
+        repeat-delay 600
+        repeat-rate 25
+        track-layout "global"
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+}
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+prefer-no-csd
+layout {
+    gaps 16
+    struts {
+        left 0
+        right 0
+        top 0
+        bottom 0
+    }
+    focus-ring { width 4; }
+    border { off; }
+    default-column-width
+    center-focused-column "never"
+}
+cursor {
+    xcursor-theme "default"
+    xcursor-size 24
+}
+binds {
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+BracketLeft { focus-workspace-up; }
+    Mod+BracketRight { focus-workspace-down; }
+    Mod+Comma { consume-window-into-column; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Escape { spawn "swaylock"; }
+    Mod+F { fullscreen-window; }
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Period { expel-window-from-column; }
+    Mod+Return { spawn-sh "foot -D $(/home/justin/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)"; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+Escape { quit; }
+    Mod+Shift+F { expand-column-to-available-width; }
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+    Mod+Shift+L { move-column-right; }
+    Mod+Space { spawn "fuzzel"; }
+    Mod+X repeat=false { close-window; }
+    Mod+Y { spawn "/home/justin/src/justin/dotfiles/home/.config/niri/scripts/rename-workspace.sh"; }
+    Print { screenshot; }
+    XF86AudioLowerVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMicMute { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioMute { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioNext { spawn-sh "playerctl next"; }
+    XF86AudioPlay { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev { spawn-sh "playerctl previous"; }
+    XF86AudioRaiseVolume { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioStop { spawn-sh "playerctl stop"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    XF86MonBrightnessUp { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+}
+switch-events { lid-close { spawn "swaylock"; }; }
+spawn-at-startup "waybar" "--config" "/home/justin/src/justin/dotfiles/home/.config/waybar/config-niri" "--style" "/home/justin/src/justin/dotfiles/home/.config/waybar/style-niri.css"
+spawn-at-startup "nm-applet"
+spawn-at-startup "swaybg" "--image" "/home/justin/src/justin/dotfiles/wallpapers/artist_point.jpg"
