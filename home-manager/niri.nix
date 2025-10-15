@@ -10,6 +10,7 @@
             options = "caps:super";
           };
         };
+        focus-follows-mouse.enable = true;
       };
 
       # disable "client side decorations", including ugly window title bars
