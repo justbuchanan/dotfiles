@@ -79,8 +79,13 @@
         # Expel the bottom window from the focused column to the right.
         "Mod+Period".action = expel-window-from-column;
 
+        # horizontal resizing
         "Mod+Minus".action = set-column-width "-10%";
         "Mod+Equal".action = set-column-width "+10%";
+
+        # vertical resizing
+        "Mod+Shift+Minus".action = set-window-height "-10%";
+        "Mod+Shift+Equal".action = set-window-height "+10%";
 
         "Mod+F".action = fullscreen-window;
         "Mod+Shift+F".action = expand-column-to-available-width;
