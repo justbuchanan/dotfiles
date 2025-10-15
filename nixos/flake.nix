@@ -70,7 +70,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.justin = import ./home.nix;
+              home-manager.users.justin = import ../home-manager/home.nix;
             }
             {
               environment.systemPackages = [

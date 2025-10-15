@@ -17,13 +17,15 @@
 
   programs.ssh.enableDefaultConfig = true;
 
-  # TODO: nextcloud client sync isn't working - figure this out
   services.nextcloud-client = {
     enable = true;
     startInBackground = true;
   };
 
   services.gnome-keyring.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "24.05";
 }
