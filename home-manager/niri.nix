@@ -38,6 +38,9 @@
             "/home/justin/src/justin/dotfiles/wallpapers/artist_point.jpg"
           ];
         }
+        {
+          argv = [ "niri-autoname-workspaces" ];
+        }
       ];
 
       binds = with config.lib.niri.actions; {
@@ -118,8 +121,7 @@
         "Mod+Return".action =
           spawn-sh "foot -D $(/home/justin/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)";
 
-        "Mod+Y".action.spawn =
-          "/home/justin/src/justin/dotfiles/home/.config/niri/scripts/rename-workspace.sh";
+        "Mod+Y".action.spawn-sh = "niri-autoname-workspaces rename";
 
         "Mod+X" = {
           repeat = false;
