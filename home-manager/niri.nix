@@ -21,6 +21,22 @@
       };
 
       spawn-at-startup = [
+        # Import environment variables to systemd so services can access WAYLAND_DISPLAY
+        {
+          argv = [
+            "systemctl"
+            "--user"
+            "import-environment"
+            "DISPLAY"
+            "WAYLAND_DISPLAY"
+          ];
+        }
+        {
+          argv = [ "systemctl" "--user" "restart" "xdg-desktop-portal-gtk" ];
+        }
+        {
+          argv = [ "systemctl" "--user" "start" "xdg-desktop-portal" ];
+        }
         {
           argv = [
             "waybar"
