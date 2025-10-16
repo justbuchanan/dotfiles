@@ -656,11 +656,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1760569914,
-        "narHash": "sha256-mIlwyY6vBYQk4zrS8SSDw8tPM/b1z+1jyDwfLjWCbc4=",
+        "lastModified": 1760590492,
+        "narHash": "sha256-DQFEFBSp9q771WPKI1zI9PyQqDu2ht7wuotOJ5VXy5E=",
         "owner": "justbuchanan",
         "repo": "niri-autoname-workspaces",
-        "rev": "e4ecf8536d60caa7cbf29e86c0e5f0587aa650f8",
+        "rev": "84d58d1993475fbe5bd34bd3e9d9158e21adcc4e",
         "type": "github"
       },
       "original": {
