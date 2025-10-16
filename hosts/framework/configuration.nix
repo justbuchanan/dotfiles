@@ -199,7 +199,8 @@
 
   # font awesome is needed for waybar to work correctly
   fonts.packages = with pkgs; [
-    font-awesome
+    # font-awesome
+    nerd-fonts.hack
     dejavu_fonts
   ];
 

@@ -45,7 +45,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% <span foreground='#E58606'></span>"
+        "format": "<span foreground='#E58606'></span>  {}%"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -66,10 +66,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% <span foreground='#E58606'>{icon}</span>",
+        "format": "<span foreground='#E58606'>{icon}</span> {capacity}%",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "<span foreground='#E58606'>󰢝</span>  {capacity}% ",
+        "format-plugged": "<span foreground='#E58606'>󰚥</span>  {capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -91,11 +91,11 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) <span foreground='#E58606'></span>",
-        "format-ethernet": "{ipaddr}/{cidr} <span foreground='#E58606'></span>",
+        "format-wifi": "<span foreground='#E58606'></span>    {essid} ({signalStrength}%)",
+        "format-ethernet": "<span foreground='#E58606'></span> {ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {

@@ -4,7 +4,8 @@
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
+    font-family: Nerd Font Mono;
     font-size: 14px;
 }
 
@@ -16,6 +17,13 @@ window#waybar {
     color: #ffffff;
     /*vertical-align: middle;*/
     /*align-content: center;*/
+}
+
+label {
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #workspaces button {
