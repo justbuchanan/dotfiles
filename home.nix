@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -38,6 +43,8 @@
     transmission_4-qt
     wf-recorder
     swayidle
+    inputs.niri-autoname-workspaces.packages.${pkgs.system}.default
+    inputs.ghostty.packages.${pkgs.system}.default
   ];
 
   home.sessionVariables = {

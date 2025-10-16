@@ -75,12 +75,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.justin = import ./home.nix;
-            }
-            {
-              environment.systemPackages = [
-                ghostty.packages.x86_64-linux.default
-                niri-autoname-workspaces.packages.x86_64-linux.default
-              ];
+              home-manager.extraSpecialArgs = { inherit inputs; };
             }
 
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
