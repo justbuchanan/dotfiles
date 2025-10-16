@@ -66,7 +66,7 @@
           specialArgs.inputs = inputs;
           system = "x86_64-linux";
           modules = [
-            ./configuration.nix
+            ./hosts/framework/configuration.nix
 
             determinate.nixosModules.default
 
@@ -74,7 +74,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.justin = import ../home-manager/home.nix;
+              home-manager.users.justin = import ../home.nix;
             }
             {
               environment.systemPackages = [
@@ -97,7 +97,7 @@
           extraSpecialArgs = { inherit inputs; };
 
           modules = [
-            ../home-manager/home.nix
+            ../home.nix
             niri.homeModules.niri
             {
               home = {

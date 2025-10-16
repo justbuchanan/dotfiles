@@ -18,7 +18,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # binary cache server
-    ./cachix.nix
+    ../../cachix.nix
     inputs.niri.nixosModules.niri
   ];
 
@@ -216,7 +216,7 @@
     treefmt
     shfmt
     # gopsuinfo for waybar system monitoring
-    (callPackage ./packages/gopsuinfo.nix { })
+    (callPackage ../../packages/gopsuinfo.nix { })
     # Hyprland hy3 plugin
     inputs.hy3.packages.${pkgs.system}.hy3
     blender
