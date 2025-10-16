@@ -74,7 +74,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.justin = import ../home.nix;
+              home-manager.users.justin = import ./home.nix;
             }
             {
               environment.systemPackages = [
@@ -97,7 +97,7 @@
           extraSpecialArgs = { inherit inputs; };
 
           modules = [
-            ../home.nix
+            ./home.nix
             niri.homeModules.niri
             {
               home = {

@@ -18,7 +18,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     # binary cache server
-    ../../cachix.nix
+    ../../nixos/cachix.nix
     inputs.niri.nixosModules.niri
   ];
 
