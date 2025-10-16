@@ -32,10 +32,20 @@
           ];
         }
         {
-          argv = [ "systemctl" "--user" "restart" "xdg-desktop-portal-gtk" ];
+          argv = [
+            "systemctl"
+            "--user"
+            "restart"
+            "xdg-desktop-portal-gtk"
+          ];
         }
         {
-          argv = [ "systemctl" "--user" "start" "xdg-desktop-portal" ];
+          argv = [
+            "systemctl"
+            "--user"
+            "start"
+            "xdg-desktop-portal"
+          ];
         }
         {
           argv = [
