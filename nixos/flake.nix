@@ -2,12 +2,11 @@
   description = "flake setup for nixtop";
 
   inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     determinate = {
       url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
     };
     mediaplayer = {
       url = "github:nomisreual/mediaplayer";
@@ -86,6 +85,27 @@
 
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
             nixos-hardware.nixosModules.framework-13th-gen-intel
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        # Desktop computer - Arch Linux
+        "justin@srvbox" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+          extraSpecialArgs = { inherit inputs; };
+
+          modules = [
+            ../home-manager/home.nix
+            niri.homeModules.niri
+            {
+              home = {
+                username = "justin";
+                homeDirectory = "/home/justin";
+                stateVersion = "24.05";
+              };
+            }
           ];
         };
       };
