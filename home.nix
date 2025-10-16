@@ -49,6 +49,28 @@
     vimAlias = true;
   };
 
+  programs.zed-editor = {
+    enable = true;
+
+    userSettings = {
+      vim_mode = true;
+      base_keymap = "SublimeText";
+
+      lsp = {
+        rust-analyzer = {
+          binary = {
+            path_lookup = true;
+          };
+        };
+        nix = {
+          binary = {
+            path_lookup = true;
+          };
+        };
+      };
+    };
+  };
+
   programs.ssh.enableDefaultConfig = true;
 
   services.nextcloud-client = {
