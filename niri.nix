@@ -20,7 +20,9 @@ in
       prefer-no-csd = true;
 
       switch-events = {
-        lid-close.action.spawn = lock_cmd;
+        # TODO: fix this. for some reason, it says spawn-sh isn't defined
+        # lid-close.action = spawn-sh lock_cmd;
+        lid-close.action.spawn = "swaylock";
       };
 
       spawn-at-startup = [
@@ -159,7 +161,7 @@ in
           action = close-window;
         };
 
-        "Mod+Escape".action = spawn lock_cmd;
+        "Mod+Escape".action = spawn-sh lock_cmd;
 
         "Mod+Shift+Escape".action = quit;
       };
