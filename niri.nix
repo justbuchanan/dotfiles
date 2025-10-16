@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  lock_cmd = "swaylock -f -c 000000";
+in
 {
   programs.niri = {
     settings = {
@@ -17,7 +20,7 @@
       prefer-no-csd = true;
 
       switch-events = {
-        lid-close.action.spawn = "swaylock";
+        lid-close.action.spawn = lock_cmd;
       };
 
       spawn-at-startup = [
@@ -128,11 +131,13 @@
         "XF86AudioMute".action = spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioMicMute".action = spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
-        # play/pause/next
-        "XF86AudioPlay".action = spawn-sh "playerctl play-pause";
-        "XF86AudioStop".action = spawn-sh "playerctl stop";
-        "XF86AudioPrev".action = spawn-sh "playerctl previous";
-        "XF86AudioNext".action = spawn-sh "playerctl next";
+        # Media keys
+        # Note: the `--player` option deprioritizes Chromium. This way if spotify is
+        # playing, the play/pause will affect spotify and not some random youtube video you have open.
+        "XF86AudioPlay".action = spawn-sh "playerctl --player=%any,chromium play-pause";
+        "XF86AudioStop".action = spawn-sh "playerctl --player=%any,chromium stop";
+        "XF86AudioPrev".action = spawn-sh "playerctl --player=%any,chromium previous";
+        "XF86AudioNext".action = spawn-sh "playerctl --player=%any,chromium next";
 
         # screen brightness
         "XF86MonBrightnessUp".action = spawn "brightnessctl" "--class=backlight" "set" "+10%";
@@ -154,7 +159,7 @@
           action = close-window;
         };
 
-        "Mod+Escape".action = spawn "swaylock";
+        "Mod+Escape".action = spawn lock_cmd;
 
         "Mod+Shift+Escape".action = quit;
       };

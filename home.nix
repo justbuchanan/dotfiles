@@ -37,6 +37,7 @@
     expressvpn
     transmission_4-qt
     wf-recorder
+    swayidle
   ];
 
   home.sessionVariables = {
