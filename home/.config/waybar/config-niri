@@ -19,7 +19,8 @@
         "network",
         // "power-profiles-daemon",
         "memory",
-        "cpu",
+        // "cpu",
+        // "custom/multicore_cpu",
         "battery",
         "clock",
         "tray",
@@ -168,5 +169,9 @@
         "format": "<span foreground='#E58606'>⏻</span>",
         "tooltip": false,
         "on-click": "niri msg action quit"
+    },
+    "custom/multicore_cpu": {
+        "format": " <span font='Iosevka'>{}</span>",
+        "exec": "~/src/justin/dotfiles/home/.config/waybar/cpugraph.sh"
     }
 }
