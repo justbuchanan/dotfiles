@@ -209,8 +209,6 @@
     # INSERT-NEW-PACKAGES-HERE
     treefmt
     shfmt
-    # gopsuinfo for waybar system monitoring
-    (callPackage ../../packages/gopsuinfo.nix { })
     # Hyprland hy3 plugin
     inputs.hy3.packages.${pkgs.system}.hy3
     blender
