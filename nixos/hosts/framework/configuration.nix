@@ -195,12 +195,6 @@
       "video" # allow changing screen brightness (among other things) without sudo
       "dialout" # access to /dev/tty* devices without sudo
     ];
-    packages = with pkgs; [
-      cheese
-      expressvpn
-      transmission_4-qt
-      nextcloud-client
-    ];
   };
 
   # font awesome is needed for waybar to work correctly

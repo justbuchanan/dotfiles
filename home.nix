@@ -32,6 +32,13 @@
     ".gtkrc-2.0".source = ./home/.gtkrc-2.0;
   };
 
+  home.packages = with pkgs; [
+    cheese
+    expressvpn
+    transmission_4-qt
+    wf-recorder
+  ];
+
   home.sessionVariables = {
     EDITOR = "vim";
   };
