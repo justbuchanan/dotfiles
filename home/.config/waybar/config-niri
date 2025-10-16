@@ -4,13 +4,11 @@
 
     "layer": "top",
 
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 30,
     "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
     "modules-left": [
         "custom/nixos-logo",
         "niri/workspaces",
-        // "niri/window",
         "custom/media"
     ],
     "modules-center": [],
@@ -42,11 +40,11 @@
         "format": "{:%H:%M %a %m/%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% <span foreground='#E58606'></span>",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% <span foreground='#E58606'></span>"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -67,7 +65,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}% <span foreground='#E58606'>{icon}</span>",
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
@@ -92,8 +90,8 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": "{essid} ({signalStrength}%) <span foreground='#E58606'></span>",
+        "format-ethernet": "{ipaddr}/{cidr} <span foreground='#E58606'></span>",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
@@ -101,12 +99,12 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% <span foreground='#E58606'>{icon}</span> {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-source": "{volume}% <span foreground='#E58606'></span>",
+        "format-source-muted": "<span foreground='#E58606'></span>",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -150,10 +148,6 @@
     },
     "niri/workspaces": {
         "format": "{value}",
-        // "format-icons": {
-        //     "active": "X",
-        //     "default": "N"
-        // }
     },
     // "niri/window": {
     //     "format": "{}",
@@ -171,7 +165,7 @@
     //     }
     // },
     "custom/logout": {
-        "format": "⏻",
+        "format": "<span foreground='#E58606'>⏻</span>",
         "tooltip": false,
         "on-click": "niri msg action quit"
     }

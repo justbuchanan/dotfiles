@@ -1,12 +1,21 @@
+/*@define-color larch-gold #E58606;*/
+@define-color larch-gold #FAB11A;
+@define-color evergreen #515D19;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
 window#waybar {
     background: transparent;
-     background-color: rgba(30, 30, 46, 0.5); 
-     background-color: rgba(0, 0, 0, 0.5); 
-    /* border-bottom: 2px solid rgba(147, 153, 178, 0.5); */
+    /*background-color: @evergreen;*/
+    background-color: rgba(0, 0, 0, 0.5); 
     /* border: 1px solid rgba(166, 173, 200, 1.0); */
     color: #ffffff;
-    /* transition-property: background-color; */
-    /* transition-duration: .5s; */
+    /*vertical-align: middle;*/
+    /*align-content: center;*/
 }
 
 #workspaces button {
