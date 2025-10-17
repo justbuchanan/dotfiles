@@ -14,7 +14,6 @@
 
   home.file = {
     ".config/git/ignore".source = ./home/.config/git/ignore;
-    ".config/git/attributes".source = ./home/.config/git/attributes;
 
     ".tigrc".source = ./home/.tigrc;
     ".vimrc".source = ./home/.vimrc;

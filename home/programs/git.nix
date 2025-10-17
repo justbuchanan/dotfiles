@@ -7,6 +7,10 @@
     userName = "Justin Buchanan";
     userEmail = "justbuchanan@gmail.com";
 
+    attributes = [
+      "*.pdf diff=pdf"
+    ];
+
     extraConfig = {
       push = {
         default = "simple";
