@@ -207,7 +207,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # INSERT-NEW-PACKAGES-HERE
     treefmt
     shfmt
     # Hyprland hy3 plugin
