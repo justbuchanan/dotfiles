@@ -13,8 +13,6 @@
   ];
 
   home.file = {
-    ".config/git/ignore".source = ./home/.config/git/ignore;
-
     ".tigrc".source = ./home/.tigrc;
     ".vimrc".source = ./home/.vimrc;
     ".vim".source = ./home/.vim;

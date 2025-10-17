@@ -11,6 +11,10 @@
       "*.pdf diff=pdf"
     ];
 
+    ignores = [
+      "**/.claude/settings.local.json"
+    ];
+
     extraConfig = {
       push = {
         default = "simple";
