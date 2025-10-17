@@ -45,15 +45,14 @@
   services.desktopManager.gnome.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
-  # attempt to allow fingerprint auth for swaylock - not currently working
-  # services.fprintd.enable = true;
-  # security.pam.services.swaylock = {
-  #   text = ''
-  #     auth sufficient pam_unix.so try_first_pass likeauth nullok
-  #     auth sufficient pam_fprintd.so
-  #     auth include login
-  #   '';
-  # };
+  # Enable fingerprint authentication for swaylock
+  services.fprintd.enable = true;
+  security.pam.services.swaylock = {
+    text = ''
+      auth sufficient pam_fprintd.so
+      auth include login
+    '';
+  };
 
   networking.hostName = "framework"; # Define your hostname.
   networking.networkmanager.enable = true;
