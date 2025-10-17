@@ -9,10 +9,10 @@
   imports = [
     ./niri.nix
     ./hyprland.nix
+    ./home/programs/git.nix
   ];
 
   home.file = {
-    ".gitconfig".source = ./home/.gitconfig;
     ".config/git/ignore".source = ./home/.config/git/ignore;
     ".config/git/attributes".source = ./home/.config/git/attributes;
 
