@@ -7,8 +7,8 @@
 
 {
   imports = [
-    ./niri.nix
-    ./hyprland.nix
+    ./home/programs/niri.nix
+    ./home/programs/hyprland.nix
     ./home/programs/git.nix
   ];
 
