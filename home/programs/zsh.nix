@@ -46,8 +46,10 @@
     syntaxHighlighting.enable = true;
 
     initContent = ''
-      # disable builtin prompt since we're using starship instead
-      prompt off
+      # disable home-manager-generated system prompt since we're using starship instead
+      if typeset -f prompt > /dev/null; then
+        prompt off
+      fi
 
       # Allow VIM-like shortcuts at the command line
       bindkey -v
