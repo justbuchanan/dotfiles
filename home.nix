@@ -13,6 +13,7 @@
     ./home/programs/niri.nix
     ./home/programs/starship.nix
     ./home/programs/zsh.nix
+    ./home/programs/waybar-niri.nix
   ];
 
   nixpkgs.config = {
@@ -142,6 +143,12 @@
     enable = true;
     image = ./wallpapers/artist_point.jpg;
     polarity = "dark";
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.hack;
+        name = "Hack Nerd Font Mono";
+      };
+    };
   };
 
   home.stateVersion = "24.05";

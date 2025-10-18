@@ -63,10 +63,6 @@ in
         {
           argv = [
             "waybar"
-            "--config"
-            "/home/justin/src/justin/dotfiles/home/.config/waybar/config-niri"
-            "--style"
-            "/home/justin/src/justin/dotfiles/home/.config/waybar/style-niri.css"
           ];
         }
         { argv = [ "nm-applet" ]; }
