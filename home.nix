@@ -10,6 +10,7 @@
     ./home/programs/niri.nix
     ./home/programs/hyprland.nix
     ./home/programs/git.nix
+    ./home/programs/zsh.nix
   ];
 
   home.file = {
@@ -17,8 +18,6 @@
     ".vimrc".source = ./home/.vimrc;
     ".vim".source = ./home/.vim;
     ".bashrc".source = ./home/.bashrc;
-    ".zshrc".source = ./home/.zshrc;
-    ".p10k.zsh".source = ./home/.p10k.zsh;
     ".tmux.conf".source = ./home/.tmux.conf;
 
     ".config/foot/foot.ini".source = ./home/.config/foot/foot.ini;
@@ -64,6 +63,13 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.nixvim = {
