@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 
@@ -12,6 +13,14 @@
     ./home/programs/git.nix
     ./home/programs/zsh.nix
   ];
+
+  nixpkgs.config = {
+    allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "expressvpn"
+      ];
+  };
 
   home.file = {
     ".tigrc".source = ./home/.tigrc;
