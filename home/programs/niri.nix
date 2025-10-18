@@ -13,6 +13,10 @@ in
             options = "caps:super";
           };
         };
+        touchpad = {
+          # disable-while-typing (palm rejection while typing)
+          dwt = true;
+        };
         focus-follows-mouse.enable = true;
       };
 
