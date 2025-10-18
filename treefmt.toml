@@ -6,3 +6,8 @@ includes = ["*.nix"]
 command = "shfmt"
 options = ["-i", "2", "-sr", "-s"]
 includes = ["*.sh"]
+
+[formatter.prettier]
+command = "prettier"
+options = ["--write"]
+includes = ["*.md", "*.yaml", "*.yml"]
