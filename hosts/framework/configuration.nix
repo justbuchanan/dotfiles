@@ -250,6 +250,9 @@
     fuzzel
     gcc
     git
+    # ghostty is here and not in home.nix because nix-installed ghostty doesn't
+    # work on my Arch machine
+    inputs.ghostty.packages.${pkgs.system}.default
     gnumake
     go
     google-chrome
