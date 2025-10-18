@@ -40,10 +40,6 @@
 
   gtk = {
     enable = true;
-
-    theme = {
-      name = "Adwaita-dark";
-    };
   };
 
   dconf.settings = {
@@ -141,6 +137,12 @@
   };
 
   services.gnome-keyring.enable = true;
+
+  stylix = {
+    enable = true;
+    image = ./wallpapers/artist_point.jpg;
+    polarity = "dark";
+  };
 
   home.stateVersion = "24.05";
 }

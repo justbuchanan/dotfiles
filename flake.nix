@@ -42,6 +42,11 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -57,6 +62,7 @@
       niri-autoname-workspaces,
       hyprland-plugins,
       home-manager,
+      stylix,
       nixvim,
       nixos-hardware,
     }@inputs:
@@ -76,7 +82,10 @@
               home-manager.useUserPackages = true;
               home-manager.users.justin = import ./home.nix;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.sharedModules = [ nixvim.homeModules.nixvim ];
+              home-manager.sharedModules = [
+                nixvim.homeModules.nixvim
+                stylix.homeModules.stylix
+              ];
             }
 
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
@@ -96,6 +105,7 @@
             ./home.nix
             nixvim.homeModules.nixvim
             niri.homeModules.niri
+            stylix.homeModules.stylix
             {
               home = {
                 username = "justin";
