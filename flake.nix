@@ -40,6 +40,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
@@ -58,6 +62,7 @@
       hyprland-plugins,
       ghostty,
       home-manager,
+      nixvim,
       nixos-hardware,
     }@inputs:
     {
@@ -76,6 +81,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.justin = import ./home.nix;
               home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];
             }
 
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
@@ -93,6 +99,7 @@
 
           modules = [
             ./home.nix
+            nixvim.homeManagerModules.nixvim
             niri.homeModules.niri
             {
               home = {

@@ -53,9 +53,16 @@
     EDITOR = "vim";
   };
 
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
     vimAlias = true;
+
+    colorschemes.catppuccin = {
+      enable = true;
+      settings = {
+        flavour = "mocha"; # Options: latte, frappe, macchiato, mocha
+      };
+    };
   };
 
   programs.zed-editor = {
