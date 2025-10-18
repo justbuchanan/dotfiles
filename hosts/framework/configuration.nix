@@ -208,6 +208,7 @@
   environment.systemPackages = with pkgs; [
     treefmt
     shfmt
+    xwayland-satellite
     # Hyprland hy3 plugin
     inputs.hy3.packages.${pkgs.system}.hy3
     blender
