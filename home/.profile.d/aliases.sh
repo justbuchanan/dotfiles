@@ -1,6 +1,8 @@
 # open sublime projects
 alias subp='subl --project *.sublime-project'
 
+alias g='git'
+
 # shortcuts
 alias q='exit'
 alias please='sudo'

@@ -1,47 +1,53 @@
 { config, pkgs, ... }:
 
 {
-  home.file = {
-    ".p10k.zsh".source = ./home/.p10k.zsh;
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      command_timeout = 1300;
+      scan_timeout = 50;
+      format = "$username$hostname$directory$nix_shell$git_branch$git_status$nodejs$lua$golang$rust$php$character";
+      character = {
+        success_symbol = "[❯](bold green)";
+        error_symbol = "[❯](bold red)";
+      };
+      username = {
+        show_always = false;
+        format = "[$user]($style) ";
+      };
+      hostname = {
+        ssh_only = true;
+        format = "[@$hostname]($style) ";
+      };
+      directory = {
+        truncation_length = 3;
+        truncate_to_repo = true;
+        format = "[$path]($style) ";
+      };
+      git_branch = {
+        format = "[$symbol$branch]($style) ";
+      };
+      git_status = {
+        format = "([$all_status$ahead_behind]($style) )";
+      };
+      rust = {
+        format = "[$symbol]($style)";
+      };
+      nix_shell = {
+        format = "[$symbol]($style)";
+      };
+    };
   };
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initExtra = ''
-      # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-      # Initialization code that may require console input (password prompts, [y/n]
-      # confirmations, etc.) must go above this block; everything else may go below.
-      if [[ -r "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-''$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
 
-      # setup antigen for zsh "package management"
-      source ~/.config/zsh/antigen.zsh
-      antigen use oh-my-zsh
-
-      export DEFAULT_USER=justin
-
-      # theme
-      antigen theme romkatv/powerlevel10k
-
-      # packages
-      antigen bundle git
-      antigen bundle mercurial
-      antigen bundle pip
-      antigen bundle python
-      #antigen bundle rupa/z
-
-      if [[ `uname` == 'Linux' ]]; then
-          antigen bundle systemd
-      else
-          # TODO: check for OS X
-          antigen bundle brew
-      fi
-
-      # load completions
-      antigen apply
+    initContent = ''
+      # disable builtin prompt since we're using starship instead
+      prompt off
 
       # Allow VIM-like shortcuts at the command line
       bindkey -v
@@ -53,13 +59,6 @@
               . $i
           fi
       done
-
-      # To customize prompt, run `p10k configure` or edit .p10k.zsh.
-      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-      # hack to make cursor work
-      # https://github.com/cursor/cursor/issues/549
-      [[ "$TERM_PROGRAM" == "vscode" ]] && unset ARGV0
     '';
   };
 }
