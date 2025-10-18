@@ -95,7 +95,7 @@
   programs.dconf.profiles.user.databases = [
     {
       settings."org/gnome/desktop/interface" = {
-        gtk-theme = "Adwaita";
+        gtk-theme = "Adwaita-dark";
         icon-theme = "Flat-Remix-Red-Dark";
         font-name = "Noto Sans Medium 11";
         document-font-name = "Noto Sans Medium 11";

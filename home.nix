@@ -31,9 +31,22 @@
     ".config/sworkstyle/config.toml".source = ./home/.config/sworkstyle/config.toml;
 
     ".config/niri/autoname-workspaces.toml".source = ./home/.config/niri/autoname-workspaces.toml;
+  };
 
-    ".config/gtk-3.0/settings.ini".source = ./home/.config/gtk-3.0/settings.ini;
-    ".gtkrc-2.0".source = ./home/.gtkrc-2.0;
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = "Adwaita-dark";
+    };
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
   };
 
   home.packages = with pkgs; [
