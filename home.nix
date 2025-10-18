@@ -25,8 +25,6 @@
 
   home.file = {
     ".tigrc".source = ./home/.tigrc;
-    ".vimrc".source = ./home/.vimrc;
-    ".vim".source = ./home/.vim;
     ".bashrc".source = ./home/.bashrc;
     ".tmux.conf".source = ./home/.tmux.conf;
 
@@ -92,6 +90,23 @@
         flavour = "mocha"; # Options: latte, frappe, macchiato, mocha
       };
     };
+
+    opts = {
+      number = true;
+      relativenumber = false;
+    };
+
+    plugins.gitsigns = {
+      enable = true;
+    };
+
+    keymaps = [
+      {
+        mode = "i";
+        key = "jj";
+        action = "<Esc>";
+      }
+    ];
   };
 
   programs.zed-editor = {
