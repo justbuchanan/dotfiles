@@ -39,6 +39,9 @@
   # install firmware updater. Use with `fwupdmgr update`
   services.fwupd.enable = true;
 
+  # Enable periodic SSD TRIM
+  services.fstrim.enable = true;
+
   # configure gnome and x so I can share my entire screen for interview purposes
   # sway doesn't do full screen sharing
   services.xserver.enable = true;
