@@ -81,7 +81,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.justin = import ./home.nix;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];
+              home-manager.sharedModules = [ nixvim.homeModules.nixvim ];
             }
 
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
@@ -99,7 +99,7 @@
 
           modules = [
             ./home.nix
-            nixvim.homeManagerModules.nixvim
+            nixvim.homeModules.nixvim
             niri.homeModules.niri
             {
               home = {
