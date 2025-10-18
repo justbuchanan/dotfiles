@@ -171,13 +171,13 @@ in
         };
 
         # launch terminal
-        "Mod+Return".action =
-          spawn-sh "foot -D $(~/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)";
+        "Mod+Return".action = spawn-sh "foot -D $(~/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)";
 
         "Mod+Y".action.spawn-sh = "niri-autoname-workspaces rename";
 
         "Mod+N".action.spawn = "~/src/justin/dotfiles/home/.config/niri/scripts/focus-last-workspace.sh";
-        "Mod+Shift+N".action.spawn-sh = "~/src/justin/dotfiles/home/.config/niri/scripts/focus-last-workspace.sh take-window";
+        "Mod+Shift+N".action.spawn-sh =
+          "~/src/justin/dotfiles/home/.config/niri/scripts/focus-last-workspace.sh take-window";
 
         "Mod+X" = {
           repeat = false;
