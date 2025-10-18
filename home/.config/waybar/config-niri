@@ -171,7 +171,7 @@
         "on-click": "niri msg action quit"
     },
     "custom/multicore_cpu": {
-        "format": " <span font='Iosevka'>{}</span>",
+        "format": " {}",
         "exec": "~/src/justin/dotfiles/home/.config/waybar/cpugraph.sh"
     }
 }

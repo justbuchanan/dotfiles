@@ -3,9 +3,7 @@
 @define-color evergreen #515D19;
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
-    font-family: Nerd Font Mono;
+    font-family: Hack Nerd Font Mono;
     font-size: 14px;
 }
 
@@ -42,16 +40,6 @@ label {
 /*@define-color foreground #d3c6aa;
 @define-color background #2d353b;
 
-* {
-  background-color: @background;
-  color: @foreground;
-
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: CaskaydiaMono Nerd Font;
-  font-size: 12px;
-}
 
 .modules-left {
   margin-left: 8px;
@@ -125,6 +113,7 @@ tooltip {
   color: #a55555;
 }
 */
+
 #custom-nixos-logo {
   background-image: url("/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg");
   background-size: 16px;

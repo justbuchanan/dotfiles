@@ -104,6 +104,13 @@
     ];
   };
 
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      font-family = "Hack Nerd Font Mono";
+    };
+  };
+
   programs.zed-editor = {
     enable = true;
 

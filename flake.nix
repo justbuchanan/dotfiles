@@ -32,10 +32,6 @@
     #   url = "github:marcus7070/cq-flake";
     #   # rev = "de4b29ee5cf2fdd2a8ba97010442511e162b6041";
     # };
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,7 +56,6 @@
       niri,
       niri-autoname-workspaces,
       hyprland-plugins,
-      ghostty,
       home-manager,
       nixvim,
       nixos-hardware,
