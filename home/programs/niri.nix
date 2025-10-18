@@ -171,7 +171,7 @@ in
         };
 
         # launch terminal
-        "Mod+Return".action = spawn-sh "foot -D $(~/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)";
+        "Mod+Return".action = spawn-sh ''ghostty --working-directory="$(~/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)"'';
 
         "Mod+Y".action.spawn-sh = "niri-autoname-workspaces rename";
 

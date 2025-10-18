@@ -16,7 +16,7 @@ set $right l
 # Preferred terminal emulator
 # Note: cwd.sh tries to open terminals in the same directory as the
 # currently-focused one.
-set $term foot -D $($HOME/.config/sway/scripts/cwd.sh)
+set $term ghostty --working-directory="$($HOME/.config/sway/scripts/cwd.sh)"
 
 # screen lock command
 set $lock_cmd swaylock -f -c 000000

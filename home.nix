@@ -28,8 +28,6 @@
     ".bashrc".source = ./home/.bashrc;
     ".tmux.conf".source = ./home/.tmux.conf;
 
-    ".config/foot/foot.ini".source = ./home/.config/foot/foot.ini;
-
     ".profile.d".source = ./home/.profile.d;
 
     ".config/nixpkgs/config.nix".source = ./home/.config/nixpkgs/config.nix;

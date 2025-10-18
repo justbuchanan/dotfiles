@@ -19,7 +19,7 @@
 
     settings = {
       "$mainMod" = "SUPER";
-      "$terminal" = "foot";
+      "$terminal" = "ghostty";
       # "$fileManager" = "dolphin";
       "$menu" = "fuzzel | xargs hyprctl exec --";
       input = {
