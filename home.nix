@@ -36,18 +36,14 @@
     ".config/sway".source = ./home/.config/sway;
     ".config/sworkstyle/config.toml".source = ./home/.config/sworkstyle/config.toml;
 
-    ".config/niri/autoname-workspaces.toml".source = ./home/.config/niri/autoname-workspaces.toml;
+    ".config/niri/autoname-workspaces.toml".text = ''
+      # # make the focused window icon big and gold/orange
+      # focused_format = "<span foreground='#E58606'><big>{}</big></span>"
+      focused_format = "<span foreground='#${config.lib.stylix.colors.base09}'><big>{}</big></span>"
+    '';
   };
 
-  gtk = {
-    enable = true;
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-  };
+  gtk.enable = true;
 
   home.packages = with pkgs; [
     cheese
@@ -141,6 +137,7 @@
 
   stylix = {
     enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ./wallpapers/artist_point.jpg;
     polarity = "dark";
     fonts = {

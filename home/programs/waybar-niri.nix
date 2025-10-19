@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  style_icon = icon: "<span foreground='#E58606'>${icon}</span>";
+  style_icon = icon: "<span foreground='#${config.lib.stylix.colors.base09}'>${icon}</span>";
 in
 {
   programs.waybar = {
@@ -153,8 +153,8 @@ in
       }
 
       #workspaces button.focused {
-          background: #64727D;
-          border-bottom: 3px solid white;
+          background: #${config.lib.stylix.colors.base03};
+          border-bottom: 3px solid #${config.lib.stylix.colors.base05};
       }
 
       #custom-nixos-logo {
