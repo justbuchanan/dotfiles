@@ -161,8 +161,8 @@ in
 
       #workspaces button {
         border-radius: 0;
-        /* text color - TODO */
-        color: black;
+        /* text color - TODO
+        color: black; */
       }
 
       #workspaces button.focused {
