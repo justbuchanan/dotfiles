@@ -24,10 +24,10 @@ in
           "custom/weather"
           "idle_inhibitor"
           "pulseaudio"
-          "network"
           "memory"
           "battery"
           "clock"
+          "network"
           "tray"
           "custom/logout"
         ];
@@ -155,9 +155,19 @@ in
           font-size: 14px;
       }
 
+      /*window#waybar {
+        background: alpha(@base00, 0.5);
+      }*/
+
+      #workspaces button {
+        border-radius: 0;
+        /* text color - TODO */
+        color: black;
+      }
+
       #workspaces button.focused {
-          background: #${config.lib.stylix.colors.base03};
-          border-bottom: 3px solid #${config.lib.stylix.colors.base05};
+          background: @base03;
+          border-bottom: 3px solid @base05;
       }
 
       #custom-nixos-logo {
@@ -169,6 +179,10 @@ in
         margin-left: 8px;
         margin-right: 8px;
         font-size: 0;
+      }
+
+      #tray, #custom-logout {
+        margin-right: 10px;
       }
     '';
   };
