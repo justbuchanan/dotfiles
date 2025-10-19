@@ -47,6 +47,11 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -54,6 +59,7 @@
       self,
       nixpkgs,
       determinate,
+      disko,
       mediaplayer,
       # cadquery,
       hyprland,
@@ -73,11 +79,21 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/framework/configuration.nix
-
             determinate.nixosModules.default
-
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
             nixos-hardware.nixosModules.framework-13th-gen-intel
+          ];
+        };
+
+        # Linode VPS
+        linode2 = nixpkgs.lib.nixosSystem {
+          specialArgs.inputs = inputs;
+          system = "x86_64-linux";
+          modules = [
+            disko.nixosModules.disko
+            determinate.nixosModules.default
+            ./hosts/linode2/configuration.nix
+            ./hardware-configuration.nix
           ];
         };
       };
@@ -124,6 +140,24 @@
             }
           ];
         };
+
+        # Linode2
+        "justin@linode2" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/linode2/justin.nix
+            nixvim.homeModules.nixvim
+            stylix.homeModules.stylix
+            {
+              home = {
+                username = "justin";
+                homeDirectory = "/home/justin";
+                stateVersion = "24.05";
+              };
+            }
+          ];
+        };
       };
 
       # devshell provides code formatting tools
@@ -137,6 +171,7 @@
             shfmt
             nixfmt-rfc-style
             nodePackages.prettier
+            nixos-rebuild
           ];
         };
     };
