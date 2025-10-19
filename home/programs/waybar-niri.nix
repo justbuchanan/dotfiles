@@ -38,6 +38,8 @@ in
             activated = "";
             deactivated = "";
           };
+          tooltip-format-activated = "idle inhibitor ON";
+          tooltip-format-deactivated = "idle inhibitor OFF";
         };
 
         "tray" = {
@@ -46,6 +48,7 @@ in
 
         "clock" = {
           format = "{:%H:%M %a %m/%d}";
+          tooltip = false;
         };
 
         "cpu" = {
@@ -79,7 +82,7 @@ in
         "network" = {
           format-wifi = "${style_icon ""} {essid} ({signalStrength}%)";
           format-ethernet = "${style_icon ""} {ipaddr}/{cidr}";
-          tooltip-format = "{ifname} via {gwaddr} ";
+          tooltip-format = "{ifname} via {gwaddr}";
           format-linked = "{ifname} (No IP)  ";
           format-disconnected = "${style_icon "󰖪"} Disconnected";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
@@ -88,8 +91,8 @@ in
         "pulseaudio" = {
           format = "${style_icon "{icon}"} {volume}% {format_source}";
           format-bluetooth = "{icon}${style_icon ""} {volume}% {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = "  {format_source}";
+          format-bluetooth-muted = "${style_icon ""} {icon} {format_source}";
+          format-muted = "${style_icon ""} {format_source}";
           format-source = "${style_icon ""} {volume}%";
           format-source-muted = style_icon "";
           format-icons = {
