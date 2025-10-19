@@ -16,13 +16,7 @@
     ./home/programs/waybar-niri.nix
   ];
 
-  # nixpkgs.config = {
-  #   allowUnfreePredicate =
-  #     pkg:
-  #     builtins.elem (lib.getName pkg) [
-  #       "expressvpn"
-  #     ];
-  # };
+  nixpkgs.config.allowUnfree = true;
 
   home.file = {
     ".tigrc".source = ./home/.tigrc;
