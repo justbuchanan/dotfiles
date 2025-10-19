@@ -165,9 +165,9 @@ in
         color: black; */
       }
 
-      #workspaces button.focused {
-          background: @base03;
-          border-bottom: 3px solid @base05;
+      .modules-left #workspaces button.focused {
+        background: @base03;
+        border-bottom: 0px;
       }
 
       #custom-nixos-logo {

@@ -33,7 +33,7 @@
     ".config/niri/autoname-workspaces.toml".text = ''
       # # make the focused window icon big and gold/orange
       # focused_format = "<span foreground='#E58606'><big>{}</big></span>"
-      focused_format = "<span foreground='#${config.lib.stylix.colors.base09}'><big>{}</big></span>"
+      focused_format = "<span foreground='#${config.lib.stylix.colors.base09}'>{}</span>"
     '';
   };
 
