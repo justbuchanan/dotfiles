@@ -39,6 +39,7 @@
     wf-recorder
     imagemagick
     nil # nix lsp
+    yazi # tui file manager
     # gopsuinfo for waybar system monitoring
     (callPackage ./packages/gopsuinfo.nix { })
   ];
@@ -54,10 +55,16 @@
     nix-direnv.enable = true;
   };
 
+  # TODO: https://tip.ghostty.org/docs/linux/systemd
+  # tl;dr: running the systemd service, then launching ghostty with +new-window
+  # makes it much faster.
   programs.ghostty = {
     enable = true;
+    enableZshIntegration = true;
     settings = {
       font-family = "Hack Nerd Font Mono";
+      quit-after-last-window-closed = true;
+      quit-after-last-window-closed-delay = "5m";
     };
   };
 
