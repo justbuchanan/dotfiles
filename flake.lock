@@ -803,11 +803,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1760762183,
-        "narHash": "sha256-Q8JdLQoJmPo5ms56h5U7QHb+Hh0y/RopdLQVM4OKBr4=",
+        "lastModified": 1760819716,
+        "narHash": "sha256-QaFtxR8I4C2kk6YZnRB4HMDjvp4ICXBbyDi2Qi5+aDk=",
         "owner": "justbuchanan",
         "repo": "niri-autoname-workspaces",
-        "rev": "96371238c5a4a0b19c1c80f73de9a4bf706f3059",
+        "rev": "141e2179ca88f10a389b31d57afa2d7cf56e771b",
         "type": "github"
       },
       "original": {
