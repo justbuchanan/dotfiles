@@ -22,5 +22,6 @@ alias open="xdg-open $@"
 alias say="echo '$*' | espeak"
 
 export HM_DIR=/home/justin/src/justin/dotfiles
-alias hms='home-manager switch --flake .'
-alias hmsf='home-manager switch --option substitute false --flake .'
+alias hms='home-manager switch --flake $HM_DIR'
+# hms "fast" - disables network lookups
+alias hmsf='home-manager switch --option substitute false --flake $HM_DIR'
