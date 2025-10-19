@@ -47,6 +47,11 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -54,6 +59,7 @@
       self,
       nixpkgs,
       determinate,
+      disko,
       mediaplayer,
       # cadquery,
       hyprland,
@@ -73,11 +79,32 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/framework/configuration.nix
-
             determinate.nixosModules.default
-
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
             nixos-hardware.nixosModules.framework-13th-gen-intel
+          ];
+        };
+
+        # DigitalOcean Droplet
+        droplet1 = nixpkgs.lib.nixosSystem {
+          specialArgs.inputs = inputs;
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/droplet1/digitalocean.nix
+            disko.nixosModules.disko
+            { disko.devices.disk.disk1.device = "/dev/vda"; }
+            determinate.nixosModules.default
+            ./hosts/droplet1/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useUserPackages = true;
+              home-manager.users.justin = import ./hosts/droplet1/justin.nix;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.sharedModules = [
+                nixvim.homeModules.nixvim
+                stylix.homeModules.stylix
+              ];
+            }
           ];
         };
       };
@@ -133,11 +160,12 @@
         in
         pkgs.mkShell {
           packages = with pkgs; [
-            treefmt
-            shfmt
             nixfmt-rfc-style
+            nixos-rebuild
             nodePackages.prettier
             shellcheck
+            shfmt
+            treefmt
           ];
         };
     };
