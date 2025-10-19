@@ -76,17 +76,6 @@
 
             determinate.nixosModules.default
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useUserPackages = true;
-              home-manager.users.justin = import ./home.nix;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.sharedModules = [
-                nixvim.homeModules.nixvim
-                stylix.homeModules.stylix
-              ];
-            }
-
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
             nixos-hardware.nixosModules.framework-13th-gen-intel
           ];
@@ -94,6 +83,27 @@
       };
 
       homeConfigurations = {
+        # Framework laptop - NixOS
+        "justin@framework" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+          extraSpecialArgs = { inherit inputs; };
+
+          modules = [
+            ./home.nix
+            nixvim.homeModules.nixvim
+            niri.homeModules.niri
+            stylix.homeModules.stylix
+            {
+              home = {
+                username = "justin";
+                homeDirectory = "/home/justin";
+                stateVersion = "24.05";
+              };
+            }
+          ];
+        };
+
         # Desktop computer - Arch Linux
         "justin@srvbox" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
