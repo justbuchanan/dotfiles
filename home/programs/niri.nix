@@ -1,9 +1,19 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   lock_cmd = "swaylock -f -c 000000";
 in
 {
+  home.packages = with pkgs; [
+    swayidle
+    inputs.niri-autoname-workspaces.packages.${pkgs.system}.default
+  ];
+
   programs.niri = {
     settings = {
       hotkey-overlay = {
@@ -179,5 +189,13 @@ in
         "Mod+Shift+Escape".action = quit;
       };
     };
+  };
+
+  home.file = {
+    ".config/niri/autoname-workspaces.toml".text = ''
+      # # make the focused window icon big and gold/orange
+      # focused_format = "<span foreground='#E58606'><big>{}</big></span>"
+      focused_format = "<span foreground='#${config.lib.stylix.colors.base09}'>{}</span>"
+    '';
   };
 }

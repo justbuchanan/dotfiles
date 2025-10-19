@@ -285,9 +285,6 @@
     spotify
     sqlite
     sublime4
-    swaylock
-    swayest-workstyle
-    workstyle
     system-config-printer
     tig
     tmux

@@ -15,6 +15,7 @@
     ./home/programs/zsh.nix
     ./home/programs/vim.nix
     ./home/programs/waybar-niri.nix
+    ./home/programs/sway.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -27,15 +28,6 @@
     ".profile.d".source = ./home/.profile.d;
 
     ".config/nixpkgs/config.nix".source = ./home/.config/nixpkgs/config.nix;
-
-    ".config/sway".source = ./home/.config/sway;
-    ".config/sworkstyle/config.toml".source = ./home/.config/sworkstyle/config.toml;
-
-    ".config/niri/autoname-workspaces.toml".text = ''
-      # # make the focused window icon big and gold/orange
-      # focused_format = "<span foreground='#E58606'><big>{}</big></span>"
-      focused_format = "<span foreground='#${config.lib.stylix.colors.base09}'>{}</span>"
-    '';
   };
 
   gtk.enable = true;
@@ -45,10 +37,8 @@
     expressvpn
     transmission_4-qt
     wf-recorder
-    swayidle
     imagemagick
     nil # nix lsp
-    inputs.niri-autoname-workspaces.packages.${pkgs.system}.default
     # gopsuinfo for waybar system monitoring
     (callPackage ./packages/gopsuinfo.nix { })
   ];
