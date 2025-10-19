@@ -13,6 +13,7 @@
     ./home/programs/niri.nix
     ./home/programs/starship.nix
     ./home/programs/zsh.nix
+    ./home/programs/vim.nix
     ./home/programs/waybar-niri.nix
   ];
 
@@ -61,35 +62,6 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
-  };
-
-  programs.nixvim = {
-    enable = true;
-    vimAlias = true;
-
-    colorschemes.catppuccin = {
-      enable = true;
-      settings = {
-        flavour = "mocha"; # Options: latte, frappe, macchiato, mocha
-      };
-    };
-
-    opts = {
-      number = true;
-      relativenumber = false;
-    };
-
-    plugins.gitsigns = {
-      enable = true;
-    };
-
-    keymaps = [
-      {
-        mode = "i";
-        key = "jj";
-        action = "<Esc>";
-      }
-    ];
   };
 
   programs.ghostty = {
