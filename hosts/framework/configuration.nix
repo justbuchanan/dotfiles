@@ -167,12 +167,6 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-  programs.hyprlock.enable = true;
-  # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/#fixing-problems-with-themes
 
   nixpkgs.config.permittedInsecurePackages = [
     # needed for sublime4 as of 6/30/2024
@@ -215,11 +209,7 @@
     treefmt
     shfmt
     xwayland-satellite
-    # Hyprland hy3 plugin
-    inputs.hy3.packages.${pkgs.system}.hy3
     blender
-    # hyprpm
-    # inputs.hyprland-plugins.packages.${pkgs.system}.hyprpm
     btop
     cachix
     cargo
@@ -256,7 +246,6 @@
     tuigreet
     grim
     htop
-    hyprpaper
     imv
     inkscape
     inxi
@@ -296,9 +285,6 @@
     spotify
     sqlite
     sublime4
-    swaylock
-    swayest-workstyle
-    workstyle
     system-config-printer
     tig
     tmux

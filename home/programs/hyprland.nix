@@ -1,5 +1,25 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+  programs.hyprlock.enable = true;
+  # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/#fixing-problems-with-themes
+
+  home.packages = with pkgs; [
+    # hyprpm
+    # inputs.hyprland-plugins.packages.${pkgs.system}.hyprpm
+    hyprpaper
+    # Hyprland hy3 plugin
+    inputs.hy3.packages.${pkgs.system}.hy3
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
 
