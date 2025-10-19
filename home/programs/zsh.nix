@@ -6,6 +6,15 @@
     autosuggestion.enable = false;
     syntaxHighlighting.enable = true;
 
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "z"
+      ];
+      theme = "robbyrussell";
+    };
+
     initContent = ''
       # disable home-manager-generated system prompt since we're using starship instead
       if typeset -f prompt > /dev/null; then

@@ -13,7 +13,7 @@ in
         spacing = 4;
 
         modules-left = [
-          "custom/nixos-logo"
+          # "custom/nixos-logo"
           "niri/workspaces"
           "custom/media"
         ];
