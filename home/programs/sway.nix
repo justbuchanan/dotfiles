@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     swayidle
     inputs.niri-autoname-workspaces.packages.${pkgs.system}.default
-    swaylock
+    # swaylock
     swayest-workstyle
     workstyle
   ];

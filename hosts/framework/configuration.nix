@@ -285,6 +285,7 @@
     spotify
     sqlite
     sublime4
+    swaylock
     system-config-printer
     tig
     tmux
