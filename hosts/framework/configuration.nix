@@ -297,7 +297,6 @@
     sqlite
     sublime4
     swaylock
-    swaybg
     swayest-workstyle
     workstyle
     system-config-printer
