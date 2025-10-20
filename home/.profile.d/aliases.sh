@@ -3,11 +3,11 @@ alias subp='subl --project *.sublime-project'
 
 alias g='git'
 
-# shortcuts
 alias q='exit'
+
 alias please='sudo'
 
-# some cd shortcuts
+# cd shortcuts
 alias ..='cd ..'
 alias cD='cd ~/src/justin/dotfiles'
 alias cS='cd ~/src/'

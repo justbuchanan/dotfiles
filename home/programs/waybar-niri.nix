@@ -81,7 +81,7 @@ in
 
         "network" = {
           format-wifi = "${style_icon ""} {essid} ({signalStrength}%)";
-          format-ethernet = "${style_icon ""} {ipaddr}/{cidr}";
+          format-ethernet = "${style_icon ""}";
           tooltip-format = "{ifname} via {gwaddr}";
           format-linked = "{ifname} (No IP)  ";
           format-disconnected = "${style_icon "󰖪"} Disconnected";
