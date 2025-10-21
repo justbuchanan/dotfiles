@@ -77,6 +77,13 @@ in
         }
         { argv = [ "nm-applet" ]; }
         {
+          argv = [
+            "swaybg"
+            "--image"
+            "/home/justin/src/justin/dotfiles/wallpapers/artist_point.jpg"
+          ];
+        }
+        {
           argv = [ "niri-autoname-workspaces" ];
         }
         {
