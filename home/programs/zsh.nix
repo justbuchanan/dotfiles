@@ -16,10 +16,10 @@
     };
 
     initContent = ''
-      # disable home-manager-generated system prompt since we're using starship instead
-      if typeset -f prompt > /dev/null; then
-        prompt off
-      fi
+      # # disable home-manager-generated system prompt since we're using starship instead
+      # if typeset -f prompt > /dev/null; then
+      #   prompt off
+      # fi
 
       # Allow VIM-like shortcuts at the command line
       bindkey -v
@@ -31,7 +31,6 @@
               . $i
           fi
       done
-
 
       # the nix-provided ghostty isn't compatible with Arch opengl install, so use pacman-installed ghostty
       if [[ "$(cat /etc/os-release)" == *"Arch Linux"* ]]; then
