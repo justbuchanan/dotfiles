@@ -33,6 +33,7 @@
   gtk.enable = true;
 
   home.packages = with pkgs; [
+    baobab
     cheese
     expressvpn
     transmission_4-qt
