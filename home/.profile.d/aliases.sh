@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # open sublime projects
 alias subp='subl --project *.sublime-project'
 
@@ -17,9 +19,11 @@ alias s='stylize -i -g main'
 alias c='wl-copy'
 alias v='wl-paste'
 
-alias open="xdg-open $@"
+alias open=xdg-open
 
-alias say="echo '$*' | espeak"
+say() {
+    echo "$@" | espeak
+}
 
 export HM_DIR=/home/justin/src/justin/dotfiles
 alias hms='home-manager switch --flake $HM_DIR'

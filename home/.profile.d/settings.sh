@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # vim as default editor
 export EDITOR='vim'
@@ -7,6 +8,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Python
 #export PATH="/opt/anaconda/bin:$PATH"
+# shellcheck disable=SC1091
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 # Rust

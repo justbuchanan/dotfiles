@@ -24,10 +24,10 @@ fi
 
 if [[ "$app_id" == "sublime_text" ]]; then
     # for sublime, use the pid directly
-    ppid=$pid
+    ppid="$pid"
 else
     # for terminals, and others, use the parent process id
-    ppid=$(pgrep --newest --parent $pid)
+    ppid=$(pgrep --newest --parent "$pid")
 fi
-# if no cwd found, use home dir
-readlink /proc/${ppid}/cwd || echo $HOME
+# if no cwd found, use default
+readlink "/proc/${ppid}/cwd" || echo "$DEFAULT_DIR"

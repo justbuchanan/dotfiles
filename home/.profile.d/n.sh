@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # Sets current window to "urgent" and posts a notification
 # Useful for notifying that a long-running task is done
