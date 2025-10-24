@@ -13,6 +13,17 @@
         "z"
       ];
       theme = "robbyrussell";
+      custom = "$HOME/.oh-my-zsh-custom";
+      extraConfig = ''
+        # Show direnv icon in prompt
+        precmd() {
+          if [[ -n "$DIRENV_DIR" ]]; then
+            RPROMPT="%F{yellow}📁%f"
+          else
+            RPROMPT=""
+          fi
+        }
+      '';
     };
 
     initContent = ''
