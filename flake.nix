@@ -137,6 +137,7 @@
             shfmt
             nixfmt-rfc-style
             nodePackages.prettier
+            shellcheck
           ];
         };
     };

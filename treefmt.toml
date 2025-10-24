@@ -7,6 +7,10 @@ command = "shfmt"
 options = ["-i", "2", "-sr", "-s"]
 includes = ["*.sh"]
 
+[formatter.shellcheck]
+command = "shellcheck"
+includes = ["*.sh"]
+
 [formatter.prettier]
 command = "prettier"
 options = ["--write"]
