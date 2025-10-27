@@ -21,7 +21,7 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
     ./hardware-configuration.nix
-
+    ./webserver.nix
     # binary cache server
     # ../../nixos/cachix.nix
   ];
