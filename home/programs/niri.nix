@@ -81,7 +81,7 @@ in
           argv = [
             "swaybg"
             "--image"
-            "/home/justin/src/justin/dotfiles/wallpapers/artist_point.jpg"
+            "/home/justin/src/justin/dotfiles/wallpapers/maple_loop_pass.jpg"
           ];
         }
         {
