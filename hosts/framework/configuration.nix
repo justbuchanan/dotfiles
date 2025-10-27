@@ -72,6 +72,11 @@
   networking.networkmanager.dns = "systemd-resolved";
   services.resolved.enable = true;
 
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = [ "--ssh" ];
+  };
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;

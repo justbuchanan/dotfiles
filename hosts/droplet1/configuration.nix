@@ -42,6 +42,11 @@
 
   services.resolved.enable = true;
 
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = [ "--ssh" ];
+  };
+
   # English
   i18n.defaultLocale = "en_US.UTF-8";
 
