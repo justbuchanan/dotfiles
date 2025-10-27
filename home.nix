@@ -66,6 +66,8 @@
       font-family = "Hack Nerd Font Mono";
       quit-after-last-window-closed = true;
       quit-after-last-window-closed-delay = "5m";
+      # https://ghostty.org/docs/help/terminfo#ssh
+      shell-integration-features = "ssh-terminfo";
     };
   };
 
