@@ -33,6 +33,7 @@
   gtk.enable = true;
 
   home.packages = with pkgs; [
+    age
     baobab
     cheese
     expressvpn

@@ -52,6 +52,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -60,6 +65,7 @@
       nixpkgs,
       determinate,
       disko,
+      agenix,
       mediaplayer,
       # cadquery,
       hyprland,
@@ -94,6 +100,7 @@
             disko.nixosModules.disko
             { disko.devices.disk.disk1.device = "/dev/vda"; }
             determinate.nixosModules.default
+            agenix.nixosModules.default
             ./hosts/droplet1/configuration.nix
             home-manager.nixosModules.home-manager
             {

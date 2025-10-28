@@ -6,6 +6,7 @@
 }:
 let
   homeserver = "srvbox.wampus-newton.ts.net";
+  authelia = "localhost:9091";
 in
 {
   services.caddy = {
@@ -43,26 +44,25 @@ in
         reverse_proxy ${homeserver}:8086
       '';
 
-      # cctv.justbuchanan.com {
-      #     forward_auth authelia:9091 {
-      #         uri /api/verify?rd=https://auth.justbuchanan.com
-      #         copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
-      #     }
+      "cctv.justbuchanan.com".extraConfig = ''
+        forward_auth ${authelia} {
+            uri /api/verify?rd=https://auth.justbuchanan.com
+            copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
+        }
+        reverse_proxy ${homeserver}:5000
+      '';
 
-      #     reverse_proxy 10.0.1.3:5000
-      # }
+      "ls.justbuchanan.com".extraConfig = ''
+        forward_auth ${authelia} {
+            uri /api/verify?rd=https://auth.justbuchanan.com
+            copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
+        }
+        reverse_proxy ${homeserver}:3456
+      '';
 
-      # ls.justbuchanan.com {
-      #     forward_auth authelia:9091 {
-      #         uri /api/verify?rd=https://auth.justbuchanan.com
-      #         copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
-      #     }
-      #     reverse_proxy 10.0.1.3:3456
-      # }
-
-      # auth.justbuchanan.com {
-      #     reverse_proxy authelia:9091
-      # }
+      "auth.justbuchanan.com".extraConfig = ''
+        reverse_proxy ${authelia}
+      '';
     };
   };
 

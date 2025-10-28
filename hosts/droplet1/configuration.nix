@@ -22,9 +22,13 @@
     ./disk-config.nix
     ./hardware-configuration.nix
     ./webserver.nix
+    ./authelia.nix
     # binary cache server
     # ../../nixos/cachix.nix
   ];
+
+  # Configure agenix
+  age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
   nix.gc = {
     automatic = true;
