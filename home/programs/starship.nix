@@ -7,7 +7,7 @@
       add_newline = false;
       command_timeout = 1300;
       scan_timeout = 50;
-      format = "$username$hostname$directory$nix_shell$nodejs$lua$golang$php$character";
+      format = "$username$hostname$directory$git_branch$git_status$nix_shell$character";
       # format = "$username$hostname$directory$nix_shell$git_branch$git_status$nodejs$lua$golang$rust$php$character";
       character = {
         success_symbol = "[❯](bold green)";
@@ -26,12 +26,12 @@
         truncate_to_repo = true;
         format = "[$path]($style) ";
       };
-      # git_branch = {
-      #   format = "[$symbol$branch]($style) ";
-      # };
-      # git_status = {
-      #   format = "([$all_status$ahead_behind]($style) )";
-      # };
+      git_branch = {
+        format = "[$symbol$branch]($style) ";
+      };
+      git_status = {
+        format = "([$all_status$ahead_behind]($style) )";
+      };
       # rust = {
       #   format = "[$symbol]($style)";
       # };
