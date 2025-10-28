@@ -144,6 +144,20 @@
   # TODO: is this needed?
   # boot.kernelParams = [ "resume=UUID=<swap-uuid>" "resume_offset=<offset>" ];
 
+  # samba client configuration
+  services.samba.enable = true;
+  fileSystems."/mnt/srvbox_samba_justin" = {
+    device = "//srvbox.wampus-newton.ts.net/justin";
+    fsType = "cifs";
+    options =
+      let
+        # this line prevents hanging on network split
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+      in
+      [ "${automount_opts},credentials=/etc/nixos/smb-secrets" ];
+  };
+  services.gvfs.enable = true;
+
   # greetd tui login manager
   # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
   services.greetd = {
@@ -211,6 +225,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    cifs-utils
     treefmt
     shfmt
     xwayland-satellite
