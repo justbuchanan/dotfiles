@@ -59,7 +59,7 @@
         # };
       };
 
-      aliases = {
+      alias = {
         edit-unmerged = "!$EDITOR `git diff --name-only --diff-filter=U`";
         rhead = "reset HEAD~1";
         co = "checkout";
