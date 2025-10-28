@@ -106,6 +106,7 @@
             {
               home-manager.useUserPackages = true;
               home-manager.users.justin = import ./hosts/droplet1/justin.nix;
+              home-manager.users.root = import ./hosts/droplet1/justin.nix;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = [
                 nixvim.homeModules.nixvim

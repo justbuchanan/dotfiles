@@ -27,7 +27,7 @@
     # ../../nixos/cachix.nix
   ];
 
-  # Configure agenix
+  # Configure agenix - this is the keyfile for decrypting secrets
   age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
   nix.gc = {
@@ -69,6 +69,7 @@
       "docker"
     ];
   };
+  users.users.root.shell = pkgs.zsh;
 
   users.users.root.openssh.authorizedKeys.keys = [
     # framework pub key
