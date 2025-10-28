@@ -6,17 +6,13 @@
 }:
 let
   homeserver = "srvbox.wampus-newton.ts.net";
+  linode1 = "castle.wampus-newton.ts.net";
 in
 {
   services.caddy = {
     enable = true;
 
     virtualHosts = {
-      # TODO: remove
-      "example.org".extraConfig = ''
-        respond "Hello, world!"
-      '';
-
       # Home Assistant
       "home.justbuchanan.com".extraConfig = ''
         reverse_proxy ${homeserver}:8123
@@ -44,9 +40,9 @@ in
         reverse_proxy localhost:3002
       '';
 
-      # influxdb.justbuchanan.com {
-      #     reverse_proxy influxdb:8086
-      # }
+      "influxdb.justbuchanan.com".extraConfig = ''
+        reverse_proxy ${homeserver}:8086
+      '';
 
       # cctv.justbuchanan.com {
       #     forward_auth authelia:9091 {
@@ -87,10 +83,9 @@ in
       ports = [ "3001:80" ];
     };
 
-    # thegrove_us = {
-    #   # TODO: where does this image come from?
-    #   image = "pa978ul/thegrove.us";
-    #   ports = [ "3002:3000" ];
-    # };
+    thegrove_us = {
+      image = "ghcr.io/justbuchanan/thegrove.us";
+      ports = [ "3002:3000" ];
+    };
   };
 }

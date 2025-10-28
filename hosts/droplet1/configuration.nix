@@ -53,6 +53,7 @@
   # TODO: needed?
   security.polkit.enable = true;
 
+  # TODO: get rid of docker since webserver.nix uses podman?
   virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
