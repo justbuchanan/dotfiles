@@ -6,7 +6,6 @@
 }:
 let
   homeserver = "srvbox.wampus-newton.ts.net";
-  linode1 = "castle.wampus-newton.ts.net";
 in
 {
   services.caddy = {
