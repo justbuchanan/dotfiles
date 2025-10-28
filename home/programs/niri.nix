@@ -152,6 +152,8 @@ in
         "Mod+F".action = fullscreen-window;
         "Mod+Shift+F".action = expand-column-to-available-width;
 
+        "Mod+B".action = toggle-window-floating;
+
         "Print".action.screenshot = [ ];
 
         # Volume/mute
