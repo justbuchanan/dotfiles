@@ -11,7 +11,7 @@
     ./home/programs/git.nix
     # ./home/programs/hyprland.nix
     ./home/programs/niri.nix
-    # ./home/programs/starship.nix
+    ./home/programs/starship.nix
     ./home/programs/zsh.nix
     ./home/programs/vim.nix
     ./home/programs/waybar-niri.nix
