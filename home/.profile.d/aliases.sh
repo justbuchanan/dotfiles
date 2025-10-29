@@ -14,6 +14,10 @@ alias ..='cd ..'
 alias cD='cd ~/src/justin/dotfiles'
 alias cS='cd ~/src/'
 
+take() {
+    mkdir -p "$1" && cd "$1"
+}
+
 alias s='stylize -i -g main'
 
 alias c='wl-copy'
