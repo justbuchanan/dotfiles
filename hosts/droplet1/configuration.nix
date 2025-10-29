@@ -83,6 +83,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    inputs.agenix.packages.${pkgs.system}.default
     btop
     busybox
     cachix

@@ -34,11 +34,13 @@
 
   home.packages = with pkgs; [
     age
+    inputs.agenix.packages.${pkgs.system}.default
     baobab
     cheese
     expressvpn
     transmission_4-qt
     wf-recorder
+    systemctl-tui
     imagemagick
     nil # nix lsp
     yazi # tui file manager
