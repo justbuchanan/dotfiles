@@ -15,7 +15,7 @@ alias cD='cd ~/src/justin/dotfiles'
 alias cS='cd ~/src/'
 
 take() {
-    mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1" || exit 1
 }
 
 alias s='stylize -i -g main'
