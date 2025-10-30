@@ -71,7 +71,8 @@
       quit-after-last-window-closed-delay = "5m";
       # https://ghostty.org/docs/help/terminfo#ssh
       # https://ghostty.org/docs/config/reference#shell-integration-features
-      shell-integration-features = "ssh-terminfo, ssh-env";
+      # shell-integration-features = "ssh-terminfo, ssh-env";
+      shell-integration-features = "ssh-env";
     };
   };
 
