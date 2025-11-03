@@ -4,20 +4,6 @@
 	"font_size": 14,
 	"highlight_line": true,
 	"hot_exit": false,
-	"ignored_packages":
-	[
-		"GitGutter",
-		"INI",
-		"LSP",
-		"MarkdownLivePreview",
-		"MarkdownPreview",
-		"orgmode",
-		"Package Control",
-		"QML",
-		"Rust Enhanced",
-		"udev rules",
-		"Wrap Plus",
-	],
 	"remember_open_files": false,
 	"rulers":
 	[

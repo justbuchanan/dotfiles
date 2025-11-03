@@ -80,6 +80,7 @@
     }@inputs:
     {
       nixosConfigurations = {
+        # framework 13 laptop
         framework = nixpkgs.lib.nixosSystem {
           specialArgs.inputs = inputs;
           system = "x86_64-linux";
@@ -88,6 +89,18 @@
             determinate.nixosModules.default
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
             nixos-hardware.nixosModules.framework-13th-gen-intel
+          ];
+        };
+
+        # srvbox - desktop computer / home server
+        srvbox = nixpkgs.lib.nixosSystem {
+          specialArgs.inputs = inputs;
+          system = "x86_64-linux";
+          modules = [
+            disko.nixosModules.disko
+            { disko.devices.disk.disk1.device = "/dev/nvme0n1"; }
+            ./hosts/srvbox/configuration.nix
+            determinate.nixosModules.default
           ];
         };
 
@@ -119,7 +132,7 @@
 
       homeConfigurations = {
         # Framework laptop - NixOS
-        "justin@framework" = home-manager.lib.homeManagerConfiguration {
+        justin = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
           extraSpecialArgs = { inherit inputs; };

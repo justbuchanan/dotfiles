@@ -6,6 +6,21 @@
   ...
 }:
 
+let
+  # search for the newest kernel that's compatible with the latest zfs modules
+  # https://wiki.nixos.org/wiki/ZFS
+  zfsCompatibleKernelPackages = lib.filterAttrs (
+    name: kernelPackages:
+    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+    && (builtins.tryEval kernelPackages).success
+    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+  ) pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
+in
 {
   # Nix settings
   nix.settings.experimental-features = [
@@ -19,11 +34,21 @@
   };
   nixpkgs.config.allowUnfree = true;
 
+  # https://wiki.nixos.org/wiki/ZFS
+  # use a kernel that works with the latest zfs modules
+  boot.kernelPackages = latestKernelPackage;
+  # We're not using zfs to boot, but add it here to ensure the kernel selection above works
+  boot.supportedFilesystems = [ "zfs" ];
+  # zfs wants the hostId set. generated with `head -c 8 /etc/machine-id`.
+  networking.hostId = "d94e1d7a";
+  boot.zfs.extraPools = [ "zpool0" ];
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # binary cache server
-    ../../nixos/cachix.nix
+    ./disk-config.nix
+    # # binary cache server
+    # ../../nixos/cachix.nix # TODO: re-enable
     inputs.niri.nixosModules.niri
   ];
 
@@ -34,12 +59,30 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable TPM2 for LUKS unlocking of root partition
+  boot.initrd.systemd.enable = true;
+  security.tpm2.enable = true;
+
   programs.zsh.enable = true;
   programs.seahorse.enable = true;
-  programs.steam.enable = true;
 
-  # before adding this on 10/2, uname -r showed kernel 6.6.35
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  programs.steam.enable = true;
+  # # Steam told me to add these
+  # # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
+  # hardware.graphics.enable32Bit = true;
+  # services.pulseaudio.support32Bit = true; # TODO: try removing this
+
+  # https://nixos.wiki/wiki/Nvidia
+  hardware.graphics.enable = true;
+  hardware.nvidia = {
+    powerManagement.enable = true;
+    modesetting.enable = true;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # install firmware updater. Use with `fwupdmgr update`
   services.fwupd.enable = true;
@@ -49,20 +92,11 @@
 
   # configure gnome and x so I can share my entire screen for interview purposes
   # sway doesn't do full screen sharing
-  services.xserver.enable = true;
+  services.xserver.enable = true; # TODO: disable xserver ?
   services.desktopManager.gnome.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
-  # Enable fingerprint authentication for swaylock
-  services.fprintd.enable = true;
-  security.pam.services.swaylock = {
-    text = ''
-      auth sufficient pam_fprintd.so
-      auth include login
-    '';
-  };
-
-  networking.hostName = "framework"; # Define your hostname.
+  networking.hostName = "srvbox";
   networking.networkmanager.enable = true;
 
   networking.nameservers = [
@@ -92,14 +126,14 @@
   ];
   services.system-config-printer.enable = true;
 
-  # enable bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  # blueman provides the blueman service and blueman-manager for managing pairing
-  services.blueman.enable = true;
+  # # enable bluetooth
+  # hardware.bluetooth.enable = true;
+  # hardware.bluetooth.powerOnBoot = true;
+  # # blueman provides the blueman service and blueman-manager for managing pairing
+  # services.blueman.enable = true;
 
-  # display backlight control
-  programs.light.enable = true;
+  # # display backlight control
+  # programs.light.enable = true;
 
   # English
   i18n.defaultLocale = "en_US.UTF-8";
@@ -119,54 +153,9 @@
 
   security.polkit.enable = true;
 
-  # configure suspend and hibernate
-  # TODO: test that this actually works
-  # TODO: `systemctl suspend` works. `systemctl hibernate` seems to just shut it down completely
-  services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
-    IdleAction = "hibernate";
-    IdleActionSec = "30min";
-  };
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=yes
-    AllowHibernation=yes
-    AllowSuspendThenHibernate=yes
-    HibernateDelaySec=2h
-  '';
-  # enable swap to allow hibernate
-  swapDevices = [
-    # make swapfile at least as big as physical RAM
-    {
-      device = "/swapfile";
-      size = 32768;
-    }
-  ];
-  # TODO: is this needed?
-  # boot.kernelParams = [ "resume=UUID=<swap-uuid>" "resume_offset=<offset>" ];
-
-  # samba client configuration
-  services.samba.enable = true;
-  fileSystems."/mnt/srvbox_samba_justin" = {
-    device = "//srvbox.wampus-newton.ts.net/justin";
-    fsType = "cifs";
-    options =
-      let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in
-      [ "${automount_opts},credentials=/etc/nixos/smb-secrets" ];
-  };
-  fileSystems."/mnt/srvbox_darktable_justin" = {
-    device = "//srvbox.wampus-newton.ts.net/justin-darktable";
-    fsType = "cifs";
-    options =
-      let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in
-      [ "${automount_opts},credentials=/etc/nixos/smb-secrets" ];
-  };
-  services.gvfs.enable = true;
+  # # samba configuration
+  # services.samba.enable = true;
+  # services.gvfs.enable = true;
 
   # greetd tui login manager
   # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
@@ -174,7 +163,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri-session";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri-session --user-menu";
         user = "greeter";
       };
     };
@@ -192,10 +181,10 @@
 
   # window managers
   programs.niri.enable = true;
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
+  # programs.sway = {
+  #   enable = true;
+  #   wrapperFeatures.gtk = true;
+  # };
 
   nixpkgs.config.permittedInsecurePackages = [
     # needed for sublime4 as of 6/30/2024
@@ -208,15 +197,19 @@
     pulse.enable = true;
   };
 
-  # Steam told me to add these
-  # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
-  hardware.graphics.enable32Bit = true;
-  services.pulseaudio.support32Bit = true; # TODO: try removing this
-
   virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.docker.daemon.settings.features.cdi = true;
+
+  hardware.coral.usb.enable = true;
+
   services.expressvpn.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # keyd service for custom keyboard remapping
+  services.keyd.enable = true;
+  environment.etc."keyd/default.conf".source = ../../etc/keyd/default.conf;
+
+  # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.justin = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -236,6 +229,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    tpm2-tss # using tpm to store key for encrypted root partition
     cifs-utils
     treefmt
     shfmt
@@ -338,10 +332,10 @@
     zsh
   ];
 
-  environment.variables = {
-    # https://discourse.nixos.org/t/rust-pkg-config-fails-on-openssl-for-cargo-generate/39759/2
-    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-  };
+  # environment.variables = {
+  #   # https://discourse.nixos.org/t/rust-pkg-config-fails-on-openssl-for-cargo-generate/39759/2
+  #   PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+  # };
 
   # DONT TOUCH THIS
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .

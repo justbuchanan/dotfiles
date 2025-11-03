@@ -29,6 +29,20 @@
     ".profile.d".source = ./home/.profile.d;
 
     ".config/nixpkgs/config.nix".source = ./home/.config/nixpkgs/config.nix;
+
+    ".config/sublime-text/Packages/User/clang_format_custom.sublime-settings".source =
+      ./home/.config/sublime-text-3/Packages/User/clang_format_custom.sublime-settings;
+    ".config/sublime-text/Packages/User/clang_format.sublime-settings".source =
+      ./home/.config/sublime-text-3/Packages/User/clang_format.sublime-settings;
+    ".config/sublime-text/Packages/User/Default.sublime-keymap".source =
+      ./home/.config/sublime-text-3/Packages/User/Default.sublime-keymap;
+    #".config/sublime-text/Packages/User/Package Control.sublime-settings".source = (./home/.config/sublime-text-3/Packages/User + "/Package Control.sublime-settings");
+    ".config/sublime-text/Packages/Declarative/Preferences.sublime-settings".source =
+      ./home/.config/sublime-text-3/Packages/User/Preferences.sublime-settings;
+    ".config/sublime-text/Packages/User/Python.sublime-settings".source =
+      ./home/.config/sublime-text-3/Packages/User/Python.sublime-settings;
+    ".config/sublime-text/Packages/User/RustFmt.sublime-settings".source =
+      ./home/.config/sublime-text-3/Packages/User/RustFmt.sublime-settings;
   };
 
   gtk.enable = true;
@@ -40,6 +54,7 @@
     cheese
     expressvpn
     transmission_4-qt
+    docker-compose
     wf-recorder
     systemctl-tui
     imagemagick

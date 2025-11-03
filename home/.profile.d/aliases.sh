@@ -29,6 +29,8 @@ say() {
     echo "$@" | espeak
 }
 
+alias nrs='nixos-rebuild switch --sudo'
+
 export HM_DIR=/home/justin/src/justin/dotfiles
 alias hms='home-manager switch --flake $HM_DIR'
 # hms "fast" - disables network lookups
