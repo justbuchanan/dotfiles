@@ -1,0 +1,21 @@
+NAME           FSTYPE      FSVER    LABEL  UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
+sda                                                                                              
+├─sda1         zfs_member  5000     zpool0 7253951799299595611                                   
+└─sda9                                                                                           
+sdb                                                                                              
+├─sdb1         zfs_member  5000     zpool0 7253951799299595611                                   
+└─sdb9                                                                                           
+sdc                                                                                              
+├─sdc1         zfs_member  5000     zpool0 7253951799299595611                                   
+└─sdc9                                                                                           
+sdd                                                                                              
+├─sdd1         zfs_member  5000     zpool0 7253951799299595611                                   
+└─sdd9                                                                                           
+sde                                                                                              
+sdf                                                                                              
+sdg                                                                                              
+nvme0n1                                                                                          
+├─nvme0n1p1    vfat        FAT16           DA46-3085                                33.9M    83% /boot
+└─nvme0n1p2    crypto_LUKS 2               2c0d3f49-b8ca-4a41-816e-a8b9dfdb7839                  
+  └─cryptlvm   LVM2_member LVM2 001        thI0Ag-v3ms-V7d5-7oFt-KcFP-qb4L-cW6w03                
+    └─vg0-root ext4        1.0             dea03146-fc69-43bf-964a-e092d4386c03    390.1G    52% /

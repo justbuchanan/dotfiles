@@ -1,0 +1,542 @@
+● srvbox
+    State: degraded
+    Units: 600 loaded (incl. loaded aliases)
+     Jobs: 0 queued
+   Failed: 1 units
+    Since: Mon 2025-10-27 13:49:28 PDT; 1 week 0 days ago
+  systemd: 258.1-1-arch
+   CGroup: /
+           ├─init.scope
+           │ └─1 /sbin/init
+           ├─system.slice
+           │ ├─NetworkManager.service
+           │ │ └─339158 /usr/bin/NetworkManager --no-daemon
+           │ ├─avahi-daemon.service
+           │ │ ├─1319 "avahi-daemon: running [srvbox.local]"
+           │ │ └─1338 "avahi-daemon: chroot helper"
+           │ ├─colord.service
+           │ │ └─1655 /usr/lib/colord
+           │ ├─containerd.service
+           │ │ ├─   1648 /usr/bin/containerd
+           │ │ ├─ 484915 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 5349d515a3771fee9e3d08a9a0159ed4b09e173968ba65dc0fa8ce09bbe97ce8 -address /run/containerd/containerd.sock
+           │ │ ├─ 484947 /usr/bin/containerd-shim-runc-v2 -namespace moby -id ea548b697b0dca161903ac033896ccfef1f85812c2ab62432e2e0f69b19b58ed -address /run/containerd/containerd.sock
+           │ │ ├─ 484992 /usr/bin/containerd-shim-runc-v2 -namespace moby -id a4b77c781ed34268c52861cfad3862fe8582e4ece95ea965ba769154c3de38e4 -address /run/containerd/containerd.sock
+           │ │ ├─ 485012 /usr/bin/containerd-shim-runc-v2 -namespace moby -id ae855a32fc70e56b0ced8174cfa9089032c19417fc799d24e246cff56a79bd0e -address /run/containerd/containerd.sock
+           │ │ ├─ 485041 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 87d93c89238e16e233ad7b036bb3f77999a8670817f9aaf4d9db5bfba3b5f0d9 -address /run/containerd/containerd.sock
+           │ │ ├─ 485068 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 666b0ed5fc9ff52761939a8ce42a07ff8f1572d5fc489bcc3035172d574a988e -address /run/containerd/containerd.sock
+           │ │ ├─ 485080 /usr/bin/containerd-shim-runc-v2 -namespace moby -id e1e7a918034f16b4b4ff3aa26cb0bd7e5085e398dc9eefe8134d9b234477cf58 -address /run/containerd/containerd.sock
+           │ │ ├─ 485822 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 594a74cf798a463bbe452d0b3bd0dc71490fed2f285552878b116d765b0895c8 -address /run/containerd/containerd.sock
+           │ │ ├─ 486245 /usr/bin/containerd-shim-runc-v2 -namespace moby -id b0c91b58c5391af8a81aabe4dcf56fb089247220118a1cf9794b22c56abca829 -address /run/containerd/containerd.sock
+           │ │ ├─ 486729 /usr/bin/containerd-shim-runc-v2 -namespace moby -id dad4b16842d6008567f91facd3e5552a7c9dce93ad475e7514de84967bb24e85 -address /run/containerd/containerd.sock
+           │ │ ├─ 486866 /usr/bin/containerd-shim-runc-v2 -namespace moby -id d2cf5290b33185cdb73fe8e3e0b4b7ad4271b2f31c2f185010e2094227912470 -address /run/containerd/containerd.sock
+           │ │ ├─2516497 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 5a3024b99631dc3f828decf16a6474cfde1b0768d9f413aa6f8ffe644592bc42 -address /run/containerd/containerd.sock
+           │ │ ├─2516506 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 7974fbf6cee483a60c162dc0b647cca12ea0686e48617a3478c59024e4b6780d -address /run/containerd/containerd.sock
+           │ │ ├─2516531 /usr/bin/containerd-shim-runc-v2 -namespace moby -id b44ed0e259c83670a0b849d178d5442ea365d877a4ee9fcdd104ca5e8ceef3ee -address /run/containerd/containerd.sock
+           │ │ ├─2516819 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 82acf01c41ede7762cbdf74434091bc49abca2a0abc89dd58a4a62734ceab7dc -address /run/containerd/containerd.sock
+           │ │ ├─3581084 /usr/bin/containerd-shim-runc-v2 -namespace moby -id f5ddc3bdff0a4de6bd434294febff32001725000a031e7b5ba01ddb9582fb7ea -address /run/containerd/containerd.sock
+           │ │ └─4035838 /usr/bin/containerd-shim-runc-v2 -namespace moby -id bae7cc9e4dfa2514b47edff7dc9642e08e7664a80b9fc8bc132bf6e80fc19eb0 -address /run/containerd/containerd.sock
+           │ ├─dbus.service
+           │ │ └─1320 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+           │ ├─ddclient.service
+           │ │ └─1635 "ddclient - sleeping for 200 seconds"
+           │ ├─dhcpcd.service
+           │ │ ├─   1321 "dhcpcd: [manager] [ip4] [ip6]"
+           │ │ ├─   1330 "dhcpcd: [privileged proxy]"
+           │ │ ├─   1332 "dhcpcd: [network proxy]"
+           │ │ ├─   1334 "dhcpcd: [control proxy]"
+           │ │ ├─   1564 "dhcpcd: [BPF ARP] enp5s0 192.168.68.50"
+           │ │ ├─ 486792 "dhcpcd: [BPF BOOTP] vethcde37d1"
+           │ │ ├─ 487414 "dhcpcd: [BPF BOOTP] veth887b5ec"
+           │ │ ├─ 487563 "dhcpcd: [BPF BOOTP] veth0e9e768"
+           │ │ ├─ 487677 "dhcpcd: [BPF BOOTP] veth8c52ddc"
+           │ │ ├─ 487930 "dhcpcd: [BPF BOOTP] veth014985a"
+           │ │ ├─ 487996 "dhcpcd: [BPF BOOTP] veth3ffd358"
+           │ │ ├─ 487999 "dhcpcd: [BPF BOOTP] veth44c5d41"
+           │ │ ├─ 488009 "dhcpcd: [BPF BOOTP] vethf9bb51c"
+           │ │ ├─2517076 "dhcpcd: [BPF BOOTP] vethf8e7f83"
+           │ │ ├─2517110 "dhcpcd: [BPF BOOTP] veth52ba8a5"
+           │ │ ├─2517127 "dhcpcd: [BPF BOOTP] vethf884928"
+           │ │ ├─2517143 "dhcpcd: [BPF BOOTP] veth3d81c00"
+           │ │ ├─3581569 "dhcpcd: [BPF BOOTP] veth46c88b1"
+           │ │ └─4036009 "dhcpcd: [BPF BOOTP] veth3ddfc4b"
+           │ ├─docker-5349d515a3771fee9e3d08a9a0159ed4b09e173968ba65dc0fa8ce09bbe97ce8.scope
+           │ │ └─484969 influxd
+           │ ├─docker-594a74cf798a463bbe452d0b3bd0dc71490fed2f285552878b116d765b0895c8.scope
+           │ │ ├─485882 /package/admin/s6/command/s6-svscan -d4 -- /run/service
+           │ │ ├─486826 s6-supervise s6-linux-init-shutdownd
+           │ │ ├─486828 /package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B
+           │ │ ├─486835 s6-supervise s6rc-oneshot-runner
+           │ │ ├─486836 s6-supervise s6rc-fdholder
+           │ │ ├─486845 /package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --
+           │ │ ├─486907 s6-supervise home-assistant
+           │ │ ├─486910 python3 -m homeassistant --config /config
+           │ │ └─488986 /bin/go2rtc -c /tmp/go2rtc_7evmmonl.yaml
+           │ ├─docker-5a3024b99631dc3f828decf16a6474cfde1b0768d9f413aa6f8ffe644592bc42.scope
+           │ │ ├─2516580 postgres -c config_file=/etc/postgresql/postgresql.conf
+           │ │ ├─2516936 "postgres: vectors "
+           │ │ ├─2516998 "postgres: checkpointer "
+           │ │ ├─2516999 "postgres: background writer "
+           │ │ ├─2517000 "postgres: walwriter "
+           │ │ ├─2517001 "postgres: autovacuum launcher "
+           │ │ ├─2517002 "postgres: stats collector "
+           │ │ ├─2517003 "postgres: logical replication launcher "
+           │ │ └─4132909 "postgres: postgres immich 172.19.0.5(55772) idle"
+           │ ├─docker-666b0ed5fc9ff52761939a8ce42a07ff8f1572d5fc489bcc3035172d574a988e.scope
+           │ │ ├─485201 /package/admin/s6/command/s6-svscan -d4 -- /run/service
+           │ │ ├─486272 s6-supervise s6-linux-init-shutdownd
+           │ │ ├─486275 /package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B
+           │ │ ├─486527 s6-supervise svc-cron
+           │ │ ├─486528 s6-supervise s6rc-oneshot-runner
+           │ │ ├─486529 s6-supervise s6rc-fdholder
+           │ │ ├─486530 s6-supervise svc-jellyfin
+           │ │ ├─486549 /package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --
+           │ │ ├─487304 bash ./run svc-cron
+           │ │ ├─487305 /usr/bin/jellyfin --ffmpeg=/usr/lib/jellyfin-ffmpeg/ffmpeg
+           │ │ └─487323 sleep infinity
+           │ ├─docker-7974fbf6cee483a60c162dc0b647cca12ea0686e48617a3478c59024e4b6780d.scope
+           │ │ ├─2516588 tini -- python -m immich_ml
+           │ │ ├─2516989 python -m immich_ml
+           │ │ ├─2517092 python -m gunicorn immich_ml.main:app -k immich_ml.config.CustomUvicornWorker -c /usr/src/immich_ml/gunicorn_conf.py -b "[::]:3003" -w 1 -t 300 --log-config-json /usr/src/immich_ml/log_conf.json --keep-alive 2 --graceful-timeout 10
+           │ │ └─2689198 python -m gunicorn immich_ml.main:app -k immich_ml.config.CustomUvicornWorker -c /usr/src/immich_ml/gunicorn_conf.py -b "[::]:3003" -w 1 -t 300 --log-config-json /usr/src/immich_ml/log_conf.json --keep-alive 2 --graceful-timeout 10
+           │ ├─docker-82acf01c41ede7762cbdf74434091bc49abca2a0abc89dd58a4a62734ceab7dc.scope
+           │ │ ├─2516844 tini -- /bin/bash -c start.sh
+           │ │ ├─2517010 immich
+           │ │ └─2517144 immich-api
+           │ ├─docker-87d93c89238e16e233ad7b036bb3f77999a8670817f9aaf4d9db5bfba3b5f0d9.scope
+           │ │ └─485147 /usr/local/bin/python3.12 /usr/local/bin/matter-server --storage-path /data --paa-root-cert-dir /data/credentials
+           │ ├─docker-a4b77c781ed34268c52861cfad3862fe8582e4ece95ea965ba769154c3de38e4.scope
+           │ │ ├─ 485110 /bin/bash
+           │ │ ├─ 486219 /usr/sbin/expressvpnd
+           │ │ ├─ 488467 /usr/bin/expressvpn-agent --daemon
+           │ │ └─2937530 /usr/lib/expressvpn/lightway -c /var/run/expressvpn/config/he3539953466/helium.conf
+           │ ├─docker-ae855a32fc70e56b0ced8174cfa9089032c19417fc799d24e246cff56a79bd0e.scope
+           │ │ ├─ 485157 apache2 -DFOREGROUND
+           │ │ ├─ 804039 apache2 -DFOREGROUND
+           │ │ ├─ 804040 apache2 -DFOREGROUND
+           │ │ ├─ 872817 apache2 -DFOREGROUND
+           │ │ ├─ 878584 apache2 -DFOREGROUND
+           │ │ ├─ 919938 apache2 -DFOREGROUND
+           │ │ ├─ 952760 apache2 -DFOREGROUND
+           │ │ ├─ 952761 apache2 -DFOREGROUND
+           │ │ ├─1586699 apache2 -DFOREGROUND
+           │ │ ├─1586704 apache2 -DFOREGROUND
+           │ │ └─1586705 apache2 -DFOREGROUND
+           │ ├─docker-b0c91b58c5391af8a81aabe4dcf56fb089247220118a1cf9794b22c56abca829.scope
+           │ │ ├─486353 /package/admin/s6/command/s6-svscan -d4 -- /run/service
+           │ │ ├─486970 s6-supervise s6-linux-init-shutdownd
+           │ │ ├─486975 /package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B
+           │ │ ├─487017 s6-supervise svc-cron
+           │ │ ├─487018 s6-supervise s6rc-oneshot-runner
+           │ │ ├─487019 s6-supervise s6rc-fdholder
+           │ │ ├─487020 s6-supervise svc-qbittorrent
+           │ │ ├─487030 /package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --
+           │ │ ├─487661 /usr/bin/qbittorrent-nox --webui-port=8090
+           │ │ └─487662 busybox crond -f -S -l 5
+           │ ├─docker-b44ed0e259c83670a0b849d178d5442ea365d877a4ee9fcdd104ca5e8ceef3ee.scope
+           │ │ └─2516590 "valkey-server *:6379"
+           │ ├─docker-bae7cc9e4dfa2514b47edff7dc9642e08e7664a80b9fc8bc132bf6e80fc19eb0.scope
+           │ │ └─4035863 "next-server (v"
+           │ ├─docker-d2cf5290b33185cdb73fe8e3e0b4b7ad4271b2f31c2f185010e2094227912470.scope
+           │ │ ├─486930 /package/admin/s6/command/s6-svscan -d4 -- /run/service
+           │ │ ├─487530 s6-supervise s6-linux-init-shutdownd
+           │ │ ├─487532 /package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B
+           │ │ ├─487577 s6-supervise svc-cron
+           │ │ ├─487581 s6-supervise s6rc-oneshot-runner
+           │ │ ├─487582 s6-supervise s6rc-fdholder
+           │ │ ├─487583 s6-supervise svc-radarr
+           │ │ ├─487598 /package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --
+           │ │ ├─487891 /app/radarr/bin/Radarr -nobrowser -data=/config
+           │ │ └─487892 busybox crond -f -S -l 5
+           │ ├─docker-dad4b16842d6008567f91facd3e5552a7c9dce93ad475e7514de84967bb24e85.scope
+           │ │ ├─486779 /package/admin/s6/command/s6-svscan -d4 -- /run/service
+           │ │ ├─487419 s6-supervise s6-linux-init-shutdownd
+           │ │ ├─487420 /package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B
+           │ │ ├─487458 s6-supervise svc-cron
+           │ │ ├─487459 s6-supervise s6rc-oneshot-runner
+           │ │ ├─487460 s6-supervise s6rc-fdholder
+           │ │ ├─487461 s6-supervise svc-prowlarr
+           │ │ ├─487470 /package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --
+           │ │ ├─487785 busybox crond -f -S -l 5
+           │ │ └─487786 /app/prowlarr/bin/Prowlarr -nobrowser -data=/config
+           │ ├─docker-e1e7a918034f16b4b4ff3aa26cb0bd7e5085e398dc9eefe8134d9b234477cf58.scope
+           │ │ ├─ 485159 /package/admin/s6/command/s6-svscan -d4 -- /run/service
+           │ │ ├─ 486342 s6-supervise s6-linux-init-shutdownd
+           │ │ ├─ 486346 /package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B
+           │ │ ├─ 486441 s6-supervise svc-cron
+           │ │ ├─ 486442 s6-supervise s6rc-oneshot-runner
+           │ │ ├─ 486443 s6-supervise s6rc-fdholder
+           │ │ ├─ 486444 s6-supervise svc-queue
+           │ │ ├─ 486445 s6-supervise svc-php-fpm
+           │ │ ├─ 486446 s6-supervise svc-nginx
+           │ │ ├─ 486466 /package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --
+           │ │ ├─ 488052 php /app/www/artisan queue:work database --sleep=3 --tries=3
+           │ │ ├─ 488055 "nginx: master process /usr/sbin/nginx -e stderr"
+           │ │ ├─ 488056 busybox crond -f -S -l 5
+           │ │ ├─ 488086 "nginx: worker process"
+           │ │ ├─ 488087 "nginx: worker process"
+           │ │ ├─ 488088 "nginx: worker process"
+           │ │ ├─ 488089 "nginx: worker process"
+           │ │ ├─2258046 "php-fpm: master process (/etc/php84/php-fpm.conf)"
+           │ │ ├─2258048 "php-fpm: pool www"
+           │ │ └─2258049 "php-fpm: pool www"
+           │ ├─docker-ea548b697b0dca161903ac033896ccfef1f85812c2ab62432e2e0f69b19b58ed.scope
+           │ │ └─484977 /usr/sbin/mosquitto -c /mosquitto/config/mosquitto.conf
+           │ ├─docker-f5ddc3bdff0a4de6bd434294febff32001725000a031e7b5ba01ddb9582fb7ea.scope
+           │ │ ├─2938817 /usr/lib/ffmpeg/7.0/bin/ffmpeg -vn -threads 1 -hide_banner -loglevel warning -threads 2 -user_agent "FFmpeg Frigate/0.16.2-4d58206" -rtsp_transport tcp -timeout 10000000 -i "rtsp://127.0.0.1:8554/garage?video=copy&audio=aac" -threads 1 -f s16le -ar 16000 -ac 1 -y pipe:
+           │ │ ├─2938821 /usr/lib/ffmpeg/7.0/bin/ffmpeg -hide_banner -loglevel warning -threads 2 -hwaccel cuda -hwaccel_output_format cuda -user_agent "FFmpeg Frigate/0.16.2-4d58206" -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 10000000 -use_wallclock_as_timestamps 1 -i "rtsp://admin:%25suqT%5EtDLym75@192.168.68.75:554/cam/realmonitor?channel=1&subtype=1" -r 5 -vf fps=5,scale_cuda=w=704:h=480,hwdownload,format=nv12,eq=gamma=1.4:gamma_weight=0.5 -threads 2 -f rawvideo -pix_fmt yuv420p pipe:
+           │ │ ├─2938825 /usr/lib/ffmpeg/7.0/bin/ffmpeg -hide_banner -loglevel warning -threads 2 -user_agent "FFmpeg Frigate/0.16.2-4d58206" -rtsp_transport tcp -timeout 10000000 -i "rtsp://127.0.0.1:8554/garage?video=copy&audio=aac" -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c:v copy -c:a aac /tmp/cache/garage@%Y%m%d%H%M%S%z.mp4
+           │ │ ├─3483419 /usr/lib/ffmpeg/7.0/bin/ffmpeg -hide_banner -loglevel warning -threads 2 -hwaccel cuda -hwaccel_output_format cuda -user_agent "FFmpeg Frigate/0.16.2-4d58206" -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 10000000 -use_wallclock_as_timestamps 1 -i "rtsp://admin:Pe4cZn%24%40@192.168.68.57:554/cam/realmonitor?channel=1&subtype=0" -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c:v copy -c:a aac /tmp/cache/backyard@%Y%m%d%H%M%S%z.mp4 -r 5 -vf fps=5,scale_cuda=w=2592:h=1944,hwdownload,format=nv12,eq=gamma=1.4:gamma_weight=0.5 -threads 2 -f rawvideo -pix_fmt yuv420p pipe:
+           │ │ ├─3581108 /package/admin/s6/command/s6-svscan -d4 -- /run/service
+           │ │ ├─3581374 s6-supervise s6-linux-init-shutdownd
+           │ │ ├─3581375 /package/admin/s6-linux-init/command/s6-linux-init-shutdownd -d3 -c /run/s6/basedir -g 3000 -C -B
+           │ │ ├─3581384 s6-supervise s6rc-oneshot-runner
+           │ │ ├─3581385 s6-supervise s6rc-fdholder
+           │ │ ├─3581386 s6-supervise go2rtc-healthcheck
+           │ │ ├─3581387 s6-supervise certsync
+           │ │ ├─3581388 s6-supervise nginx-log
+           │ │ ├─3581389 s6-supervise nginx
+           │ │ ├─3581390 s6-supervise frigate
+           │ │ ├─3581391 s6-supervise go2rtc
+           │ │ ├─3581392 s6-supervise go2rtc-log
+           │ │ ├─3581393 s6-supervise frigate-log
+           │ │ ├─3581394 s6-supervise certsync-log
+           │ │ ├─3581405 /package/admin/s6-2.13.2.0/command/s6-fdholderd -1 -n 256 -i data/rules
+           │ │ ├─3581406 /package/admin/s6/command/s6-ipcserverd -1 -- /package/admin/s6/command/s6-ipcserver-access -v0 -E -l0 -i data/rules -- /package/admin/s6/command/s6-sudod -t 30000 -- /package/admin/s6-rc/command/s6-rc-oneshot-run -l ../.. --
+           │ │ ├─3581453 s6-log -b -- T 1 n0 s10000000 T /dev/shm/logs/nginx
+           │ │ ├─3581454 s6-log -b -- T 1 n0 s10000000 T /dev/shm/logs/go2rtc
+           │ │ ├─3581456 s6-log -b -- T 1 n0 s10000000 T /dev/shm/logs/frigate
+           │ │ ├─3581457 s6-log -b -- T 1 n0 s10000000 T /dev/shm/logs/certsync
+           │ │ ├─3581485 /usr/local/go2rtc/bin/go2rtc -config=/dev/shm/go2rtc.yaml
+           │ │ ├─3581493 bash ./run.user go2rtc-healthcheck
+           │ │ ├─3581494 python3 -u -m frigate
+           │ │ ├─3581500 "nginx: master process nginx"
+           │ │ ├─3581581 "nginx: worker process"
+           │ │ ├─3581582 "nginx: worker process"
+           │ │ ├─3581583 "nginx: worker process"
+           │ │ ├─3581584 "nginx: worker process"
+           │ │ ├─3581590 "nginx: cache manager process"
+           │ │ ├─3581772 bash ./run.user certsync
+           │ │ ├─3581808 python3 -u -m frigate
+           │ │ ├─3581913 frigate.recording_manager
+           │ │ ├─3581926 frigate.review_segment_manager
+           │ │ ├─3581938 frigate.detector.coral
+           │ │ ├─3581956 frigate.output
+           │ │ ├─3581969 /usr/lib/ffmpeg/7.0/bin/ffmpeg -threads 1 -f rawvideo -pix_fmt yuv420p -video_size 704x480 -i pipe: -threads 1 -f mpegts -s 1056x720 -codec:v mpeg1video -q 8 -bf 0 pipe:
+           │ │ ├─3581976 /usr/lib/ffmpeg/7.0/bin/ffmpeg -threads 1 -f rawvideo -pix_fmt yuv420p -video_size 2688x1512 -i pipe: -threads 1 -f mpegts -s 1280x720 -codec:v mpeg1video -q 8 -bf 0 pipe:
+           │ │ ├─3581983 /usr/lib/ffmpeg/7.0/bin/ffmpeg -threads 1 -f rawvideo -pix_fmt yuv420p -video_size 2592x1944 -i pipe: -threads 1 -f mpegts -s 960x720 -codec:v mpeg1video -q 8 -bf 0 pipe:
+           │ │ ├─3581990 /usr/lib/ffmpeg/7.0/bin/ffmpeg -threads 1 -f rawvideo -pix_fmt yuv420p -video_size 2592x1944 -i pipe: -threads 1 -f mpegts -s 960x720 -codec:v mpeg1video -q 8 -bf 0 pipe:
+           │ │ ├─3581997 /usr/lib/ffmpeg/7.0/bin/ffmpeg -threads 1 -f rawvideo -pix_fmt yuv420p -video_size 1280x720 -i pipe: -threads 1 -f mpegts -s 1280x720 -codec:v mpeg1video -q 8 -bf 0 pipe:
+           │ │ ├─3582036 frigate.process:garage
+           │ │ ├─3582040 frigate.process:frontdoor
+           │ │ ├─3582049 frigate.process:backyard
+           │ │ ├─3582054 frigate.process:garden
+           │ │ ├─3582080 frigate.capture:garage
+           │ │ ├─3582093 frigate.capture:frontdoor
+           │ │ ├─3582099 /usr/lib/ffmpeg/7.0/bin/ffmpeg -hide_banner -loglevel warning -threads 2 -hwaccel cuda -hwaccel_output_format cuda -user_agent "FFmpeg Frigate/0.16.2-4d58206" -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 10000000 -use_wallclock_as_timestamps 1 -i rtsp://admin:abcd1234@192.168.68.60:554//Streaming/Channels/1 -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c:v copy -c:a aac /tmp/cache/frontdoor@%Y%m%d%H%M%S%z.mp4 -r 5 -vf fps=5,scale_cuda=w=2688:h=1512,hwdownload,format=nv12,eq=gamma=1.4:gamma_weight=0.5 -threads 2 -f rawvideo -pix_fmt yuv420p pipe:
+           │ │ ├─3582103 frigate.capture:backyard
+           │ │ ├─3582115 frigate.capture:garden
+           │ │ ├─3582125 python3 -u -m frigate
+           │ │ ├─3597854 /usr/lib/ffmpeg/7.0/bin/ffmpeg -hide_banner -loglevel warning -threads 2 -hwaccel cuda -hwaccel_output_format cuda -user_agent "FFmpeg Frigate/0.16.2-4d58206" -avoid_negative_ts make_zero -fflags +genpts+discardcorrupt -rtsp_transport tcp -timeout 10000000 -use_wallclock_as_timestamps 1 -i "rtsp://admin:jb816777@192.168.68.56:554/cam/realmonitor?channel=1&subtype=0" -f segment -segment_time 10 -segment_format mp4 -reset_timestamps 1 -strftime 1 -c:v copy -c:a aac /tmp/cache/garden@%Y%m%d%H%M%S%z.mp4 -r 5 -vf fps=5,scale_cuda=w=2592:h=1944,hwdownload,format=nv12,eq=gamma=1.4:gamma_weight=0.5 -threads 2 -f rawvideo -pix_fmt yuv420p pipe:
+           │ │ ├─4033398 sleep 9999
+           │ │ └─4172431 sleep 30s
+           │ ├─docker.service
+           │ │ ├─   1770 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+           │ │ ├─ 485289 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8086 -container-ip 172.18.0.2 -container-port 8086 -use-listen-fd
+           │ │ ├─ 485303 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8086 -container-ip 172.18.0.2 -container-port 8086 -use-listen-fd
+           │ │ ├─ 485373 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 1883 -container-ip 172.18.0.3 -container-port 1883 -use-listen-fd
+           │ │ ├─ 485381 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 1883 -container-ip 172.18.0.3 -container-port 1883 -use-listen-fd
+           │ │ ├─ 485455 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5580 -container-ip 172.18.0.4 -container-port 5580 -use-listen-fd
+           │ │ ├─ 485470 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5580 -container-ip 172.18.0.4 -container-port 5580 -use-listen-fd
+           │ │ ├─ 485547 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8096 -container-ip 172.18.0.5 -container-port 8096 -use-listen-fd
+           │ │ ├─ 485557 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8096 -container-ip 172.18.0.5 -container-port 8096 -use-listen-fd
+           │ │ ├─ 485663 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 3456 -container-ip 172.18.0.7 -container-port 80 -use-listen-fd
+           │ │ ├─ 485674 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 3456 -container-ip 172.18.0.7 -container-port 80 -use-listen-fd
+           │ │ ├─ 485937 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 6881 -container-ip 172.18.0.6 -container-port 6881 -use-listen-fd
+           │ │ ├─ 485945 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 6881 -container-ip 172.18.0.6 -container-port 6881 -use-listen-fd
+           │ │ ├─ 485954 /usr/bin/docker-proxy -proto udp -host-ip 0.0.0.0 -host-port 6881 -container-ip 172.18.0.6 -container-port 6881 -use-listen-fd
+           │ │ ├─ 485962 /usr/bin/docker-proxy -proto udp -host-ip :: -host-port 6881 -container-ip 172.18.0.6 -container-port 6881 -use-listen-fd
+           │ │ ├─ 485970 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 7878 -container-ip 172.18.0.6 -container-port 7878 -use-listen-fd
+           │ │ ├─ 485981 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 7878 -container-ip 172.18.0.6 -container-port 7878 -use-listen-fd
+           │ │ ├─ 485996 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8080 -container-ip 172.18.0.6 -container-port 8080 -use-listen-fd
+           │ │ ├─ 486006 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8080 -container-ip 172.18.0.6 -container-port 8080 -use-listen-fd
+           │ │ ├─ 486015 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8090 -container-ip 172.18.0.6 -container-port 8090 -use-listen-fd
+           │ │ ├─ 486026 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8090 -container-ip 172.18.0.6 -container-port 8090 -use-listen-fd
+           │ │ ├─ 486039 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 9117 -container-ip 172.18.0.6 -container-port 9117 -use-listen-fd
+           │ │ ├─ 486048 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 9117 -container-ip 172.18.0.6 -container-port 9117 -use-listen-fd
+           │ │ ├─ 486059 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 9696 -container-ip 172.18.0.6 -container-port 9696 -use-listen-fd
+           │ │ ├─ 486070 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 9696 -container-ip 172.18.0.6 -container-port 9696 -use-listen-fd
+           │ │ ├─ 486152 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8989 -container-ip 172.18.0.8 -container-port 80 -use-listen-fd
+           │ │ ├─ 486162 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8989 -container-ip 172.18.0.8 -container-port 80 -use-listen-fd
+           │ │ ├─ 486187 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8123 -container-ip 172.18.0.9 -container-port 8123 -use-listen-fd
+           │ │ ├─ 486195 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8123 -container-ip 172.18.0.9 -container-port 8123 -use-listen-fd
+           │ │ ├─2516963 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 2283 -container-ip 172.19.0.5 -container-port 2283 -use-listen-fd
+           │ │ ├─2516979 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 2283 -container-ip 172.19.0.5 -container-port 2283 -use-listen-fd
+           │ │ ├─3581263 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 1935 -container-ip 172.18.0.10 -container-port 1935 -use-listen-fd
+           │ │ ├─3581269 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 1935 -container-ip 172.18.0.10 -container-port 1935 -use-listen-fd
+           │ │ ├─3581278 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 1984 -container-ip 172.18.0.10 -container-port 1984 -use-listen-fd
+           │ │ ├─3581286 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 1984 -container-ip 172.18.0.10 -container-port 1984 -use-listen-fd
+           │ │ ├─3581294 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 5000 -container-ip 172.18.0.10 -container-port 5000 -use-listen-fd
+           │ │ ├─3581301 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 5000 -container-ip 172.18.0.10 -container-port 5000 -use-listen-fd
+           │ │ ├─3581309 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8554 -container-ip 172.18.0.10 -container-port 8554 -use-listen-fd
+           │ │ ├─3581317 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8554 -container-ip 172.18.0.10 -container-port 8554 -use-listen-fd
+           │ │ ├─3581325 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8555 -container-ip 172.18.0.10 -container-port 8555 -use-listen-fd
+           │ │ ├─3581333 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8555 -container-ip 172.18.0.10 -container-port 8555 -use-listen-fd
+           │ │ ├─3581342 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8971 -container-ip 172.18.0.10 -container-port 8971 -use-listen-fd
+           │ │ ├─3581349 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 8971 -container-ip 172.18.0.10 -container-port 8971 -use-listen-fd
+           │ │ ├─4035965 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 3006 -container-ip 172.20.0.2 -container-port 3000 -use-listen-fd
+           │ │ └─4035973 /usr/bin/docker-proxy -proto tcp -host-ip :: -host-port 3006 -container-ip 172.20.0.2 -container-port 3000 -use-listen-fd
+           │ ├─expressvpn.service
+           │ │ └─1671 /usr/bin/dbus-daemon --syslog --fork --print-pid 4 --print-address 6 --session
+           │ ├─fail2ban.service
+           │ │ └─1642 /usr/bin/python /usr/bin/fail2ban-server -xf start
+           │ ├─keyd.service
+           │ │ └─1323 /usr/bin/keyd
+           │ ├─nix-daemon.service
+           │ │ ├─   1324 determinate-nixd daemon
+           │ │ └─2973546 /nix/var/nix/profiles/default/bin/nix-daemon --option json-log-path /nix/var/determinate/determinate-nixd-logger.socket
+           │ ├─ntpd.service
+           │ │ └─1651 /usr/bin/ntpd -g -u ntp:ntp
+           │ ├─polkit.service
+           │ │ └─2787 /usr/lib/polkit-1/polkitd --no-debug --log-level=notice
+           │ ├─rtkit-daemon.service
+           │ │ └─2774 /usr/lib/rtkit-daemon
+           │ ├─smb.service
+           │ │ ├─2723846 /usr/bin/smbd --foreground --no-process-group
+           │ │ ├─2723849 "smbd: notifyd "
+           │ │ └─2723850 "smbd: cleanupd"
+           │ ├─sshd.service
+           │ │ └─1639 "sshd: /usr/bin/sshd -D [listener] 0 of 10-100 startups"
+           │ ├─system-cups.slice
+           │ │ └─cups.service
+           │ │   └─1634 /usr/bin/cupsd -l
+           │ ├─system-dhcpcd.slice
+           │ │ └─dhcpcd@enp5s0.service
+           │ │   ├─1328 "dhcpcd: enp5s0 [ip4] [ip6]"
+           │ │   ├─1331 "dhcpcd: [privileged proxy] enp5s0 [ip4] [ip6]"
+           │ │   ├─1333 "dhcpcd: [network proxy] enp5s0 [ip4] [ip6]"
+           │ │   ├─1335 "dhcpcd: [control proxy] enp5s0 [ip4] [ip6]"
+           │ │   ├─1569 "dhcpcd: [BPF ARP] enp5s0 192.168.68.50"
+           │ │   └─1631 "dhcpcd: [BOOTP proxy] 192.168.68.50"
+           │ ├─system-dirmngr.slice
+           │ │ └─dirmngr@etc-pacman.d-gnupg.service
+           │ │   └─873882 /usr/bin/dirmngr --homedir /etc/pacman.d/gnupg --supervised
+           │ ├─system-gpg\x2dagent.slice
+           │ │ └─gpg-agent@etc-pacman.d-gnupg.service
+           │ │   └─874623 /usr/bin/gpg-agent --homedir /etc/pacman.d/gnupg --supervised
+           │ ├─systemd-journald.service
+           │ │ └─820 /usr/lib/systemd/systemd-journald
+           │ ├─systemd-logind.service
+           │ │ └─1325 /usr/lib/systemd/systemd-logind
+           │ ├─systemd-resolved.service
+           │ │ └─338517 /usr/lib/systemd/systemd-resolved
+           │ ├─systemd-udevd.service
+           │ │ └─udev
+           │ │   └─855 /usr/lib/systemd/systemd-udevd
+           │ ├─tailscaled.service
+           │ │ └─2881922 /usr/sbin/tailscaled --state=/var/lib/tailscale/tailscaled.state --socket=/run/tailscale/tailscaled.sock --port=41641
+           │ ├─udisks2.service
+           │ │ └─1122735 /usr/lib/udisks2/udisksd
+           │ ├─upower.service
+           │ │ └─3574 /usr/lib/upowerd
+           │ └─wpa_supplicant.service
+           │   └─339168 /usr/bin/wpa_supplicant -u -s -O /run/wpa_supplicant
+           └─user.slice
+             └─user-1000.slice
+               ├─session-1.scope
+               │ ├─1647 "login -- justin"
+               │ ├─2761 -zsh
+               │ ├─2869 /bin/sh /usr/bin/niri-session -l
+               │ └─2895 systemctl --user --wait start niri.service
+               └─user@1000.service
+                 ├─app.slice
+                 │ ├─app-com.google.Chrome-3411.scope
+                 │ │ ├─3411 /opt/google/chrome/chrome
+                 │ │ └─5221 "/opt/google/chrome/chrome --type=utility --utility-sub-type=audio.mojom.AudioService --lang=en-US --service-sandbox-type=none --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,994157538948943005,13876735424294685670,524288 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ ├─app-ghostty-transient-1294753.scope
+                 │ │ └─surfaces
+                 │ │   └─55642614F2F0.scope
+                 │ │     └─1295394 "ssh: /tmp/ghostty-ssh-root.Y3f7Ri/socket [mux]"
+                 │ ├─app-ghostty-transient-2105999.scope
+                 │ │ ├─app
+                 │ │ │ └─2105999 /usr/bin/ghostty --gtk-single-instance=true --initial-window=false
+                 │ │ └─surfaces
+                 │ │   ├─55F9F36D6A70.scope
+                 │ │   │ ├─2106658 /usr/bin/zsh
+                 │ │   │ ├─4172161 wl-copy
+                 │ │   │ └─4173064 systemctl status
+                 │ │   ├─55F9FAE599D0.scope
+                 │ │   │ ├─3912577 /usr/bin/zsh
+                 │ │   │ └─4035806 docker-compose up
+                 │ │   ├─7F802405B6E0.scope
+                 │ │   │ └─4154318 /usr/bin/zsh
+                 │ │   ├─7F804806B4F0.scope
+                 │ │   │ └─3346833 /usr/bin/zsh
+                 │ │   └─7F80CC0656B0.scope
+                 │ │     ├─4139152 /usr/bin/zsh
+                 │ │     ├─4151449 sudo cp -r home /mnt/zpool0/backups/backup-srvbox-nov32025
+                 │ │     ├─4151451 sudo cp -r home /mnt/zpool0/backups/backup-srvbox-nov32025
+                 │ │     └─4151452 cp -r home /mnt/zpool0/backups/backup-srvbox-nov32025
+                 │ ├─app-ghostty-transient-728613.scope
+                 │ │ └─surfaces
+                 │ │   └─564C8F99FA60.scope
+                 │ │     ├─1276916 /opt/sublime_text/sublime_text --detached --project dotfiles.sublime-project
+                 │ │     ├─1276949 /opt/sublime_text/crash_handler --no-rate-limit "--database=/home/justin/.cache/sublime-text-3/Crash Reports" "--metrics-dir=/home/justin/.cache/sublime-text-3/Crash Reports" --url=https://crash-server.sublimehq.com/api/upload --annotation=hash=6631229628169173924 --annotation=ident=sublime_text_4200 --initial-client-fd=18 --shared-client-connection
+                 │ │     ├─1277062 /opt/sublime_text/plugin_host-3.3 1276916 /opt/sublime_text/sublime_text 17:1276949 /home/justin/.config/sublime-text-3 /home/justin/.cache/sublime-text-3 /opt/sublime_text/Packages
+                 │ │     └─1277065 /opt/sublime_text/plugin_host-3.8 1276916 /opt/sublime_text/sublime_text 17:1276949 false /home/justin/.config/sublime-text-3 /home/justin/.cache/sublime-text-3 /opt/sublime_text/Packages
+                 │ ├─app-niri-fuzzel-3375.scope
+                 │ │ ├─   3415 cat
+                 │ │ ├─   3416 cat
+                 │ │ ├─   3418 /opt/google/chrome/chrome_crashpad_handler --monitor-self --monitor-self-annotation=ptype=crashpad-handler "--database=/home/justin/.config/google-chrome/Crash Reports" --metrics-dir=/home/justin/.config/google-chrome --url=https://clients2.google.com/cr/report --annotation=channel= "--annotation=lsb-release=Arch Linux" --annotation=plat=Linux --annotation=prod=Chrome_Linux --annotation=ver=138.0.7204.183 --initial-client-fd=5 --shared-client-connection
+                 │ │ ├─   3420 /opt/google/chrome/chrome_crashpad_handler --no-periodic-tasks --monitor-self-annotation=ptype=crashpad-handler "--database=/home/justin/.config/google-chrome/Crash Reports" --url=https://clients2.google.com/cr/report --annotation=channel= "--annotation=lsb-release=Arch Linux" --annotation=plat=Linux --annotation=prod=Chrome_Linux --annotation=ver=138.0.7204.183 --initial-client-fd=4 --shared-client-connection
+                 │ │ ├─   3426 "/opt/google/chrome/chrome --type=zygote --no-zygote-sandbox --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --change-stack-guard-on-fork=enable"
+                 │ │ ├─   3427 "/opt/google/chrome/chrome --type=zygote --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --change-stack-guard-on-fork=enable"
+                 │ │ ├─   3429 "/opt/google/chrome/chrome --type=zygote --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --change-stack-guard-on-fork=enable"
+                 │ │ ├─   3455 "/opt/google/chrome/chrome --type=gpu-process --ozone-platform=wayland --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --change-stack-guard-on-fork=enable --gpu-preferences=UAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAABgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --shared-files --metrics-shmem-handle=4,i,14166708984660336627,9466395570412753027,262144 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─   3461 "/opt/google/chrome/chrome --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14347609117414864476,1983775154881603082,524288 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─   3474 "/opt/google/chrome/chrome --type=utility --utility-sub-type=storage.mojom.StorageService --lang=en-US --service-sandbox-type=utility --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,1583804997291311774,12109639066386769537,524288 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─   3508 "/opt/google/chrome/chrome --type=broker"
+                 │ │ ├─   3701 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --extension-process --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=65 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=236331930 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,5398002836132333198,17262633962991434985,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─   3874 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=77 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=236697290 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,12077457199224154225,5562776168471220512,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─   4975 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=89 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=252685390 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,12798215831748908195,4444227134367464206,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─ 477306 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=31 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=21795124836 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,6420782839042057048,421177107805133136,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1042925 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=3930 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=70518351282 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,10261650996543225274,4792414937967628778,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1043309 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=3946 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=70545023848 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,15423788299903093994,10004779133833602738,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1045322 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=3990 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=70739056745 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,16124513255862555296,3086050754164549846,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1119712 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4301 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=79797550628 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,15332532397983142321,6751092978710721032,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1119720 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4302 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=79797565267 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,7631436221157995378,15235978415177173492,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1121155 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4324 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=79934263602 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,2292190862796190576,7455770183440957252,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1121233 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4325 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=79938562779 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,17284193264575778483,18110560808892920811,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1121265 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4326 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=79943361809 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,921837651277671712,16346841768396295715,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1555570 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=34 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=118744532292 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,8475401012512580684,9297694203206278473,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1555716 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=32 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=118758317408 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,8239119469767886064,3269145921418680074,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1700902 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=29 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=129959230570 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,6304647631043806596,13394996985907757149,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─1720621 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6625 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=131349792292 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,8575011739552783546,6227925188922831720,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2067365 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8214 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=161590051012 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,9126375274499476951,7000758820038135162,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2067374 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8215 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=161590075478 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,68434737828345183,7719992352443303248,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2074004 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8246 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=162122528026 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,15161552172602852564,4699114955627625294,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2094921 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=8390 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=163915838773 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,942423557275745691,10988581201436995120,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2677297 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9952 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=196610930290 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,9904390562577796980,14202193350076916573,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2678748 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9955 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=196695478344 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,6811760574412475963,3030226780091588742,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2681209 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9962 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=196739209230 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,123347395934090543,11619097969108937101,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2881584 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10444 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=210817013317 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,12731294887788415421,2442853221463585937,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2883017 "/opt/google/chrome/chrome --type=utility --utility-sub-type=media.mojom.CdmServiceBroker --lang=en-US --service-sandbox-type=cdm --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --change-stack-guard-on-fork=enable --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,7651741021183987760,15751713482671312809,524288 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2890607 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10473 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=211236021669 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,7166588417472272177,15263122735748852270,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2892999 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10478 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=211353976538 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,13007518210765449704,6992636140512099894,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2895183 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10490 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=211448900548 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,5028377629956186589,10207109648887836543,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2895316 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10491 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=211453586495 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,16696133182603664464,4825114155932742534,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2895467 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10493 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=211460930712 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,13961715222226387505,2734254282664739915,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─2895983 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=10496 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=211500141710 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,17386230374604347819,13387233587909708403,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3017818 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11151 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=219094899939 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,13926098191736116058,14073854810348789581,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3018201 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=11160 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=219119003215 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14195831384550429236,9369387271380777018,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3339085 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12011 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=247669496943 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14148448776700835873,17200542825420948358,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3339258 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12016 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=247680871300 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,3169363266447998648,12539701899299456850,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3340785 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12026 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=247821498936 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,427368385720159341,8533484526393106667,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3341492 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12032 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=247878604352 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,8115400432625157537,13047860168819803388,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3341536 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12033 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=247882091040 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,9304707298173598703,18250659862415819604,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3341594 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12034 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=247884428951 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,7139028847215559911,11996207993242462929,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3342607 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12039 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=247974509026 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,258741306150991070,14530433798521476168,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3343049 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12047 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=248010793787 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,4345600221224856037,11510815806081849261,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3360309 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12141 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=249503226656 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,11089791023157869768,4085301158640447409,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3386165 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=22039 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=559594892965 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,6767180069952565674,15161563823276589015,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3503326 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=12570 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=262536569332 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,2960724389856975719,15458076315229831323,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3984063 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23237 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=597174094936 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,15327002198804220948,2050997083971818284,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3984165 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23238 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=597176761133 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14253748450977325080,11453712527217605069,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3984737 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23241 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=597211908641 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,12794440831891545890,15151565926424146019,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─3984783 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23242 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=597213767218 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,8544276413323950453,4677211823991919235,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4018282 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23341 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=599020491106 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,1885539301068874331,12588400323287087749,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4020004 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23349 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=599106008602 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,11927998511345517775,5812853560796394569,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4028552 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23377 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=599439044589 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,10894788077680065372,9212944449164274298,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4038159 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23408 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=599844373171 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14108878572784624625,10078920732859427358,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4047293 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23434 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=600414114913 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,13856863175444280699,14955078314807308286,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4048619 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23445 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=600483130261 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,6212819253827970917,12000897403115448634,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4050080 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23451 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=600571838010 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,10353953794622878671,6052441532691883045,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4057438 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23462 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=600914437206 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,9237385555729475144,3974314426073867667,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4066153 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23488 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=601337454125 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,13714412577082806606,8546727470117126185,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4069855 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23494 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=601506038082 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,7851896672882400815,17222993691377776077,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4069875 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23495 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=601509454279 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,2861121877202420021,8107254451037535464,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4070259 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23500 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=601527595107 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,8265236305956060150,127150540944045055,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4070327 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23501 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=601530599551 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,5302812465654043708,8050140644773674140,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4070349 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23502 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=601532069169 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,3184000600126532146,17734778945223873321,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4070397 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23503 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=601534278065 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14302005059717249537,17692200094675597616,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4120921 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23624 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=604112985502 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,4076161199300242895,8490794741176517790,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4137517 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23671 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=604969734281 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,9276034218553464033,17311644221357253799,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4140502 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23680 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=605123333588 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,1666959689280101759,16095130536196300065,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4145821 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23684 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=605277738691 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,8115523296089135099,13043215298975675778,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4146012 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23686 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=605289085767 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,5039602043770664145,6161521529989780263,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4149426 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --extension-process --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23693 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=605398382127 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,2887451865567054996,5233564323204579560,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4156614 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23708 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=605783980387 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14487337279047071637,14685719441875206291,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4156957 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23711 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=605802674028 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,3053956331513723744,15189590009748791967,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4160497 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23718 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=606040537401 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,11375420770035430557,10361087493263499061,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4161281 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23721 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=606090267685 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,10988125985969145708,14284016814915189682,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4161401 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23722 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=606098470822 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,1072329772976444690,809663914408939801,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4161476 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23724 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=606100711017 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,6186542812387742929,8289595349910561274,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4167727 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --extension-process --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23736 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=606480148619 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,6435910030771930577,18309505146662392042,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4167729 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --extension-process --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23737 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=606480151717 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,14299884299613424562,9669136119251993298,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ ├─4169874 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23743 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=606620700207 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,12651857057682367255,1362557271870838652,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ │ └─4170688 "/opt/google/chrome/chrome --type=renderer --crashpad-handler-pid=3418 --enable-crash-reporter=12b6a0df-957a-476b-9ad6-18e412e6c8fb, --extension-process --origin-trial-disabled-features=CanvasTextNg|WebAssemblyCustomDescriptors --change-stack-guard-on-fork=enable --ozone-platform=wayland --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=23744 --time-ticks-at-unix-epoch=-1761598161875820 --launch-time-ticks=606678657008 --shared-files=v8_context_snapshot_data:100 --metrics-shmem-handle=4,i,17398552701622668926,11903604609452459568,2097152 --field-trial-handle=3,i,16355987265670183862,13295522063178929641,262144 --disable-features=EyeDropper --variations-seed-version=20251027-010106.884000"
+                 │ ├─app-niri-niri\x2dautoname\x2dworkspaces-2972.scope
+                 │ │ └─2972 niri-autoname-workspaces
+                 │ ├─app-niri-nm\x2dapplet-2964.scope
+                 │ │ ├─  2964 nm-applet
+                 │ │ ├─339355 bwrap --unshare-all --die-with-parent --chdir / --ro-bind /usr /usr --dev /dev --ro-bind-try /etc/ld.so.cache /etc/ld.so.cache --ro-bind-try /nix/store /nix/store --tmpfs /tmp-home --tmpfs /tmp-run --clearenv --setenv HOME /tmp-home --setenv XDG_RUNTIME_DIR /tmp-run --setenv XDG_RUNTIME_DIR /run/user/1000 --symlink /usr/lib /lib64 --symlink /usr/lib /lib --seccomp 23 /usr/lib/glycin-loaders/2+/glycin-image-rs --dbus-fd 21
+                 │ │ ├─339356 bwrap --unshare-all --die-with-parent --chdir / --ro-bind /usr /usr --dev /dev --ro-bind-try /etc/ld.so.cache /etc/ld.so.cache --ro-bind-try /nix/store /nix/store --tmpfs /tmp-home --tmpfs /tmp-run --clearenv --setenv HOME /tmp-home --setenv XDG_RUNTIME_DIR /tmp-run --setenv XDG_RUNTIME_DIR /run/user/1000 --symlink /usr/lib /lib64 --symlink /usr/lib /lib --seccomp 23 /usr/lib/glycin-loaders/2+/glycin-image-rs --dbus-fd 21
+                 │ │ └─339357 /usr/lib/glycin-loaders/2+/glycin-image-rs --dbus-fd 21
+                 │ ├─app-niri-sh-2967.scope
+                 │ │ └─2967 swayidle -w timeout 300 "swaylock -f -c 000000" timeout 600 "swaymsg \"output * power off\"" resume "swaymsg \"output * power on\"" before-sleep "swaylock -f -c 000000"
+                 │ ├─app-niri-swaybg-2961.scope
+                 │ │ └─2961 swaybg --image /home/justin/src/justin/dotfiles/wallpapers/artist_point.jpg
+                 │ ├─app-niri-waybar-2970.scope
+                 │ │ ├─2970 waybar
+                 │ │ └─3104 python3 /home/justin/.local/bin/mediaplayer --player spotify
+                 │ ├─dconf.service
+                 │ │ └─27422 /usr/lib/dconf-service
+                 │ ├─gcr-ssh-agent.service
+                 │ │ ├─29729 /usr/lib/gcr-ssh-agent --base-dir /run/user/1000/gcr
+                 │ │ └─29733 /usr/bin/ssh-agent -D -a /run/user/1000/gcr/.ssh
+                 │ ├─gnome-keyring.service
+                 │ │ └─1293901 /nix/store/d8df24gy534inrmalrmafa458i9vbvm5-gnome-keyring-48.0/bin/gnome-keyring-daemon --start --foreground
+                 │ ├─mako.service
+                 │ │ └─3594 /usr/bin/mako
+                 │ ├─nextcloud-client.service
+                 │ │ └─29319 /nix/store/vccxmdvvzyf2d0prvmn5ga53miy849x3-nextcloud-client-4.0.0/bin/nextcloud --background
+                 │ └─xdg-desktop-portal-gtk.service
+                 │   └─2985 /usr/lib/xdg-desktop-portal-gtk
+                 ├─init.scope
+                 │ ├─2723 /usr/lib/systemd/systemd --user
+                 │ └─2745 "(sd-pam)"
+                 ├─session.slice
+                 │ ├─at-spi-dbus-bus.service
+                 │ │ ├─2984 /usr/lib/at-spi-bus-launcher
+                 │ │ ├─3050 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus_0
+                 │ │ └─3067 /usr/lib/at-spi2-registryd --use-gnome-session
+                 │ ├─dbus.service
+                 │ │ └─2759 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+                 │ ├─gvfs-daemon.service
+                 │ │ ├─   3051 /usr/lib/gvfsd
+                 │ │ ├─   3057 /usr/lib/gvfsd-fuse /run/user/1000/gvfs -f
+                 │ │ ├─1122744 /usr/lib/gvfsd-trash --spawner :1.28 /org/gtk/gvfs/exec_spaw/0
+                 │ │ └─1123696 /usr/lib/gvfsd-network --spawner :1.28 /org/gtk/gvfs/exec_spaw/1
+                 │ ├─gvfs-metadata.service
+                 │ │ └─3099 /usr/lib/gvfsd-metadata
+                 │ ├─gvfs-udisks2-volume-monitor.service
+                 │ │ └─1122731 /usr/lib/gvfs-udisks2-volume-monitor
+                 │ ├─niri.service
+                 │ │ ├─2899 /usr/bin/niri --session
+                 │ │ ├─3462 xwayland-satellite :0 -listenfd 119 -listenfd 66
+                 │ │ └─3463 Xwayland :0 -listenfd 119 -listenfd 66 -rootless -force-xrandr-emulation -wm 7 -displayfd 8
+                 │ ├─pipewire-pulse.service
+                 │ │ └─3113 /usr/bin/pipewire-pulse
+                 │ ├─pipewire.service
+                 │ │ └─2760 /usr/bin/pipewire
+                 │ ├─wireplumber.service
+                 │ │ └─2764 /usr/bin/wireplumber
+                 │ ├─xdg-desktop-portal.service
+                 │ │ └─2986 /usr/lib/xdg-desktop-portal
+                 │ ├─xdg-document-portal.service
+                 │ │ ├─3035 /usr/lib/xdg-document-portal
+                 │ │ └─3041 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+                 │ └─xdg-permission-store.service
+                 │   └─3006 /usr/lib/xdg-permission-store
+                 └─user.slice
+                   └─podman-pause-c2c75237.scope
+                     └─193670 catatonit -P

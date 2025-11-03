@@ -1,0 +1,134 @@
+Module                  Size  Used by
+cdc_ncm                53248  0
+cdc_ether              24576  1 cdc_ncm
+usbnet                 61440  2 cdc_ncm,cdc_ether
+mii                    16384  1 usbnet
+ipheth                 20480  0
+apple_mfi_fastcharge    16384  0
+nls_utf8               12288  0
+hfsplus               172032  0
+isofs                  65536  0
+cdrom                  81920  2 hfsplus,isofs
+tls                   155648  1
+nf_conntrack_netlink    61440  0
+xt_nat                 12288  73
+veth                   40960  0
+snd_seq_dummy          12288  0
+snd_hrtimer            12288  1
+snd_seq               131072  7 snd_seq_dummy
+snd_seq_device         16384  1 snd_seq
+xt_conntrack           12288  4
+xt_set                 24576  0
+ip_set                 69632  1 xt_set
+xt_addrtype            12288  4
+xfrm_user              73728  1
+xfrm_algo              16384  1 xfrm_user
+xt_MASQUERADE          16384  6
+xt_tcpudp              16384  0
+xt_mark                12288  2
+nft_compat             24576  89
+nft_chain_nat          12288  32
+nf_nat                 61440  3 xt_nat,nft_chain_nat,xt_MASQUERADE
+nf_conntrack          196608  5 xt_conntrack,nf_nat,xt_nat,nf_conntrack_netlink,xt_MASQUERADE
+nf_defrag_ipv6         24576  1 nf_conntrack
+nf_defrag_ipv4         12288  1 nf_conntrack
+overlay               245760  16
+tun                    73728  4
+nf_tables             389120  1307 nft_compat,nft_chain_nat
+joydev                 24576  0
+snd_ctl_led            28672  0
+8021q                  53248  0
+garp                   16384  1 8021q
+mrp                    20480  1 8021q
+uinput                 24576  2
+pkcs8_key_parser       12288  0
+nvidia_drm            143360  47
+nvidia_uvm           3850240  10
+nvidia_modeset       1929216  9 nvidia_drm
+iwlmvm                741376  0
+snd_hda_codec_alc882    20480  1
+snd_hda_codec_realtek_lib    61440  1 snd_hda_codec_alc882
+snd_hda_codec_nvhdmi    16384  1
+snd_hda_codec_generic   114688  2 snd_hda_codec_realtek_lib,snd_hda_codec_alc882
+snd_hda_codec_hdmi     61440  1 snd_hda_codec_nvhdmi
+mac80211             1679360  1 iwlmvm
+snd_hda_intel          69632  2
+snd_hda_codec         217088  6 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec_nvhdmi,snd_hda_codec_realtek_lib,snd_hda_codec_alc882
+amd_atl                57344  1
+intel_rapl_msr         20480  0
+snd_hda_core          139264  5 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_codec_realtek_lib
+libarc4                12288  1 mac80211
+intel_rapl_common      53248  1 intel_rapl_msr
+nvidia              111501312  483 nvidia_uvm,nvidia_drm,nvidia_modeset
+ptp                    53248  1 iwlmvm
+snd_intel_dspcfg       45056  1 snd_hda_intel
+pps_core               32768  1 ptp
+btusb                  81920  0
+snd_intel_sdw_acpi     16384  1 snd_intel_dspcfg
+btrtl                  32768  1 btusb
+snd_hwdep              24576  1 snd_hda_codec
+ee1004                 16384  0
+btintel                73728  1 btusb
+eeepc_wmi              12288  0
+snd_pcm               212992  4 snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_core
+zfs                  6627328  5
+btbcm                  24576  1 btusb
+asus_wmi              110592  1 eeepc_wmi
+platform_profile       20480  1 asus_wmi
+snd_timer              57344  3 snd_seq,snd_hrtimer,snd_pcm
+btmtk                  32768  1 btusb
+drm_ttm_helper         16384  2 nvidia_drm
+sp5100_tco             20480  0
+sparse_keymap          12288  1 asus_wmi
+wmi_bmof               12288  0
+iwlwifi               610304  1 iwlmvm
+ttm                   122880  1 drm_ttm_helper
+snd                   159744  17 snd_ctl_led,snd_hda_codec_generic,snd_seq,snd_seq_device,snd_hda_codec_hdmi,snd_hwdep,snd_hda_intel,snd_hda_codec,snd_timer,snd_hda_codec_realtek_lib,snd_pcm
+r8169                 143360  0
+i2c_piix4              36864  0
+rapl                   20480  0
+video                  81920  2 asus_wmi,nvidia_modeset
+bluetooth            1118208  6 btrtl,btmtk,btintel,btbcm,btusb
+realtek                53248  1
+k10temp                12288  0
+pcspkr                 12288  0
+i2c_smbus              20480  1 i2c_piix4
+spl                   155648  1 zfs
+soundcore              16384  2 snd_ctl_led,snd
+mousedev               28672  0
+mdio_devres            12288  1 r8169
+cfg80211             1421312  3 iwlmvm,iwlwifi,mac80211
+libphy                184320  3 r8169,mdio_devres,realtek
+mdio_bus               65536  3 r8169,libphy,realtek
+rfkill                 45056  8 iwlmvm,asus_wmi,bluetooth,cfg80211
+wmi                    32768  3 video,asus_wmi,wmi_bmof
+mac_hid                12288  0
+br_netfilter           36864  0
+bridge                454656  1 br_netfilter
+stp                    12288  2 bridge,garp
+llc                    16384  3 bridge,stp,garp
+crypto_user            12288  0
+loop                   49152  0
+nfnetlink              20480  6 nft_compat,nf_conntrack_netlink,nf_tables,ip_set
+ip_tables              36864  0
+x_tables               65536  9 xt_conntrack,nft_compat,xt_tcpudp,xt_addrtype,xt_nat,xt_set,ip_tables,xt_MASQUERADE,xt_mark
+hid_logitech_hidpp     77824  0
+hid_logitech_dj        40960  0
+dm_crypt               65536  1
+encrypted_keys         28672  1 dm_crypt
+trusted                49152  2 encrypted_keys,dm_crypt
+asn1_encoder           12288  1 trusted
+tee                    49152  1 trusted
+dm_mod                229376  6 dm_crypt
+uas                    36864  0
+usb_storage            90112  1 uas
+polyval_clmulni        12288  0
+ghash_clmulni_intel    12288  0
+nvme                   69632  2
+aesni_intel            98304  1
+nvme_core             270336  3 nvme
+nvme_keyring           20480  1 nvme_core
+ccp                   184320  0
+nvme_auth              32768  1 nvme_core
+vfat                   24576  1
+fat                   114688  1 vfat

@@ -1,0 +1,17 @@
+Filesystem            Size  Used Avail Use% Mounted on
+dev                    51G     0   51G   0% /dev
+run                    51G  3.3M   51G   1% /run
+efivarfs              132k   35k   92k  28% /sys/firmware/efi/efivars
+/dev/mapper/vg0-root  984G  515G  419G  56% /
+tmpfs                  51G  661M   50G   2% /dev/shm
+tmpfs                  51G  207M   51G   1% /tmp
+tmpfs                 1.1M     0  1.1M   0% /run/credentials/systemd-journald.service
+/dev/nvme0n1p1        210M  174M   36M  84% /boot
+zpool0                1.4T  516G  881G  37% /mnt/zpool0
+zpool0/media          1.1T  916G  180G  84% /mnt/zpool0/media
+zpool0/frigate        4.4T  3.5T  881G  80% /mnt/zpool0/frigate
+zpool0/photos         2.4T  1.5T  881G  63% /mnt/zpool0/photos
+zpool0/nextcloud      883G  1.4G  881G   1% /mnt/zpool0/nextcloud
+tmpfs                 1.1M     0  1.1M   0% /run/credentials/getty@tty1.service
+tmpfs                  11G   91k   11G   1% /run/user/1000
+tmpfs                 1.1M     0  1.1M   0% /run/credentials/systemd-resolved.service
