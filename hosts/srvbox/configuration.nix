@@ -22,13 +22,15 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # binary cache server
-    ../../nixos/cachix.nix
+    # # binary cache server
+    # ../../nixos/cachix.nix # TODO: re-enable
     inputs.niri.nixosModules.niri
   ];
 
   # Set time zone
   time.timeZone = "America/Los_Angeles";
+
+  # TODO: do we want grub instead?
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -38,9 +40,6 @@
   programs.seahorse.enable = true;
   programs.steam.enable = true;
 
-  # before adding this on 10/2, uname -r showed kernel 6.6.35
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # install firmware updater. Use with `fwupdmgr update`
   services.fwupd.enable = true;
 
@@ -49,20 +48,11 @@
 
   # configure gnome and x so I can share my entire screen for interview purposes
   # sway doesn't do full screen sharing
-  services.xserver.enable = true;
+  services.xserver.enable = true; # TODO: disable xserver ?
   services.desktopManager.gnome.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
-  # Enable fingerprint authentication for swaylock
-  services.fprintd.enable = true;
-  security.pam.services.swaylock = {
-    text = ''
-      auth sufficient pam_fprintd.so
-      auth include login
-    '';
-  };
-
-  networking.hostName = "framework"; # Define your hostname.
+  networking.hostName = "srvbox";
   networking.networkmanager.enable = true;
 
   networking.nameservers = [
@@ -92,14 +82,14 @@
   ];
   services.system-config-printer.enable = true;
 
-  # enable bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  # blueman provides the blueman service and blueman-manager for managing pairing
-  services.blueman.enable = true;
+  # # enable bluetooth
+  # hardware.bluetooth.enable = true;
+  # hardware.bluetooth.powerOnBoot = true;
+  # # blueman provides the blueman service and blueman-manager for managing pairing
+  # services.blueman.enable = true;
 
-  # display backlight control
-  programs.light.enable = true;
+  # # display backlight control
+  # programs.light.enable = true;
 
   # English
   i18n.defaultLocale = "en_US.UTF-8";
@@ -119,54 +109,9 @@
 
   security.polkit.enable = true;
 
-  # configure suspend and hibernate
-  # TODO: test that this actually works
-  # TODO: `systemctl suspend` works. `systemctl hibernate` seems to just shut it down completely
-  services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
-    IdleAction = "hibernate";
-    IdleActionSec = "30min";
-  };
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=yes
-    AllowHibernation=yes
-    AllowSuspendThenHibernate=yes
-    HibernateDelaySec=2h
-  '';
-  # enable swap to allow hibernate
-  swapDevices = [
-    # make swapfile at least as big as physical RAM
-    {
-      device = "/swapfile";
-      size = 32768;
-    }
-  ];
-  # TODO: is this needed?
-  # boot.kernelParams = [ "resume=UUID=<swap-uuid>" "resume_offset=<offset>" ];
-
-  # samba client configuration
-  services.samba.enable = true;
-  fileSystems."/mnt/srvbox_samba_justin" = {
-    device = "//srvbox.wampus-newton.ts.net/justin";
-    fsType = "cifs";
-    options =
-      let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in
-      [ "${automount_opts},credentials=/etc/nixos/smb-secrets" ];
-  };
-  fileSystems."/mnt/srvbox_darktable_justin" = {
-    device = "//srvbox.wampus-newton.ts.net/justin-darktable";
-    fsType = "cifs";
-    options =
-      let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in
-      [ "${automount_opts},credentials=/etc/nixos/smb-secrets" ];
-  };
-  services.gvfs.enable = true;
+  # # samba configuration
+  # services.samba.enable = true;
+  # services.gvfs.enable = true;
 
   # greetd tui login manager
   # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
@@ -192,10 +137,10 @@
 
   # window managers
   programs.niri.enable = true;
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
+  # programs.sway = {
+  #   enable = true;
+  #   wrapperFeatures.gtk = true;
+  # };
 
   nixpkgs.config.permittedInsecurePackages = [
     # needed for sublime4 as of 6/30/2024
@@ -208,10 +153,10 @@
     pulse.enable = true;
   };
 
-  # Steam told me to add these
-  # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
-  hardware.graphics.enable32Bit = true;
-  services.pulseaudio.support32Bit = true; # TODO: try removing this
+  # # Steam told me to add these
+  # # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
+  # hardware.graphics.enable32Bit = true;
+  # services.pulseaudio.support32Bit = true; # TODO: try removing this
 
   virtualisation.docker.enable = true;
   services.expressvpn.enable = true;
@@ -338,10 +283,10 @@
     zsh
   ];
 
-  environment.variables = {
-    # https://discourse.nixos.org/t/rust-pkg-config-fails-on-openssl-for-cargo-generate/39759/2
-    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-  };
+  # environment.variables = {
+  #   # https://discourse.nixos.org/t/rust-pkg-config-fails-on-openssl-for-cargo-generate/39759/2
+  #   PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+  # };
 
   # DONT TOUCH THIS
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
