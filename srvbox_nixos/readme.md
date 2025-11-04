@@ -5,6 +5,7 @@ root partition is encrypted. key is at /boot/keyfile.bin
 note /etc/fstab
 
 TODO: what specifies the zfs mount
+  - zfs-mount.service in systemd
 
 TODO: nvidia drivers
 TODO: google coral drivers

@@ -8,39 +8,40 @@
 #     * the computer is always busy with server stuff, recording security cam videos, etc
 #     * hibernation with zfs is potentially dangerous
 #
-# TODO: luks
-# TODO: efi vs bios partitions? /boot vs ESP?
-#
 { lib, ... }:
 {
   disko.devices = {
-    disk.disk1 = {
+    disk.main = {
       device = lib.mkDefault "/dev/nvme0n1";
       type = "disk";
       content = {
         type = "gpt";
         partitions = {
-          boot = {
-            name = "boot";
-            size = "1M";
-            type = "EF02"; # TODO:?
-          };
-          esp = {
+          ESP = {
             name = "ESP";
             size = "500M";
-            type = "EF00"; # TODO:?
+            type = "EF00";
             content = {
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
+              mountOptions = [ "umask=0077" ];
             };
           };
-          root = {
-            name = "root";
+          luks = {
             size = "100%";
             content = {
-              type = "lvm_pv";
-              vg = "pool";
+              type = "luks";
+              name = "crypted";
+              extraOpenArgs = [];
+              settings = {
+                keyFile = "/boot/keyfile.bin";
+                allowDiscards = true;
+              };
+              content = {
+                type = "lvm_pv";
+                vg = "pool";
+              };
             };
           };
         };
@@ -51,7 +52,7 @@
         type = "lvm_vg";
         lvs = {
           root = {
-            size = "100%FREE";
+            size = "100%";
             content = {
               type = "filesystem";
               format = "ext4";
