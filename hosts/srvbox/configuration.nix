@@ -37,6 +37,10 @@ in
   # https://wiki.nixos.org/wiki/ZFS
   # use a kernel that works with the latest zfs modules
   boot.kernelPackages = latestKernelPackage;
+  # We're not using zfs to boot, but add it here to ensure the kernel selection above works
+  boot.supportedFilesystems = [ "zfs" ];
+  # zfs wants the hostId set. generated with `head -c 8 /etc/machine-id`.
+  networking.hostId = "d94e1d7a";
 
   imports = [
     # Include the results of the hardware scan.
@@ -50,15 +54,22 @@ in
   # Set time zone
   time.timeZone = "America/Los_Angeles";
 
-  # TODO: do we want grub instead?
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable TPM2 for LUKS unlocking of root partition
+  boot.initrd.systemd.enable = true;
+  security.tpm2.enable = true;
+
   programs.zsh.enable = true;
   programs.seahorse.enable = true;
+
   programs.steam.enable = true;
+  # # Steam told me to add these
+  # # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
+  # hardware.graphics.enable32Bit = true;
+  # services.pulseaudio.support32Bit = true; # TODO: try removing this
 
   # install firmware updater. Use with `fwupdmgr update`
   services.fwupd.enable = true;
@@ -173,11 +184,6 @@ in
     pulse.enable = true;
   };
 
-  # # Steam told me to add these
-  # # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
-  # hardware.graphics.enable32Bit = true;
-  # services.pulseaudio.support32Bit = true; # TODO: try removing this
-
   virtualisation.docker.enable = true;
   services.expressvpn.enable = true;
 
@@ -201,6 +207,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    tpm2-tss # using tpm to store key for encrypted root partition
     cifs-utils
     treefmt
     shfmt

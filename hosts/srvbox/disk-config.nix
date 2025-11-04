@@ -33,9 +33,7 @@
             content = {
               type = "luks";
               name = "crypted";
-              extraOpenArgs = [ ];
               settings = {
-                keyFile = "/boot/keyfile.bin";
                 allowDiscards = true;
               };
               content = {

@@ -29,3 +29,14 @@ TODO:
 - pros and cons of zfs root partition?
 
 - some files on my root ssd got corrupted. very low corruption rate, but nonzero. how to prevent?
+
+4. After installation, you'll need to:
+   - Regenerate hardware-configuration.nix with nixos-generate-config
+   - Enroll TPM2: systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+7
+     /dev/nvme0n1p2
+   - Set a recovery password: cryptsetup luksAddKey /dev/nvme0n1p2
+5. Optional improvements:
+
+
+    - Boot timeout: Add boot.loader.timeout = 1; for faster boots
+    - Consider removing Steam/gaming stuff if this is purely a server
