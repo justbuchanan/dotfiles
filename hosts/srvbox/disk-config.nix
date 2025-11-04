@@ -33,7 +33,7 @@
             content = {
               type = "luks";
               name = "crypted";
-              extraOpenArgs = [];
+              extraOpenArgs = [ ];
               settings = {
                 keyFile = "/boot/keyfile.bin";
                 allowDiscards = true;
