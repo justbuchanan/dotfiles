@@ -6,6 +6,21 @@
   ...
 }:
 
+let
+  # search for the newest kernel that's compatible with the latest zfs modules
+  # https://wiki.nixos.org/wiki/ZFS
+  zfsCompatibleKernelPackages = lib.filterAttrs (
+    name: kernelPackages:
+    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+    && (builtins.tryEval kernelPackages).success
+    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+  ) pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
+in
 {
   # Nix settings
   nix.settings.experimental-features = [
@@ -19,9 +34,14 @@
   };
   nixpkgs.config.allowUnfree = true;
 
+  # https://wiki.nixos.org/wiki/ZFS
+  # use a kernel that works with the latest zfs modules
+  boot.kernelPackages = latestKernelPackage;
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./disk-config.nix
     # # binary cache server
     # ../../nixos/cachix.nix # TODO: re-enable
     inputs.niri.nixosModules.niri

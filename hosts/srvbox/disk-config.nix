@@ -8,6 +8,9 @@
 #     * the computer is always busy with server stuff, recording security cam videos, etc
 #     * hibernation with zfs is potentially dangerous
 #
+# TODO: luks
+# TODO: efi vs bios partitions? /boot vs ESP?
+#
 { lib, ... }:
 {
   disko.devices = {
