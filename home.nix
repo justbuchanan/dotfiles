@@ -29,6 +29,15 @@
     ".profile.d".source = ./home/.profile.d;
 
     ".config/nixpkgs/config.nix".source = ./home/.config/nixpkgs/config.nix;
+
+    # use out-of-store symlinks because sublime expects to be able to edit these files
+    ".config/sublime-text/Packages/User/clang_format_custom.sublime-settings".source = config.lib.file.mkOutOfStoreSymlink ./home/.config/sublime-text-3/Packages/User/clang_format_custom.sublime-settings;
+    ".config/sublime-text/Packages/User/clang_format.sublime-settings".source = config.lib.file.mkOutOfStoreSymlink ./home/.config/sublime-text-3/Packages/User/clang_format.sublime-settings;
+    ".config/sublime-text/Packages/User/Default.sublime-keymap".source = config.lib.file.mkOutOfStoreSymlink ./home/.config/sublime-text-3/Packages/User/Default.sublime-keymap;
+    ".config/sublime-text/Packages/User/Package Control.sublime-settings".source = config.lib.file.mkOutOfStoreSymlink (./home/.config/sublime-text-3/Packages/User + "/Package Control.sublime-settings");
+    ".config/sublime-text/Packages/User/Preferences.sublime-settings".source = config.lib.file.mkOutOfStoreSymlink ./home/.config/sublime-text-3/Packages/User/Preferences.sublime-settings;
+    ".config/sublime-text/Packages/User/Python.sublime-settings".source = config.lib.file.mkOutOfStoreSymlink ./home/.config/sublime-text-3/Packages/User/Python.sublime-settings;
+    ".config/sublime-text/Packages/User/RustFmt.sublime-settings".source = config.lib.file.mkOutOfStoreSymlink ./home/.config/sublime-text-3/Packages/User/RustFmt.sublime-settings;
   };
 
   gtk.enable = true;
