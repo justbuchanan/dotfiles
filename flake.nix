@@ -132,7 +132,7 @@
 
       homeConfigurations = {
         # Framework laptop - NixOS
-        "justin@framework" = home-manager.lib.homeManagerConfiguration {
+        justin = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
           extraSpecialArgs = { inherit inputs; };

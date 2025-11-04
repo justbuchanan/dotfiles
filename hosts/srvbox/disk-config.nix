@@ -18,6 +18,7 @@
         type = "gpt";
         partitions = {
           ESP = {
+            label = "NIXBOOT";
             name = "ESP";
             size = "500M";
             type = "EF00";
