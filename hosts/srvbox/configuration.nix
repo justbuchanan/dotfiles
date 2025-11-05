@@ -32,8 +32,8 @@ in
     ./samba.nix
     ../shared/base.nix
     ../shared/graphical-and-personal.nix
-    # # binary cache server
-    # ../../nixos/cachix.nix # TODO: re-enable
+    # binary cache server
+    ../../nixos/cachix.nix
     inputs.niri.nixosModules.niri
   ];
 

@@ -19,7 +19,7 @@
     ./webserver.nix
     ./authelia.nix
     # binary cache server
-    # ../../nixos/cachix.nix
+    ../../nixos/cachix.nix
   ];
 
   # Configure agenix - this is the keyfile for decrypting secrets
