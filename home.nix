@@ -51,12 +51,7 @@
     (callPackage ./packages/gopsuinfo.nix { })
   ];
 
-  # TODO: https://tip.ghostty.org/docs/linux/systemd
-  # tl;dr: running the systemd service, then launching ghostty with +new-window
-  # makes it much faster.
   programs.ghostty = {
-    # systemd activation is buggy - see https://github.com/nix-community/home-manager/issues/8027
-    systemd.enable = false;
     enable = true;
     enableZshIntegration = true;
     settings = {
