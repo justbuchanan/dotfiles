@@ -5,7 +5,6 @@
   lib,
   ...
 }:
-
 {
   imports = [
     ./home/programs/git.nix
@@ -15,21 +14,10 @@
     ./home/programs/vim.nix
     ./home/programs/waybar-niri.nix
     ./home/programs/darktable.nix
+    ./home/base.nix
   ];
 
-  news.display = "silent";
-
-  nixpkgs.config.allowUnfree = true;
-
   home.file = {
-    ".tigrc".source = ./home/.tigrc;
-    ".bashrc".source = ./home/.bashrc;
-    ".tmux.conf".source = ./home/.tmux.conf;
-
-    ".profile.d".source = ./home/.profile.d;
-
-    ".config/nixpkgs/config.nix".source = ./home/.config/nixpkgs/config.nix;
-
     ".config/sublime-text/Packages/User/clang_format_custom.sublime-settings".source =
       ./home/.config/sublime-text-3/Packages/User/clang_format_custom.sublime-settings;
     ".config/sublime-text/Packages/User/clang_format.sublime-settings".source =
@@ -48,8 +36,6 @@
   gtk.enable = true;
 
   home.packages = with pkgs; [
-    age
-    inputs.agenix.packages.${pkgs.system}.default
     baobab
     cheese
     expressvpn
@@ -64,17 +50,6 @@
     # gopsuinfo for waybar system monitoring
     (callPackage ./packages/gopsuinfo.nix { })
   ];
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
-  };
 
   # TODO: https://tip.ghostty.org/docs/linux/systemd
   # tl;dr: running the systemd service, then launching ghostty with +new-window
@@ -117,28 +92,12 @@
     };
   };
 
-  programs.ssh.enableDefaultConfig = true;
-
   services.nextcloud-client = {
     enable = true;
     startInBackground = true;
   };
 
   services.gnome-keyring.enable = true;
-
-  stylix = {
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-latte.yaml";
-    image = ./home/wallpapers/maple_loop_pass.jpg;
-    polarity = "dark";
-    fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.hack;
-        name = "Hack Nerd Font Mono";
-      };
-    };
-  };
 
   home.stateVersion = "24.05";
 }
