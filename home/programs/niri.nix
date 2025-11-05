@@ -77,9 +77,15 @@ in
           ];
         }
         { argv = [ "nm-applet" ]; }
+        # Note: changes to swaybg settings only take effect when you first login
+        # If you change something here and want to see it happen, do:
+        #   killall swaybg
+        #   niri msg action spawn-sh -- "swaybg --mode fill --iage /home/justin/src/justin/dotfiles/home/wallpapers/maple_loop_pass.jpg"
         {
           argv = [
             "swaybg"
+            "--mode"
+            "fill"
             "--image"
             "/home/justin/src/justin/dotfiles/home/wallpapers/maple_loop_pass.jpg"
           ];
