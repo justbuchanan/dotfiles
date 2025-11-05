@@ -26,6 +26,7 @@
 - sudo tailscale up
 - generate user ssh key
 - login to github and enroll ssh key
+- generate user ed25519 key - see secrets/secrets.nix
 
 - sudo ln -s $PWD/flake.nix /etc/nixos/
 
