@@ -29,7 +29,8 @@ say() {
     echo "$@" | espeak
 }
 
-alias nrs='nixos-rebuild switch --sudo'
+# alias nrs='nixos-rebuild switch --sudo'
+alias nrs='sudo nixos-rebuild switch'
 
 export HM_DIR=/home/justin/src/justin/dotfiles
 alias hms='home-manager switch --flake $HM_DIR'
