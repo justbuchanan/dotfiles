@@ -12,15 +12,6 @@
       url = "github:nomisreual/mediaplayer";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hy3 = {
-      url = "github:outfoxxed/hy3";
-      inputs.hyprland.follows = "hyprland";
-    };
     niri = {
       url = "github:sodiboo/niri-flake";
     };
@@ -68,11 +59,8 @@
       agenix,
       mediaplayer,
       # cadquery,
-      hyprland,
-      hy3,
       niri,
       niri-autoname-workspaces,
-      hyprland-plugins,
       home-manager,
       stylix,
       nixvim,
