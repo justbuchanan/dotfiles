@@ -66,12 +66,8 @@
     TTYVTDisallocate = true;
   };
 
-  # window managers
+  # window manager
   programs.niri.enable = true;
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
 
   # Enable sound.
   services.pipewire = {
