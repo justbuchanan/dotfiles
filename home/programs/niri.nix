@@ -12,7 +12,7 @@ in
   home.packages = with pkgs; [
     swaybg
     swayidle
-    inputs.niri-autoname-workspaces.packages.${pkgs.system}.default
+    inputs.niri-autoname-workspaces.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.niri = {
