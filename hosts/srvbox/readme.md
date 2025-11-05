@@ -30,3 +30,5 @@
 - sudo ln -s $PWD/flake.nix /etc/nixos/
 
 - because zpool was last used on another system (previous arch linux install), the automatic mounting doesn't work. do sudo zpool import -f zpool0
+
+- spotify: Settings -> Display -> Show desktop notifications when the song changes: set to false
