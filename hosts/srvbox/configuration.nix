@@ -257,7 +257,19 @@ in
 
   # keyd service for custom keyboard remapping
   services.keyd.enable = true;
-  environment.etc."keyd/default.conf".source = ../../etc/keyd/default.conf;
+  environment.etc."keyd/default.conf".text = ''
+    # The config below is needed to appropriately map the media keys on my
+    # WASD V2 keyboard
+    [ids]
+    *
+    [main]
+    insert = playpause
+    delete = previoussong
+    end = nextsong
+    pause = mute
+    pageup = volumeup
+    pagedown = volumedown
+  '';
 
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.justin = {
