@@ -72,6 +72,21 @@ in
   # hardware.graphics.enable32Bit = true;
   # services.pulseaudio.support32Bit = true; # TODO: try removing this
 
+  # https://nixos.wiki/wiki/Nvidia
+  hardware.graphics.enable = true;
+  hardware.nvidia = {
+    powerManagement.enable = true;
+    modesetting.enable = true;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+  services.xserver.videoDrivers = ["nvidia"];
+
+  # TODO: necessary
+  hardware.opengl.enable = true;
+
   # install firmware updater. Use with `fwupdmgr update`
   services.fwupd.enable = true;
 
@@ -186,6 +201,12 @@ in
   };
 
   virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.docker.daemon.settings.features.cdi = true;
+
+
+  hardware.coral.usb.enable = true;
+
   services.expressvpn.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

@@ -48,6 +48,7 @@
     cheese
     expressvpn
     transmission_4-qt
+    docker-compose
     wf-recorder
     systemctl-tui
     imagemagick
