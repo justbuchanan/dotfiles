@@ -42,13 +42,6 @@
               . $i
           fi
       done
-
-      # the nix-provided ghostty isn't compatible with Arch opengl install, so use pacman-installed ghostty
-      if [[ "$(cat /etc/os-release)" == *"Arch Linux"* ]]; then
-          export PATH="$HOME/.local/bin/ghostty-bin-dir/:$PATH"
-          mkdir -p ~/.local/bin/ghostty-bin-dir || true
-          ln -s /usr/bin/ghostty ~/.local/bin/ghostty-bin-dir/ghostty 2>/dev/null || true
-      fi
     '';
   };
 }

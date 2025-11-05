@@ -18,8 +18,6 @@ take() {
     mkdir -p "$1" && cd "$1" || exit 1
 }
 
-alias s='stylize -i -g main'
-
 alias c='wl-copy'
 alias v='wl-paste'
 
@@ -36,3 +34,7 @@ export HM_DIR=/home/justin/src/justin/dotfiles
 alias hms='home-manager switch --flake $HM_DIR'
 # hms "fast" - disables network lookups
 alias hmsf='home-manager switch --option substitute false --flake $HM_DIR'
+
+watchhist() {
+    tail -n 1 -f ~/.zsh_history | sed -E 's/.*;(.*)/\1/'
+}
