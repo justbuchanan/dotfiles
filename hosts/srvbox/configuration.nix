@@ -5,7 +5,6 @@
   inputs,
   ...
 }:
-
 let
   # search for the newest kernel that's compatible with the latest zfs modules
   # https://wiki.nixos.org/wiki/ZFS
@@ -22,23 +21,6 @@ let
   );
 in
 {
-  # Nix settings
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-  nixpkgs.config.allowUnfree = true;
-
-  # https://wiki.nixos.org/wiki/ZFS
-  # use a kernel that works with the latest zfs modules
-  boot.kernelPackages = latestKernelPackage;
-  # We're not using zfs to boot, but add it here to ensure the kernel selection above works
-  boot.supportedFilesystems = [ "zfs" ];
   # zfs wants the hostId set. generated with `head -c 8 /etc/machine-id`.
   networking.hostId = "d94e1d7a";
   boot.zfs.extraPools = [ "zpool0" ];
@@ -47,32 +29,28 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./disk-config.nix
+    ./samba.nix
+    ../shared/base.nix
+    ../shared/graphical-and-personal.nix
     # # binary cache server
     # ../../nixos/cachix.nix # TODO: re-enable
     inputs.niri.nixosModules.niri
   ];
 
-  # Set time zone
-  time.timeZone = "America/Los_Angeles";
+  boot = {
+    # Use the systemd-boot EFI boot loader instead of grub.
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    # Enable TPM2 for LUKS unlocking of root partition
+    initrd.systemd.enable = true;
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable TPM2 for LUKS unlocking of root partition
-  boot.initrd.systemd.enable = true;
+    # https://wiki.nixos.org/wiki/ZFS
+    # use a kernel that works with the latest zfs modules
+    kernelPackages = latestKernelPackage;
+    # We're not using zfs to boot, but add it here to ensure the kernel selection above works
+    supportedFilesystems = [ "zfs" ];
+  };
   security.tpm2.enable = true;
-
-  programs.zsh.enable = true;
-
-  services.gnome.gnome-keyring.enable = true;
-  programs.seahorse.enable = true;
-
-  programs.steam.enable = true;
-  # # Steam told me to add these
-  # # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
-  # hardware.graphics.enable32Bit = true;
-  # services.pulseaudio.support32Bit = true; # TODO: try removing this
 
   # https://nixos.wiki/wiki/Nvidia
   hardware.graphics.enable = true;
@@ -93,88 +71,11 @@ in
   services.fstrim.enable = true;
 
   networking.hostName = "srvbox";
-  networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
 
   networking.nameservers = [
     "1.1.1.1"
     "9.9.9.9"
   ];
-  networking.networkmanager.dns = "systemd-resolved";
-  services.resolved.enable = true;
-
-  services.tailscale = {
-    enable = true;
-    extraSetFlags = [ "--ssh" ];
-  };
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-
-  # Printers
-  services.printing.enable = true;
-  services.printing.drivers = [
-    pkgs.gutenprint
-    pkgs.hplip
-    pkgs.cups-dymo
-  ];
-  services.system-config-printer.enable = true;
-
-  # samba file sharing
-  # beyond this config, a password for each user must be set with:
-  # smbpasswd -a <user>
-  services.samba = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      global = {
-        "server string" = "smbnix";
-        "server role" = "standalone server";
-        "disable netbios" = "yes";
-        "smb ports" = "445";
-        "logging" = "systemd";
-
-        # server-side copy for macOS users - https://wiki.archlinux.org/title/Samba
-        "fruit:copyfile" = "yes";
-
-        # performance tuning
-        # https://www.reddit.com/r/OpenMediaVault/comments/11gwi1g/significant_samba_speedperformance_improvement_by/
-        "min receivefile size" = "16384";
-        "use sendfile" = "yes";
-        "vfs objects" = "io_uring";
-        "aio read size" = "16384";
-        "aio write size" = "16384";
-      };
-      justin = {
-        "path" = "/mnt/zpool0/samba/justin";
-        "browsable" = "true";
-        "read only" = "false";
-        "force create mode" = "0660";
-        "force directory mode" = "2770";
-        "valid users" = "justin";
-      };
-      justin-darktable = {
-        "path" = "/mnt/zpool0/photos/darktable";
-        "browsable" = "true";
-        "read only" = "false";
-        "force create mode" = "0660";
-        "force directory mode" = "2770";
-        "valid users" = "justin";
-      };
-      avani = {
-        "path" = "/mnt/zpool0/samba/avani";
-        "browsable" = "true";
-        "read only" = "false";
-        "force create mode" = "0660";
-        "force directory mode" = "2770";
-        "valid users" = "avani";
-      };
-    };
-  };
 
   # # enable bluetooth
   # hardware.bluetooth.enable = true;
@@ -185,75 +86,14 @@ in
   # # display backlight control
   # programs.light.enable = true;
 
-  # English
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  programs.dconf.enable = true;
-  programs.dconf.profiles.user.databases = [
-    {
-      settings."org/gnome/desktop/interface" = {
-        gtk-theme = "Adwaita-dark";
-        icon-theme = "Flat-Remix-Red-Dark";
-        font-name = "Noto Sans Medium 11";
-        document-font-name = "Noto Sans Medium 11";
-        monospace-font-name = "Noto Sans Mono Medium 11";
-      };
-    }
-  ];
-
-  security.polkit.enable = true;
-
-  # # samba configuration
-  # services.samba.enable = true;
-  # services.gvfs.enable = true;
-
-  # greetd tui login manager
-  # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri-session --user-menu";
-        user = "greeter";
-      };
-    };
-  };
-  systemd.services.greetd.serviceConfig = {
-    Type = "idle";
-    StandardInput = "tty";
-    StandardOutput = "tty";
-    StandardError = "journal"; # Without this errors will spam on screen
-    # Without these bootlogs will spam on screen
-    TTYReset = true;
-    TTYVHangup = true;
-    TTYVTDisallocate = true;
-  };
-
-  # window managers
-  programs.niri.enable = true;
-  # programs.sway = {
-  #   enable = true;
-  #   wrapperFeatures.gtk = true;
-  # };
-
   nixpkgs.config.permittedInsecurePackages = [
     # needed for sublime4 as of 6/30/2024
     "openssl-1.1.1w"
   ];
 
-  # Enable sound.
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
-  virtualisation.docker.enable = true;
   hardware.nvidia-container-toolkit.enable = true;
-  virtualisation.docker.daemon.settings.features.cdi = true;
 
   hardware.coral.usb.enable = true;
-
-  services.expressvpn.enable = true;
 
   # keyd service for custom keyboard remapping
   services.keyd.enable = true;
@@ -271,136 +111,14 @@ in
     pagedown = volumedown
   '';
 
-  # Define a user account. Don't forget to set a password with 'passwd'.
-  users.users.justin = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [
-      "wheel" # Enable ‘sudo’ for the user.
-      "docker"
-      "video" # allow changing screen brightness (among other things) without sudo
-      "dialout" # access to /dev/tty* devices without sudo
-    ];
-  };
+  # define avani's account for use with samba shared drives
   users.users.avani = {
     isNormalUser = true;
   };
 
-  # font awesome is needed for waybar to work correctly
-  fonts.packages = with pkgs; [
-    nerd-fonts.hack
-  ];
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     tpm2-tss # using tpm to store key for encrypted root partition
-    cifs-utils
-    treefmt
-    shfmt
-    xwayland-satellite
-    blender
-    btop
-    cachix
-    cargo
-    socat
-    clang
-    claude-code
-    cmake
-    cryptsetup
-    colordiff
-    # TODO: re-enable cadquery - there's a hash mismatch preventing building
-    # # editor for cadquery
-    # inputs.cadquery.packages.${pkgs.system}.cq-editor
-    curlFull
-    darktable
-    home-manager
-    dmidecode
-    kdePackages.dolphin
-    zenity
-    espeak
-    evince
-    fast-cli
-    ffmpeg
-    firefox
-    foot
-    fstl
-    fuzzel
-    gcc
-    git
-    gnumake
-    go
-    google-chrome
-    gphoto2
-    graphviz
-    tuigreet
-    grim
-    htop
-    imv
-    inkscape
-    inxi
-    jq
-    kdePackages.kdenlive
-    kicad
-    gnome-mines
-    pkg-config
-    poppler-utils
-    pulseaudio
-    rustup
-    busybox
-    libnotify
-    mako
-    mediainfo
-    mpv
-    mupdf
-    # provides `nix-locate` which tells you which package provides which file/binary
-    nix-index
-    ncdu
-    neofetch
-    slurp
-    networkmanagerapplet
-    nixfmt-rfc-style
-    nmap
-    obsidian
-    openscad
-    openssl
-    openssl.dev
-    pciutils
-    pkg-config
-    playerctl
-    prusa-slicer
-    python313
-    rustc
-    speedtest-cli
-    spotify
-    sqlite
-    sublime4
-    swaylock
-    system-config-printer
-    tig
-    tmux
-    tree
-    vlc
-    vscode
-    waybar
-    # mediaplayer displays spotify current song in waybar
-    inputs.mediaplayer.packages.${pkgs.system}.default
-    wev # wev tells you what the keycode/name is for each key you press
-    wget
-    wirelesstools
-    xfce.thunar
-    # gives `wl-copy` and `wl-paste` for copy/pasting
-    wl-clipboard
-    # weather widget for waybar
-    wttrbar
-    zip
-    zsh
   ];
-
-  # environment.variables = {
-  #   # https://discourse.nixos.org/t/rust-pkg-config-fails-on-openssl-for-cargo-generate/39759/2
-  #   PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-  # };
 
   # DONT TOUCH THIS
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .

@@ -54,6 +54,7 @@
     cheese
     expressvpn
     transmission_4-qt
+    darktable
     docker-compose
     wf-recorder
     systemctl-tui

@@ -9,18 +9,13 @@
 }:
 
 {
-  # Nix settings
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   imports = [
     # from nixos-anywhere-examples
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
     ./hardware-configuration.nix
+    ../shared/base.nix
     ./webserver.nix
     ./authelia.nix
     # binary cache server
@@ -30,32 +25,7 @@
   # Configure agenix - this is the keyfile for decrypting secrets
   age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-  nixpkgs.config.allowUnfree = true;
-
-  # Set time zone
-  time.timeZone = "America/Los_Angeles";
-
-  programs.zsh.enable = true;
-
   networking.hostName = "droplet1";
-
-  services.resolved.enable = true;
-
-  services.tailscale = {
-    enable = true;
-    extraSetFlags = [ "--ssh" ];
-  };
-
-  # English
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # TODO: needed?
-  security.polkit.enable = true;
 
   # TODO: get rid of docker since webserver.nix uses podman?
   virtualisation.docker.enable = true;
@@ -80,44 +50,6 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.hack
-  ];
-
-  environment.systemPackages = with pkgs; [
-    inputs.agenix.packages.${pkgs.system}.default
-    btop
-    busybox
-    cachix
-    colordiff
-    cryptsetup
-    curlFull
-    dmidecode
-    fast-cli
-    git
-    gnumake
-    go
-    home-manager
-    inetutils
-    inxi
-    jq
-    mtr
-    ncdu
-    neofetch
-    nix-index
-    nmap
-    openssl
-    openssl.dev
-    python313
-    socat
-    speedtest-cli
-    sqlite
-    sysstat
-    tig
-    tmux
-    tree
-    vim
-    wget
-    zip
-    zsh
   ];
 
   services.openssh.enable = true;
