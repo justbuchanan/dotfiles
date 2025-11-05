@@ -7,6 +7,8 @@
             [
                 "__pycache__",
                 ".direnv",
+                "result",
+                ".claude"
             ]
 		}
 	]
