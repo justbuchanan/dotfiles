@@ -17,6 +17,8 @@
     ./home/programs/darktable.nix
   ];
 
+  news.display = "silent";
+
   nixpkgs.config.allowUnfree = true;
 
   home.file = {
