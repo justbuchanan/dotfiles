@@ -49,6 +49,7 @@
 
   # configure gnome and x so I can share my entire screen for interview purposes
   # sway doesn't do full screen sharing
+  # TODO: remove this - I think screensharing works in niri, but test it
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
   services.gnome.gnome-keyring.enable = true;

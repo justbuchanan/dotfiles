@@ -64,6 +64,8 @@ in
   security.tpm2.enable = true;
 
   programs.zsh.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
 
   programs.steam.enable = true;
@@ -90,11 +92,6 @@ in
   # Enable periodic SSD TRIM
   services.fstrim.enable = true;
 
-  # configure gnome and x so I can share my entire screen for interview purposes
-  # sway doesn't do full screen sharing
-  services.xserver.enable = true; # TODO: disable xserver ?
-  services.desktopManager.gnome.enable = true;
-  services.gnome.gnome-keyring.enable = true;
 
   networking.hostName = "srvbox";
   networking.networkmanager.enable = true;
