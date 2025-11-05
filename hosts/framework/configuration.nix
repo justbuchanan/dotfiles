@@ -285,7 +285,7 @@
     kicad
     gnome-mines
     pkg-config
-    poppler_utils
+    poppler-utils
     pulseaudio
     rustup
     busybox
