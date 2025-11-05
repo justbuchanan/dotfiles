@@ -92,7 +92,6 @@ in
   # Enable periodic SSD TRIM
   services.fstrim.enable = true;
 
-
   networking.hostName = "srvbox";
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;

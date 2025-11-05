@@ -80,7 +80,7 @@
   # makes it much faster.
   programs.ghostty = {
     # systemd activation is buggy - see https://github.com/nix-community/home-manager/issues/8027
-    systemd = false;
+    systemd.enable = false;
     enable = true;
     enableZshIntegration = true;
     settings = {
