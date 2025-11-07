@@ -6,6 +6,7 @@ in
 {
   programs.waybar = {
     enable = true;
+    niri-workspaces-enhanced.enable = true;
     settings = {
       mainBar = {
         layer = "top";
@@ -14,7 +15,7 @@ in
 
         modules-left = [
           # "custom/nixos-logo"
-          "niri/workspaces"
+          "cffi/niri-workspaces-enhanced"
           "custom/media"
         ];
 
@@ -132,8 +133,22 @@ in
           tooltip = false;
         };
 
-        "niri/workspaces" = {
-          format = "{value}";
+        "cffi/niri-workspaces-enhanced" = {
+          module_path = "/home/justin/.config/waybar/niri-workspaces-enhanced.so";
+          window-icon-format = {
+            default = "{icon}";
+            urgent = "<span foreground='#ff0000'>{icon}</span>";
+            focused = "<span foreground='#d65d0e'>{icon}</span>";
+          };
+          window-icons = {
+            "com.mitchellh.ghostty" = "";
+            "darktable" = "";
+            "google-chrome" = "";
+            "spotify" = "";
+            "steam" = "";
+            "subl" = "";
+          };
+          window-icon-default = "*";
         };
 
         "custom/logout" = {
@@ -163,9 +178,10 @@ in
         border-radius: 0;
         /* text color - TODO
         color: black; */
+        border-bottom: 0px;
       }
 
-      .modules-left #workspaces button.focused {
+      #workspaces button.focused {
         background: @base03;
         border-bottom: 0px;
       }

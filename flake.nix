@@ -15,10 +15,8 @@
     niri = {
       url = "github:sodiboo/niri-flake";
     };
-    niri-autoname-workspaces = {
-      url = "github:justbuchanan/niri-autoname-workspaces";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    waybar-niri-workspaces-enhanced.url = "github:justbuchanan/waybar-niri-workspaces-enhanced";
+
     # cadquery = {
     #   url = "github:marcus7070/cq-flake";
     #   # rev = "de4b29ee5cf2fdd2a8ba97010442511e162b6041";
@@ -60,7 +58,7 @@
       mediaplayer,
       # cadquery,
       niri,
-      niri-autoname-workspaces,
+      waybar-niri-workspaces-enhanced,
       home-manager,
       stylix,
       nixvim,
@@ -129,6 +127,7 @@
             ./home.nix
             nixvim.homeModules.nixvim
             niri.homeModules.niri
+            waybar-niri-workspaces-enhanced.homeModules.default
             stylix.homeModules.stylix
             {
               home = {

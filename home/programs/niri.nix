@@ -12,7 +12,6 @@ in
   home.packages = with pkgs; [
     swaybg
     swayidle
-    inputs.niri-autoname-workspaces.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.niri = {
@@ -89,9 +88,6 @@ in
             "--image"
             "/home/justin/src/justin/dotfiles/home/wallpapers/maple_loop_pass.jpg"
           ];
-        }
-        {
-          argv = [ "niri-autoname-workspaces" ];
         }
         {
           # Idle configuration
@@ -189,7 +185,7 @@ in
         "Mod+Return".action =
           spawn-sh ''ghostty +new-window --working-directory="$(~/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)"'';
 
-        "Mod+Y".action.spawn-sh = "niri-autoname-workspaces rename";
+        "Mod+Y".action.spawn = "~/.config/niri/rename-workspace.sh";
 
         "Mod+N".action.spawn = "~/src/justin/dotfiles/home/.config/niri/scripts/focus-last-workspace.sh";
         "Mod+Shift+N".action.spawn-sh =
@@ -205,13 +201,5 @@ in
         "Mod+Shift+Escape".action = quit;
       };
     };
-  };
-
-  home.file = {
-    ".config/niri/autoname-workspaces.toml".text = ''
-      # # make the focused window icon big and gold/orange
-      # focused_format = "<span foreground='#E58606'><big>{}</big></span>"
-      focused_format = "<span foreground='#${config.lib.stylix.colors.base09}'>{}</span>"
-    '';
   };
 }
