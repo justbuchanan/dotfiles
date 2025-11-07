@@ -146,7 +146,8 @@ in
             "google-chrome" = "";
             "spotify" = "";
             "steam" = "";
-            "subl" = "";
+            "sublime_text" = "";
+            "dontstarve_steam_x64" = "";
           };
           window-icon-default = "*";
         };
@@ -166,8 +167,8 @@ in
 
     style = ''
       * {
-          font-family: Hack Nerd Font Propo;
-          font-size: 14px;
+        font-family: Hack Nerd Font Propo;
+        font-size: 14px;
       }
 
       /*window#waybar {
