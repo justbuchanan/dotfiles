@@ -17,10 +17,8 @@
     };
     waybar-niri-workspaces-enhanced.url = "github:justbuchanan/waybar-niri-workspaces-enhanced";
 
-    # cadquery = {
-    #   url = "github:marcus7070/cq-flake";
-    #   # rev = "de4b29ee5cf2fdd2a8ba97010442511e162b6041";
-    # };
+    cadquery.url = "github:vinszent/cq-flake?rev=e0c9db750f3ff0f25ba327a8e847a2f0d61fb063";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,7 +54,7 @@
       disko,
       agenix,
       mediaplayer,
-      # cadquery,
+      cadquery,
       niri,
       waybar-niri-workspaces-enhanced,
       home-manager,

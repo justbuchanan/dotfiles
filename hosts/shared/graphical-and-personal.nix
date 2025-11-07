@@ -143,9 +143,8 @@
     # gives `wl-copy` and `wl-paste` for copy/pasting
     wl-clipboard
     pulseaudio
-    # TODO: re-enable cadquery - there's a hash mismatch preventing building
-    # # editor for cadquery
-    # inputs.cadquery.packages.${pkgs.stdenv.hostPlatform.system}.cq-editor
+    # editor for cadquery
+    inputs.cadquery.packages.${pkgs.stdenv.hostPlatform.system}.cq-editor
     # mediaplayer displays spotify current song in waybar
     inputs.mediaplayer.packages.${pkgs.stdenv.hostPlatform.system}.default
     wev # wev tells you what the keycode/name is for each key you press
