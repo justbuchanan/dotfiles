@@ -25,6 +25,15 @@
   # Configure agenix - this is the keyfile for decrypting secrets
   age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
+  # Gmail token is viewable by users in the gmail-token-access group
+  users.groups.gmail-token-access = { };
+  age.secrets.buchanan-smarthome-gmail-token = {
+    file = ../../secrets/buchanan-smarthome-gmail-token.age;
+    owner = "root";
+    group = "gmail-token-access";
+    mode = "0440";
+  };
+
   networking.hostName = "droplet1";
 
   # TODO: get rid of docker since webserver.nix uses podman?
@@ -35,11 +44,16 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [
-      "wheel" # Enable ‘sudo’ for the user.
+      "wheel" # Enable 'sudo' for the user.
       "docker"
+      "gmail-token-access" # allow reading gmail token secret
     ];
   };
   users.users.root.shell = pkgs.zsh;
+
+  environment.systemPackages = [
+    (pkgs.callPackage ../../packages/gmail-send.nix { inherit config; })
+  ];
 
   users.users.root.openssh.authorizedKeys.keys = [
     # framework pub key

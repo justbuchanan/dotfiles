@@ -32,16 +32,29 @@
 
   services.expressvpn.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.justin = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [
-      "wheel" # Enable ‘sudo’ for the user.
+      "wheel" # Enable 'sudo' for the user.
       "docker"
       "video" # allow changing screen brightness (among other things) without sudo
       "dialout" # access to /dev/tty* devices without sudo
+      "gmail-token-access" # allow reading gmail token secret
     ];
+  };
+
+  # Configure agenix - this is the keyfile for decrypting secrets
+  age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+  # Gmail token is viewable by users in the gmail-token-access group
+  users.groups.gmail-token-access = { };
+  age.secrets.buchanan-smarthome-gmail-token = {
+    file = ../../secrets/buchanan-smarthome-gmail-token.age;
+    owner = "root";
+    group = "gmail-token-access";
+    mode = "0440";
   };
 
   # greetd tui login manager
@@ -104,6 +117,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    (pkgs.callPackage ../../packages/gmail-send.nix { inherit config; })
     system-config-printer
     google-chrome
     gphoto2

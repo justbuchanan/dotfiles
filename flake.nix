@@ -71,6 +71,7 @@
           modules = [
             ./hosts/framework/configuration.nix
             determinate.nixosModules.default
+            agenix.nixosModules.default
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
             nixos-hardware.nixosModules.framework-13th-gen-intel
           ];
@@ -85,6 +86,7 @@
             { disko.devices.disk.disk1.device = "/dev/nvme0n1"; }
             ./hosts/srvbox/configuration.nix
             determinate.nixosModules.default
+            agenix.nixosModules.default
           ];
         };
 
