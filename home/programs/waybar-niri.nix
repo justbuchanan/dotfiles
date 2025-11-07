@@ -141,12 +141,6 @@ in
             focused = "<span foreground='#d65d0e'>{icon}</span>";
           };
           window-icons = {
-            "com.mitchellh.ghostty" = "";
-            "darktable" = "";
-            "google-chrome" = "";
-            "spotify" = "";
-            "steam" = "";
-            "sublime_text" = "";
             "dontstarve_steam_x64" = "";
           };
           window-icon-default = "*";
@@ -175,14 +169,14 @@ in
         background: alpha(@base00, 0.5);
       }*/
 
-      #workspaces button {
+      .modules-left #workspaces button {
         border-radius: 0;
         /* text color - TODO
         color: black; */
         border-bottom: 0px;
       }
 
-      #workspaces button.focused {
+      .modules-left #workspaces button.focused {
         background: @base03;
         border-bottom: 0px;
       }
