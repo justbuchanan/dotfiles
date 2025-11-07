@@ -149,6 +149,7 @@
             ./home.nix
             nixvim.homeModules.nixvim
             niri.homeModules.niri
+            waybar-niri-workspaces-enhanced.homeModules.default
             stylix.homeModules.stylix
             {
               home = {
