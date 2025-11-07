@@ -52,6 +52,8 @@
     nerd-fonts.hack
   ];
 
+  programs.dconf.enable = true;
+
   services.openssh.enable = true;
 
   boot.loader.grub = {
