@@ -24,6 +24,7 @@ in
   # zfs wants the hostId set. generated with `head -c 8 /etc/machine-id`.
   networking.hostId = "d94e1d7a";
   boot.zfs.extraPools = [ "zpool0" ];
+  services.zfs.autoScrub.enable = true;
 
   imports = [
     # Include the results of the hardware scan.
