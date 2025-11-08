@@ -15,6 +15,7 @@ let
   justin-srvbox = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICqqJamlTBKWzwcbTBJMVEezhaEc0XlACLaPcB7mWG/4 justin@srvbox";
   justin-framework = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO4tJlxrvlz/mhLa6AZ8N0y8cezN1vQrkuA8Dpv7kr+6 justin@framework";
   root-srvbox = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK6yzd3pyDOXQSkn8oeQCfpZG11vYkw1skzeBBhLJvEW root@srvbox";
+  root-framework = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK/0270WbIpuqQu1zozBzNBQr/BWCk/c/aRcYiexNtP/ root@framework";
 in
 {
   "droplet1-authelia-jwt-secret.age".publicKeys = [
@@ -37,5 +38,6 @@ in
     justin-srvbox
     justin-framework
     root-srvbox
+    root-framework
   ];
 }
