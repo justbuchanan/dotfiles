@@ -1,6 +1,5 @@
 # Provides a `gmail-send` script for sending emails from the
-# buchanan.smarthome@gmail.com account. It relies on agenix to provide the auth
-# token.
+# buchanan.smarthome@gmail.com account.
 {
   lib,
   msmtp,
@@ -9,27 +8,6 @@
   config,
 }:
 
-let
-  msmtprc = writeText "msmtprc" ''
-    # Set defaults
-    defaults
-    auth on
-    tls on
-    tls_trust_file /etc/ssl/certs/ca-certificates.crt
-    logfile ~/.msmtp.log
-
-    # Gmail account
-    account gmail
-    host smtp.gmail.com
-    port 587
-    from buchanan.smarthome@gmail.com
-    user buchanan.smarthome@gmail.com
-    passwordeval cat ${config.age.secrets.buchanan-smarthome-gmail-token.path}
-
-    # Set default account
-    account default : gmail
-  '';
-in
 writeShellScriptBin "gmail-send" ''
   # Simple wrapper around msmtp for sending emails via Gmail
   # Usage: gmail-send --to EMAIL --subject SUBJECT [--body BODY | < stdin]
@@ -88,7 +66,6 @@ writeShellScriptBin "gmail-send" ''
       echo "$BODY"
     fi
   } | ${msmtp}/bin/msmtp \
-      --file=${msmtprc} \
       -t
 
   if [ $? -eq 0 ]; then

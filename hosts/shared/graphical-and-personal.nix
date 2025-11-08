@@ -8,6 +8,10 @@
   ...
 }:
 {
+  imports = [
+    ./msmtp.nix
+  ];
+
   programs.steam.enable = true;
   # # Steam told me to add these
   # # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below

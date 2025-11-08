@@ -26,6 +26,21 @@ in
   boot.zfs.extraPools = [ "zpool0" ];
   services.zfs.autoScrub.enable = true;
 
+  # Configure ZED to send email notifications
+  services.zfs.zed.settings = {
+    ZED_DEBUG_LOG = "/tmp/zed.debug.log";
+    ZED_EMAIL_ADDR = [ "justbuchanan@gmail.com" ];
+    ZED_EMAIL_PROG = "${pkgs.msmtp}/bin/msmtp";
+    ZED_EMAIL_OPTS = "-a default";
+
+    ZED_NOTIFY_INTERVAL_SECS = 3600;
+    ZED_NOTIFY_VERBOSE = true;
+
+    # ZED_USE_ENCLOSURE_LEDS = true;
+    ZED_SCRUB_AFTER_RESILVER = true;
+  };
+  services.zfs.zed.enableMail = true;
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
