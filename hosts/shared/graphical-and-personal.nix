@@ -122,6 +122,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     (pkgs.callPackage ../../packages/gmail-send.nix { inherit config; })
+    inputs.oasis.packages.${pkgs.stdenv.hostPlatform.system}.oasis-client
     system-config-printer
     google-chrome
     gphoto2

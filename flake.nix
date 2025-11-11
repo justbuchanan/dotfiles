@@ -44,6 +44,11 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    oasis = {
+      url = "github:justbuchanan/oasis";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -61,6 +66,7 @@
       stylix,
       nixvim,
       nixos-hardware,
+      oasis,
     }@inputs:
     {
       nixosConfigurations = {
