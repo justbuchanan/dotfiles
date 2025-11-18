@@ -39,6 +39,7 @@
     baobab
     cheese
     expressvpn
+    gh
     transmission_4-qt
     darktable
     docker-compose
