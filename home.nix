@@ -40,6 +40,7 @@
     cheese
     expressvpn
     gh
+    nixpkgs-review
     transmission_4-qt
     darktable
     docker-compose
