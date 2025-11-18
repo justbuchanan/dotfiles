@@ -1466,11 +1466,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1762974969,
-        "narHash": "sha256-csiEpUNzDNl4aNogo3QCiED1ulaW2uU3hV+rUOEFih0=",
+        "lastModified": 1763448078,
+        "narHash": "sha256-XlVyr6C+7cw7liTx6t8xORfOFr21WG1rMfN/OXwJvVs=",
         "owner": "justbuchanan",
         "repo": "waybar-niri-workspaces-enhanced",
-        "rev": "638ae8e49f5feb9252758c7e22f0c253d1f2ae7c",
+        "rev": "b57c90d9b50e355b852b10385af07f943be08128",
         "type": "github"
       },
       "original": {
