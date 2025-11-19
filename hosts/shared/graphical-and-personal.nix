@@ -52,6 +52,14 @@
   # Configure agenix - this is the keyfile for decrypting secrets
   age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
 
+  programs.gnupg = {
+    agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
+  hardware.gpgSmartcards.enable = true;
+
   # Gmail token is viewable by users in the gmail-token-access group
   users.groups.gmail-token-access = { };
   age.secrets.buchanan-smarthome-gmail-token = {
