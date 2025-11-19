@@ -41,6 +41,7 @@
     expressvpn
     gh
     nixpkgs-review
+    lazygit
     transmission_4-qt
     darktable
     docker-compose
