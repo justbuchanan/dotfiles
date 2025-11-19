@@ -45,11 +45,6 @@
 
   networking.hostName = "framework"; # Define your hostname.
 
-  networking.nameservers = [
-    "1.1.1.1"
-    "9.9.9.9"
-  ];
-
   # enable bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

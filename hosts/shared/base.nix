@@ -40,6 +40,12 @@
     enable = true;
     allowPing = true;
   };
+  networking.nameservers = [
+    "8.8.8.8"
+    "8.8.4.4"
+    "1.1.1.1"
+    "9.9.9.9"
+  ];
 
   environment.systemPackages = with pkgs; [
     btop
