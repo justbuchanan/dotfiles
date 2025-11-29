@@ -91,9 +91,6 @@
     TTYVTDisallocate = true;
   };
 
-  # window manager
-  programs.niri.enable = true;
-
   # Enable sound.
   services.pipewire = {
     enable = true;

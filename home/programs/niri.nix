@@ -19,6 +19,7 @@ in
   programs.niri.package = pkgs.niri-unstable;
 
   programs.niri = {
+    enable = true;
     settings = {
       hotkey-overlay = {
         skip-at-startup = true;

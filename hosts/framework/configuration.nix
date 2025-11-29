@@ -11,7 +11,6 @@
     ./hardware-configuration.nix
     # binary cache server
     ../../nixos/cachix.nix
-    inputs.niri.nixosModules.niri
     ../shared/base.nix
     ../shared/graphical-and-personal.nix
   ];
