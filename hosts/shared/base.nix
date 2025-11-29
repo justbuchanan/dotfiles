@@ -55,7 +55,6 @@
     cryptsetup
     curlFull
     dmidecode
-    fast-cli
     git
     gnumake
     go
