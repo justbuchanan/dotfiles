@@ -14,6 +14,10 @@ in
     swayidle
   ];
 
+  # use niri unstable - comment out this block to go back to stable
+  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+  programs.niri.package = pkgs.niri-unstable;
+
   programs.niri = {
     settings = {
       hotkey-overlay = {
