@@ -133,6 +133,7 @@
     gphoto2
     kdePackages.dolphin
     zenity
+    brightnessctl
     evince
     firefox
     foot
