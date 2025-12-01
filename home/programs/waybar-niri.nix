@@ -142,6 +142,7 @@ in
           };
           window-icons = {
             "dontstarve_steam_x64" = "";
+            ".blueman-manager-wrapped" = "";
           };
           window-icon-default = "*";
         };
