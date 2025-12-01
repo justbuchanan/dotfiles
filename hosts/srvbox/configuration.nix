@@ -16,6 +16,9 @@
     ./disk-config.nix
     ./zfs.nix
     ./samba.nix
+    ./prometheus.nix
+    ./dst-server.nix
+    ../shared/prometheus-exporter.nix
     ../shared/base.nix
     ../shared/graphical-and-personal.nix
     # binary cache server
@@ -45,18 +48,6 @@
 
   # install firmware updater. Use with `fwupdmgr update`
   services.fwupd.enable = true;
-
-  # open up ports for don't starve together
-  networking.firewall.allowedTCPPorts = [
-    10998
-    10999
-    11000
-  ];
-  networking.firewall.allowedUDPPorts = [
-    10998
-    10999
-    11000
-  ];
 
   # Enable periodic SSD TRIM
   services.fstrim.enable = true;

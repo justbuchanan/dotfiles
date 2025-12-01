@@ -16,6 +16,7 @@
     ./disk-config.nix
     ./hardware-configuration.nix
     ../shared/base.nix
+    ../shared/prometheus-exporter.nix
     ../shared/msmtp.nix
     ./webserver.nix
     ./authelia.nix
