@@ -80,26 +80,19 @@
 
   # samba client configuration
   services.samba.enable = true;
-  fileSystems."/mnt/srvbox_samba_justin" = {
-    device = "//srvbox.wampus-newton.ts.net/justin";
-    fsType = "cifs";
-    options =
-      let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in
-      [ "${automount_opts},credentials=/etc/nixos/smb-secrets" ];
-  };
-  fileSystems."/mnt/srvbox_darktable_justin" = {
-    device = "//srvbox.wampus-newton.ts.net/justin-darktable";
-    fsType = "cifs";
-    options =
-      let
-        # this line prevents hanging on network split
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in
-      [ "${automount_opts},credentials=/etc/nixos/smb-secrets" ];
-  };
+  fileSystems =
+    let
+      automountOpts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+      mkCifsMount = device: {
+        inherit device;
+        fsType = "cifs";
+        options = [ "${automountOpts},credentials=/etc/nixos/smb-secrets" ];
+      };
+    in
+    {
+      "/mnt/srvbox_samba_justin" = mkCifsMount "//srvbox.wampus-newton.ts.net/justin";
+      "/mnt/srvbox_darktable_justin" = mkCifsMount "//srvbox.wampus-newton.ts.net/justin-darktable";
+    };
   services.gvfs.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
