@@ -80,6 +80,7 @@
             agenix.nixosModules.default
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
             nixos-hardware.nixosModules.framework-13th-gen-intel
+            inputs.niri.nixosModules.niri
           ];
         };
 
@@ -93,6 +94,7 @@
             ./hosts/srvbox/configuration.nix
             determinate.nixosModules.default
             agenix.nixosModules.default
+            inputs.niri.nixosModules.niri
           ];
         };
 
