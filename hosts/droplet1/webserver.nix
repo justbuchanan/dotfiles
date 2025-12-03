@@ -76,20 +76,23 @@ in
     443
   ];
 
+  # Docker containers for websites we're serving
+  # Note: the 127.0.0.1 makes the container port accessible to the local machine
+  # only. External access goes through caddy, which proxies to the container.
   virtualisation.oci-containers.containers = {
     justbuchanan_com = {
       image = "justbuchanan/justbuchanan.com";
-      ports = [ "3000:3000" ];
+      ports = [ "127.0.0.1:3000:3000" ];
     };
 
     oasis_terrarium_com = {
       image = "ghcr.io/justbuchanan/oasis-terrarium.com";
-      ports = [ "3001:80" ];
+      ports = [ "127.0.0.1:3001:80" ];
     };
 
     thegrove_us = {
       image = "ghcr.io/justbuchanan/thegrove.us";
-      ports = [ "3002:3000" ];
+      ports = [ "127.0.0.1:3002:3000" ];
     };
   };
 }
