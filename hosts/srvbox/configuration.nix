@@ -18,6 +18,7 @@
     ./samba.nix
     ./prometheus.nix
     ./dst-server.nix
+    ./mqtt.nix
     ../shared/prometheus-exporter.nix
     ../shared/base.nix
     ../shared/graphical-and-personal.nix
