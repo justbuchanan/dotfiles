@@ -40,4 +40,14 @@ in
     root-srvbox
     root-framework
   ];
+  "grafana-admin-password.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
+  "grafana-secret-key.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
 }
