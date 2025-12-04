@@ -20,6 +20,9 @@ in
   programs.niri = {
     enable = true;
     settings = {
+      # desktop/srvbox monitor
+      outputs."DP-2".scale = 0.85;
+
       hotkey-overlay = {
         skip-at-startup = true;
       };
