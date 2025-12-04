@@ -15,9 +15,10 @@
     # accessible on the tailnet, but we can do better
     listeners = [
       {
-        acl = [ "pattern readwrite #" ];
+        acl = [ "topic readwrite #" ];
         omitPasswordAuth = true;
         settings.allow_anonymous = true;
+        address  = "0.0.0.0";
       }
     ];
   };
