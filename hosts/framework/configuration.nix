@@ -9,8 +9,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # binary cache server
-    ../../nixos/cachix.nix
     ../shared/base.nix
     ../shared/prometheus-exporter.nix
     ../shared/graphical-and-personal.nix

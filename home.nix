@@ -7,6 +7,7 @@
 }:
 {
   imports = [
+    ./nixos/cachix.nix
     ./home/programs/git.nix
     ./home/programs/niri.nix
     ./home/programs/starship.nix
@@ -16,6 +17,10 @@
     ./home/programs/darktable.nix
     ./home/base.nix
   ];
+
+  # Required when using nix.settings in home-manager. This supports the use of
+  # cachix.nix above.
+  nix.package = pkgs.nix;
 
   home.file = {
     ".config/sublime-text/Packages/User/clang_format_custom.sublime-settings".source =

@@ -22,8 +22,6 @@
     ../shared/prometheus-exporter.nix
     ../shared/base.nix
     ../shared/graphical-and-personal.nix
-    # binary cache server
-    ../../nixos/cachix.nix
   ];
 
   boot = {

@@ -75,6 +75,7 @@
           specialArgs.inputs = inputs;
           system = "x86_64-linux";
           modules = [
+            ./nixos/cachix.nix
             ./hosts/framework/configuration.nix
             determinate.nixosModules.default
             agenix.nixosModules.default
@@ -89,6 +90,7 @@
           specialArgs.inputs = inputs;
           system = "x86_64-linux";
           modules = [
+            ./nixos/cachix.nix
             disko.nixosModules.disko
             { disko.devices.disk.disk1.device = "/dev/nvme0n1"; }
             ./hosts/srvbox/configuration.nix
@@ -103,6 +105,7 @@
           specialArgs.inputs = inputs;
           system = "x86_64-linux";
           modules = [
+            ./nixos/cachix.nix
             ./hosts/droplet1/digitalocean.nix
             disko.nixosModules.disko
             { disko.devices.disk.disk1.device = "/dev/vda"; }
