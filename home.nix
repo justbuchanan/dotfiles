@@ -48,6 +48,7 @@
     nixpkgs-review
     lazygit
     transmission_4-qt
+    libreoffice
     darktable
     docker-compose
     wf-recorder
