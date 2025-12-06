@@ -49,6 +49,7 @@
     lazygit
     transmission_4-qt
     libreoffice
+    mqtt-explorer
     darktable
     docker-compose
     wf-recorder
