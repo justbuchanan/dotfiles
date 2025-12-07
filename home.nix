@@ -50,6 +50,7 @@
     transmission_4-qt
     libreoffice
     mqtt-explorer
+    screen
     darktable
     docker-compose
     wf-recorder
