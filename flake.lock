@@ -245,6 +245,22 @@
         "type": "github"
       }
     },
+    "darktable-nixpkgs": {
+      "locked": {
+        "lastModified": 1766477044,
+        "narHash": "sha256-rcxJ500+pGkppprd2AAJGCbNeq4mE3oeBGfLHKdmNOE=",
+        "owner": "justbuchanan",
+        "repo": "nixpkgs",
+        "rev": "7eea86e9c4edb957d3fa952f7454e6cbdf1721e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "justbuchanan",
+        "ref": "darktable-5.4",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -1105,6 +1121,7 @@
       "inputs": {
         "agenix": "agenix",
         "cadquery": "cadquery",
+        "darktable-nixpkgs": "darktable-nixpkgs",
         "determinate": "determinate",
         "disko": "disko",
         "home-manager": "home-manager_2",
