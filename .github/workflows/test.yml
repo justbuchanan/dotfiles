@@ -22,9 +22,11 @@ jobs:
         run: |
           nix flake check --all-systems
 
-      - name: Build home-manager configuration for srvbox
-        run: |
-          nix build .#homeConfigurations."justin@srvbox".activationPackage
+      # Disabling because it frequently fails on github.
+      # Error message is "error: writing to file: No space left on device"
+      # - name: Build home-manager configuration for srvbox
+      #   run: |
+      #     nix build .#homeConfigurations."justin@srvbox".activationPackage
 
       # disabled because this takes too long
       # - name: Build NixOS configuration for framework
