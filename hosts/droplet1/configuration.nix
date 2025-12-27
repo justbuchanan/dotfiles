@@ -36,9 +36,6 @@
 
   networking.hostName = "droplet1";
 
-  # TODO: get rid of docker since webserver.nix uses podman?
-  virtualisation.docker.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {
     isNormalUser = true;
