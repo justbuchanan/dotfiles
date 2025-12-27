@@ -49,10 +49,6 @@
       url = "github:justbuchanan/oasis";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    darktable-nixpkgs = {
-      url = "github:justbuchanan/nixpkgs/darktable-5.4";
-    };
   };
 
   outputs =
@@ -71,7 +67,6 @@
       nixvim,
       nixos-hardware,
       oasis,
-      darktable-nixpkgs,
     }@inputs:
     {
       nixosConfigurations = {
@@ -132,61 +127,51 @@
         };
       };
 
-      homeConfigurations =
-        let
-          darktableOverlay = final: prev: {
-            darktable = darktable-nixpkgs.legacyPackages.${final.system}.darktable;
-          };
-          pkgsWithOverlays = import nixpkgs {
-            system = "x86_64-linux";
-            overlays = [ darktableOverlay ];
-          };
-        in
-        {
-          # Framework laptop - NixOS
-          justin = home-manager.lib.homeManagerConfiguration {
-            pkgs = pkgsWithOverlays;
+      homeConfigurations = {
+        # Framework laptop - NixOS
+        justin = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-            extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
 
-            modules = [
-              ./home.nix
-              nixvim.homeModules.nixvim
-              niri.homeModules.niri
-              waybar-niri-workspaces-enhanced.homeModules.default
-              stylix.homeModules.stylix
-              {
-                home = {
-                  username = "justin";
-                  homeDirectory = "/home/justin";
-                  stateVersion = "24.05";
-                };
-              }
-            ];
-          };
-
-          # Desktop computer - Arch Linux
-          "justin@srvbox" = home-manager.lib.homeManagerConfiguration {
-            pkgs = pkgsWithOverlays;
-
-            extraSpecialArgs = { inherit inputs; };
-
-            modules = [
-              ./home.nix
-              nixvim.homeModules.nixvim
-              niri.homeModules.niri
-              waybar-niri-workspaces-enhanced.homeModules.default
-              stylix.homeModules.stylix
-              {
-                home = {
-                  username = "justin";
-                  homeDirectory = "/home/justin";
-                  stateVersion = "24.05";
-                };
-              }
-            ];
-          };
+          modules = [
+            ./home.nix
+            nixvim.homeModules.nixvim
+            niri.homeModules.niri
+            waybar-niri-workspaces-enhanced.homeModules.default
+            stylix.homeModules.stylix
+            {
+              home = {
+                username = "justin";
+                homeDirectory = "/home/justin";
+                stateVersion = "24.05";
+              };
+            }
+          ];
         };
+
+        # Desktop computer - Arch Linux
+        "justin@srvbox" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+
+          extraSpecialArgs = { inherit inputs; };
+
+          modules = [
+            ./home.nix
+            nixvim.homeModules.nixvim
+            niri.homeModules.niri
+            waybar-niri-workspaces-enhanced.homeModules.default
+            stylix.homeModules.stylix
+            {
+              home = {
+                username = "justin";
+                homeDirectory = "/home/justin";
+                stateVersion = "24.05";
+              };
+            }
+          ];
+        };
+      };
 
       # devshell provides code formatting tools
       devShells.x86_64-linux.default =
