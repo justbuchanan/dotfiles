@@ -110,8 +110,15 @@
   services.system-config-printer.enable = true;
 
   # Docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.daemon.settings.features.cdi = true;
+  virtualisation.docker = {
+    enable = true;
+    autoPrune = {
+      enable = true;
+      dates = "weekly";
+    };
+    # needed for gpu passthrough
+    daemon.settings.features.cdi = true;
+  };
 
   programs.dconf.enable = true;
   programs.dconf.profiles.user.databases = [
