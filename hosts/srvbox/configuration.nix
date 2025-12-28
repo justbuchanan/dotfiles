@@ -19,6 +19,7 @@
     ./prometheus.nix
     ./dst-server.nix
     ./mqtt.nix
+    ./backblaze.nix
     ../shared/prometheus-exporter.nix
     ../shared/base.nix
     ../shared/graphical-and-personal.nix
@@ -90,6 +91,33 @@
   # define avani's account for use with samba shared drives
   users.users.avani = {
     isNormalUser = true;
+  };
+
+  # secret contents should be of the form:
+  #   B2_APPLICATION_KEY_ID=<id>
+  #   B2_APPLICATION_KEY=<key>
+  age.secrets.backblaze-b2-credentials = {
+    file = ../../secrets/backblaze-b2-credentials.age;
+    owner = "root";
+  };
+
+  # Backblaze B2 backup configuration
+  services.backblazeBackup = {
+    enable = true;
+    credentialsFile = config.age.secrets.backblaze-b2-credentials.path;
+    jobs = {
+      nextcloud = {
+        localPath = "/mnt/zpool0/nextcloud/data";
+        bucketName = "justbuchanan-nextcloud-backup";
+        periodicity = "weekly";
+      };
+      photos = {
+        localPath = "/mnt/zpool0/photos";
+        bucketName = "darktable-backup-august10-2024";
+        periodicity = "weekly";
+        excludeRegex = "\\.Trash-1000.*";
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [

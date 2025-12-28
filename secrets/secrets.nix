@@ -50,4 +50,9 @@ in
     justin-framework
     root-srvbox
   ];
+  "backblaze-b2-credentials.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
 }
