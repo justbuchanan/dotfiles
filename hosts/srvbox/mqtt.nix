@@ -8,20 +8,20 @@
     mosquitto
   ];
 
-  services.mosquitto = {
-    enable = true;
+  # services.mosquitto = {
+  #   enable = true;
 
-    # TODO: make this more secure. it's not terrible since this is only
-    # accessible on the tailnet, but we can do better
-    listeners = [
-      {
-        acl = [ "topic readwrite #" ];
-        omitPasswordAuth = true;
-        settings.allow_anonymous = true;
-        address  = "0.0.0.0";
-      }
-    ];
-  };
+  #   # TODO: make this more secure. it's not terrible since this is only
+  #   # accessible on the tailnet, but we can do better
+  #   listeners = [
+  #     {
+  #       acl = [ "topic readwrite #" ];
+  #       omitPasswordAuth = true;
+  #       settings.allow_anonymous = true;
+  #       address  = "0.0.0.0";
+  #     }
+  #   ];
+  # };
 
-  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 1883 ];
+  # networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 1883 ];
 }
