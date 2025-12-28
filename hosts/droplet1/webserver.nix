@@ -57,12 +57,12 @@ in
         reverse_proxy ${homeserver}:5000
       '';
 
-      "ls.justbuchanan.com".extraConfig = ''
+      "homepage.justbuchanan.com".extraConfig = ''
         forward_auth ${authelia} {
             uri /api/verify?rd=https://auth.justbuchanan.com
             copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
         }
-        reverse_proxy ${homeserver}:3456
+        reverse_proxy ${homeserver}:3000
       '';
 
       "auth.justbuchanan.com".extraConfig = ''
