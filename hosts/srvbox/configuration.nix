@@ -19,7 +19,7 @@
     ./prometheus.nix
     ./dst-server.nix
     ./mqtt.nix
-    ./backblaze.nix
+    ../shared/backblaze.nix
     ../shared/prometheus-exporter.nix
     ../shared/base.nix
     ../shared/graphical-and-personal.nix
@@ -115,7 +115,7 @@
         localPath = "/mnt/zpool0/photos";
         bucketName = "darktable-backup-august10-2024";
         periodicity = "weekly";
-        excludeRegex = "\\.Trash-1000.*";
+        excludeRegex = "\\\\.Trash-1000.*";
       };
     };
   };
