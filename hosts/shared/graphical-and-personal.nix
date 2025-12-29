@@ -196,6 +196,7 @@
     espeak
     ffmpeg
     gcc
+    nautilus
     gnumake
     graphviz
     poppler-utils
