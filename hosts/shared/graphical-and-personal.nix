@@ -46,6 +46,7 @@
       "video" # allow changing screen brightness (among other things) without sudo
       "dialout" # access to /dev/tty* devices without sudo
       "gmail-token-access" # allow reading gmail token secret
+      "render"
     ];
   };
 
