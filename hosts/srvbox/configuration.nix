@@ -19,6 +19,7 @@
     ./prometheus.nix
     ./dst-server.nix
     ./mqtt.nix
+    ./homepage.nix
     ../shared/backblaze.nix
     ../shared/prometheus-exporter.nix
     ../shared/base.nix

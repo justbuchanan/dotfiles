@@ -139,6 +139,7 @@
     (pkgs.callPackage ../../packages/gmail-send.nix { inherit config; })
     inputs.oasis.packages.${pkgs.stdenv.hostPlatform.system}.oasis-client
     system-config-printer
+    lazygit
     google-chrome
     gphoto2
     kdePackages.dolphin
@@ -206,5 +207,6 @@
     nixfmt-rfc-style
     pciutils
     rustc
+    backblaze-b2
   ];
 }

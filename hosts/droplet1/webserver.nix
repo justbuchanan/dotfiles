@@ -12,6 +12,15 @@ in
   services.caddy = {
     enable = true;
 
+    # Enable admin API on all interfaces so it's accessible via Tailscale
+    globalConfig = ''
+      admin :2019
+
+      servers {
+        metrics
+      }
+    '';
+
     virtualHosts = {
       # Home Assistant
       "home.justbuchanan.com".extraConfig = ''
@@ -62,7 +71,7 @@ in
             uri /api/verify?rd=https://auth.justbuchanan.com
             copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
         }
-        reverse_proxy ${homeserver}:3000
+        reverse_proxy ${homeserver}:8082
       '';
 
       "auth.justbuchanan.com".extraConfig = ''
@@ -95,4 +104,7 @@ in
       ports = [ "127.0.0.1:3002:3000" ];
     };
   };
+
+  # expose caddy admin api over tailnet
+  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 2019 ];
 }

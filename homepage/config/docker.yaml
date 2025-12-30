@@ -1,0 +1,13 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/docker/
+
+srvbox:
+  # socket: /var/run/docker.sock # use for direct docker access / no dockerproxy
+  host: 127.0.0.1 # use when running via nix+systemd
+  # host: dockerproxy # use when running from docker-compose
+  port: 2375
+
+droplet1:
+  host: droplet1.wampus-newton.ts.net
+  port: 2375

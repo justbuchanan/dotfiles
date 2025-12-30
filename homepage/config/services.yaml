@@ -1,0 +1,149 @@
+- Media & Docs:
+    - Jellyfin:
+        href: https://media.justbuchanan.com
+        server: srvbox
+        container: smarthome-jellyfin-1
+        icon: jellyfin
+        widget:
+          type: jellyfin
+          url: https://media.justbuchanan.com
+          key: "{{ HOMEPAGE_VAR_JELLYFIN_KEY }}"
+          enableBlocks: true # optional, defaults to false
+          enableNowPlaying: true # optional, defaults to true
+          enableUser: true # optional, defaults to false
+          enableMediaControl: false # optional, defaults to true
+          showEpisodeNumber: true # optional, defaults to false
+          expandOneStreamToTwoRows: false # optional, defaults to true
+    - NextCloud:
+        icon: nextcloud
+        href: https://nextcloud.justbuchanan.com
+        server: srvbox
+        container: smarthome-nextcloud-1
+        widget:
+          type: nextcloud
+          url: https://nextcloud.justbuchanan.com
+          username: justin
+          password: "{{ HOMEPAGE_VAR_NEXTCLOUD_KEY }}"
+
+- Home Automation:
+    - Home Assistant:
+        href: https://home.justbuchanan.com
+        siteMonitor: https://home.justbuchanan.com
+        icon: home-assistant
+        description: Home IOT automation
+        server: srvbox
+        container: smarthome-home_assistant-1
+        widget:
+          type: homeassistant
+          url: https://home.justbuchanan.com
+          key: "{{ HOMEPAGE_VAR_HOME_ASSISTANT_KEY }}"
+
+    - Frigate:
+        icon: frigate
+        href: https://cctv.justbuchanan.com
+        server: srvbox
+        container: smarthome-frigate-1
+        description: Security Camera NVR
+        widget:
+          type: frigate
+          url: http://srvbox.wampus-newton.ts.net:5000
+          enableRecentEvents: true # Optional, defaults to false
+
+    - MQTT:
+        description: Mosquitto MQTT Broker
+        server: srvbox
+        container: smarthome-mqtt-1
+        icon: mosquitto
+
+- Network:
+    - Authelia:
+        description: Authentication & SSO
+        href: https://auth.justbuchanan.com
+        icon: authelia
+
+    - Tailscale:
+        description: VPN Network
+        icon: tailscale
+        href: https://login.tailscale.com/admin/machines
+
+    - Caddy:
+        description: Reverse Proxy
+        icon: caddy
+        widget:
+          type: caddy
+          url: http://droplet1.wampus-newton.ts.net:2019
+
+    - Home Modem (CenturyLink):
+        href: https://192.168.0.1
+    - Home Router:
+        description: TPLink Deco
+        href: http://192.168.68.1/
+    # - Network Switch:
+    #     description:
+
+- Monitoring:
+    - InfluxDB:
+        icon: influxdb
+        href: https://influxdb.justbuchanan.com
+        description: Time Series Database
+        server: srvbox
+        container: smarthome-influxdb-1
+
+    - Prometheus:
+        icon: prometheus
+        href: http://srvbox.wampus-newton.ts.net:9090
+        description: Metrics & Monitoring
+        widget:
+          type: prometheus
+          url: http://srvbox.wampus-newton.ts.net:9090
+
+    # - Grafana:
+    #     icon: grafana
+    #     href: http://srvbox.wampus-newton.ts.net:3090
+    #     description: Metrics Visualization
+    #     widget:
+    #       type: grafana
+    #       # url: http://srvbox.wampus-newton.ts.net:3090
+    #       url: http://localhost:3090
+    #       username: {{HOMEPAGE_VAR_GRAFANA_USER}}
+    #       password: {{HOMEPAGE_VAR_GRAFANA_PASS}}
+
+- Websites:
+    - Personal:
+        description: justbuchanan.com
+        href: https://justbuchanan.com
+        siteMonitor: https://justbuchanan.com
+
+    - Oasis:
+        description: oasis-terrarium.com
+        href: https://oasis-terrarium.com
+        siteMonitor: https://oasis-terrarium.com
+
+    - Grove:
+        description: thegrove.us
+        href: https://thegrove.us
+        siteMonitor: https://thegrove.us
+# - Other:
+#     - qBittorrent:
+#         href: http://localhost:8080
+#         description: Torrent client
+#         widget:
+#           type: qbittorrent
+#           url: http://localhost:8080
+#           username: {{HOMEPAGE_VAR_QBITTORRENT_USER}}
+#           password: {{HOMEPAGE_VAR_QBITTORRENT_PASS}}
+
+#     - Immich:
+#         href: http://localhost:2283
+#         description: Photo management
+#         widget:
+#           type: immich
+#           url: http://localhost:2283
+#           # key: {{HOMEPAGE_VAR_IMMICH_API_KEY}}
+#     - Radarr:
+#         href: http://localhost:7878
+#         description: Movie management
+#         widget:
+#           type: radarr
+#           url: http://localhost:7878
+#           key: {{HOMEPAGE_VAR_RADARR_API_KEY}}

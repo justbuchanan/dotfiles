@@ -55,4 +55,19 @@ in
     justin-framework
     root-srvbox
   ];
+  "homepage-home-assistant-key.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
+  "homepage-jellyfin-key.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
+  "homepage-nextcloud-key.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
 }

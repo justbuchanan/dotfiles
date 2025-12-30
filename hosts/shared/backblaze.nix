@@ -12,7 +12,9 @@ let
     name: jobCfg:
     let
       serviceName = "backblaze-backup-${name}";
-      excludeFlag = lib.optionalString (jobCfg.excludeRegex != null) "--exclude-regex '${jobCfg.excludeRegex}'";
+      excludeFlag = lib.optionalString (
+        jobCfg.excludeRegex != null
+      ) "--exclude-regex '${jobCfg.excludeRegex}'";
     in
     lib.nameValuePair serviceName {
       description = "Backblaze B2 backup for ${jobCfg.localPath}";
