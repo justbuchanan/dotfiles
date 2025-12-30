@@ -7,7 +7,7 @@
         widget:
           type: jellyfin
           url: https://media.justbuchanan.com
-          key: "{{ HOMEPAGE_VAR_JELLYFIN_KEY }}"
+          key: "{{HOMEPAGE_VAR_JELLYFIN_KEY}}"
           enableBlocks: true # optional, defaults to false
           enableNowPlaying: true # optional, defaults to true
           enableUser: true # optional, defaults to false
@@ -23,7 +23,7 @@
           type: nextcloud
           url: https://nextcloud.justbuchanan.com
           username: justin
-          password: "{{ HOMEPAGE_VAR_NEXTCLOUD_KEY }}"
+          password: "{{HOMEPAGE_VAR_NEXTCLOUD_KEY}}"
 
 - Home Automation:
     - Home Assistant:
@@ -36,7 +36,7 @@
         widget:
           type: homeassistant
           url: https://home.justbuchanan.com
-          key: "{{ HOMEPAGE_VAR_HOME_ASSISTANT_KEY }}"
+          key: "{{HOMEPAGE_VAR_HOME_ASSISTANT_KEY}}"
 
     - Frigate:
         icon: frigate
