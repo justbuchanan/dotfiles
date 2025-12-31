@@ -78,6 +78,9 @@
     - Home Router:
         description: TPLink Deco
         href: http://192.168.68.1/
+    - DigitalOcean Droplet:
+        description: hosts websites and proxies internal services
+        href: https://cloud.digitalocean.com/droplets/525737922
     # - Network Switch:
     #     description:
 
