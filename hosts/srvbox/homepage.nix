@@ -41,10 +41,10 @@
 
   # Declaratively symlink config files into the service's config directory
   systemd.tmpfiles.rules = [
-    "L+ /var/lib/homepage-dashboard/settings.yaml - - - - ${../../homepage/config/settings.yaml}"
-    "L+ /var/lib/homepage-dashboard/services.yaml - - - - ${../../homepage/config/services.yaml}"
-    "L+ /var/lib/homepage-dashboard/widgets.yaml - - - - ${../../homepage/config/widgets.yaml}"
-    "L+ /var/lib/homepage-dashboard/docker.yaml - - - - ${../../homepage/config/docker.yaml}"
+    "L+ /var/lib/homepage-dashboard/settings.yaml - - - - ${./homepage/config/settings.yaml}"
+    "L+ /var/lib/homepage-dashboard/services.yaml - - - - ${./homepage/config/services.yaml}"
+    "L+ /var/lib/homepage-dashboard/widgets.yaml - - - - ${./homepage/config/widgets.yaml}"
+    "L+ /var/lib/homepage-dashboard/docker.yaml - - - - ${./homepage/config/docker.yaml}"
   ];
 
   systemd.services.homepage-dashboard.serviceConfig.SupplementaryGroups = [ "homepage-token-access" ];
