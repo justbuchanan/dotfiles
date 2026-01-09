@@ -54,6 +54,7 @@
     darktable
     docker-compose
     wf-recorder
+    scc
     systemctl-tui
     imagemagick
     nil # nix lsp
