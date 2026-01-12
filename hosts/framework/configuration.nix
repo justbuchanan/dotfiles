@@ -94,11 +94,6 @@
     };
   services.gvfs.enable = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    # needed for sublime4 as of 6/30/2024
-    "openssl-1.1.1w"
-  ];
-
   # TODO: remove - these should be in graphical-base.nix unless this laptop specifically needs these settings.
   # Steam told me to add these
   # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below

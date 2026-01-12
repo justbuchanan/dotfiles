@@ -134,6 +134,11 @@
     }
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    # needed for sublime4 as of 6/30/2024
+    "openssl-1.1.1w"
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -199,7 +204,6 @@
     ffmpeg
     gcc
     nautilus
-    gnumake
     graphviz
     poppler-utils
     rustup

@@ -64,11 +64,6 @@
   # # display backlight control
   # programs.light.enable = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    # needed for sublime4 as of 6/30/2024
-    "openssl-1.1.1w"
-  ];
-
   hardware.nvidia-container-toolkit.enable = true;
 
   hardware.coral.usb.enable = true;
