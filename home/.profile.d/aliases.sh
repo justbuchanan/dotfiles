@@ -38,3 +38,7 @@ alias hmsf='home-manager switch --option substitute false --flake $HM_DIR'
 watchhist() {
     tail -n 1 -f ~/.zsh_history | sed -E 's/.*;(.*)/\1/'
 }
+
+yolo() {
+    time claude -p "$1" --dangerously-skip-permissions; n "$1"
+}
