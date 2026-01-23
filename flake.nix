@@ -180,7 +180,7 @@
         in
         pkgs.mkShell {
           packages = with pkgs; [
-            nixfmt-rfc-style
+            nixfmt
             nixos-rebuild
             nodePackages.prettier
             shellcheck

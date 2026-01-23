@@ -175,8 +175,8 @@
     swaylock
     vscode
     waybar
-    xfce.thunar
-    xfce.tumbler # thumbnail generator for thunar
+    thunar
+    tumbler # thumbnail generator for thunar
     # weather widget for waybar
     wttrbar
     xwayland-satellite
@@ -209,7 +209,7 @@
     rustup
     libnotify
     mediainfo
-    nixfmt-rfc-style
+    nixfmt
     pciutils
     rustc
     backblaze-b2
