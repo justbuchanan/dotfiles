@@ -70,4 +70,9 @@ in
     justin-framework
     root-srvbox
   ];
+  "factorio-server-settings.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
 }

@@ -18,6 +18,7 @@
     ./samba.nix
     ./prometheus.nix
     ./dst-server.nix
+    ./factorio.nix
     ./mqtt.nix
     ./homepage.nix
     ../shared/backblaze.nix
