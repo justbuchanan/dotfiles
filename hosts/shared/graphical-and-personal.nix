@@ -160,7 +160,7 @@
     grim
     imv
     inkscape
-    kdePackages.kdenlive
+    # kdePackages.kdenlive
     kicad
     gnome-mines
     mako
