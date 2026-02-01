@@ -20,36 +20,48 @@ let
   );
 
   snapshotJobs = [
-    { pool = "zpool0"; dataset = "photos"; period = "weekly"; }
-    { pool = "zpool0"; dataset = "nextcloud"; period = "daily"; }
+    {
+      pool = "zpool0";
+      dataset = "photos";
+      period = "weekly";
+    }
+    {
+      pool = "zpool0";
+      dataset = "nextcloud";
+      period = "daily";
+    }
   ];
 
   mkServiceName = job: "zfs-snapshot-${builtins.replaceStrings [ "/" ] [ "-" ] job.dataset}";
   mkFullDataset = job: "${job.pool}/${job.dataset}";
 in
 {
-  systemd.services = builtins.listToAttrs (map (job: {
-    name = mkServiceName job;
-    value = {
-      description = "ZFS snapshot for ${mkFullDataset job}";
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.zfs}/bin/zfs snapshot ${mkFullDataset job}@auto-$(date +%%Y-%%m-%%d-%%H%%M%%S)'";
+  systemd.services = builtins.listToAttrs (
+    map (job: {
+      name = mkServiceName job;
+      value = {
+        description = "ZFS snapshot for ${mkFullDataset job}";
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.zfs}/bin/zfs snapshot ${mkFullDataset job}@auto-$(date +%%Y-%%m-%%d-%%H%%M%%S)'";
+        };
       };
-    };
-  }) snapshotJobs);
+    }) snapshotJobs
+  );
 
-  systemd.timers = builtins.listToAttrs (map (job: {
-    name = mkServiceName job;
-    value = {
-      description = "Timer for ZFS snapshots of ${mkFullDataset job}";
-      wantedBy = [ "timers.target" ];
-      timerConfig = {
-        OnCalendar = job.period;
-        Persistent = true;
+  systemd.timers = builtins.listToAttrs (
+    map (job: {
+      name = mkServiceName job;
+      value = {
+        description = "Timer for ZFS snapshots of ${mkFullDataset job}";
+        wantedBy = [ "timers.target" ];
+        timerConfig = {
+          OnCalendar = job.period;
+          Persistent = true;
+        };
       };
-    };
-  }) snapshotJobs);
+    }) snapshotJobs
+  );
 
   # zfs scrub checks for and repairs disk errors. enabling the service makes
   # sure this runs periodically (every 2 weeks?)
