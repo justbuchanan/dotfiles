@@ -121,6 +121,9 @@
     tpm2-tss # using tpm to store key for encrypted root partition
   ];
 
+  # factorio is configured in factorio.nix. Flip the bit here to run it.
+  systemd.services.factorio.enable = false;
+
   # DONT TOUCH THIS
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
