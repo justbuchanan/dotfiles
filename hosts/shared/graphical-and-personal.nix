@@ -180,6 +180,7 @@
     # weather widget for waybar
     wttrbar
     xwayland-satellite
+    bambu-studio
     blender
     prusa-slicer
     vlc
