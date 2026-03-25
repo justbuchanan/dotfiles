@@ -62,9 +62,6 @@
   # # blueman provides the blueman service and blueman-manager for managing pairing
   # services.blueman.enable = true;
 
-  # # display backlight control
-  # programs.light.enable = true;
-
   hardware.nvidia-container-toolkit.enable = true;
 
   hardware.coral.usb.enable = true;

@@ -49,9 +49,6 @@
   # blueman provides the blueman service and blueman-manager for managing pairing
   services.blueman.enable = true;
 
-  # display backlight control
-  programs.light.enable = true;
-
   # configure suspend and hibernate
   # TODO: test that this actually works
   # TODO: `systemctl suspend` works. `systemctl hibernate` seems to just shut it down completely
@@ -60,12 +57,12 @@
     IdleAction = "hibernate";
     IdleActionSec = "30min";
   };
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=yes
-    AllowHibernation=yes
-    AllowSuspendThenHibernate=yes
-    HibernateDelaySec=2h
-  '';
+  # systemd.sleep.extraConfig = ''
+  #   AllowSuspend=yes
+  #   AllowHibernation=yes
+  #   AllowSuspendThenHibernate=yes
+  #   HibernateDelaySec=2h
+  # '';
   # enable swap to allow hibernate
   swapDevices = [
     # make swapfile at least as big as physical RAM

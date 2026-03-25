@@ -66,7 +66,6 @@
     jq
     mtr
     ncdu
-    neofetch
     nix-index
     nmap
     openssl
