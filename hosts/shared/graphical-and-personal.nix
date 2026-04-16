@@ -170,6 +170,7 @@
     networkmanagerapplet
     obsidian
     openscad
+    simple-scan
     spotify
     sublime4
     swaylock
