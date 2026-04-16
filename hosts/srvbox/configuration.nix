@@ -18,7 +18,8 @@
     ./samba.nix
     ./prometheus.nix
     ./dst-server.nix
-    ./factorio.nix
+    # ./factorio.nix
+    ./factorio-22nd-crew.nix
     ./mqtt.nix
     ./homepage.nix
     ../shared/backblaze.nix
