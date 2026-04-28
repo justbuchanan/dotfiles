@@ -6,29 +6,74 @@
 #
 # Factorio server save game state lives in /var/lib/factorio
 
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   # Mod directory with mod-list.json that disables Space Age DLC mods
-  modDir = pkgs.writeTextDir "mod-list.json" (builtins.toJSON {
-    mods = [
-      { name = "base"; enabled = true; }
-      { name = "elevated-rails"; enabled = false; }
-      { name = "quality"; enabled = false; }
-      { name = "space-age"; enabled = false; }
-    ];
-  });
+  modDir = pkgs.writeTextDir "mod-list.json" (
+    builtins.toJSON {
+      mods = [
+        {
+          name = "base";
+          enabled = true;
+        }
+        {
+          name = "elevated-rails";
+          enabled = false;
+        }
+        {
+          name = "quality";
+          enabled = false;
+        }
+        {
+          name = "space-age";
+          enabled = false;
+        }
+      ];
+    }
+  );
 
   # Map generation settings: increase iron ore presence
-  mapGenSettings = pkgs.writeText "map-gen-settings.json" (builtins.toJSON {
-    autoplace_controls = {
-      iron-ore = { frequency = "very-high"; size = "very-big"; richness = "very-high"; };
-      copper-ore = { frequency = "very-high"; size = "very-big"; richness = "very-high"; };
-      coal = { frequency = "very-high"; size = "very-big"; richness = "very-high"; };
-      stone = { frequency = "very-high"; size = "very-big"; richness = "very-high"; };
-      crude-oil = { frequency = "very-high"; size = "very-big"; richness = "very-high"; };
-      uranium-ore = { frequency = "very-high"; size = "very-big"; richness = "very-high"; };
-    };
-  });
+  mapGenSettings = pkgs.writeText "map-gen-settings.json" (
+    builtins.toJSON {
+      autoplace_controls = {
+        iron-ore = {
+          frequency = "very-high";
+          size = "very-big";
+          richness = "very-high";
+        };
+        copper-ore = {
+          frequency = "very-high";
+          size = "very-big";
+          richness = "very-high";
+        };
+        coal = {
+          frequency = "very-high";
+          size = "very-big";
+          richness = "very-high";
+        };
+        stone = {
+          frequency = "very-high";
+          size = "very-big";
+          richness = "very-high";
+        };
+        crude-oil = {
+          frequency = "very-high";
+          size = "very-big";
+          richness = "very-high";
+        };
+        uranium-ore = {
+          frequency = "very-high";
+          size = "very-big";
+          richness = "very-high";
+        };
+      };
+    }
+  );
 in
 {
   # configure secret file for reading auth token and game password
@@ -47,7 +92,6 @@ in
   # NOTE: i couldn't get map-get-settings to work with this nix config.
   # ended up turning off factorio, deleting the old save game, and running this:
   # sudo /nix/store/3fw110vx6gxczwwsa784ak7gdvnvvwdm-factorio-headless-2.0.73/bin/factorio --config=/nix/store/a0w985lvzxal5yap718pk95k2gr0lbsr-factorio.conf --create=/var/lib/factorio-22nd/saves/default.zip  --map-gen-settings=/nix/store/6qrk0xxy3vhi59m0ahi4wwnx5v4p3rmv-map-gen-settings.json
-
 
   services.factorio = {
     enable = true;
