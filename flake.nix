@@ -101,22 +101,22 @@
         };
 
         # DigitalOcean Droplet
-        droplet1 = nixpkgs.lib.nixosSystem {
+        droplet2 = nixpkgs.lib.nixosSystem {
           specialArgs.inputs = inputs;
           system = "x86_64-linux";
           modules = [
             ./nixos/cachix.nix
-            ./hosts/droplet1/digitalocean.nix
+            ./hosts/droplet2/digitalocean.nix
             disko.nixosModules.disko
             { disko.devices.disk.disk1.device = "/dev/vda"; }
             determinate.nixosModules.default
             agenix.nixosModules.default
-            ./hosts/droplet1/configuration.nix
+            ./hosts/droplet2/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useUserPackages = true;
-              home-manager.users.justin = import ./hosts/droplet1/justin.nix;
-              home-manager.users.root = import ./hosts/droplet1/justin.nix;
+              home-manager.users.justin = import ./hosts/droplet2/justin.nix;
+              home-manager.users.root = import ./hosts/droplet2/justin.nix;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = [
                 nixvim.homeModules.nixvim

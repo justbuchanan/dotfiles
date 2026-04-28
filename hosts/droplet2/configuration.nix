@@ -34,7 +34,7 @@
     mode = "0440";
   };
 
-  networking.hostName = "droplet1";
+  networking.hostName = "droplet2";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.justin = {

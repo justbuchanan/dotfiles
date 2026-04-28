@@ -71,7 +71,7 @@
         icon: caddy
         widget:
           type: caddy
-          url: http://droplet1.wampus-newton.ts.net:2019
+          url: http://droplet2.wampus-newton.ts.net:2019
 
     - Home Modem (CenturyLink):
         href: https://192.168.0.1

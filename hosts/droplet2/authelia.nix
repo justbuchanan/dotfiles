@@ -3,18 +3,18 @@
 {
   # Configure agenix secrets
   age.secrets = {
-    droplet1-authelia-jwt-secret = {
-      file = ../../secrets/droplet1-authelia-jwt-secret.age;
+    droplet2-authelia-jwt-secret = {
+      file = ../../secrets/droplet2-authelia-jwt-secret.age;
       owner = "authelia-main";
       group = "authelia-main";
     };
-    droplet1-authelia-encryption-key = {
-      file = ../../secrets/droplet1-authelia-encryption-key.age;
+    droplet2-authelia-encryption-key = {
+      file = ../../secrets/droplet2-authelia-encryption-key.age;
       owner = "authelia-main";
       group = "authelia-main";
     };
-    droplet1-authelia-users = {
-      file = ../../secrets/droplet1-authelia-users.age;
+    droplet2-authelia-users = {
+      file = ../../secrets/droplet2-authelia-users.age;
       owner = "authelia-main";
       group = "authelia-main";
     };
@@ -24,15 +24,15 @@
     enable = true;
 
     secrets = {
-      jwtSecretFile = config.age.secrets.droplet1-authelia-jwt-secret.path;
-      storageEncryptionKeyFile = config.age.secrets.droplet1-authelia-encryption-key.path;
+      jwtSecretFile = config.age.secrets.droplet2-authelia-jwt-secret.path;
+      storageEncryptionKeyFile = config.age.secrets.droplet2-authelia-encryption-key.path;
     };
 
     settings = {
       server.address = "127.0.0.1:9091";
 
       # using age, but could also use "/var/lib/authelia-main/users.yml"
-      authentication_backend.file.path = config.age.secrets.droplet1-authelia-users.path;
+      authentication_backend.file.path = config.age.secrets.droplet2-authelia-users.path;
 
       storage.local.path = "/var/lib/authelia-main/db.sqlite3";
 
