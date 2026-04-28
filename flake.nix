@@ -182,7 +182,7 @@
           packages = with pkgs; [
             nixfmt
             nixos-rebuild
-            nodePackages.prettier
+            prettier
             shellcheck
             shfmt
             treefmt

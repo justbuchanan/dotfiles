@@ -45,7 +45,8 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # GTX 1070 Ti (Pascal/GP104) was moved to legacy in the 595.xx release
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
