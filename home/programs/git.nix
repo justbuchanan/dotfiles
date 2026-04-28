@@ -64,6 +64,7 @@
         nuke = "!git add . && git reset --hard";
         preview-commit = "diff --cached";
         glog = "log --graph --abbrev-commit --decorate --date=relative --all --oneline";
+        suir = "submodule update --init --recursive";
       };
     };
   };
