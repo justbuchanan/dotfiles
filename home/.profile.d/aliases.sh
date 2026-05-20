@@ -40,5 +40,5 @@ watchhist() {
 }
 
 yolo() {
-    time claude -p "$1" --dangerously-skip-permissions; n "$1"
+    time claude --dangerously-skip-permissions
 }
