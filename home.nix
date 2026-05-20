@@ -43,7 +43,6 @@
   home.packages = with pkgs; [
     baobab
     cheese
-    expressvpn
     gh
     nixpkgs-review
     lazygit

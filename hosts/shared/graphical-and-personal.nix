@@ -34,8 +34,6 @@
     openFirewall = true;
   };
 
-  services.expressvpn.enable = true;
-
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.justin = {
     isNormalUser = true;
@@ -100,6 +98,10 @@
     enable = true;
     pulse.enable = true;
   };
+
+  # protonvpn
+  # https://discourse.nixos.org/t/how-to-configure-and-use-proton-vpn-on-nixos/65837/2
+  networking.firewall.checkReversePath = false;
 
   # Printers
   services.printing.enable = true;
@@ -202,6 +204,7 @@
     clang
     claude-code
     cmake
+    protonvpn-gui
     espeak
     ffmpeg
     gcc
