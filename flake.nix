@@ -24,7 +24,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim";
+      # Pinned: commits after this one (e1ad5c4e92 "wrappers: encapsulate
+      # access to lib.nixvim and lib-overlay") cause an infinite recursion
+      # when combined with stylix's nixos-icons overlay. The new wrapper
+      # makes `config.lib.nixvim` depend on the `programs.nixvim` option's
+      # type (via valueMeta), which transitively requires `pkgs` ->
+      # `nixpkgs.overlays` -> stylix's nixos-icons overlay -> `config.lib`.
+      url = "github:nix-community/nixvim/fca03f175902fe899a87872228bf69c1b43a8543";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
