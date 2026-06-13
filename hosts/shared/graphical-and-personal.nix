@@ -204,7 +204,7 @@
     clang
     claude-code
     cmake
-    protonvpn-gui
+    proton-vpn
     espeak
     ffmpeg
     gcc
