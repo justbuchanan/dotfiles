@@ -171,7 +171,7 @@
     slurp
     networkmanagerapplet
     obsidian
-    openscad
+    openscad-unstable
     simple-scan
     spotify
     sublime4
