@@ -49,6 +49,7 @@
   # missing it tries to copy a skeleton into the config dir on startup and
   # crash-loops with EROFS under the service's ProtectSystem=strict sandbox.
   # kubernetes.yaml / proxmox.yaml / bookmarks.yaml are inert but must be present.
+  # custom.css / custom.js are likewise required-but-empty in 1.12.3.
   systemd.tmpfiles.rules = [
     "L+ /var/lib/homepage-dashboard/settings.yaml - - - - ${./homepage/config/settings.yaml}"
     "L+ /var/lib/homepage-dashboard/services.yaml - - - - ${./homepage/config/services.yaml}"
@@ -57,6 +58,8 @@
     "L+ /var/lib/homepage-dashboard/kubernetes.yaml - - - - ${./homepage/config/kubernetes.yaml}"
     "L+ /var/lib/homepage-dashboard/proxmox.yaml - - - - ${./homepage/config/proxmox.yaml}"
     "L+ /var/lib/homepage-dashboard/bookmarks.yaml - - - - ${./homepage/config/bookmarks.yaml}"
+    "L+ /var/lib/homepage-dashboard/custom.css - - - - ${./homepage/config/custom.css}"
+    "L+ /var/lib/homepage-dashboard/custom.js - - - - ${./homepage/config/custom.js}"
   ];
 
   systemd.services.homepage-dashboard.serviceConfig.SupplementaryGroups = [ "homepage-token-access" ];
