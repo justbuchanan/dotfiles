@@ -63,6 +63,12 @@
   ];
 
   systemd.services.homepage-dashboard.serviceConfig.SupplementaryGroups = [ "homepage-token-access" ];
+
+  # The resources widget reads host CPU from /proc/stat, but the module's
+  # default ProcSubset=pid mounts /proc with subset=pid and hides the
+  # system-wide files, so CPU always reads 0/null (memory still works because
+  # it comes from the sysinfo() syscall, not /proc). Expose the full /proc.
+  systemd.services.homepage-dashboard.serviceConfig.ProcSubset = lib.mkForce "all";
   systemd.services.homepage-dashboard.environment.HOMEPAGE_CONFIG_DIR =
     lib.mkForce "/var/lib/homepage-dashboard";
 
