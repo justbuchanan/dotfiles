@@ -75,4 +75,11 @@ in
     justin-framework
     root-srvbox
   ];
+  # Frigate camera RTSP passwords + go2rtc restream password, consumed via
+  # Frigate's {FRIGATE_*} env-var substitution (see hosts/srvbox/frigate.nix).
+  "frigate-env.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
 }

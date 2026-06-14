@@ -33,10 +33,15 @@
     mode = "0440";
   };
 
-  # Enable homepage-dashboard service
+  # Enable homepage-dashboard service.
+  # Listen on 8083 (module default is 8082) because Frigate's jsmpeg live-view
+  # output binds 127.0.0.1:8082 and homepage was squatting on it (0.0.0.0:8082),
+  # causing frigate.output to crash-loop. Caddy's homepage vhost on droplet2
+  # proxies to srvbox:8083 to match.
   services.homepage-dashboard = {
     enable = true;
-    allowedHosts = "localhost:8082,127.0.0.1:8082,homepage.justbuchanan.com";
+    listenPort = 8083;
+    allowedHosts = "localhost:8083,127.0.0.1:8083,homepage.justbuchanan.com";
   };
 
   # Declaratively symlink config files into the service's config directory.

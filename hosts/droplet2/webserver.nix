@@ -63,7 +63,7 @@ in
             uri /api/verify?rd=https://auth.justbuchanan.com
             copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
         }
-        reverse_proxy ${homeserver}:5000
+        reverse_proxy ${homeserver}:8971
       '';
 
       "homepage.justbuchanan.com".extraConfig = ''
@@ -71,7 +71,7 @@ in
             uri /api/verify?rd=https://auth.justbuchanan.com
             copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
         }
-        reverse_proxy ${homeserver}:8082
+        reverse_proxy ${homeserver}:8083
       '';
 
       "auth.justbuchanan.com".extraConfig = ''
