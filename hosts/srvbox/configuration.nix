@@ -20,8 +20,7 @@
     ./samba.nix
     ./prometheus.nix
     ./dst-server.nix
-    # ./factorio.nix
-    ./factorio-22nd-crew.nix
+    ./factorio.nix
     ./mqtt.nix
     ./frigate.nix
     ./influxdb.nix
@@ -119,8 +118,9 @@
     tpm2-tss # using tpm to store key for encrypted root partition
   ];
 
-  # factorio is configured in factorio.nix. Flip the bit here to run it.
-  systemd.services.factorio.enable = false;
+  # Factorio is configured in factorio.nix. Pick a server to run it ("cdeez" or
+  # "22nd-crew"); null keeps it off.
+  factorioServer.active = null;
 
   # DONT TOUCH THIS
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
