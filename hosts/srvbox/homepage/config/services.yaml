@@ -89,8 +89,8 @@
         icon: influxdb
         href: https://influxdb.justbuchanan.com
         description: Time Series Database
-        server: srvbox
-        container: smarthome-influxdb-1
+        # Now a native NixOS service (dotfiles hosts/srvbox/influxdb.nix), no
+        # longer a docker container, so the docker container status is dropped.
 
     - Prometheus:
         icon: prometheus

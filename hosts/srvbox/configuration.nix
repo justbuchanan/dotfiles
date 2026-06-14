@@ -24,6 +24,7 @@
     ./factorio-22nd-crew.nix
     ./mqtt.nix
     ./frigate.nix
+    ./influxdb.nix
     ./nextcloud.nix
     ./homepage.nix
     ../shared/backblaze.nix
