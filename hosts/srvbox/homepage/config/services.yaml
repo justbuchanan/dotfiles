@@ -1,8 +1,6 @@
 - Media & Docs:
     - Jellyfin:
         href: https://media.justbuchanan.com
-        server: srvbox
-        container: smarthome-jellyfin-1
         icon: jellyfin
         widget:
           type: jellyfin

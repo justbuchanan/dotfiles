@@ -24,6 +24,7 @@
     ./mqtt.nix
     ./frigate.nix
     ./influxdb.nix
+    ./jellyfin.nix
     ./nextcloud.nix
     ./homepage.nix
     ../shared/backblaze.nix
