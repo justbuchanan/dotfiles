@@ -18,6 +18,14 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+  # Periodically hardlink-dedupe the nix store. Runs `nix-store --optimise` on a
+  # systemd timer (nix-optimise.timer). `dates` entries are systemd OnCalendar
+  # specs in local time; the timer is Persistent, so a missed run (machine off)
+  # fires after the next boot. Defaults to daily at 03:45.
+  nix.optimise = {
+    automatic = true;
+    dates = [ "03:45" ];
+  };
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "America/Los_Angeles";
