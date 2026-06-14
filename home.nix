@@ -38,6 +38,11 @@
 
   gtk.enable = true;
 
+  # Stylix pulls in the Hyprland HM module even though we run niri. Pin the
+  # legacy default explicitly to silence the configType deprecation warning
+  # (the new "lua" default only applies at stateVersion >= 26.05).
+  wayland.windowManager.hyprland.configType = "hyprlang";
+
   home.packages = with pkgs; [
     baobab
     cheese
