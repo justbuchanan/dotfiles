@@ -97,12 +97,6 @@ in
           format-source = "${style_icon ""} {volume}%";
           format-source-muted = style_icon "";
           format-icons = {
-            # car= """;
-            # hands-free = "";
-            # headphone = "";
-            # headset = "";
-            # phone = "";
-            # portable = "";
             default = [
               ""
               ""

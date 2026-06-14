@@ -63,12 +63,6 @@
 
   networking.hostName = "srvbox";
 
-  # # enable bluetooth
-  # hardware.bluetooth.enable = true;
-  # hardware.bluetooth.powerOnBoot = true;
-  # # blueman provides the blueman service and blueman-manager for managing pairing
-  # services.blueman.enable = true;
-
   hardware.nvidia-container-toolkit.enable = true;
 
   hardware.coral.usb.enable = true;

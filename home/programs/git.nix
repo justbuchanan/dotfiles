@@ -33,12 +33,6 @@
         indentHeuristic = true;
       };
 
-      # TODO
-      # "diff \"pdf\"" = {
-      #   textconv = "pdfinfo";
-      #   binary = false;
-      # };
-
       core = {
         # Use a pager only if content is > 1 screenful
         # stackoverflow.com/questions/2183900
@@ -48,14 +42,6 @@
       init = {
         defaultBranch = "main";
       };
-
-      # TODO
-      # "credential \"https://github.com\"" = {
-      #   helper = "!/usr/bin/gh auth git-credential";
-      # };
-      # "credential \"https://gist.github.com\"" = {
-      #   helper = "!/usr/bin/gh auth git-credential";
-      # };
 
       alias = {
         edit-unmerged = "!$EDITOR `git diff --name-only --diff-filter=U`";
