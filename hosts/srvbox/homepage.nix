@@ -39,12 +39,19 @@
     allowedHosts = "localhost:8082,127.0.0.1:8082,homepage.justbuchanan.com";
   };
 
-  # Declaratively symlink config files into the service's config directory
+  # Declaratively symlink config files into the service's config directory.
+  # homepage >=1.12 requires ALL of these files to already exist; if one is
+  # missing it tries to copy a skeleton into the config dir on startup and
+  # crash-loops with EROFS under the service's ProtectSystem=strict sandbox.
+  # kubernetes.yaml / proxmox.yaml / bookmarks.yaml are inert but must be present.
   systemd.tmpfiles.rules = [
     "L+ /var/lib/homepage-dashboard/settings.yaml - - - - ${./homepage/config/settings.yaml}"
     "L+ /var/lib/homepage-dashboard/services.yaml - - - - ${./homepage/config/services.yaml}"
     "L+ /var/lib/homepage-dashboard/widgets.yaml - - - - ${./homepage/config/widgets.yaml}"
     "L+ /var/lib/homepage-dashboard/docker.yaml - - - - ${./homepage/config/docker.yaml}"
+    "L+ /var/lib/homepage-dashboard/kubernetes.yaml - - - - ${./homepage/config/kubernetes.yaml}"
+    "L+ /var/lib/homepage-dashboard/proxmox.yaml - - - - ${./homepage/config/proxmox.yaml}"
+    "L+ /var/lib/homepage-dashboard/bookmarks.yaml - - - - ${./homepage/config/bookmarks.yaml}"
   ];
 
   systemd.services.homepage-dashboard.serviceConfig.SupplementaryGroups = [ "homepage-token-access" ];

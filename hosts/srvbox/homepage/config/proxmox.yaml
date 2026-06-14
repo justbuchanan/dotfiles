@@ -1,0 +1,3 @@
+---
+# Proxmox integration is unused, but homepage >=1.12 requires this file to
+# exist or it crashes on startup trying to seed it into a read-only config dir.
