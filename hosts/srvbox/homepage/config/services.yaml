@@ -89,8 +89,19 @@
         icon: influxdb
         href: https://influxdb.justbuchanan.com
         description: Time Series Database
-        # Now a native NixOS service (dotfiles hosts/srvbox/influxdb.nix), no
-        # longer a docker container, so the docker container status is dropped.
+        # Native NixOS service (dotfiles hosts/srvbox/influxdb.nix), no longer a
+        # docker container. The unauthenticated /health endpoint gives an
+        # up/down dot (siteMonitor) plus status + version (customapi widget).
+        siteMonitor: http://srvbox.wampus-newton.ts.net:8086/health
+        widget:
+          type: customapi
+          url: http://srvbox.wampus-newton.ts.net:8086/health
+          refreshInterval: 30000
+          mappings:
+            - field: status
+              label: Status
+            - field: version
+              label: Version
 
     - Prometheus:
         icon: prometheus
