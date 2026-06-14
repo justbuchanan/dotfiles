@@ -68,8 +68,15 @@
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
+    # Don't run the single-instance D-Bus daemon. With it enabled, every window
+    # is a surface of one shared process, so niri reports the same PID for all of
+    # them and cwd.sh can't tell which window is focused. One process per window
+    # gives each window a unique PID that niri reports correctly.
+    systemd.enable = false;
     settings = {
       font-family = "Hack Nerd Font Mono";
+      # Each window is its own process (see systemd.enable above).
+      gtk-single-instance = false;
       quit-after-last-window-closed = true;
       quit-after-last-window-closed-delay = "5m";
       # https://ghostty.org/docs/help/terminfo#ssh
