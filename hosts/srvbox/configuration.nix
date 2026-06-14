@@ -23,6 +23,7 @@
     # ./factorio.nix
     ./factorio-22nd-crew.nix
     ./mqtt.nix
+    ./nextcloud.nix
     ./homepage.nix
     ../shared/backblaze.nix
     ../shared/prometheus-exporter.nix
