@@ -45,8 +45,10 @@
         container: smarthome-frigate-1
         description: Security Camera NVR
         widget:
+          # Frigate's API is fronted by nginx on :8971 since it was nixified;
+          # the old :5000 now only binds 127.0.0.1 (unreachable over tailscale).
           type: frigate
-          url: http://srvbox.wampus-newton.ts.net:5000
+          url: http://srvbox.wampus-newton.ts.net:8971
           enableRecentEvents: true # Optional, defaults to false
 
     - MQTT:
