@@ -283,13 +283,30 @@ in
 
   # Keep recordings/clips/db/config on the ZFS pool where they already live.
   # The package points Frigate at /var/lib/frigate, so bind that onto the
-  # existing data dir. System-level mount so nginx (serving /recordings, /clips
-  # from /var/lib/frigate) sees it too.
-  fileSystems."/var/lib/frigate" = {
-    device = "/mnt/zpool0/frigate";
-    fsType = "none";
-    options = [ "bind" ];
-  };
+  # existing data dir (the dedicated zpool0/frigate dataset). System-level mount
+  # so nginx (serving /recordings, /clips from /var/lib/frigate) sees it too.
+  #
+  # This MUST run after zfs-mount.service. The bind target lives on a ZFS-native
+  # mountpoint, and zfs-mount.service mounts the pool's datasets several minutes
+  # into boot (after extraPools import) — long after local-fs.target. A plain
+  # `fileSystems` bind can't express that ordering: the synthesized
+  # mnt-zpool0-frigate.mount unit isn't started by systemd (it just appears once
+  # ZFS mounts it), so the bind's After= on it is vacuously satisfied. The bind
+  # then fires first and captures the EMPTY root-fs directory shadowed beneath
+  # /mnt/zpool0/frigate, silently sending all recordings to the root disk
+  # instead of the pool. Use systemd.mounts so we can depend on zfs-mount.service
+  # explicitly. (frigate.service already waits on this via RequiresMountsFor.)
+  systemd.mounts = [
+    {
+      what = "/mnt/zpool0/frigate";
+      where = "/var/lib/frigate";
+      type = "none";
+      options = "bind";
+      requires = [ "zfs-mount.service" ];
+      after = [ "zfs-mount.service" ];
+      wantedBy = [ "multi-user.target" ];
+    }
+  ];
 
   # Expose the nginx-fronted UI on the LAN (replaces the old docker :5000).
   services.nginx.virtualHosts."srvbox".listen = [
