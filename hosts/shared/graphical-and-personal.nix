@@ -141,6 +141,12 @@
     "openssl-1.1.1w"
   ];
 
+  # sublime4 is marked broken because it depends on the insecure openssl-1.1.1w
+  # above; allow it to evaluate anyway since we still use it.
+  nixpkgs.config.problems.handlers = {
+    sublimetext4.broken = "warn";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -193,7 +199,7 @@
     # editor for cadquery
     inputs.cadquery.packages.${pkgs.stdenv.hostPlatform.system}.cq-editor
     # mediaplayer displays spotify current song in waybar
-    inputs.mediaplayer.packages.${pkgs.stdenv.hostPlatform.system}.default
+    (pkgs.callPackage ../../packages/mediaplayer.nix { src = inputs.mediaplayer; })
     wev # wev tells you what the keycode/name is for each key you press
     wirelesstools
     playerctl
