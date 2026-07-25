@@ -177,7 +177,19 @@
     slurp
     networkmanagerapplet
     obsidian
-    openscad-unstable
+    # This snapshot is broken against nixpkgs-unstable's toolchain:
+    #  * Link with GNU bfd, not lld: OpenSCAD's `.debug_gdb_scripts` section
+    #    isn't null-terminated, which lld 21 and mold reject but bfd tolerates.
+    #    (Overrides the derivation's forced -fuse-ld=lld; LTO needs that plugin.)
+    #  * Skip the tests: some recursion/stack-exhaustion checks fail in the sandbox.
+    (openscad-unstable.overrideAttrs (old: {
+      nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ binutils ];
+      cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+        "-DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=bfd"
+        "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF"
+      ];
+      doCheck = false;
+    }))
     simple-scan
     spotify
     sublime4

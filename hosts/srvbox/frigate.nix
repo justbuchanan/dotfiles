@@ -55,6 +55,20 @@ in
 # it finds libcuda/libnvcuvid from /run/opengl-driver/lib at runtime.
 
 {
+  # paho-mqtt 2.1.0's test suite is flaky in the sandbox (an on_disconnect
+  # callback-ordering race), blocking the Frigate build. Skip its checks.
+  nixpkgs.overlays = [
+    (final: prev: {
+      pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+        (pyfinal: pyprev: {
+          paho-mqtt = pyprev.paho-mqtt.overridePythonAttrs (_: {
+            doCheck = false;
+          });
+        })
+      ];
+    })
+  ];
+
   # Camera RTSP passwords. Decrypted to /run/agenix/frigate-env, owned by the
   # frigate system user the module creates. Group-readable (0440) so the
   # standalone go2rtc service can read it too via SupplementaryGroups (it runs
