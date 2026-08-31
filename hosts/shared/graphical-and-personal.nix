@@ -136,13 +136,11 @@
     }
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    # needed for sublime4 as of 6/30/2024
-    "openssl-1.1.1w"
-  ];
-
-  # sublime4 is marked broken because it depends on the insecure openssl-1.1.1w
-  # above; allow it to evaluate anyway since we still use it.
+  # sublime4 (build 4200) is marked broken upstream because its plugin host
+  # needs an EOL OpenSSL; nixpkgs now strips that host rather than depending on
+  # openssl-1.1.1w, so only the broken marker is left to wave through. The
+  # marker is gated on `versionOlder buildVersion "4205"`, so this can go away
+  # once nixpkgs bumps sublime4 to a 4205+ build.
   nixpkgs.config.problems.handlers = {
     sublimetext4.broken = "warn";
   };
@@ -177,19 +175,7 @@
     slurp
     networkmanagerapplet
     obsidian
-    # This snapshot is broken against nixpkgs-unstable's toolchain:
-    #  * Link with GNU bfd, not lld: OpenSCAD's `.debug_gdb_scripts` section
-    #    isn't null-terminated, which lld 21 and mold reject but bfd tolerates.
-    #    (Overrides the derivation's forced -fuse-ld=lld; LTO needs that plugin.)
-    #  * Skip the tests: some recursion/stack-exhaustion checks fail in the sandbox.
-    (openscad-unstable.overrideAttrs (old: {
-      nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ binutils ];
-      cmakeFlags = (old.cmakeFlags or [ ]) ++ [
-        "-DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=bfd"
-        "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF"
-      ];
-      doCheck = false;
-    }))
+    openscad-unstable
     simple-scan
     spotify
     sublime4
