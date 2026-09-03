@@ -80,6 +80,12 @@
             # https://github.com/NixOS/nixos-hardware/tree/master/framework/13-inch/13th-gen-intel
             nixos-hardware.nixosModules.framework-13th-gen-intel
             inputs.niri.nixosModules.niri
+            # niri-flake HEAD (2026-08-04) asserts libdisplay-info 0.2.0, which
+            # nixpkgs has since removed -- and its extraPortals mkIf *condition*
+            # reads cfg.package, so the default is forced even when unused. Use
+            # the flake's own package, built against its pinned nixpkgs, until
+            # upstream catches up.
+            { programs.niri.package = inputs.niri.packages.x86_64-linux.niri-unstable; }
           ];
         };
 
@@ -95,6 +101,7 @@
             determinate.nixosModules.default
             agenix.nixosModules.default
             inputs.niri.nixosModules.niri
+            { programs.niri.package = inputs.niri.packages.x86_64-linux.niri-unstable; }
           ];
         };
 
