@@ -6,7 +6,13 @@
 }:
 
 let
-  lock_cmd = "swaylock -f -c 000000";
+  lock_args = [
+    "swaylock"
+    "-f"
+    "-c"
+    "000000"
+  ];
+  lock_cmd = toString lock_args;
 in
 {
   home.packages = with pkgs; [
@@ -48,9 +54,8 @@ in
       prefer-no-csd = true;
 
       switch-events = {
-        # TODO: fix this. for some reason, it says spawn-sh isn't defined
-        # lid-close.action = spawn-sh lock_cmd;
-        lid-close.action.spawn = "swaylock";
+        # switch-events only accepts `spawn` (argv form), not `spawn-sh`
+        lid-close.action.spawn = lock_args;
       };
 
       spawn-at-startup = [
@@ -106,9 +111,9 @@ in
           # resumed. It will also lock your screen before your computer goes to sleep.
           sh = ''
             exec swayidle -w \
-                    timeout 300 'swaylock -f -c 000000' \
+                    timeout 300 '${lock_cmd}' \
                     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-                    before-sleep 'swaylock -f -c 000000'
+                    before-sleep '${lock_cmd}'
           '';
         }
       ];
