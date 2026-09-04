@@ -145,6 +145,34 @@
     sublimetext4.broken = "warn";
   };
 
+  # ...but plugin_host-3.8 still needs libssl/libcrypto 1.1, and nixpkgs deletes
+  # the copies the tarball ships. Keep them; the rpath already covers $out.
+  # Drop this along with the broken marker above.
+  nixpkgs.overlays = [
+    (final: prev: {
+      sublime4 =
+        let
+          unwrapped = prev.sublime4.unwrapped.overrideAttrs (old: {
+            installPhase =
+              builtins.replaceStrings
+                [
+                  "rm libcrypto.so.1.1 libssl.so.1.1"
+                ]
+                [ "" ]
+                old.installPhase;
+          });
+        in
+        prev.sublime4.overrideAttrs (old: {
+          installPhase =
+            builtins.replaceStrings [ "${prev.sublime4.unwrapped}" ] [ "${unwrapped}" ]
+              old.installPhase;
+          passthru = old.passthru // {
+            inherit unwrapped;
+          };
+        });
+    })
+  ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
