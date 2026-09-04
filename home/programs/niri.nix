@@ -195,6 +195,7 @@ in
         "Mod+Return".action =
           spawn-sh ''ghostty --working-directory="$(~/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)"'';
 
+        # script installed by the waybar-niri-workspaces-enhanced home module
         "Mod+Y".action.spawn = "~/.config/niri/rename-workspace.sh";
 
         "Mod+N".action.spawn = "~/src/justin/dotfiles/home/.config/niri/scripts/focus-last-workspace.sh";
