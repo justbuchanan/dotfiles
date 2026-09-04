@@ -35,7 +35,7 @@
             targets = [
               "srvbox.wampus-newton.ts.net:9100"
               "framework.wampus-newton.ts.net:9100"
-              "droplet1.wampus-newton.ts.net:9100"
+              "droplet2.wampus-newton.ts.net:9100"
             ];
           }
         ];
