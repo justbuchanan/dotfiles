@@ -59,15 +59,6 @@
   };
   hardware.gpgSmartcards.enable = true;
 
-  # Gmail token is viewable by users in the gmail-token-access group
-  users.groups.gmail-token-access = { };
-  age.secrets.buchanan-smarthome-gmail-token = {
-    file = ../../secrets/buchanan-smarthome-gmail-token.age;
-    owner = "root";
-    group = "gmail-token-access";
-    mode = "0440";
-  };
-
   # greetd tui login manager
   # inspired by https://github.com/sjcobb2022/nixos-config/blob/6661447a3feb6bea97eac5dc04d3a82aaa9cdcc9/hosts/common/optional/greetd.nix
   services.greetd = {
@@ -176,7 +167,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    (pkgs.callPackage ../../packages/gmail-send.nix { inherit config; })
     inputs.oasis.packages.${pkgs.stdenv.hostPlatform.system}.oasis-client
     system-config-printer
     lazygit
