@@ -164,6 +164,9 @@ in
             ];
             output_args.record = "preset-record-generic-audio-aac";
           };
+          # The camera's burned-in OSD clock is in the detect stream; its ticking
+          # seconds digits triggered motion every frame.
+          motion.mask = "0.65,0,1,0,1,0.11,0.65,0.11";
           audio = {
             enabled = true;
             listen = [
