@@ -39,6 +39,4 @@ watchhist() {
     tail -n 1 -f ~/.zsh_history | sed -E 's/.*;(.*)/\1/'
 }
 
-yolo() {
-    time claude --dangerously-skip-permissions
-}
+alias yolo='claude --dangerously-skip-permissions'
