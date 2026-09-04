@@ -132,8 +132,8 @@
         };
       };
 
-      homeConfigurations = {
-        # Framework laptop - NixOS
+      # Standalone home-manager config, shared by the framework laptop and srvbox
+      homeConfigurations = rec {
         justin = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
@@ -155,27 +155,7 @@
           ];
         };
 
-        # Desktop computer - Arch Linux
-        "justin@srvbox" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-          extraSpecialArgs = { inherit inputs; };
-
-          modules = [
-            ./home.nix
-            nixvim.homeModules.nixvim
-            niri.homeModules.niri
-            waybar-niri-workspaces-enhanced.homeModules.default
-            stylix.homeModules.stylix
-            {
-              home = {
-                username = "justin";
-                homeDirectory = "/home/justin";
-                stateVersion = "24.05";
-              };
-            }
-          ];
-        };
+        "justin@srvbox" = justin;
       };
 
       # devshell provides code formatting tools
