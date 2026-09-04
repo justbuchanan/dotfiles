@@ -267,6 +267,13 @@ in
     # built-in defaults bind RTSP :8554 and WebRTC :8555.
   };
 
+  # The camera card's live_provider "auto" picks go2rtc: signaling rides the
+  # :1984 API (proxied by nginx on :8971, already open) but media arrives on
+  # :8555, so the card sat forever waiting on ICE. go2rtc only advertises its
+  # LAN candidate, so remote viewers on home.justbuchanan.com still need
+  # `live_provider: ha` (HLS) on the card.
+  networking.firewall.allowedUDPPorts = [ 8555 ];
+
   # go2rtc reads the same camera-password secret (it expands the ${FRIGATE_*_ENC}
   # refs at runtime). It runs as a DynamicUser, so grant it group access to the
   # frigate-owned secret and load it as its environment.
@@ -315,5 +322,8 @@ in
       port = 8971;
     }
   ];
-  networking.firewall.allowedTCPPorts = [ 8971 ];
+  networking.firewall.allowedTCPPorts = [
+    8971 # nginx-fronted Frigate UI
+    8555 # go2rtc WebRTC (see above)
+  ];
 }

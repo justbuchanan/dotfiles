@@ -23,7 +23,8 @@
     ./factorio.nix
     ./mqtt.nix
     ./frigate.nix
-    ./matter-server.nix
+    ./home-assistant/matter-server.nix
+    ./home-assistant/home-assistant.nix
     ./influxdb.nix
     ./jellyfin.nix
     ./nextcloud.nix

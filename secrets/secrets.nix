@@ -82,4 +82,11 @@ in
     justin-framework
     root-srvbox
   ];
+  # Not a credential, but a floor plan of the house with sensor placement, and
+  # this repo is public. Deployed to /var/lib/hass/www/floorplan/home.svg.
+  "ha-floorplan.svg.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
 }
