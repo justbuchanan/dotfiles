@@ -1,0 +1,68 @@
+# mode: parallel so both sensors can be wet at once; the 30 minute delay
+# re-checks the same sensor before the follow-up.
+- id: '1788200000001'
+  alias: Water leak alert
+  description: Notify both phones the moment a leak sensor trips, then again after
+    30 minutes if it is still wet.
+  mode: parallel
+  max: 4
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.water_leak_sensor_1
+    - binary_sensor.water_leak_sensor_2
+    to: 'on'
+  conditions: []
+  actions:
+  - variables:
+      where: '{{ {''binary_sensor.water_leak_sensor_1'': ''Laundry room'', ''binary_sensor.water_leak_sensor_2'':
+        ''Kitchen sink''}.get(trigger.entity_id, trigger.to_state.name) }}'
+  - parallel:
+    - action: notify.mobile_app_justins_iphone
+      data:
+        title: "\U0001F4A7 Water leak"
+        message: '{{ where }}: water detected.'
+        data:
+          tag: leak-{{ trigger.entity_id }}
+          push:
+            sound:
+              name: default
+              critical: 1
+              volume: 1.0
+    - action: notify.mobile_app_avani_reddys_iphone
+      data:
+        title: "\U0001F4A7 Water leak"
+        message: '{{ where }}: water detected.'
+        data:
+          tag: leak-{{ trigger.entity_id }}
+          push:
+            sound:
+              name: default
+              critical: 1
+              volume: 1.0
+  - delay: 00:30:00
+  - condition: template
+    value_template: '{{ is_state(trigger.entity_id, ''on'') }}'
+  - parallel:
+    - action: notify.mobile_app_justins_iphone
+      data:
+        title: "\U0001F4A7 Water leak still active"
+        message: '{{ where }}: still wet 30 minutes later.'
+        data:
+          tag: leak-{{ trigger.entity_id }}-followup
+          push:
+            sound:
+              name: default
+              critical: 1
+              volume: 1.0
+    - action: notify.mobile_app_avani_reddys_iphone
+      data:
+        title: "\U0001F4A7 Water leak still active"
+        message: '{{ where }}: still wet 30 minutes later.'
+        data:
+          tag: leak-{{ trigger.entity_id }}-followup
+          push:
+            sound:
+              name: default
+              critical: 1
+              volume: 1.0

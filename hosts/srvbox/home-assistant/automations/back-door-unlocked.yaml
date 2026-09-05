@@ -1,0 +1,18 @@
+# The deadbolt, not the door-ajar sensor -- see back-door-left-open.yaml for
+# the complementary one. Attribute-only churn on the august lock does not
+# reset the timer, since a state trigger with `to:` ignores it.
+- id: '1788200000004'
+  alias: Back door unlocked
+  mode: single
+  triggers:
+    - trigger: state
+      entity_id: lock.back_door
+      to: unlocked
+      for: "00:05:00"
+  actions:
+    - action: notify.mobile_app_justins_iphone
+      data:
+        title: 🔓 Back door unlocked
+        message: The back door has been unlocked for 5 minutes.
+        data:
+          tag: back-door-unlocked

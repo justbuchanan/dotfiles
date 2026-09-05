@@ -1,0 +1,15 @@
+# initial_state: false keeps this switched off across restarts; it was
+# silenced deliberately. Flip or drop that line to re-arm it.
+- alias: back_door_left_open
+  initial_state: false
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.back_door_open
+    to: 'on'
+    for: 00:03:00
+  action:
+  - service: notify.mobile_app_justins_iphone
+    data:
+      message: Back door left open for 3 minutes
+  mode: single
+  id: 6fdbfa10c3d34637846fd53b5e3661ed

@@ -1,0 +1,20 @@
+# Label a device 'watchdog_off' in the UI to exempt it.
+- id: '1788200000002'
+  alias: Device watchdog
+  description: Daily check for devices that have stopped reporting or are low on battery. To exempt a device, give it the "watchdog_off" label in Settings > Areas, labels & zones, then assign that label to the device.
+  mode: single
+  triggers:
+  - trigger: time
+    at: 09:00:00
+  conditions: []
+  actions:
+  - variables:
+      report: "{%- set ns = namespace(devs=[]) -%}\n{%- for i in ['zha','matter','esphome','tplink'] -%}\n  {%- for e in integration_entities(i) -%}\n    {%- set d = device_id(e) -%}\n    {%- if d and d not in ns.devs %}{% set ns.devs = ns.devs + [d] %}{% endif -%}\n  {%- endfor -%}\n{%- endfor -%}\n{%- set r = namespace(offline=[], low=[]) -%}\n{%- for d in ns.devs | sort -%}\n  {%- if 'watchdog_off' not in labels(d) -%}\n    {%- set name = device_attr(d,'name_by_user') or device_attr(d,'name') -%}\n    {%- set area = area_name(d) -%}\n    {%- set label = name ~ (' (' ~ area ~ ')' if area else '') -%}\n    {%- set de = device_entities(d) -%}\n    {%- if de | reject('is_state','unavailable') | list | count == 0 -%}\n      {%- set r.offline = r.offline + [label] -%}\n    {%- else -%}\n      {%- for e in de -%}\n        {%- if state_attr(e,'device_class') == 'battery'\n               and states(e) not in ['unknown','unavailable']\n               and states(e) | float(100) < 15 -%}\n          {%- set r.low = r.low + [label ~ ' - ' ~ states(e) ~ '%'] -%}\n        {%- endif -%}\n      {%- endfor -%}\n    {%- endif -%}\n  {%- endif -%}\n{%- endfor -%}\n{%- if r.offline %}Not reporting:\n{% for x in r.offline %}- {{ x }}\n{% endfor %}{% endif -%}\n{%- if r.low %}{% if r.offline %}\n{% endif %}Low battery:\n{% for x in r.low %}- {{ x }}\n{% endfor %}{% endif -%}\n"
+  - condition: template
+    value_template: '{{ report | trim != "" }}'
+  - action: notify.mobile_app_justins_iphone
+    data:
+      title: 🔌 Device watchdog
+      message: '{{ report }}'
+      data:
+        tag: device-watchdog
