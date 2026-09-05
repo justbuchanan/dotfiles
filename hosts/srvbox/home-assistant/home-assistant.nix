@@ -101,6 +101,10 @@ in
       # dir and checked-in ones live here. Ids must be unique across both.
       automation = "!include automations.yaml";
       "automation manual" = "!include_dir_merge_list ${./automations}";
+
+      # No scenes.yaml counterpart: nothing has authored a scene in the UI, and
+      # an !include of a missing file fails the config check.
+      scene = "!include_dir_merge_list ${./scenes}";
     };
   };
 
