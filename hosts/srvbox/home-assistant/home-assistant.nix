@@ -96,9 +96,11 @@ in
         icon = "mdi:pine-tree";
       };
 
-      # An !include, not a list here, so HA's automation editor can keep
-      # writing to it. The cost is that automations are not version controlled.
+      # HA merges every `automation*` key and its editor only writes to
+      # automations.yaml, so UI-authored automations stay in the untracked data
+      # dir and checked-in ones live here. Ids must be unique across both.
       automation = "!include automations.yaml";
+      "automation manual" = "!include_dir_merge_list ${./automations}";
     };
   };
 

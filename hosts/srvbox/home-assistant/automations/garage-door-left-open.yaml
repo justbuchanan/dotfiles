@@ -1,0 +1,19 @@
+# Keyed off the close limit switch rather than the cover state, so a door
+# stopped part-way still counts as open. `unavailable` does not match 'off',
+# so a ratgdo wifi drop cannot false-alarm.
+- id: '1788200000003'
+  alias: Garage door left open
+  mode: single
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.garage_ratgdo_close_limit_switch
+      to: "off"
+      for: "00:05:00"
+  actions:
+    - action: notify.mobile_app_justins_iphone
+      data:
+        title: 🚗 Garage door open
+        message: The garage door has been open for 5 minutes.
+        data:
+          tag: garage-door-left-open
+          url: /lovelace/default_view
