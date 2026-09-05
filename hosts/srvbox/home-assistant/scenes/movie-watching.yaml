@@ -5,6 +5,7 @@
   icon: mdi:movie-open
   entities:
     media_player.living_room_living_room_tv: "on"
+    media_player.living_room_soundbar: "on"
     switch.smart_plug_1: "off"
     switch.monstera_light: "off"
     light.den_lights: "off"
