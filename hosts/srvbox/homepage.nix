@@ -45,21 +45,25 @@
   };
 
   # Declaratively symlink config files into the service's config directory.
-  # homepage >=1.12 requires ALL of these files to already exist; if one is
-  # missing it tries to copy a skeleton into the config dir on startup and
-  # crash-loops with EROFS under the service's ProtectSystem=strict sandbox.
-  # kubernetes.yaml / proxmox.yaml / bookmarks.yaml are inert but must be present.
-  # custom.css / custom.js are likewise required-but-empty in 1.12.3.
+  # homepage seeds a skeleton for any file missing from HOMEPAGE_CONFIG_DIR and
+  # process.exit(1)s if that write fails, so the dir must stay writable -- hence
+  # pointing it at StateDirectory below. kubernetes.yaml / proxmox.yaml /
+  # bookmarks.yaml / custom.css / custom.js are inert; they're pinned here only
+  # so the seeded skeletons don't drift into state.
   systemd.tmpfiles.rules = [
     "L+ /var/lib/homepage-dashboard/settings.yaml - - - - ${./homepage/config/settings.yaml}"
     "L+ /var/lib/homepage-dashboard/services.yaml - - - - ${./homepage/config/services.yaml}"
     "L+ /var/lib/homepage-dashboard/widgets.yaml - - - - ${./homepage/config/widgets.yaml}"
-    "L+ /var/lib/homepage-dashboard/docker.yaml - - - - ${./homepage/config/docker.yaml}"
     "L+ /var/lib/homepage-dashboard/kubernetes.yaml - - - - ${./homepage/config/kubernetes.yaml}"
     "L+ /var/lib/homepage-dashboard/proxmox.yaml - - - - ${./homepage/config/proxmox.yaml}"
     "L+ /var/lib/homepage-dashboard/bookmarks.yaml - - - - ${./homepage/config/bookmarks.yaml}"
     "L+ /var/lib/homepage-dashboard/custom.css - - - - ${./homepage/config/custom.css}"
     "L+ /var/lib/homepage-dashboard/custom.js - - - - ${./homepage/config/custom.js}"
+
+    # Drop the symlink left by the old docker.yaml rule. Once its store path is
+    # GC'd homepage sees a dangling link, tries to seed a skeleton through it
+    # and dies on EROFS. Safe to delete this line later.
+    "r /var/lib/homepage-dashboard/docker.yaml"
   ];
 
   systemd.services.homepage-dashboard.serviceConfig.SupplementaryGroups = [ "homepage-token-access" ];
@@ -87,21 +91,4 @@
   '';
   systemd.services.homepage-dashboard.serviceConfig.EnvironmentFile =
     lib.mkForce "-/run/homepage-dashboard/.env";
-
-  # Docker proxy for monitoring srvbox containers
-  virtualisation.oci-containers.containers = {
-    dockerproxy = {
-      image = "ghcr.io/tecnativa/docker-socket-proxy:latest";
-      environment = {
-        CONTAINERS = "1";
-        SERVICES = "1";
-        TASKS = "1";
-        POST = "0";
-      };
-      ports = [ "127.0.0.1:2375:2375" ];
-      volumes = [
-        "/var/run/docker.sock:/var/run/docker.sock:ro"
-      ];
-    };
-  };
 }

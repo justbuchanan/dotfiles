@@ -15,8 +15,7 @@
     - NextCloud:
         icon: nextcloud
         href: https://nextcloud.justbuchanan.com
-        server: srvbox
-        container: smarthome-nextcloud-1
+        siteMonitor: https://nextcloud.justbuchanan.com/status.php
         widget:
           type: nextcloud
           url: https://nextcloud.justbuchanan.com
@@ -29,8 +28,6 @@
         siteMonitor: https://home.justbuchanan.com
         icon: home-assistant
         description: Home IOT automation
-        server: srvbox
-        container: smarthome-home_assistant-1
         widget:
           type: homeassistant
           url: https://home.justbuchanan.com
@@ -39,8 +36,7 @@
     - Frigate:
         icon: frigate
         href: https://cctv.justbuchanan.com
-        server: srvbox
-        container: smarthome-frigate-1
+        siteMonitor: http://srvbox.wampus-newton.ts.net:8971/api/version
         description: Security Camera NVR
         widget:
           # Frigate's API is fronted by nginx on :8971 since it was nixified;
@@ -50,9 +46,7 @@
           enableRecentEvents: true # Optional, defaults to false
 
     - MQTT:
-        description: Mosquitto MQTT Broker
-        server: srvbox
-        container: smarthome-mqtt-1
+        description: Mosquitto MQTT Broker (native service, tailnet :1883)
         icon: mosquitto
 
 - Network:
