@@ -1,0 +1,23 @@
+# entity_id rather than device_id: a device reference breaks silently if the
+# plug is re-paired (see christmas-tree.yaml).
+- id: '1788200000005'
+  alias: Monstera light on in the morning
+  mode: single
+  triggers:
+    - trigger: time
+      at: "11:00:00"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.monstera_light
+
+- id: '1788200000006'
+  alias: Monstera light off at night
+  mode: single
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  actions:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.monstera_light

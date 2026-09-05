@@ -9,13 +9,13 @@
   triggers:
   - trigger: state
     entity_id:
-    - binary_sensor.water_leak_sensor_1
-    - binary_sensor.water_leak_sensor_2
+    - binary_sensor.laundry_room_leak
+    - binary_sensor.kitchen_sink_leak
     to: 'on'
   conditions: []
   actions:
   - variables:
-      where: '{{ {''binary_sensor.water_leak_sensor_1'': ''Laundry room'', ''binary_sensor.water_leak_sensor_2'':
+      where: '{{ {''binary_sensor.laundry_room_leak'': ''Laundry room'', ''binary_sensor.kitchen_sink_leak'':
         ''Kitchen sink''}.get(trigger.entity_id, trigger.to_state.name) }}'
   - parallel:
     - action: notify.mobile_app_justins_iphone

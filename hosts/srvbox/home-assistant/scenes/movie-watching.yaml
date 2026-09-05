@@ -1,12 +1,12 @@
-# The TV is a cast device: it drops to `unavailable` when off, so the turn-on
-# only lands if the panel is reachable.
+# The webostv entity, not the cast one. Waking a TV that is fully off needs
+# automations/living-room-tv-turn-on.yaml -- without it there is no TURN_ON.
 - id: '1788200000010'
   name: Movie watching
   icon: mdi:movie-open
   entities:
-    media_player.living_room_living_room_tv: "on"
+    media_player.living_room_tv: "on"
     media_player.living_room_soundbar: "on"
-    switch.smart_plug_1: "off"
+    switch.living_room_lamp: "off"
     switch.monstera_light: "off"
     light.den_lights: "off"
     switch.kitchen_lights: "off"

@@ -1,0 +1,15 @@
+# webostv exposes a turn-on trigger rather than waking the TV itself, and
+# registering an automation on it is what makes the entity advertise TURN_ON.
+# Needs "TV On With Mobile" enabled on the TV or it drops its NIC when off.
+- id: '1788200000011'
+  alias: Living room TV turn on
+  description: Wake the LG TV over the network when anything asks HA to turn it on.
+  mode: single
+  triggers:
+  - trigger: webostv.turn_on
+    entity_id: media_player.living_room_tv
+  conditions: []
+  actions:
+  - action: wake_on_lan.send_magic_packet
+    data:
+      mac: 08:27:a8:9c:aa:74

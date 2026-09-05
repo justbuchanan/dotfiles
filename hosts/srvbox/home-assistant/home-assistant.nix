@@ -50,15 +50,17 @@ in
       "go2rtc"
       "google_assistant"
       "homeassistant_connect_zbt2"
-      "konnected"
       "matter"
       "met"
       "mobile_app"
       "mqtt"
       "nest"
       "roborock"
+      "roomba"
       "sun"
       "tplink"
+      "wake_on_lan"
+      "webostv"
       "zha"
     ];
 
@@ -122,12 +124,7 @@ in
   # The rest of the floorplan assets carry nothing private.
   systemd.tmpfiles.rules =
     map (f: "L+ /var/lib/hass/www/floorplan/${f} - - - - ${./floorplan}/${f}")
-      [
-        "home.css"
-        "light_on.svg"
-        "light_off.svg"
-        "camera.svg"
-      ];
+      (builtins.attrNames (builtins.readDir ./floorplan));
 
   # All interfaces: the Caddy proxy comes in over tailscale0, direct access to
   # srvbox:8123 over the LAN.

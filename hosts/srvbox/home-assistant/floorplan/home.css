@@ -4,8 +4,12 @@
   padding: 10px;
 }
 
+/* The plan is portrait now (viewBox 187x246), so cap the height rather than
+   the width or it fills the page. */
+
 #floorplan > svg {
-  max-width: 700px;
+  max-width: 100%;
+  max-height: 85vh;
 }
 
 /* SVG elements */
@@ -48,6 +52,18 @@ g.floorplan-long-click > :not(text):hover,
   }
 }
 
+/* Ceiling fan: reuse the spin keyframes, but at a fan-like speed. Bind with
+   floorplan.class_set on switch.bedroom_fan. */
+
+.fan-spinning {
+  animation-name: spin;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
 /* Binary sensors */
 
 .binary-sensor-on {
@@ -72,4 +88,16 @@ g.floorplan-long-click > :not(text):hover,
 .button-on tspan,
 .button-off tspan {
   fill: white !important;
+}
+/* Blink opacity, not scale: a CSS transform would override the leak icons'
+   transform="rotate(90)" presentation attribute. */
+.leak-alarm {
+  animation-name: leak-pulse;
+  animation-duration: 1.1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes leak-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
 }

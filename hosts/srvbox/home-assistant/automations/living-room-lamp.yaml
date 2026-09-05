@@ -1,0 +1,36 @@
+# device_id c0aab95b... / entity_id 859714c7... are switch.living_room_lamp
+# ('Living Room Lamp'), the same plug google_assistant exposes by that name.
+- id: '1768989463611'
+  alias: Turn on lamp at sundown
+  description: ''
+  triggers:
+  - trigger: time
+    at: '17:00:00'
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - fri
+    - thu
+    - sat
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: c0aab95bd3f4bfe9f755a2e2cf51f0de
+    entity_id: 859714c7b968f01ee4574cdaa2bd34c6
+    domain: switch
+  mode: single
+- id: '1768989611937'
+  alias: Turn lamp off at night
+  description: ''
+  triggers:
+  - trigger: time
+    at: 02:00:02
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: c0aab95bd3f4bfe9f755a2e2cf51f0de
+    entity_id: 859714c7b968f01ee4574cdaa2bd34c6
+    domain: switch
+  mode: single
