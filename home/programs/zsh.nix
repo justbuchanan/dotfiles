@@ -15,6 +15,8 @@
       # Allow VIM-like shortcuts at the command line
       bindkey -v
       bindkey jj vi-cmd-mode
+      bindkey -M viins '^?' backward-delete-char
+      bindkey -M viins '^H' backward-delete-char
 
       # source all files in .profile.d
       for i in ~/.profile.d/*.sh ; do

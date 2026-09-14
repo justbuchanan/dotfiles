@@ -32,6 +32,8 @@
         format = "([$all_status$ahead_behind]($style) )";
       };
       nix_shell = {
+        # default "❄️" is 2 cells in ghostty but 1 in zsh
+        symbol = " ";
         format = "[$symbol]($style)";
       };
     };
