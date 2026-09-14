@@ -57,32 +57,15 @@
 
   environment.systemPackages = with pkgs; [
     btop
-    busybox
-    cachix
     colordiff
-    cryptsetup
     curlFull
-    dmidecode
     git
-    gnumake
-    go
-    home-manager
     htop
-    inetutils
     inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inxi
     jq
     mtr
     ncdu
-    nix-index
-    nmap
     openssl
-    openssl.dev
-    pkg-config
-    python313
-    socat
-    speedtest-cli
-    sqlite
     sysstat
     tig
     tmux

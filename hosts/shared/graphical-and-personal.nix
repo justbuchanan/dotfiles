@@ -167,6 +167,25 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # dev/net tooling kept off the internet-facing droplet
+    busybox
+    cachix
+    cryptsetup
+    dmidecode
+    gnumake
+    go
+    home-manager
+    inetutils
+    inxi
+    nix-index
+    nmap
+    openssl.dev
+    pkg-config
+    python313
+    socat
+    speedtest-cli
+    sqlite
+
     inputs.oasis.packages.${pkgs.stdenv.hostPlatform.system}.oasis-client
     system-config-printer
     lazygit

@@ -32,9 +32,8 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [
-      "wheel" # Enable 'sudo' for the user.
-      "docker"
-      "gmail-token-access" # allow reading gmail token secret
+      "wheel"
+      "gmail-token-access"
     ];
   };
   users.users.root.shell = pkgs.zsh;
@@ -47,12 +46,6 @@
     # nix desktop
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCS4KkzH8OdekJh+Ow6IhvY+K4JKqEggYRpgNePb5c00NZcnksAfJZfb16U4l1Xw6vlkbJe7b9HGT+9OXQXgUquTDjGcvZCjQSwde7I75G81bTLK24KkSPZYM+Dc1Ex+dFS0FXdvplInHwM5CU17NG02btGrLCPpfwf14DG2E8THABxXiLPucNRNWnQerjrIV11Gs8e7wv8JYPzx9LAQGYgafERj3LGu4jfI8atYsD4z4bh42As84VEAIFoONzDJwocYnzDH5ieGolUG21r7ubZY4GwVWEj37qAUWTes5fo0T20OjwQOVCpR0mmGh4B3KXlSwXN8IZT8DpvoB+u8QLOczInw33EjJYUXt6x8vTaLHuMCYxJYbVSff+KLIre/HjZAy6jsAybkx3B2uVWSkJpL5CjK3jXRMUlg2Fc4m1SoPNm4lKt3c2pQHrv3JgIH+1ytmyZ/dT+4ClleJTaaz9TViCD8CFzndmG3G1e/pFlMry2zWAdZSsF+Jo7GU6cUok= justbuchanan+srvbox-nixos@gmail.com"
   ];
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.hack
-  ];
-
-  programs.dconf.enable = true;
 
   # ssh is reachable only over tailscale (DO web console is the fallback).
   services.openssh = {
