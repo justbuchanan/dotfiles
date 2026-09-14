@@ -6,6 +6,7 @@ in
 {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     niri-workspaces-enhanced.enable = true;
     settings = {
       mainBar = {

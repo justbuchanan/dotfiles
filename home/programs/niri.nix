@@ -85,11 +85,6 @@ in
             "xdg-desktop-portal"
           ];
         }
-        {
-          argv = [
-            "waybar"
-          ];
-        }
         { argv = [ "nm-applet" ]; }
         # Note: changes to swaybg settings only take effect when you first login
         # If you change something here and want to see it happen, do:
