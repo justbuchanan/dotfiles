@@ -104,7 +104,7 @@ in
               ""
             ];
           };
-          on-click = "pavucontrol";
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
         };
 
         "custom/media" = {
