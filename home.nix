@@ -18,6 +18,7 @@
     ./home/programs/waybar-niri.nix
     ./home/programs/darktable.nix
     ./home/base.nix
+    ./home/stylix.nix
   ];
 
   home.file = {

@@ -125,7 +125,6 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = [
                 nixvim.homeModules.nixvim
-                stylix.homeModules.stylix
               ];
             }
           ];
