@@ -37,11 +37,6 @@ in
         reverse_proxy ${homeserver}:8989
       '';
 
-      # immich image viewer
-      "photos.justbuchanan.com".extraConfig = ''
-        reverse_proxy ${homeserver}:2283
-      '';
-
       "justbuchanan.com".extraConfig = ''
         reverse_proxy localhost:3000
       '';
