@@ -6,6 +6,7 @@
           type: jellyfin
           url: https://media.justbuchanan.com
           key: "{{HOMEPAGE_VAR_JELLYFIN_KEY}}"
+          version: 2 # Jellyfin 10.11+ dropped the /emby routes and api_key query auth
           enableBlocks: true # optional, defaults to false
           enableNowPlaying: true # optional, defaults to true
           enableUser: true # optional, defaults to false
