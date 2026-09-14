@@ -193,9 +193,11 @@ in
             }
           ];
           detect = {
+            # Must match the stream exactly. Any mismatch makes Frigate insert
+            # scale_cuda, which silently emits all-zero (green) frames here.
             enabled = true;
             width = 2688;
-            height = 1512;
+            height = 1520;
           };
           record = {
             alerts.retain = { };
