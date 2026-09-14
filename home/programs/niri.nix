@@ -102,12 +102,12 @@ in
         {
           # Idle configuration
           # This will lock your screen after 300 seconds of inactivity, then turn off
-          # your displays after another 300 seconds, and turn your screens back on when
-          # resumed. It will also lock your screen before your computer goes to sleep.
+          # your displays after another 300 seconds (niri powers them back on at the
+          # next input). It will also lock your screen before your computer goes to sleep.
           sh = ''
             exec swayidle -w \
                     timeout 300 '${lock_cmd}' \
-                    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+                    timeout 600 'niri msg action power-off-monitors' \
                     before-sleep '${lock_cmd}'
           '';
         }
