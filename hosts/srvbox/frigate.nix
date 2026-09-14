@@ -81,6 +81,7 @@ in
       export FRIGATE_CAM_FRONTDOOR_PW=x
       export FRIGATE_CAM_BACKYARD_PW=x
       export FRIGATE_CAM_GARDEN_PW=x
+      export FRIGATE_MQTT_PASSWORD=x
     '';
 
     settings = {
@@ -91,6 +92,8 @@ in
         enabled = true;
         host = "127.0.0.1"; # native broker on this host (mqtt.nix)
         port = 1883;
+        user = "frigate";
+        password = "{FRIGATE_MQTT_PASSWORD}";
       };
 
       # Google Coral USB accelerator for object detection.

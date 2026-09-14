@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   ...
 }:
@@ -8,25 +9,34 @@
     mosquitto
   ];
 
+  # Read by systemd as a credential, so root-only is fine.
+  age.secrets.mqtt-homeassistant-password.file = ../../secrets/mqtt-homeassistant-password.age;
+  age.secrets.mqtt-frigate-password.file = ../../secrets/mqtt-frigate-password.age;
+
   services.mosquitto = {
     enable = true;
 
-    # TODO: make this more secure. it's not terrible since this is only
-    # accessible on the tailnet and over loopback, but we can do better
-    # (password file via agenix/sops).
     listeners = [
       {
         address = "0.0.0.0";
         port = 1883;
-        acl = [ "topic readwrite #" ];
-        omitPasswordAuth = true;
-        settings.allow_anonymous = true;
+        settings.allow_anonymous = false;
+        users = {
+          # Broker settings live in HA's UI config entry, not in nix.
+          homeassistant = {
+            passwordFile = config.age.secrets.mqtt-homeassistant-password.path;
+            acl = [ "readwrite #" ];
+          };
+          # Same password as FRIGATE_MQTT_PASSWORD in frigate-env.age.
+          frigate = {
+            passwordFile = config.age.secrets.mqtt-frigate-password.path;
+            acl = [ "readwrite frigate/#" ];
+          };
+        };
       }
     ];
   };
 
-  # Reachable from the tailnet. frigate and home-assistant are native services
-  # now and connect over 127.0.0.1, which needs no rule ("lo" is trusted). We
-  # deliberately do not open 1883 on the LAN.
+  # Reachable from the tailnet; frigate and home-assistant connect over lo.
   networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 1883 ];
 }

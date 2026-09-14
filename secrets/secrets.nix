@@ -75,6 +75,18 @@ in
     justin-framework
     root-srvbox
   ];
+  # Mosquitto per-client passwords (hosts/srvbox/mqtt.nix). The frigate one is
+  # duplicated as FRIGATE_MQTT_PASSWORD in frigate-env.age.
+  "mqtt-homeassistant-password.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
+  "mqtt-frigate-password.age".publicKeys = [
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
   # Frigate camera RTSP passwords + go2rtc restream password, consumed via
   # Frigate's {FRIGATE_*} env-var substitution (see hosts/srvbox/frigate.nix).
   "frigate-env.age".publicKeys = [
