@@ -96,7 +96,6 @@
           modules = [
             ./nixos/cachix.nix
             disko.nixosModules.disko
-            { disko.devices.disk.disk1.device = "/dev/nvme0n1"; }
             ./hosts/srvbox/configuration.nix
             determinate.nixosModules.default
             agenix.nixosModules.default
