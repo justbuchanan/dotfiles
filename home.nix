@@ -109,7 +109,8 @@
     startInBackground = true;
   };
 
-  services.gnome-keyring.enable = true;
+  # niri-flake enables this, but the NixOS PAM daemon already runs one.
+  services.gnome-keyring.enable = lib.mkForce false;
 
   home.stateVersion = "24.05";
 }
