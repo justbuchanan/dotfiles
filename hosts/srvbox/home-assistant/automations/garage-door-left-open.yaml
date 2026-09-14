@@ -1,7 +1,7 @@
 # Keyed off the close limit switch rather than the cover state, so a door
 # stopped part-way still counts as open. `unavailable` does not match 'off',
 # so a ratgdo wifi drop cannot false-alarm.
-- id: '1788200000003'
+- id: "1788200000003"
   alias: Garage door left open
   mode: single
   triggers:

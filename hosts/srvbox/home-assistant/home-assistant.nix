@@ -122,9 +122,9 @@ in
   };
 
   # The rest of the floorplan assets carry nothing private.
-  systemd.tmpfiles.rules =
-    map (f: "L+ /var/lib/hass/www/floorplan/${f} - - - - ${./floorplan}/${f}")
-      (builtins.attrNames (builtins.readDir ./floorplan));
+  systemd.tmpfiles.rules = map (
+    f: "L+ /var/lib/hass/www/floorplan/${f} - - - - ${./floorplan}/${f}"
+  ) (builtins.attrNames (builtins.readDir ./floorplan));
 
   # All interfaces: the Caddy proxy comes in over tailscale0, direct access to
   # srvbox:8123 over the LAN.

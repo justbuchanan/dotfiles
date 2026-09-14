@@ -1,6 +1,6 @@
 # The webostv entity, not the cast one. Waking a TV that is fully off needs
 # automations/living-room-tv-turn-on.yaml -- without it there is no TURN_ON.
-- id: '1788200000010'
+- id: "1788200000010"
   name: Movie watching
   icon: mdi:movie-open
   entities:

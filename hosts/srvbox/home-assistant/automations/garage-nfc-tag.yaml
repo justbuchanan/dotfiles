@@ -1,18 +1,18 @@
 # Two NFC tags, one action: device_id 7863b021... / entity_id 06de4636... =
 # button.garage_ratgdo_toggle_door. A duplicate of this that fired on the
 # first tag only was removed, so scanning it no longer double-presses.
-- id: '1788136759481'
+- id: "1788136759481"
   alias: garagedoor1 nfc toggles garage door
-  description: ''
+  description: ""
   triggers:
-  - trigger: tag
-    tag_id: 198dff03-70b7-485e-8ef8-dc9347497528
-  - trigger: tag
-    tag_id: d18209ac-4098-4306-9ff9-57b96a919431
+    - trigger: tag
+      tag_id: 198dff03-70b7-485e-8ef8-dc9347497528
+    - trigger: tag
+      tag_id: d18209ac-4098-4306-9ff9-57b96a919431
   conditions: []
   actions:
-  - device_id: 7863b021ac6be47dd9f1362b49f80418
-    domain: button
-    entity_id: 06de463612dc058bd155ab3e7357a11f
-    type: press
+    - device_id: 7863b021ac6be47dd9f1362b49f80418
+      domain: button
+      entity_id: 06de463612dc058bd155ab3e7357a11f
+      type: press
   mode: single

@@ -1,63 +1,66 @@
 # The frigate integration marks camera.X unavailable once Frigate reports
 # camera_fps == 0 for it (stats polled every 5s), so this catches a dead feed
 # as well as Frigate or the whole MQTT link going away.
-- id: '1788200000009'
+- id: "1788200000009"
   alias: Camera offline
   description: Notify when a camera stops streaming for more than 3 minutes, and
     again when it comes back.
   mode: parallel
   max: 8
   triggers:
-  - trigger: state
-    id: down
-    entity_id:
-    - camera.garage
-    - camera.frontdoor
-    - camera.backyard
-    - camera.garden
-    to: unavailable
-    for: 00:03:00
-  - trigger: state
-    id: up
-    entity_id:
-    - camera.garage
-    - camera.frontdoor
-    - camera.backyard
-    - camera.garden
-    from: unavailable
-    not_to:
-    - unavailable
-    - unknown
+    - trigger: state
+      id: down
+      entity_id:
+        - camera.garage
+        - camera.frontdoor
+        - camera.backyard
+        - camera.garden
+      to: unavailable
+      for: 00:03:00
+    - trigger: state
+      id: up
+      entity_id:
+        - camera.garage
+        - camera.frontdoor
+        - camera.backyard
+        - camera.garden
+      from: unavailable
+      not_to:
+        - unavailable
+        - unknown
   conditions: []
   actions:
-  - variables:
-      where: '{{ {''camera.frontdoor'': ''Front door''}.get(trigger.entity_id, trigger.to_state.name)
-        }}'
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: down
-      sequence:
-      - action: notify.mobile_app_justins_iphone
-        data:
-          title: "\U0001F4F7 Camera offline"
-          message: '{{ where }} has not been streaming for 3 minutes.'
-          data:
-            tag: camera-offline-{{ trigger.entity_id }}
-            url: https://cctv.justbuchanan.com/cameras/{{ trigger.entity_id.split('.')[1]
-              }}
-    - conditions:
-      - condition: trigger
-        id: up
-      # Only if the outage was long enough to have alerted; ignore the brief
-      # blips that never reached the 3 minute mark.
-      - condition: template
-        value_template: '{{ (trigger.to_state.last_changed - trigger.from_state.last_changed).total_seconds()
-          > 180 }}'
-      sequence:
-      - action: notify.mobile_app_justins_iphone
-        data:
-          title: "\U0001F4F7 Camera back online"
-          message: '{{ where }} is streaming again.'
-          data:
-            tag: camera-offline-{{ trigger.entity_id }}
+    - variables:
+        where:
+          "{{ {'camera.frontdoor': 'Front door'}.get(trigger.entity_id, trigger.to_state.name)
+          }}"
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: down
+          sequence:
+            - action: notify.mobile_app_justins_iphone
+              data:
+                title: "\U0001F4F7 Camera offline"
+                message: "{{ where }} has not been streaming for 3 minutes."
+                data:
+                  tag: camera-offline-{{ trigger.entity_id }}
+                  url:
+                    https://cctv.justbuchanan.com/cameras/{{ trigger.entity_id.split('.')[1]
+                    }}
+        - conditions:
+            - condition: trigger
+              id: up
+            # Only if the outage was long enough to have alerted; ignore the brief
+            # blips that never reached the 3 minute mark.
+            - condition: template
+              value_template:
+                "{{ (trigger.to_state.last_changed - trigger.from_state.last_changed).total_seconds()
+                > 180 }}"
+          sequence:
+            - action: notify.mobile_app_justins_iphone
+              data:
+                title: "\U0001F4F7 Camera back online"
+                message: "{{ where }} is streaming again."
+                data:
+                  tag: camera-offline-{{ trigger.entity_id }}

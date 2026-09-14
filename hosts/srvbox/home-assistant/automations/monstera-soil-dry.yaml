@@ -1,20 +1,20 @@
 # device_id 49f6f898... / entity_id b38dcf31... =
 # sensor.monstera_soil_sensor_humidity ('Monstera Soil Sensor').
-- id: '1764980583974'
+- id: "1764980583974"
   alias: Monstera soil dry notification
-  description: ''
+  description: ""
   triggers:
-  - type: humidity
-    device_id: 49f6f898aa6dc73cdceb1b76b760622f
-    entity_id: b38dcf31385ddef536075f612dc2d67e
-    domain: sensor
-    trigger: device
-    below: 5
+    - type: humidity
+      device_id: 49f6f898aa6dc73cdceb1b76b760622f
+      entity_id: b38dcf31385ddef536075f612dc2d67e
+      domain: sensor
+      trigger: device
+      below: 5
   conditions: []
   actions:
-  - action: notify.mobile_app_justins_iphone
-    metadata: {}
-    data:
-      message: Monstera soil dry
-      title: Thirsty plant!
+    - action: notify.mobile_app_justins_iphone
+      metadata: {}
+      data:
+        message: Monstera soil dry
+        title: Thirsty plant!
   mode: single

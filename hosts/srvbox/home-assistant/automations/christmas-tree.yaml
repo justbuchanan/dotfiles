@@ -1,44 +1,44 @@
 # device_id 4dc8dfb3... / entity_id e1ea2a8d... are both switch.christmas_tree
 # ('Christmas Tree'). Device references, so re-pairing the plug breaks these
 # silently -- the floorplan hides the tree via input_boolean.christmas_season.
-- id: '1764980046085'
+- id: "1764980046085"
   alias: Christmas Tree on in morning
-  description: ''
+  description: ""
   triggers:
-  - trigger: time
-    at: 07:00:00
-    weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-    - sat
+    - trigger: time
+      at: 07:00:00
+      weekday:
+        - sun
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
   conditions: []
   actions:
-  - type: turn_on
-    device_id: 4dc8dfb339ba08cd5826908ad16668e1
-    entity_id: e1ea2a8dd93f073d797917dfc0918207
-    domain: switch
+    - type: turn_on
+      device_id: 4dc8dfb339ba08cd5826908ad16668e1
+      entity_id: e1ea2a8dd93f073d797917dfc0918207
+      domain: switch
   mode: single
-- id: '1764980126061'
+- id: "1764980126061"
   alias: Christmas tree off at night
-  description: ''
+  description: ""
   triggers:
-  - trigger: time
-    at: 01:00:00
-    weekday:
-    - sun
-    - mon
-    - sat
-    - thu
-    - tue
-    - fri
+    - trigger: time
+      at: 01:00:00
+      weekday:
+        - sun
+        - mon
+        - sat
+        - thu
+        - tue
+        - fri
   conditions: []
   actions:
-  - type: turn_off
-    device_id: 4dc8dfb339ba08cd5826908ad16668e1
-    entity_id: e1ea2a8dd93f073d797917dfc0918207
-    domain: switch
+    - type: turn_off
+      device_id: 4dc8dfb339ba08cd5826908ad16668e1
+      entity_id: e1ea2a8dd93f073d797917dfc0918207
+      domain: switch
   mode: single

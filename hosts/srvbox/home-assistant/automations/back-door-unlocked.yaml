@@ -1,7 +1,7 @@
 # The deadbolt, not the door-ajar sensor -- see back-door-left-open.yaml for
 # the complementary one. Attribute-only churn on the august lock does not
 # reset the timer, since a state trigger with `to:` ignores it.
-- id: '1788200000004'
+- id: "1788200000004"
   alias: Back door unlocked
   mode: single
   triggers:

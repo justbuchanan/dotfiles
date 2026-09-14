@@ -1,6 +1,6 @@
 # entity_id rather than device_id: a device reference breaks silently if the
 # plug is re-paired (see christmas-tree.yaml).
-- id: '1788200000007'
+- id: "1788200000007"
   alias: Espresso machine on in the morning
   mode: single
   triggers:
@@ -11,7 +11,7 @@
       target:
         entity_id: switch.espresso_machine
 
-- id: '1788200000008'
+- id: "1788200000008"
   alias: Espresso machine off in the evening
   mode: single
   triggers:
