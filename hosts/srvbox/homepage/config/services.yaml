@@ -36,13 +36,13 @@
     - Frigate:
         icon: frigate
         href: https://cctv.justbuchanan.com
-        siteMonitor: http://srvbox.wampus-newton.ts.net:8971/api/version
+        siteMonitor: http://127.0.0.1:5000/api/version
         description: Security Camera NVR
         widget:
-          # Frigate's API is fronted by nginx on :8971 since it was nixified;
-          # the old :5000 now only binds 127.0.0.1 (unreachable over tailscale).
+          # :8971 (nginx) needs a login now; :5000 is Frigate's unauthenticated
+          # API, bound to loopback, and homepage runs on the same host.
           type: frigate
-          url: http://srvbox.wampus-newton.ts.net:8971
+          url: http://127.0.0.1:5000
           enableRecentEvents: true # Optional, defaults to false
 
     - MQTT:

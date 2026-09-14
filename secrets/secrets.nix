@@ -94,6 +94,14 @@ in
     justin-framework
     root-srvbox
   ];
+  # Shared by Caddy on droplet2 (X-Proxy-Secret header) and Frigate on srvbox
+  # (proxy.auth_secret) so Frigate only trusts Remote-User from that proxy.
+  "frigate-proxy-auth-secret.age".publicKeys = [
+    droplet2
+    justin-srvbox
+    justin-framework
+    root-srvbox
+  ];
   # Not a credential, but a floor plan of the house with sensor placement, and
   # this repo is public. Deployed to /var/lib/hass/www/floorplan/home.svg.
   "ha-floorplan.svg.age".publicKeys = [

@@ -66,6 +66,14 @@ in
     mode = "0440";
   };
 
+  # Shared with Caddy on droplet2, which sends it as X-Proxy-Secret. Frigate
+  # only trusts the Remote-User/Remote-Groups headers when it matches, so a LAN
+  # client hitting :8971 directly can't spoof them.
+  age.secrets.frigate-proxy-auth-secret = {
+    file = ../../secrets/frigate-proxy-auth-secret.age;
+    owner = "frigate";
+  };
+
   services.frigate = {
     enable = true;
 
@@ -82,10 +90,25 @@ in
       export FRIGATE_CAM_BACKYARD_PW=x
       export FRIGATE_CAM_GARDEN_PW=x
       export FRIGATE_MQTT_PASSWORD=x
+      export FRIGATE_PROXY_AUTH_SECRET=x
     '';
 
     settings = {
+      # Login is Authelia's job: cctv.justbuchanan.com (droplet2 Caddy) passes
+      # the authenticated user through. Frigate only honours header_map when
+      # its own auth is off, and with auth_secret set it 401s anything that
+      # lacks the secret, so :8971 is still closed to the LAN. Local services
+      # use 127.0.0.1:5000, which nginx marks internal.
       auth.enabled = false;
+      proxy = {
+        header_map = {
+          user = "Remote-User";
+          role = "Remote-Groups";
+          role_map.admin = [ "admins" ];
+        };
+        auth_secret = "{FRIGATE_PROXY_AUTH_SECRET}";
+        logout_url = "https://auth.justbuchanan.com/logout";
+      };
       tls.enabled = false;
 
       mqtt = {
@@ -262,6 +285,7 @@ in
   systemd.services.frigate.serviceConfig.EnvironmentFile = lib.mkForce [
     "-/run/frigate/ffmpeg-env"
     config.age.secrets.frigate-env.path
+    config.age.secrets.frigate-proxy-auth-secret.path
   ];
 
   # Standalone go2rtc: provides live-view streams (proxied by Frigate's nginx to

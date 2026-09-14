@@ -9,8 +9,15 @@ let
   authelia = "localhost:9091";
 in
 {
+  # Lets Frigate on srvbox trust the Remote-User header from this proxy only.
+  age.secrets.frigate-proxy-auth-secret = {
+    file = ../../secrets/frigate-proxy-auth-secret.age;
+    owner = "caddy";
+  };
+
   services.caddy = {
     enable = true;
+    environmentFile = config.age.secrets.frigate-proxy-auth-secret.path;
 
     # Enable admin API on all interfaces so it's accessible via Tailscale
     globalConfig = ''
@@ -58,7 +65,9 @@ in
             uri /api/verify?rd=https://auth.justbuchanan.com
             copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
         }
-        reverse_proxy ${homeserver}:8971
+        reverse_proxy ${homeserver}:8971 {
+            header_up X-Proxy-Secret {env.FRIGATE_PROXY_AUTH_SECRET}
+        }
       '';
 
       "homepage.justbuchanan.com".extraConfig = ''
