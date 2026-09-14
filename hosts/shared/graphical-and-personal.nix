@@ -168,7 +168,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # dev/net tooling kept off the internet-facing droplet
-    busybox
     cachix
     cryptsetup
     dmidecode
