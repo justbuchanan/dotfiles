@@ -54,7 +54,20 @@
 
   programs.dconf.enable = true;
 
-  services.openssh.enable = true;
+  # ssh is reachable only over tailscale (DO web console is the fallback).
+  services.openssh = {
+    enable = true;
+    openFirewall = false;
+    settings = {
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "prohibit-password";
+      AllowUsers = [
+        "root"
+        "justin"
+      ];
+    };
+  };
+  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 22 ];
 
   boot.loader.grub = {
     enable = true;
