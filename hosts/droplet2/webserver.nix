@@ -88,20 +88,37 @@ in
   # Docker containers for websites we're serving
   # Note: the 127.0.0.1 makes the container port accessible to the local machine
   # only. External access goes through caddy, which proxies to the container.
+  # All containers run as nobody. The images expect root, so the dirs they
+  # write at runtime are replaced with world-writable tmpfs.
   virtualisation.oci-containers.containers = {
     justbuchanan_com = {
       image = "justbuchanan/justbuchanan.com";
       ports = [ "127.0.0.1:3000:3000" ];
+      # gems live under /root (0750), so keep gid 0 until the image is rebuilt
+      user = "nobody:0";
+      environment.HOME = "/root";
+      extraOptions = [ "--tmpfs=/site/_site:mode=1777" ];
     };
 
     oasis_terrarium_com = {
       image = "ghcr.io/justbuchanan/oasis-terrarium.com";
       ports = [ "127.0.0.1:3001:80" ];
+      user = "nobody";
+      extraOptions = [
+        "--tmpfs=/var/cache/nginx:mode=1777"
+        "--tmpfs=/run:mode=1777"
+        "--sysctl=net.ipv4.ip_unprivileged_port_start=0"
+      ];
     };
 
     thegrove_us = {
       image = "ghcr.io/justbuchanan/thegrove.us";
       ports = [ "127.0.0.1:3002:3000" ];
+      user = "nobody";
+      extraOptions = [
+        "--tmpfs=/site/_site:mode=1777"
+        "--tmpfs=/site/.jekyll-cache:mode=1777"
+      ];
     };
   };
 
