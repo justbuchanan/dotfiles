@@ -32,14 +32,8 @@
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  # Enable fingerprint authentication for swaylock
+  # Fingerprint auth; NixOS adds pam_fprintd to every PAM service, swaylock included
   services.fprintd.enable = true;
-  security.pam.services.swaylock = {
-    text = ''
-      auth sufficient pam_fprintd.so
-      auth include login
-    '';
-  };
 
   networking.hostName = "framework"; # Define your hostname.
 
