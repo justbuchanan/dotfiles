@@ -20,16 +20,11 @@ in
     swayidle
   ];
 
-  # use niri unstable - comment out this block to go back to stable
-  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
-
   programs.niri = {
     enable = true;
 
-    # The overlay builds niri against our nixpkgs, where the assert on
-    # libdisplay-info 0.2.0 no longer holds -- that version is gone, and the
-    # fallback resolves to 0.4.0. Take the flake's own build, which uses its
-    # pinned nixpkgs. Drop this once niri-flake catches up; see flake.nix.
+    # niri-flake's own build, against its pinned nixpkgs: ours no longer has
+    # the libdisplay-info 0.2.0 it asserts. See flake.nix.
     package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
     settings = {
       hotkey-overlay = {
