@@ -9,10 +9,8 @@
   services.nextcloud = {
     enable = true;
 
-    # MUST match the existing instance's major version. The old container ran
-    # 32.0.8; this package is 32.0.x. Nextcloud refuses to skip a major version,
-    # so never bump this past the next major without a deliberate upgrade.
-    package = pkgs.nextcloud33;
+    # Nextcloud refuses to skip a major version, so only ever bump this by one.
+    package = pkgs.nextcloud34;
 
     hostName = "nextcloud.justbuchanan.com";
 
