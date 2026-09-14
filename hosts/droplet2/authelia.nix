@@ -52,7 +52,7 @@
       };
 
       access_control = {
-        default_policy = "one_factor";
+        default_policy = "deny";
         rules = [
           {
             domain = "*.justbuchanan.com";
