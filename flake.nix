@@ -166,7 +166,6 @@
         pkgs.mkShell {
           packages = with pkgs; [
             nixfmt
-            nixos-rebuild
             prettier
             shellcheck
             shfmt
