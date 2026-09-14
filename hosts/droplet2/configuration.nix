@@ -53,6 +53,7 @@
     openFirewall = false;
     settings = {
       KbdInteractiveAuthentication = false;
+      PasswordAuthentication = false;
       PermitRootLogin = "prohibit-password";
       AllowUsers = [
         "root"
