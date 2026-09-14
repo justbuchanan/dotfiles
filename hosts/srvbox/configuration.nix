@@ -102,11 +102,14 @@
   services.backblazeBackup = {
     enable = true;
     credentialsFile = config.age.secrets.backblaze-b2-credentials.path;
+    notifyEmail = "justbuchanan@gmail.com";
     jobs = {
       nextcloud = {
         localPath = "/mnt/zpool0/nextcloud/data";
         bucketName = "justbuchanan-nextcloud-backup";
         periodicity = "weekly";
+        # data/ holds the live sqlite db
+        zfsDataset = "zpool0/nextcloud";
       };
       photos = {
         localPath = "/mnt/zpool0/photos";
