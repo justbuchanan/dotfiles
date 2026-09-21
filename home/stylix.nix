@@ -12,5 +12,6 @@
         name = "Hack Nerd Font Mono";
       };
     };
+    targets.rofi.enable = false;
   };
 }
