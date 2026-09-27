@@ -10,7 +10,13 @@
 {
   imports = [
     ./msmtp.nix
+    inputs.claude-desktop.nixosModules.default
   ];
+
+  programs.claude-desktop = {
+    enable = true;
+    cowork.kvmUsers = [ "justin" ];
+  };
 
   programs.steam.enable = true;
   # # Steam told me to add these

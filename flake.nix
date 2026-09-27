@@ -47,6 +47,11 @@
       url = "github:justbuchanan/oasis";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    claude-desktop = {
+      url = "github:nmcbride/claude-desktop-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -65,6 +70,7 @@
       nixvim,
       nixos-hardware,
       oasis,
+      claude-desktop,
     }@inputs:
     {
       nixosConfigurations = {

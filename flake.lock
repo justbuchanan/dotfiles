@@ -195,6 +195,26 @@
         "type": "github"
       }
     },
+    "claude-desktop": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790247045,
+        "narHash": "sha256-iKF1SMRW3rfew7juBb7V6MLLMzJ5A8rMxFutikSMoNs=",
+        "owner": "nmcbride",
+        "repo": "claude-desktop-nix",
+        "rev": "fb69adee94b6fac62a936e5975529e24c8b4e78e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nmcbride",
+        "repo": "claude-desktop-nix",
+        "type": "github"
+      }
+    },
     "cq-cli-src": {
       "flake": false,
       "locked": {
@@ -1131,6 +1151,7 @@
       "inputs": {
         "agenix": "agenix",
         "cadquery": "cadquery",
+        "claude-desktop": "claude-desktop",
         "determinate": "determinate",
         "disko": "disko",
         "home-manager": "home-manager_2",
