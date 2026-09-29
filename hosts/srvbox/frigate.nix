@@ -335,6 +335,10 @@ in
   # /mnt/zpool0/frigate, silently sending all recordings to the root disk
   # instead of the pool. Use systemd.mounts so we can depend on zfs-mount.service
   # explicitly. (frigate.service already waits on this via RequiresMountsFor.)
+  #
+  # zfs-mount.service still succeeds if the pool failed to import, so also
+  # assert the dataset is really mounted. A failed assert fails this unit and,
+  # through RequiresMountsFor, keeps Frigate from recording to the root disk.
   systemd.mounts = [
     {
       what = "/mnt/zpool0/frigate";
@@ -344,6 +348,7 @@ in
       requires = [ "zfs-mount.service" ];
       after = [ "zfs-mount.service" ];
       wantedBy = [ "multi-user.target" ];
+      unitConfig.AssertPathIsMountPoint = "/mnt/zpool0/frigate";
     }
   ];
 
