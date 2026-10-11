@@ -233,7 +233,11 @@
     # weather widget for waybar
     wttrbar
     xwayland-satellite
-    bambu-studio
+    # Relicensed unfree in nixpkgs (bundled proprietary network plugin, AGPL
+    # violation per SFC: NixOS/nixpkgs#415821), so Hydra no longer builds it
+    # and every nixpkgs bump means compiling it locally. Re-enable if upstream
+    # or packaging resolves it.
+    # bambu-studio
     blender
     prusa-slicer
     vlc
