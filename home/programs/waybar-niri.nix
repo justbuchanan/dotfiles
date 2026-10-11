@@ -138,6 +138,7 @@ in
           window-icons = {
             "dontstarve_steam_x64" = "";
             ".blueman-manager-wrapped" = "";
+            "com.anthropic.Claude" = "";
           };
           window-icon-default = "*";
         };
