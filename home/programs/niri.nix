@@ -23,9 +23,10 @@ in
   programs.niri = {
     enable = true;
 
-    # niri-flake's own build, against its pinned nixpkgs: ours no longer has
-    # the libdisplay-info 0.2.0 it asserts. See flake.nix.
-    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+    # nixpkgs' niri, not niri-flake's niri-unstable: that one is built against
+    # the flake's pinned nixpkgs, and a glibc mismatch with the system mesa
+    # leaves niri with no GPU (black screen). See flake.nix.
+    package = pkgs.niri;
     settings = {
       hotkey-overlay = {
         skip-at-startup = true;
