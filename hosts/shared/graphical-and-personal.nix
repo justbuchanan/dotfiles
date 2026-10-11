@@ -17,6 +17,10 @@
     enable = true;
     cowork.kvmUsers = [ "justin" ];
   };
+  # Claude Desktop downloads its own generic-linux claude-code binary into
+  # ~/.config/Claude/claude-code/, which can't run without nix-ld (exit 127,
+  # "Could not start dynamically linked executable").
+  programs.nix-ld.enable = true;
 
   programs.steam.enable = true;
   # # Steam told me to add these
