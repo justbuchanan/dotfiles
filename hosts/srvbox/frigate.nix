@@ -320,6 +320,17 @@ in
   # nvidia-smi for the UI's GPU stats panel. Decode itself works without this.
   systemd.services.frigate.path = [ config.hardware.nvidia.package.bin ];
 
+  # libusb (under libedgetpu) needs a netlink socket, or the Coral isn't found.
+  # When the detector dies, Frigate's watchdog inspects PID 1 and then exits 0.
+  # ProtectProc=invisible hides PID 1 (crashing the watchdog instead), and
+  # on-failure ignores a clean exit, so a dead Coral was never recovered.
+  systemd.services.frigate.serviceConfig = {
+    RestrictAddressFamilies = [ "AF_NETLINK" ];
+    ProtectProc = lib.mkForce "default";
+    Restart = lib.mkForce "always";
+    RestartSec = 10;
+  };
+
   # Keep recordings/clips/db/config on the ZFS pool where they already live.
   # The package points Frigate at /var/lib/frigate, so bind that onto the
   # existing data dir (the dedicated zpool0/frigate dataset). System-level mount
