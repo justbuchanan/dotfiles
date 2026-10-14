@@ -23,6 +23,7 @@
     ./factorio.nix
     ./mqtt.nix
     ./frigate.nix
+    ./frigate-healthcheck.nix
     ./home-assistant/matter-server.nix
     ./home-assistant/home-assistant.nix
     ./influxdb.nix
