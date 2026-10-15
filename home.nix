@@ -10,6 +10,7 @@
     # NOTE: cachix substituters/keys are configured at the NixOS system level
     # (nixos/cachix.nix imported in flake.nix). Importing it here too would write
     # them to the user nix.conf, which the daemon ignores for untrusted users.
+    ./home/programs/chrome.nix
     ./home/programs/git.nix
     ./home/programs/niri.nix
     ./home/programs/starship.nix
