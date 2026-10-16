@@ -30,6 +30,7 @@
     ./jellyfin.nix
     ./nextcloud.nix
     ./homepage.nix
+    ./claude-remote-control.nix
     ../shared/backblaze.nix
     ../shared/prometheus-exporter.nix
     ../shared/base.nix
