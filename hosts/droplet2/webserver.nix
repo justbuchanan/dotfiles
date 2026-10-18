@@ -17,6 +17,8 @@ in
 
   # SITE_PASSWORD=… for the mexico2026 container
   age.secrets.mexico2026-env.file = ../../secrets/mexico2026-env.age;
+  # read:packages token for pulling private images from ghcr.io
+  age.secrets.ghcr-pull-token.file = ../../secrets/ghcr-pull-token.age;
 
   services.caddy = {
     enable = true;
@@ -133,15 +135,35 @@ in
       ];
     };
 
-    # Not in any registry: ~/src/justin/mexico2026/deploy.sh builds the image
-    # locally and loads it straight into podman here, so never try to pull.
+    # Private image that GitHub Actions rebuilds on every push to main. The
+    # autoupdate label opts it into podman-auto-update (below), which deploys
+    # new versions without touching this file.
     mexico2026 = {
-      image = "localhost/mexico2026:latest";
-      pull = "never";
+      image = "ghcr.io/justbuchanan/mexico2026:latest";
+      login = {
+        registry = "ghcr.io";
+        username = "justbuchanan";
+        passwordFile = config.age.secrets.ghcr-pull-token.path;
+      };
       ports = [ "127.0.0.1:3003:8080" ];
       user = "nobody";
       environmentFiles = [ config.age.secrets.mexico2026-env.path ];
+      labels."io.containers.autoupdate" = "registry";
       extraOptions = [ "--read-only" ];
+    };
+  };
+
+  # Pull newer images for containers labelled io.containers.autoupdate and
+  # restart them (podman rolls back if the new one fails to start). Podman's
+  # stock timer runs daily with up to 15 min of jitter; check every 5 minutes.
+  systemd.timers.podman-auto-update = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = [
+        ""
+        "*:0/5"
+      ];
+      RandomizedDelaySec = 0;
     };
   };
 

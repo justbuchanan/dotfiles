@@ -108,6 +108,13 @@ in
     justin-srvbox
     justin-framework
   ];
+  # Classic GitHub token with only read:packages, so droplet2 can pull private
+  # images from ghcr.io (e.g. ghcr.io/justbuchanan/mexico2026).
+  "ghcr-pull-token.age".publicKeys = [
+    droplet2
+    justin-srvbox
+    justin-framework
+  ];
   # Not a credential, but a floor plan of the house with sensor placement, and
   # this repo is public. Deployed to /var/lib/hass/www/floorplan/home.svg.
   "ha-floorplan.svg.age".publicKeys = [
