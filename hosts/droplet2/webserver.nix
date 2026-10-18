@@ -15,6 +15,9 @@ in
     owner = "caddy";
   };
 
+  # SITE_PASSWORD=… for the mexico2026 container
+  age.secrets.mexico2026-env.file = ../../secrets/mexico2026-env.age;
+
   services.caddy = {
     enable = true;
     environmentFile = config.age.secrets.frigate-proxy-auth-secret.path;
@@ -54,6 +57,11 @@ in
 
       "thegrove.us".extraConfig = ''
         reverse_proxy localhost:3002
+      '';
+
+      # Trip site; has its own password page, so no authelia here.
+      "mexico2026.justbuchanan.com".extraConfig = ''
+        reverse_proxy localhost:3003
       '';
 
       "influxdb.justbuchanan.com".extraConfig = ''
@@ -123,6 +131,17 @@ in
         "--tmpfs=/site/_site:mode=1777"
         "--tmpfs=/site/.jekyll-cache:mode=1777"
       ];
+    };
+
+    # Not in any registry: ~/src/justin/mexico2026/deploy.sh builds the image
+    # locally and loads it straight into podman here, so never try to pull.
+    mexico2026 = {
+      image = "localhost/mexico2026:latest";
+      pull = "never";
+      ports = [ "127.0.0.1:3003:8080" ];
+      user = "nobody";
+      environmentFiles = [ config.age.secrets.mexico2026-env.path ];
+      extraOptions = [ "--read-only" ];
     };
   };
 

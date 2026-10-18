@@ -102,6 +102,12 @@ in
     justin-framework
     root-srvbox
   ];
+  # SITE_PASSWORD for the mexico2026 trip site container (hosts/droplet2/webserver.nix)
+  "mexico2026-env.age".publicKeys = [
+    droplet2
+    justin-srvbox
+    justin-framework
+  ];
   # Not a credential, but a floor plan of the house with sensor placement, and
   # this repo is public. Deployed to /var/lib/hass/www/floorplan/home.svg.
   "ha-floorplan.svg.age".publicKeys = [
