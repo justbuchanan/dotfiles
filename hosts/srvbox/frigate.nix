@@ -138,10 +138,15 @@ in
       # not run go2rtc itself and never dials these URLs.
       go2rtc.streams = go2rtcStreams;
 
+      # Sized to the 1.5T zpool0/frigate quota. The cameras write ~200 GB/day,
+      # ~35% of it with motion, so 14/14 days needed ~2.8T. Frigate then lived
+      # in emergency cleanup (deleting ~9 GB every hour) with the dataset pinned
+      # at 99%, which stalls ZFS writes on the HDD pool. 3 days continuous plus
+      # 10 days motion is ~1.07T (~70% of quota).
       record = {
         enabled = true;
-        continuous.days = 14;
-        motion.days = 14;
+        continuous.days = 3;
+        motion.days = 10;
       };
 
       objects.track = [
