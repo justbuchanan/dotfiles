@@ -58,6 +58,11 @@
     imagemagick
     nil # nix lsp
     yazi # tui file manager
+    (runCommand "bazelisk-as-bazel" { } ''
+      mkdir -p $out/bin
+      ln -s ${bazelisk}/bin/bazelisk $out/bin/bazelisk
+      ln -s ${bazelisk}/bin/bazelisk $out/bin/bazel
+    '')
     # gopsuinfo for waybar system monitoring
     (callPackage ./packages/gopsuinfo.nix { })
   ];
