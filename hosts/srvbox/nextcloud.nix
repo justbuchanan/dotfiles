@@ -22,11 +22,6 @@
 
       # For sqlite the module looks for `${datadir}/data/${dbname}.db`
       dbname = "owncloud";
-
-      # The instance is already installed, so disable initial admin creation
-      # (supported on Nextcloud >= 32). The existing admin lives in the DB.
-      adminuser = null;
-      adminpassFile = null;
     };
 
     settings = {
