@@ -13,15 +13,18 @@ droplet2 is `nixosConfigurations.droplet2` in `flake.nix`, built from
 1. Commit and push first so the deployed config matches `main`.
 
 2. Check SSH. Tailscale SSH sometimes requires a browser check:
+
    ```sh
    timeout 15 ssh -o BatchMode=yes root@droplet2 true
    ```
+
    If it prints `Tailscale SSH requires an additional check` with a
    `login.tailscale.com` URL (or just hangs), give the URL to the user and
    wait for them to say they've authenticated. You can't do this step yourself.
 
 3. Deploy from the repo root (this builds locally, then copies the closure
    and activates it on droplet2):
+
    ```sh
    nixos-rebuild switch --flake .#droplet2 --target-host root@droplet2
    ```
@@ -46,9 +49,11 @@ droplet2 is `nixosConfigurations.droplet2` in `flake.nix`, built from
 Secrets are agenix files in `secrets/`. Recipients are listed in
 `secrets/secrets.nix`, and srvbox's user key can decrypt the droplet2 ones.
 To change one non-interactively:
+
 ```sh
 cd secrets && printf 'KEY=value\n' | EDITOR='cp /dev/stdin' agenix -e <name>.age
 ```
+
 Activation decrypts secrets to `/run/agenix/`. Containers that use a secret
 via `environmentFiles` (e.g. mexico2026) get restarted during the switch.
 Confirm with `systemctl show -p ActiveEnterTimestamp podman-<name>`, and
