@@ -18,7 +18,29 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+
+    # nixpkgs' framework-laptop-kmod copies the .ko by hand instead of running
+    # `make modules_install`, so kmodigest never signs it and the module
+    # aggregator fails on the missing framework_laptop.ko.cer. Replace
+    # nixos-hardware's copy with one that installs via modules_install.
+    # TODO: drop once fixed upstream in nixpkgs.
+    extraModulePackages = [
+      (config.boot.kernelPackages.framework-laptop-kmod.overrideAttrs (old: {
+        makeFlags = old.makeFlags ++ [ "INSTALL_MOD_PATH=${placeholder "out"}" ];
+        installPhase = ''
+          runHook preInstall
+          make $makeFlags modules_install
+          runHook postInstall
+        '';
+      }))
+    ];
+    # https://github.com/DHowett/framework-laptop-kmod?tab=readme-ov-file#usage
+    kernelModules = [
+      "cros_ec"
+      "cros_ec_lpcs"
+    ];
   };
+  hardware.framework.enableKmod = false;
 
   # install firmware updater. Use with `fwupdmgr update`
   services.fwupd.enable = true;
