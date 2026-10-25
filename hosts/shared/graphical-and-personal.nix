@@ -257,6 +257,7 @@
     cargo
     clang
     claude-code
+    (pkgs.callPackage ../../packages/kimi-code.nix { })
     cmake
     proton-vpn
     espeak
