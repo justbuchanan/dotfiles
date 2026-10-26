@@ -10,7 +10,7 @@
     enable = true;
 
     # Nextcloud refuses to skip a major version, so only ever bump this by one.
-    package = pkgs.nextcloud34;
+    package = pkgs.nextcloud35;
 
     hostName = "nextcloud.justbuchanan.com";
 

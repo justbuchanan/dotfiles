@@ -45,10 +45,8 @@ in
       '';
 
       # NextCloud
-      # Offline until srvbox's PHP is patched for CVE-2026-109618/109619
-      # (needs php >= 8.4.27). Restore with: reverse_proxy ${homeserver}:8989
       "nextcloud.justbuchanan.com".extraConfig = ''
-        respond "Nextcloud is temporarily offline for maintenance." 503
+        reverse_proxy ${homeserver}:8989
       '';
 
       "justbuchanan.com".extraConfig = ''
