@@ -41,8 +41,6 @@
     # Use the systemd-boot EFI boot loader instead of grub.
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    # Enable TPM2 for LUKS unlocking of root partition
-    initrd.systemd.enable = true;
   };
   security.tpm2.enable = true;
 
