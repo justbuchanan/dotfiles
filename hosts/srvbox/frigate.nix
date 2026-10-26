@@ -40,9 +40,11 @@ in
 #     see mqtt.nix). Under docker it was "mqtt" via host-gateway.
 #   * Camera RTSP passwords come from agenix (secrets/frigate-env.age) via
 #     Frigate's {FRIGATE_*} env-var substitution, instead of being inline.
-#   * The UI is fronted by nginx (the module's only supported topology) and
-#     exposed on :8971 instead of the old :5000. Frigate's own unauthenticated
-#     endpoint still lives on 127.0.0.1:5000 (used internally by nginx).
+#   * The UI is fronted by nginx (the module's only supported topology) on
+#     127.0.0.1:8971, which tailscale serve publishes to the tailnet as
+#     https://srvbox.wampus-newton.ts.net:8443 (tailscale-serve.nix). Frigate's
+#     own unauthenticated endpoint still lives on 127.0.0.1:5000 (used
+#     internally by nginx).
 #   * Recordings/clips/db/config all live under /var/lib/frigate (the nixpkgs
 #     package patches Frigate's hardcoded /media/frigate and /config to point
 #     there). We bind that onto the existing /mnt/zpool0/frigate so no
@@ -66,19 +68,11 @@ in
     mode = "0440";
   };
 
-  # Shared with Caddy on droplet2, which sends it as X-Proxy-Secret. Frigate
-  # only trusts the Remote-User/Remote-Groups headers when it matches, so a LAN
-  # client hitting :8971 directly can't spoof them.
-  age.secrets.frigate-proxy-auth-secret = {
-    file = ../../secrets/frigate-proxy-auth-secret.age;
-    owner = "frigate";
-  };
-
   services.frigate = {
     enable = true;
 
-    # nginx vhost server_name. Reachable on the LAN as http://srvbox:8971/ (see
-    # the listen override below).
+    # nginx vhost server_name. Only reachable via loopback (see the listen
+    # override below) and tailscale serve.
     hostname = "srvbox";
 
     # Run the build-time `frigate --validate-config` check with dummy values for
@@ -90,25 +84,14 @@ in
       export FRIGATE_CAM_BACKYARD_PW=x
       export FRIGATE_CAM_GARDEN_PW=x
       export FRIGATE_MQTT_PASSWORD=x
-      export FRIGATE_PROXY_AUTH_SECRET=x
     '';
 
     settings = {
-      # Login is Authelia's job: cctv.justbuchanan.com (droplet2 Caddy) passes
-      # the authenticated user through. Frigate only honours header_map when
-      # its own auth is off, and with auth_secret set it 401s anything that
-      # lacks the secret, so :8971 is still closed to the LAN. Local services
-      # use 127.0.0.1:5000, which nginx marks internal.
-      auth.enabled = false;
-      proxy = {
-        header_map = {
-          user = "Remote-User";
-          role = "Remote-Groups";
-          role_map.admin = [ "admins" ];
-        };
-        auth_secret = "{FRIGATE_PROXY_AUTH_SECRET}";
-        logout_url = "https://auth.justbuchanan.com/logout";
-      };
+      # Tailnet-only, so there's no Authelia in front any more; use Frigate's
+      # own login. On first start with no users it creates `admin` and logs
+      # the generated password (journalctl -u frigate | grep -i password).
+      # Local services use 127.0.0.1:5000, which skips auth.
+      auth.enabled = true;
       tls.enabled = false;
 
       mqtt = {
@@ -290,7 +273,6 @@ in
   systemd.services.frigate.serviceConfig.EnvironmentFile = lib.mkForce [
     "-/run/frigate/ffmpeg-env"
     config.age.secrets.frigate-env.path
-    config.age.secrets.frigate-proxy-auth-secret.path
   ];
 
   # Standalone go2rtc: provides live-view streams (proxied by Frigate's nginx to
@@ -305,7 +287,7 @@ in
   };
 
   # The camera card's live_provider "auto" picks go2rtc: signaling rides the
-  # :1984 API (proxied by nginx on :8971, already open) but media arrives on
+  # :1984 API (proxied by nginx on :8971) but media arrives on
   # :8555, so the card sat forever waiting on ICE. go2rtc only advertises its
   # LAN candidate, so remote viewers on home.justbuchanan.com still need
   # `live_provider: ha` (HLS) on the card.
@@ -368,15 +350,15 @@ in
     }
   ];
 
-  # Expose the nginx-fronted UI on the LAN (replaces the old docker :5000).
+  # Loopback only: tailscale serve publishes it to the tailnet with HTTPS
+  # (tailscale-serve.nix). Not reachable from the LAN or the internet.
   services.nginx.virtualHosts."srvbox".listen = [
     {
-      addr = "0.0.0.0";
+      addr = "127.0.0.1";
       port = 8971;
     }
   ];
   networking.firewall.allowedTCPPorts = [
-    8971 # nginx-fronted Frigate UI
     8555 # go2rtc WebRTC (see above)
   ];
 }

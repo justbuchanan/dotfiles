@@ -94,14 +94,6 @@ in
     justin-framework
     root-srvbox
   ];
-  # Shared by Caddy on droplet2 (X-Proxy-Secret header) and Frigate on srvbox
-  # (proxy.auth_secret) so Frigate only trusts Remote-User from that proxy.
-  "frigate-proxy-auth-secret.age".publicKeys = [
-    droplet2
-    justin-srvbox
-    justin-framework
-    root-srvbox
-  ];
   # SITE_PASSWORD for the mexico2026 trip site container (hosts/droplet2/webserver.nix)
   "mexico2026-env.age".publicKeys = [
     droplet2

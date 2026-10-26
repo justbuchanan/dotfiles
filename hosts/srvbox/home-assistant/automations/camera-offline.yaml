@@ -46,7 +46,7 @@
                 data:
                   tag: camera-offline-{{ trigger.entity_id }}
                   url:
-                    https://cctv.justbuchanan.com/cameras/{{ trigger.entity_id.split('.')[1]
+                    https://srvbox.wampus-newton.ts.net:8443/cameras/{{ trigger.entity_id.split('.')[1]
                     }}
         - conditions:
             - condition: trigger

@@ -29,6 +29,7 @@
     ./influxdb.nix
     ./jellyfin.nix
     ./nextcloud.nix
+    ./tailscale-serve.nix
     ./homepage.nix
     ./claude-remote-control.nix
     ../shared/backblaze.nix

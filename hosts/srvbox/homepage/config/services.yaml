@@ -15,11 +15,11 @@
           expandOneStreamToTwoRows: false # optional, defaults to true
     - NextCloud:
         icon: nextcloud
-        href: https://nextcloud.justbuchanan.com
-        siteMonitor: https://nextcloud.justbuchanan.com/status.php
+        href: https://srvbox.wampus-newton.ts.net
+        siteMonitor: https://srvbox.wampus-newton.ts.net/status.php
         widget:
           type: nextcloud
-          url: https://nextcloud.justbuchanan.com
+          url: https://srvbox.wampus-newton.ts.net
           username: justin
           password: "{{HOMEPAGE_VAR_NEXTCLOUD_KEY}}"
 
@@ -36,7 +36,7 @@
 
     - Frigate:
         icon: frigate
-        href: https://cctv.justbuchanan.com
+        href: https://srvbox.wampus-newton.ts.net:8443
         siteMonitor: http://127.0.0.1:5000/api/version
         description: Security Camera NVR
         widget:

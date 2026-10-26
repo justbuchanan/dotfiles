@@ -18,6 +18,6 @@
           tag: '{{trigger.payload_json["after"]["id"]}}'
           when: '{{trigger.payload_json["after"]["start_time"]|int}}'
           data:
-            url: https://cctv.justbuchanan.com/cameras/{{trigger.payload_json["after"]["camera"]}}
+            url: https://srvbox.wampus-newton.ts.net:8443/cameras/{{trigger.payload_json["after"]["camera"]}}
   mode: single
   id: 442395df58154198b99c5a2496dc3502

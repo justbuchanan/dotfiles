@@ -12,7 +12,8 @@
     # Nextcloud refuses to skip a major version, so only ever bump this by one.
     package = pkgs.nextcloud34;
 
-    hostName = "nextcloud.justbuchanan.com";
+    # Tailnet-only, published by tailscale serve (tailscale-serve.nix).
+    hostName = "srvbox.wampus-newton.ts.net";
 
     # Reuse the existing docker volume layout in place (see header comment).
     datadir = "/mnt/zpool0/nextcloud";
@@ -25,16 +26,17 @@
     };
 
     settings = {
-      # We sit behind Caddy on droplet2, which terminates TLS and reverse-proxies
-      # over the tailnet to srvbox:8989 (hosts/droplet2/webserver.nix). Tell
+      # tailscale serve terminates TLS and proxies to 127.0.0.1:8989. Tell
       # Nextcloud it is actually reached via https so it generates correct URLs.
       overwriteprotocol = "https";
-      overwritehost = "nextcloud.justbuchanan.com";
-      "overwrite.cli.url" = "https://nextcloud.justbuchanan.com";
+      overwritehost = "srvbox.wampus-newton.ts.net";
+      "overwrite.cli.url" = "https://srvbox.wampus-newton.ts.net";
 
-      # Only the Caddy proxy (reachable over the tailnet) ever hits the backend.
-      # Trust the whole tailscale CGNAT range as the proxy source.
-      trusted_proxies = [ "100.64.0.0/10" ];
+      # tailscale serve connects from loopback.
+      trusted_proxies = [
+        "127.0.0.1"
+        "::1"
+      ];
     };
 
     # TODO: look into enabling redis and/or postgres (instead of sqlite) for performance
@@ -42,16 +44,12 @@
   };
 
   # The module creates an nginx vhost for hostName that listens on :80 by
-  # default. Override it to :8989 so the existing Caddy reverse_proxy target
-  # (srvbox:8989) and the firewall rule below keep working unchanged.
-  services.nginx.virtualHosts."nextcloud.justbuchanan.com".listen = [
+  # default. Move it to loopback :8989; tailscale serve is the only way in from
+  # other machines, so no firewall port is opened.
+  services.nginx.virtualHosts."srvbox.wampus-newton.ts.net".listen = [
     {
-      addr = "0.0.0.0";
+      addr = "127.0.0.1";
       port = 8989;
     }
   ];
-
-  # Caddy reaches the backend over the tailnet only. (The old docker setup
-  # published 8989 on all interfaces; restricting to tailscale0 is tighter.)
-  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 8989 ];
 }
