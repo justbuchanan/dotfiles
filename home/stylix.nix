@@ -13,5 +13,6 @@
       };
     };
     targets.rofi.enable = false;
+    targets.hyprland.enable = false;
   };
 }
