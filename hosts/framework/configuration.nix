@@ -86,9 +86,7 @@
 
   # TODO: remove - these should be in graphical-base.nix unless this laptop specifically needs these settings.
   # Steam told me to add these
-  # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
   hardware.graphics.enable32Bit = true;
-  services.pulseaudio.support32Bit = true; # TODO: try removing this
 
   # TODO: remove this
   environment.variables = {

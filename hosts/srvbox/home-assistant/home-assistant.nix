@@ -39,14 +39,6 @@ in
 {
   services.home-assistant = {
     enable = true;
-    # TODO: drop once nixpkgs fixes yalexs against pyjwt 2.14.
-    package = pkgs.home-assistant.override {
-      packageOverrides = _: super: {
-        yalexs = super.yalexs.overridePythonAttrs (old: {
-          disabledTests = (old.disabledTests or [ ]) ++ [ "test_async_refresh_token" ];
-        });
-      };
-    };
 
     extraComponents = [
       "default_config"

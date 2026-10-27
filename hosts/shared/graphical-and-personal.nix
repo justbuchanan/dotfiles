@@ -23,10 +23,6 @@
   programs.nix-ld.enable = true;
 
   programs.steam.enable = true;
-  # # Steam told me to add these
-  # # TODO: since we're using pipewire and not pulseaudio, we probably don't need the pulseaudio option below
-  # hardware.graphics.enable32Bit = true;
-  # services.pulseaudio.support32Bit = true; # TODO: try removing this
 
   networking.networkmanager.enable = true;
 
@@ -135,43 +131,6 @@
         monospace-font-name = "Noto Sans Mono Medium 11";
       };
     }
-  ];
-
-  # sublime4 (build 4200) is marked broken upstream because its plugin host
-  # needs an EOL OpenSSL; nixpkgs now strips that host rather than depending on
-  # openssl-1.1.1w, so only the broken marker is left to wave through. The
-  # marker is gated on `versionOlder buildVersion "4205"`, so this can go away
-  # once nixpkgs bumps sublime4 to a 4205+ build.
-  nixpkgs.config.problems.handlers = {
-    sublimetext4.broken = "warn";
-  };
-
-  # ...but plugin_host-3.8 still needs libssl/libcrypto 1.1, and nixpkgs deletes
-  # the copies the tarball ships. Keep them; the rpath already covers $out.
-  # Drop this along with the broken marker above.
-  nixpkgs.overlays = [
-    (final: prev: {
-      sublime4 =
-        let
-          unwrapped = prev.sublime4.unwrapped.overrideAttrs (old: {
-            installPhase =
-              builtins.replaceStrings
-                [
-                  "rm libcrypto.so.1.1 libssl.so.1.1"
-                ]
-                [ "" ]
-                old.installPhase;
-          });
-        in
-        prev.sublime4.overrideAttrs (old: {
-          installPhase =
-            builtins.replaceStrings [ "${prev.sublime4.unwrapped}" ] [ "${unwrapped}" ]
-              old.installPhase;
-          passthru = old.passthru // {
-            inherit unwrapped;
-          };
-        });
-    })
   ];
 
   # List packages installed in system profile. To search, run:
