@@ -8,8 +8,8 @@ let
   notifyEmail = "justbuchanan@gmail.com";
 in
 {
-  # Catches Frigate being up but blind (dead detector, restart loop), which the
-  # HA camera-offline automation can't see. Emails once after two failed checks
+  # Catches Frigate being up but blind (dead detector, restart loop, cameras
+  # with no frames), independently of the HA camera-offline automation. Emails once after two failed checks
   # in a row, and again on recovery.
   systemd.services.frigate-healthcheck = {
     description = "Check that Frigate is up and detecting";
@@ -42,6 +42,20 @@ in
           [ -n "$name" ] || continue
           [ "$pid" != null ] && [ -d "/proc/$pid" ] || problems+=("detector $name is not running")
         done <<<"$detectors"
+
+        # Frigate stays up and the API answers even when every ffmpeg is
+        # crash-looping (e.g. CUDA broken after a driver update), so check that
+        # each enabled camera is actually getting frames.
+        if config=$(curl -sf --max-time 10 http://127.0.0.1:5000/api/config); then
+          dead=$(jq -r --argjson cfg "$config" '.cameras | to_entries[]
+            | select($cfg.cameras[.key].enabled != false and .value.camera_fps == 0)
+            | .key' <<<"$stats")
+          for cam in $dead; do
+            problems+=("camera $cam is not receiving frames")
+          done
+        else
+          problems+=("Frigate config API is not responding")
+        fi
       else
         problems+=("Frigate API is not responding")
       fi

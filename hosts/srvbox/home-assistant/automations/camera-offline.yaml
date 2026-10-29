@@ -64,3 +64,37 @@
                 message: "{{ where }} is streaming again."
                 data:
                   tag: camera-offline-{{ trigger.entity_id }}
+
+# The state triggers above only fire on a transition, so a camera that is
+# already unavailable when HA starts never alerts. That's exactly what happens
+# when a rebuild restarts HA and Frigate together and Frigate comes back blind
+# (e.g. an NVIDIA driver update that breaks CUDA until reboot). The "back
+# online" notification above still fires on recovery in that case.
+- id: "1788200000012"
+  alias: Camera offline at startup
+  description: Notify about cameras still unavailable 3 minutes after Home
+    Assistant starts.
+  mode: single
+  triggers:
+    - trigger: homeassistant
+      event: start
+  conditions: []
+  actions:
+    - delay: 00:03:00
+    - variables:
+        down: >-
+          {{ ['camera.garage', 'camera.frontdoor', 'camera.backyard', 'camera.garden']
+             | select('is_state', 'unavailable') | list }}
+    - repeat:
+        for_each: "{{ down }}"
+        sequence:
+          - action: notify.mobile_app_justins_iphone
+            data:
+              title: "\U0001F4F7 Camera offline"
+              message:
+                "{{ {'camera.frontdoor': 'Front door'}.get(repeat.item, state_attr(repeat.item,
+                'friendly_name') or repeat.item) }} has not been streaming since Home
+                Assistant started."
+              data:
+                tag: camera-offline-{{ repeat.item }}
+                url: https://cctv.justbuchanan.com/cameras/{{ repeat.item.split('.')[1] }}
