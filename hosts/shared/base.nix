@@ -66,10 +66,12 @@
     mtr
     ncdu
     openssl
+    psmisc
     sysstat
     tig
     tmux
     tree
+    unzip
     wget
     zip
   ];
