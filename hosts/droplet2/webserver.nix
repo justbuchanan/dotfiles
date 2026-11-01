@@ -12,9 +12,15 @@ in
   age.secrets.mexico2026-env.file = ../../secrets/mexico2026-env.age;
   # read:packages token for pulling private images from ghcr.io
   age.secrets.ghcr-pull-token.file = ../../secrets/ghcr-pull-token.age;
+  # HA_FLOORPLAN_KEY=… for the home.justbuchanan.com floorplan URL
+  age.secrets.ha-floorplan-key = {
+    file = ../../secrets/ha-floorplan-key.age;
+    owner = "caddy";
+  };
 
   services.caddy = {
     enable = true;
+    environmentFile = config.age.secrets.ha-floorplan-key.path;
 
     # Enable admin API on all interfaces so it's accessible via Tailscale
     globalConfig = ''
@@ -26,8 +32,14 @@ in
     '';
 
     virtualHosts = {
-      # Home Assistant
+      # Home Assistant. /local has no auth and the card fetches the floorplan
+      # without a token, so its URL in the dashboard carries a key instead.
       "home.justbuchanan.com".extraConfig = ''
+        @floorplan {
+          path_regexp home\.svg
+          not expression `{query.k} != "" && {query.k} == {env.HA_FLOORPLAN_KEY}`
+        }
+        respond @floorplan 404
         reverse_proxy ${homeserver}:8123
       '';
 
@@ -54,8 +66,18 @@ in
         reverse_proxy localhost:3003
       '';
 
+      # Sensors only write. The UI and the rest of the API stay on the tailnet.
       "influxdb.justbuchanan.com".extraConfig = ''
-        reverse_proxy ${homeserver}:8086
+        @write {
+          method POST
+          path /api/v2/write
+        }
+        handle @write {
+          reverse_proxy ${homeserver}:8086
+        }
+        handle {
+          respond 404
+        }
       '';
     };
   };
@@ -64,6 +86,15 @@ in
     80
     443
   ];
+
+  # Keep the containers off the tailnet and the cloud metadata service. raw runs
+  # ahead of ts-forward, which accepts everything going out tailscale0.
+  networking.firewall.extraCommands = ''
+    for dst in 100.64.0.0/10 169.254.169.254; do
+      iptables -w -t raw -D PREROUTING -i podman+ -d "$dst" -j DROP 2>/dev/null || true
+      iptables -w -t raw -A PREROUTING -i podman+ -d "$dst" -j DROP
+    done
+  '';
 
   # Docker containers for websites we're serving
   # Note: the 127.0.0.1 makes the container port accessible to the local machine

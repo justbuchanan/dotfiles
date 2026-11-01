@@ -46,7 +46,6 @@
     shell = pkgs.zsh;
     extraGroups = [
       "wheel" # Enable 'sudo' for the user.
-      "docker"
       "video" # allow changing screen brightness (among other things) without sudo
       "dialout" # access to /dev/tty* devices without sudo
       "gmail-token-access" # allow reading gmail token secret
@@ -56,6 +55,13 @@
 
   # Configure agenix - this is the keyfile for decrypting secrets
   age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
+  # By default ts-input accepts all of tailscale0 ahead of nixos-fw, which turns
+  # the firewall.interfaces.tailscale0 port lists into no-ops.
+  services.tailscale = {
+    openFirewall = true;
+    extraSetFlags = [ "--netfilter-mode=nodivert" ];
+  };
 
   programs.gnupg = {
     agent = {
@@ -109,13 +115,10 @@
   ];
   services.system-config-printer.enable = true;
 
-  # Docker
-  virtualisation.docker = {
+  # Docker. Rootless, because the docker group is passwordless root.
+  virtualisation.docker.rootless = {
     enable = true;
-    autoPrune = {
-      enable = true;
-      dates = "weekly";
-    };
+    setSocketVariable = true;
     # needed for gpu passthrough
     daemon.settings.features.cdi = true;
   };

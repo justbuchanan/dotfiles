@@ -12,6 +12,8 @@
   # No `provision` block: the existing influxd.bolt already holds the org,
   # buckets and API tokens.
 
+  services.influxdb2.settings.pprof-disabled = true;
+
   # The package serves data from /var/lib/influxdb2 (default StateDirectory).
   # Bind the existing docker data dir onto it in place -- no copy, no move.
   fileSystems."/var/lib/influxdb2" = {

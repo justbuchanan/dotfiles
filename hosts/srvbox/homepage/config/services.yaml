@@ -77,7 +77,7 @@
 - Monitoring:
     - InfluxDB:
         icon: influxdb
-        href: https://influxdb.justbuchanan.com
+        href: http://srvbox.wampus-newton.ts.net:8086
         description: Time Series Database
         # Native NixOS service (dotfiles hosts/srvbox/influxdb.nix), no longer a
         # docker container. The unauthenticated /health endpoint gives an

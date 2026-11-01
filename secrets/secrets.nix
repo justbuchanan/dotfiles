@@ -99,6 +99,13 @@ in
     justin-srvbox
     justin-framework
   ];
+  # Query key that Caddy requires on home.justbuchanan.com/local/floorplan/home.svg.
+  # Also set in the HA dashboard's floorplan card, so rotate them together.
+  "ha-floorplan-key.age".publicKeys = [
+    droplet2
+    justin-srvbox
+    justin-framework
+  ];
   # Not a credential, but a floor plan of the house with sensor placement, and
   # this repo is public. Deployed to /var/lib/hass/www/floorplan/home.svg.
   "ha-floorplan.svg.age".publicKeys = [

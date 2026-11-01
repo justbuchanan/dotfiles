@@ -278,9 +278,12 @@ in
   # process; the frigate module already orders itself after go2rtc.service.
   services.go2rtc = {
     enable = true;
-    settings.streams = go2rtcStreams;
-    # api.listen defaults to :1984 (what Frigate's nginx proxies to); go2rtc's
-    # built-in defaults bind RTSP :8554 and WebRTC :8555.
+    settings = {
+      streams = go2rtcStreams;
+      # No auth on either, and only local clients use them. WebRTC stays on :8555.
+      api.listen = "127.0.0.1:1984";
+      rtsp.listen = "127.0.0.1:8554";
+    };
   };
 
   # The camera card's live_provider "auto" picks go2rtc: signaling rides the

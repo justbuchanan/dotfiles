@@ -62,6 +62,17 @@
   };
   networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 22 ];
 
+  # Deploys don't reboot, so a new kernel would otherwise never go live.
+  systemd.services.reboot-for-new-kernel = {
+    startAt = "Sun 04:30";
+    serviceConfig.Type = "oneshot";
+    script = ''
+      if [ "$(readlink -f /run/booted-system/kernel)" != "$(readlink -f /run/current-system/kernel)" ]; then
+        systemctl reboot
+      fi
+    '';
+  };
+
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
