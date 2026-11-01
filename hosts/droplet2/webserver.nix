@@ -102,13 +102,14 @@ in
   # All containers run as nobody. The images expect root, so the dirs they
   # write at runtime are replaced with world-writable tmpfs.
   virtualisation.oci-containers.containers = {
+    # GitHub Actions rebuilds this on every push to master, and the autoupdate
+    # label deploys it the same way as mexico2026 below.
     justbuchanan_com = {
-      image = "justbuchanan/justbuchanan.com";
+      image = "ghcr.io/justbuchanan/justbuchanan.com:latest";
       ports = [ "127.0.0.1:3000:3000" ];
-      # gems live under /root (0750), so keep gid 0 until the image is rebuilt
-      user = "nobody:0";
-      environment.HOME = "/root";
-      extraOptions = [ "--tmpfs=/site/_site:mode=1777" ];
+      user = "nobody";
+      labels."io.containers.autoupdate" = "registry";
+      extraOptions = [ "--read-only" ];
     };
 
     oasis_terrarium_com = {
