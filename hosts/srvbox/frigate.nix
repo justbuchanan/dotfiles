@@ -41,8 +41,9 @@ in
 #   * Camera RTSP passwords come from agenix (secrets/frigate-env.age) via
 #     Frigate's {FRIGATE_*} env-var substitution, instead of being inline.
 #   * The UI is fronted by nginx (the module's only supported topology) and
-#     exposed on :8971 instead of the old :5000. Frigate's own unauthenticated
-#     endpoint still lives on 127.0.0.1:5000 (used internally by nginx).
+#     exposed at https://cctv.justbuchanan.com, tailnet only. Frigate's own
+#     unauthenticated endpoint still lives on 127.0.0.1:5000 (used internally
+#     by nginx).
 #   * Recordings/clips/db/config all live under /var/lib/frigate (the nixpkgs
 #     package patches Frigate's hardcoded /media/frigate and /config to point
 #     there). We bind that onto the existing /mnt/zpool0/frigate so no
@@ -66,20 +67,14 @@ in
     mode = "0440";
   };
 
-  # Shared with Caddy on droplet2, which sends it as X-Proxy-Secret. Frigate
-  # only trusts the Remote-User/Remote-Groups headers when it matches, so a LAN
-  # client hitting :8971 directly can't spoof them.
-  age.secrets.frigate-proxy-auth-secret = {
-    file = ../../secrets/frigate-proxy-auth-secret.age;
-    owner = "frigate";
-  };
+  # Lets the cert below pass a DNS challenge.
+  age.secrets.cloudflare-dns-token.file = ../../secrets/cloudflare-dns-token.age;
 
   services.frigate = {
     enable = true;
 
-    # nginx vhost server_name. Reachable on the LAN as http://srvbox:8971/ (see
-    # the listen override below).
-    hostname = "srvbox";
+    # nginx vhost server_name, see the TLS and firewall config below.
+    hostname = "cctv.justbuchanan.com";
 
     # Run the build-time `frigate --validate-config` check with dummy values for
     # the secrets, which aren't available in the build sandbox.
@@ -90,25 +85,13 @@ in
       export FRIGATE_CAM_BACKYARD_PW=x
       export FRIGATE_CAM_GARDEN_PW=x
       export FRIGATE_MQTT_PASSWORD=x
-      export FRIGATE_PROXY_AUTH_SECRET=x
     '';
 
     settings = {
-      # Login is Authelia's job: cctv.justbuchanan.com (droplet2 Caddy) passes
-      # the authenticated user through. Frigate only honours header_map when
-      # its own auth is off, and with auth_secret set it 401s anything that
-      # lacks the secret, so :8971 is still closed to the LAN. Local services
-      # use 127.0.0.1:5000, which nginx marks internal.
+      # No login: tailnet membership is the gate. default_role is what everyone
+      # gets with auth off, and it would otherwise be a read-only viewer.
       auth.enabled = false;
-      proxy = {
-        header_map = {
-          user = "Remote-User";
-          role = "Remote-Groups";
-          role_map.admin = [ "admins" ];
-        };
-        auth_secret = "{FRIGATE_PROXY_AUTH_SECRET}";
-        logout_url = "https://auth.justbuchanan.com/logout";
-      };
+      proxy.default_role = "admin";
       tls.enabled = false;
 
       mqtt = {
@@ -290,7 +273,6 @@ in
   systemd.services.frigate.serviceConfig.EnvironmentFile = lib.mkForce [
     "-/run/frigate/ffmpeg-env"
     config.age.secrets.frigate-env.path
-    config.age.secrets.frigate-proxy-auth-secret.path
   ];
 
   # Standalone go2rtc: provides live-view streams (proxied by Frigate's nginx to
@@ -305,7 +287,7 @@ in
   };
 
   # The camera card's live_provider "auto" picks go2rtc: signaling rides the
-  # :1984 API (proxied by nginx on :8971, already open) but media arrives on
+  # :1984 API (proxied by nginx, already reachable) but media arrives on
   # :8555, so the card sat forever waiting on ICE. go2rtc only advertises its
   # LAN candidate, so remote viewers on home.justbuchanan.com still need
   # `live_provider: ha` (HLS) on the card.
@@ -368,15 +350,26 @@ in
     }
   ];
 
-  # Expose the nginx-fronted UI on the LAN (replaces the old docker :5000).
-  services.nginx.virtualHosts."srvbox".listen = [
-    {
-      addr = "0.0.0.0";
-      port = 8971;
-    }
-  ];
+  # cctv.justbuchanan.com's DNS record points at srvbox's tailscale IP, so
+  # Let's Encrypt can't reach it and the cert needs a DNS challenge.
+  security.acme = {
+    acceptTerms = true;
+    certs."cctv.justbuchanan.com" = {
+      dnsProvider = "cloudflare";
+      dnsResolver = "1.1.1.1:53";
+      credentialFiles.CF_DNS_API_TOKEN_FILE = config.age.secrets.cloudflare-dns-token.path;
+    };
+  };
+
+  services.nginx.virtualHosts."cctv.justbuchanan.com" = {
+    onlySSL = true;
+    enableACME = true;
+    acmeRoot = null;
+  };
+
+  # Tailnet only: nginx binds all interfaces, the firewall limits it to this one.
+  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 443 ];
   networking.firewall.allowedTCPPorts = [
-    8971 # nginx-fronted Frigate UI
     8555 # go2rtc WebRTC (see above)
   ];
 }

@@ -9,12 +9,6 @@ let
   authelia = "localhost:9091";
 in
 {
-  # Lets Frigate on srvbox trust the Remote-User header from this proxy only.
-  age.secrets.frigate-proxy-auth-secret = {
-    file = ../../secrets/frigate-proxy-auth-secret.age;
-    owner = "caddy";
-  };
-
   # SITE_PASSWORD=… for the mexico2026 container
   age.secrets.mexico2026-env.file = ../../secrets/mexico2026-env.age;
   # read:packages token for pulling private images from ghcr.io
@@ -22,7 +16,6 @@ in
 
   services.caddy = {
     enable = true;
-    environmentFile = config.age.secrets.frigate-proxy-auth-secret.path;
 
     # Enable admin API on all interfaces so it's accessible via Tailscale
     globalConfig = ''
@@ -68,16 +61,6 @@ in
 
       "influxdb.justbuchanan.com".extraConfig = ''
         reverse_proxy ${homeserver}:8086
-      '';
-
-      "cctv.justbuchanan.com".extraConfig = ''
-        forward_auth ${authelia} {
-            uri /api/verify?rd=https://auth.justbuchanan.com
-            copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
-        }
-        reverse_proxy ${homeserver}:8971 {
-            header_up X-Proxy-Secret {env.FRIGATE_PROXY_AUTH_SECRET}
-        }
       '';
 
       "homepage.justbuchanan.com".extraConfig = ''

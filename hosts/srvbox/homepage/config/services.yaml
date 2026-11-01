@@ -40,8 +40,8 @@
         siteMonitor: http://127.0.0.1:5000/api/version
         description: Security Camera NVR
         widget:
-          # :8971 (nginx) needs a login now; :5000 is Frigate's unauthenticated
-          # API, bound to loopback, and homepage runs on the same host.
+          # :5000 is Frigate's unauthenticated API, bound to loopback, and
+          # homepage runs on the same host.
           type: frigate
           url: http://127.0.0.1:5000
           enableRecentEvents: true # Optional, defaults to false

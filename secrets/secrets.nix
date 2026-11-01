@@ -94,10 +94,9 @@ in
     justin-framework
     root-srvbox
   ];
-  # Shared by Caddy on droplet2 (X-Proxy-Secret header) and Frigate on srvbox
-  # (proxy.auth_secret) so Frigate only trusts Remote-User from that proxy.
-  "frigate-proxy-auth-secret.age".publicKeys = [
-    droplet2
+  # Cloudflare API token with Zone:Read and DNS:Edit on justbuchanan.com, for
+  # ACME DNS challenges on srvbox. Just the token, no KEY= prefix.
+  "cloudflare-dns-token.age".publicKeys = [
     justin-srvbox
     justin-framework
     root-srvbox
