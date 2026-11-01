@@ -67,13 +67,10 @@ in
     mode = "0440";
   };
 
-  # Lets the cert below pass a DNS challenge.
-  age.secrets.cloudflare-dns-token.file = ../../secrets/cloudflare-dns-token.age;
-
   services.frigate = {
     enable = true;
 
-    # nginx vhost server_name, see the TLS and firewall config below.
+    # nginx vhost server_name, see the TLS config below.
     hostname = "cctv.justbuchanan.com";
 
     # Run the build-time `frigate --validate-config` check with dummy values for
@@ -350,25 +347,13 @@ in
     }
   ];
 
-  # cctv.justbuchanan.com's DNS record points at srvbox's tailscale IP, so
-  # Let's Encrypt can't reach it and the cert needs a DNS challenge.
-  security.acme = {
-    acceptTerms = true;
-    certs."cctv.justbuchanan.com" = {
-      dnsProvider = "cloudflare";
-      dnsResolver = "1.1.1.1:53";
-      credentialFiles.CF_DNS_API_TOKEN_FILE = config.age.secrets.cloudflare-dns-token.path;
-    };
-  };
-
+  # Tailnet only, see tailnet-https.nix.
   services.nginx.virtualHosts."cctv.justbuchanan.com" = {
     onlySSL = true;
     enableACME = true;
     acmeRoot = null;
   };
 
-  # Tailnet only: nginx binds all interfaces, the firewall limits it to this one.
-  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 443 ];
   networking.firewall.allowedTCPPorts = [
     8555 # go2rtc WebRTC (see above)
   ];

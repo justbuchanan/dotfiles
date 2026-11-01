@@ -30,6 +30,7 @@
     ./jellyfin.nix
     ./nextcloud.nix
     ./homepage.nix
+    ./tailnet-https.nix
     ./claude-desktop.nix
     ./claude-remote-control.nix
     ../shared/backblaze.nix

@@ -36,12 +36,23 @@
   # Enable homepage-dashboard service.
   # Listen on 8083 (module default is 8082) because Frigate's jsmpeg live-view
   # output binds 127.0.0.1:8082 and homepage was squatting on it (0.0.0.0:8082),
-  # causing frigate.output to crash-loop. Caddy's homepage vhost on droplet2
-  # proxies to srvbox:8083 to match.
+  # causing frigate.output to crash-loop.
   services.homepage-dashboard = {
     enable = true;
     listenPort = 8083;
     allowedHosts = "localhost:8083,127.0.0.1:8083,homepage.justbuchanan.com";
+  };
+
+  # Tailnet only, see tailnet-https.nix.
+  services.nginx.virtualHosts."homepage.justbuchanan.com" = {
+    onlySSL = true;
+    enableACME = true;
+    acmeRoot = null;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:8083";
+      proxyWebsockets = true;
+      recommendedProxySettings = true;
+    };
   };
 
   # Declaratively symlink config files into the service's config directory.
