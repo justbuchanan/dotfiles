@@ -127,11 +127,6 @@
         description: oasis-terrarium.com
         href: https://oasis-terrarium.com
         siteMonitor: https://oasis-terrarium.com
-
-    - Grove:
-        description: thegrove.us
-        href: https://thegrove.us
-        siteMonitor: https://thegrove.us
 # - Other:
 #     - qBittorrent:
 #         href: http://localhost:8080

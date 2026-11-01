@@ -50,10 +50,6 @@ in
         reverse_proxy localhost:3001
       '';
 
-      "thegrove.us".extraConfig = ''
-        reverse_proxy localhost:3002
-      '';
-
       # Trip site; has its own password page, so no authelia here.
       "mexico2026.justbuchanan.com".extraConfig = ''
         reverse_proxy localhost:3003
@@ -97,16 +93,6 @@ in
         "--tmpfs=/var/cache/nginx:mode=1777"
         "--tmpfs=/run:mode=1777"
         "--sysctl=net.ipv4.ip_unprivileged_port_start=0"
-      ];
-    };
-
-    thegrove_us = {
-      image = "ghcr.io/justbuchanan/thegrove.us";
-      ports = [ "127.0.0.1:3002:3000" ];
-      user = "nobody";
-      extraOptions = [
-        "--tmpfs=/site/_site:mode=1777"
-        "--tmpfs=/site/.jekyll-cache:mode=1777"
       ];
     };
 
