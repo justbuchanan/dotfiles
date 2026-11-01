@@ -1,6 +1,6 @@
 # To generate encrypted secrets (.age files)
 # * cd to this directory
-# * nix run github:ryantm/agenix -- -e droplet2-authelia-jwt-secret.age
+# * nix run github:ryantm/agenix -- -e <name>.age
 # * type secret into editor that pops up and save
 #
 # To generate a new ed25519 key for your user:
@@ -18,21 +18,6 @@ let
   root-framework = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK/0270WbIpuqQu1zozBzNBQr/BWCk/c/aRcYiexNtP/ root@framework";
 in
 {
-  "droplet2-authelia-jwt-secret.age".publicKeys = [
-    droplet2
-    justin-srvbox
-    justin-framework
-  ];
-  "droplet2-authelia-encryption-key.age".publicKeys = [
-    droplet2
-    justin-srvbox
-    justin-framework
-  ];
-  "droplet2-authelia-users.age".publicKeys = [
-    droplet2
-    justin-srvbox
-    justin-framework
-  ];
   "buchanan-smarthome-gmail-token.age".publicKeys = [
     droplet2
     justin-srvbox

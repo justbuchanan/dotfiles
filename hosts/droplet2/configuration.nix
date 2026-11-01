@@ -19,7 +19,6 @@
     ../shared/prometheus-exporter.nix
     ../shared/msmtp.nix
     ./webserver.nix
-    ./authelia.nix
   ];
 
   # Configure agenix - this is the keyfile for decrypting secrets

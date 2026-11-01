@@ -51,11 +51,6 @@
         icon: mosquitto
 
 - Network:
-    - Authelia:
-        description: Authentication & SSO
-        href: https://auth.justbuchanan.com
-        icon: authelia
-
     - Tailscale:
         description: VPN Network
         icon: tailscale

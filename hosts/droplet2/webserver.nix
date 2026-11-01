@@ -6,7 +6,6 @@
 }:
 let
   homeserver = "srvbox.wampus-newton.ts.net";
-  authelia = "localhost:9091";
 in
 {
   # SITE_PASSWORD=… for the mexico2026 container
@@ -50,17 +49,13 @@ in
         reverse_proxy localhost:3001
       '';
 
-      # Trip site; has its own password page, so no authelia here.
+      # Trip site; has its own password page.
       "mexico2026.justbuchanan.com".extraConfig = ''
         reverse_proxy localhost:3003
       '';
 
       "influxdb.justbuchanan.com".extraConfig = ''
         reverse_proxy ${homeserver}:8086
-      '';
-
-      "auth.justbuchanan.com".extraConfig = ''
-        reverse_proxy ${authelia}
       '';
     };
   };

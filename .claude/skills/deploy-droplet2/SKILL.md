@@ -1,6 +1,6 @@
 ---
 name: deploy-droplet2
-description: Deploy this repo's NixOS config to droplet2 (the DigitalOcean VPS running Caddy, Authelia, and site containers like mexico2026). Use when asked to deploy, push config, or apply a change to droplet2, including after editing hosts/droplet2/* or a secret droplet2 uses.
+description: Deploy this repo's NixOS config to droplet2 (the DigitalOcean VPS running Caddy and site containers like mexico2026). Use when asked to deploy, push config, or apply a change to droplet2, including after editing hosts/droplet2/* or a secret droplet2 uses.
 ---
 
 # Deploying to droplet2
