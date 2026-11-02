@@ -51,6 +51,36 @@ in
       # disable "client side decorations", including ugly window title bars
       prefer-no-csd = true;
 
+      layout = {
+        gaps = 10;
+        focus-ring = {
+          width = 3;
+          active.gradient = {
+            from = "#fe8019";
+            to = "#fabd2f";
+            angle = 45;
+            relative-to = "workspace-view";
+          };
+        };
+        shadow = {
+          enable = true;
+          softness = 25;
+          spread = 4;
+        };
+      };
+
+      window-rules = [
+        {
+          geometry-corner-radius = {
+            top-left = 8.0;
+            top-right = 8.0;
+            bottom-left = 8.0;
+            bottom-right = 8.0;
+          };
+          clip-to-geometry = true;
+        }
+      ];
+
       switch-events = {
         # switch-events only accepts `spawn` (argv form), not `spawn-sh`
         lid-close.action.spawn = lock_args;
