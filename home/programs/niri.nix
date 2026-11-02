@@ -188,8 +188,7 @@ in
         };
 
         # launch terminal
-        "Mod+Return".action =
-          spawn-sh ''ghostty --working-directory="$(~/src/justin/dotfiles/home/.config/niri/scripts/cwd.sh)"'';
+        "Mod+Return".action.spawn = "~/src/justin/dotfiles/home/.config/niri/scripts/new-terminal.sh";
 
         # script installed by the waybar-niri-workspaces-enhanced home module
         "Mod+Y".action.spawn = "~/.config/niri/rename-workspace.sh";
