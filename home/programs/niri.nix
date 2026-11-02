@@ -20,6 +20,8 @@ in
     swayidle
   ];
 
+  services.swayosd.enable = true;
+
   programs.niri = {
     enable = true;
 
@@ -165,10 +167,10 @@ in
         "Print".action.screenshot = [ ];
 
         # Volume/mute
-        "XF86AudioRaiseVolume".action = spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+";
-        "XF86AudioLowerVolume".action = spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-";
-        "XF86AudioMute".action = spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-        "XF86AudioMicMute".action = spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        "XF86AudioRaiseVolume".action = spawn "swayosd-client" "--output-volume" "raise";
+        "XF86AudioLowerVolume".action = spawn "swayosd-client" "--output-volume" "lower";
+        "XF86AudioMute".action = spawn "swayosd-client" "--output-volume" "mute-toggle";
+        "XF86AudioMicMute".action = spawn "swayosd-client" "--input-volume" "mute-toggle";
 
         # Media keys
         # Note: the `--player` option deprioritizes Chromium. This way if spotify is
@@ -179,8 +181,8 @@ in
         "XF86AudioNext".action = spawn-sh "playerctl --player=%any,chromium next";
 
         # screen brightness
-        "XF86MonBrightnessUp".action = spawn "brightnessctl" "--class=backlight" "set" "+10%";
-        "XF86MonBrightnessDown".action = spawn "brightnessctl" "--class=backlight" "set" "10%-";
+        "XF86MonBrightnessUp".action = spawn "swayosd-client" "--brightness" "+10";
+        "XF86MonBrightnessDown".action = spawn "swayosd-client" "--brightness" "-10";
 
         "Mod+O" = {
           action = toggle-overview;
