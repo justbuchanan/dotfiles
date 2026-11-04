@@ -5,7 +5,7 @@
 # `homeassistant.time_zone = null` and the `automation` !include below exist
 # only to keep the UI editable. customLovelaceModules forces resource_mode:
 # yaml, so frontend resources are declared here; dashboards stay UI-editable.
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   # Not in nixpkgs. Upstream ships a prebuilt floorplan.js release asset
   # (byte-identical to the copy HACS had installed), so no npm build.
@@ -125,6 +125,15 @@ in
   systemd.tmpfiles.rules = map (
     f: "L+ /var/lib/hass/www/floorplan/${f} - - - - ${./floorplan}/${f}"
   ) (builtins.attrNames (builtins.readDir ./floorplan));
+
+  # network-online.target is reached even when wait-online times out, and HA
+  # never retries integrations that failed for lack of an address.
+  systemd.services.home-assistant = {
+    preStart = lib.mkBefore ''
+      until [ -n "$(${pkgs.iproute2}/bin/ip -4 route show default)" ]; do sleep 2; done
+    '';
+    serviceConfig.TimeoutStartSec = "infinity";
+  };
 
   # All interfaces: the Caddy proxy comes in over tailscale0, direct access to
   # srvbox:8123 over the LAN.
