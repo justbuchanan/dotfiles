@@ -81,6 +81,16 @@ in
         }
       ];
 
+      animations = {
+        window-close = {
+          kind.easing = {
+            duration-ms = 400;
+            curve = "linear";
+          };
+          custom-shader = builtins.readFile ./shaders/burn.frag;
+        };
+      };
+
       switch-events = {
         # switch-events only accepts `spawn` (argv form), not `spawn-sh`
         lid-close.action.spawn = lock_args;
