@@ -165,13 +165,13 @@ in
 
   # Pull newer images for containers labelled io.containers.autoupdate and
   # restart them (podman rolls back if the new one fails to start). Podman's
-  # stock timer runs daily with up to 15 min of jitter; check every 5 minutes.
+  # stock timer runs daily with up to 15 min of jitter; check every 2 minutes.
   systemd.timers.podman-auto-update = {
     wantedBy = [ "timers.target" ];
     timerConfig = {
       OnCalendar = [
         ""
-        "*:0/5"
+        "*:0/2"
       ];
       RandomizedDelaySec = 0;
     };

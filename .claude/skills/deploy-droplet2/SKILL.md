@@ -63,5 +63,5 @@ restart by hand if the timestamp is older than the deploy.
 
 The `mexico2026` image (`ghcr.io/justbuchanan/mexico2026:latest`) is rebuilt
 by GitHub Actions in that repo. droplet2's `podman-auto-update` timer pulls
-new images every 5 minutes, so code changes to the site don't need a
+new images every 2 minutes, so code changes to the site don't need a
 nixos-rebuild. Only config or secret changes in this repo do.
