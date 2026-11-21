@@ -98,6 +98,12 @@ in
     justin-srvbox
     justin-framework
   ];
+  # SITE_PASSWORD for the sarai-house site container (hosts/droplet2/webserver.nix)
+  "sarai-house-env.age".publicKeys = [
+    droplet2
+    justin-srvbox
+    justin-framework
+  ];
   # Classic GitHub token with only read:packages, so droplet2 can pull private
   # images from ghcr.io (e.g. ghcr.io/justbuchanan/mexico2026).
   "ghcr-pull-token.age".publicKeys = [

@@ -12,6 +12,8 @@ in
   age.secrets.mexico2026-env.file = ../../secrets/mexico2026-env.age;
   # SITE_PASSWORD=… for the yard-reno container
   age.secrets.yard-reno-env.file = ../../secrets/yard-reno-env.age;
+  # SITE_PASSWORD=… for the sarai-house container
+  age.secrets.sarai-house-env.file = ../../secrets/sarai-house-env.age;
   # read:packages token for pulling private images from ghcr.io
   age.secrets.ghcr-pull-token.file = ../../secrets/ghcr-pull-token.age;
   # HA_FLOORPLAN_KEY=… for the home.justbuchanan.com floorplan URL
@@ -71,6 +73,11 @@ in
       # Yard renovation model viewer; has its own password page.
       "patio.justbuchanan.com".extraConfig = ''
         reverse_proxy localhost:3004
+      '';
+
+      # House remodel model viewer; has its own password page.
+      "sarai-house.justbuchanan.com".extraConfig = ''
+        reverse_proxy localhost:3005
       '';
 
       # Sensors only write. The UI and the rest of the API stay on the tailnet.
@@ -158,6 +165,21 @@ in
       ports = [ "127.0.0.1:3004:8080" ];
       user = "nobody";
       environmentFiles = [ config.age.secrets.yard-reno-env.path ];
+      labels."io.containers.autoupdate" = "registry";
+      extraOptions = [ "--read-only" ];
+    };
+
+    # Served at sarai-house.justbuchanan.com. Same setup as mexico2026 above.
+    sarai_house = {
+      image = "ghcr.io/justbuchanan/sarai-house:latest";
+      login = {
+        registry = "ghcr.io";
+        username = "justbuchanan";
+        passwordFile = config.age.secrets.ghcr-pull-token.path;
+      };
+      ports = [ "127.0.0.1:3005:8080" ];
+      user = "nobody";
+      environmentFiles = [ config.age.secrets.sarai-house-env.path ];
       labels."io.containers.autoupdate" = "registry";
       extraOptions = [ "--read-only" ];
     };
